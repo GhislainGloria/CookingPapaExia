@@ -1,0 +1,47 @@
+
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Model", "CookingPapa\Model.csproj", "{9BD96A68-45BC-48E4-BF44-822A73F14B7C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "View", "View\View.csproj", "{1D71036E-7791-4728-991F-3099185490A8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Controller", "Controller\Controller.csproj", "{898E2216-1834-408A-915D-E0401EDDFB2A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ControllerTest", "ControllerTest\ControllerTest.csproj", "{7C38380C-0F54-471A-9066-071918D73F53}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ModelTest", "ModelTest\ModelTest.csproj", "{3B468665-1AC4-4DE9-B9D2-EB2601C3530D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ViewTest", "ViewTest\ViewTest.csproj", "{1FCA6071-4870-41F1-8BE6-EA22B7236CCD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x86 = Debug|x86
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9BD96A68-45BC-48E4-BF44-822A73F14B7C}.Debug|x86.ActiveCfg = Debug|x86
+		{9BD96A68-45BC-48E4-BF44-822A73F14B7C}.Debug|x86.Build.0 = Debug|x86
+		{9BD96A68-45BC-48E4-BF44-822A73F14B7C}.Release|x86.ActiveCfg = Release|x86
+		{9BD96A68-45BC-48E4-BF44-822A73F14B7C}.Release|x86.Build.0 = Release|x86
+		{1D71036E-7791-4728-991F-3099185490A8}.Debug|x86.ActiveCfg = Debug|x86
+		{1D71036E-7791-4728-991F-3099185490A8}.Debug|x86.Build.0 = Debug|x86
+		{1D71036E-7791-4728-991F-3099185490A8}.Release|x86.ActiveCfg = Release|x86
+		{1D71036E-7791-4728-991F-3099185490A8}.Release|x86.Build.0 = Release|x86
+		{898E2216-1834-408A-915D-E0401EDDFB2A}.Debug|x86.ActiveCfg = Debug|x86
+		{898E2216-1834-408A-915D-E0401EDDFB2A}.Debug|x86.Build.0 = Debug|x86
+		{898E2216-1834-408A-915D-E0401EDDFB2A}.Release|x86.ActiveCfg = Release|x86
+		{898E2216-1834-408A-915D-E0401EDDFB2A}.Release|x86.Build.0 = Release|x86
+		{7C38380C-0F54-471A-9066-071918D73F53}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{7C38380C-0F54-471A-9066-071918D73F53}.Debug|x86.Build.0 = Debug|Any CPU
+		{7C38380C-0F54-471A-9066-071918D73F53}.Release|x86.ActiveCfg = Release|Any CPU
+		{7C38380C-0F54-471A-9066-071918D73F53}.Release|x86.Build.0 = Release|Any CPU
+		{3B468665-1AC4-4DE9-B9D2-EB2601C3530D}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{3B468665-1AC4-4DE9-B9D2-EB2601C3530D}.Debug|x86.Build.0 = Debug|Any CPU
+		{3B468665-1AC4-4DE9-B9D2-EB2601C3530D}.Release|x86.ActiveCfg = Release|Any CPU
+		{3B468665-1AC4-4DE9-B9D2-EB2601C3530D}.Release|x86.Build.0 = Release|Any CPU
+		{1FCA6071-4870-41F1-8BE6-EA22B7236CCD}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{1FCA6071-4870-41F1-8BE6-EA22B7236CCD}.Debug|x86.Build.0 = Debug|Any CPU
+		{1FCA6071-4870-41F1-8BE6-EA22B7236CCD}.Release|x86.ActiveCfg = Release|Any CPU
+		{1FCA6071-4870-41F1-8BE6-EA22B7236CCD}.Release|x86.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

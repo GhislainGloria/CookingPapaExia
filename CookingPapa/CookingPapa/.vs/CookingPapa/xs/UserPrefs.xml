@@ -1,0 +1,21 @@
+﻿<Properties StartupConfiguration="{9BD96A68-45BC-48E4-BF44-822A73F14B7C}|Default">
+  <MonoDevelop.Ide.ItemProperties.ModelTest FirstBuild="True" />
+  <MonoDevelop.Ide.ItemProperties.View FirstBuild="True" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="ViewTest/Test.cs">
+    <Files>
+      <File FileName="ControllerTest/Test.cs" Line="1" Column="1" />
+      <File FileName="ModelTest/Test.cs" Line="1" Column="1" />
+      <File FileName="ViewTest/Test.cs" Line="9" Column="9" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.ItemProperties.Model FirstBuild="True" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.ItemProperties.ControllerTest FirstBuild="True" />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.ItemProperties.Controller FirstBuild="True" />
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.ItemProperties.ViewTest FirstBuild="True" />
+</Properties>
