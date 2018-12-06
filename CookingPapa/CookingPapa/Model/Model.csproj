@@ -26,6 +26,9 @@
     <WarningLevel>4</WarningLevel>
     <PlatformTarget>x86</PlatformTarget>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
   <ItemGroup>
     <Compile Include="AbstractActorStatic.cs" />
     <Compile Include="ActorFactory.cs" />
@@ -50,6 +53,20 @@
     <Compile Include="StockDAO.cs" />
     <Compile Include="Table.cs" />
     <Compile Include="Utensil.cs" />
+    <Compile Include="Strategy.cs" />
+    <Compile Include="StrategyButler.cs" />
+    <Compile Include="StrategyChef.cs" />
+    <Compile Include="StrategyCustomers.cs" />
+    <Compile Include="StrategyDiver.cs" />
+    <Compile Include="StrategyFurnace.cs" />
+    <Compile Include="StrategyheadWaiter.cs" />
+    <Compile Include="StrategyKitchenClerk.cs" />
+    <Compile Include="StrategyPartyLeader.cs" />
+    <Compile Include="StrategyRoomClerks.cs" />
+    <Compile Include="StrategyStock.cs" />
+    <Compile Include="StrategyWaiter.cs" />
+    <Compile Include="StrategyWorkingFridge.cs" />
+    <Compile Include="IStrategy.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>
