@@ -1,4 +1,5 @@
-﻿using System.Windows.Forms;
+﻿using System.Collections.Generic;
+using System.Windows.Forms;
 using System.Drawing;
 using Controller;
 using System;
@@ -12,10 +13,10 @@ namespace View
 		private const int ViewHeight = 600;
 		private Size WorldDimensions;
 		private Brush TileBrush;
-		private RestaurantMaps _Model;
+		private RestaurantMap _Model;
 
-        public PictureBox PictureBox { get; set; }      
-		public RestaurantMaps Model 
+        public PictureBox PictureBox { get; set; }
+		public RestaurantMap Model 
 		{
 			get { return _Model; }
 			set {
@@ -29,6 +30,10 @@ namespace View
 			}
 		}
 
+
+        /**
+         * Constructor
+         */
         public ViewWidget()
         {
             PictureBox = new PictureBox();
@@ -44,21 +49,23 @@ namespace View
         {
             Graphics g = e.Graphics;
 
-			if (Model == null) {
-				// Draw a line in the PictureBox.
-                g.DrawLine(System.Drawing.Pens.Red, PictureBox.Left, PictureBox.Top,
-                    PictureBox.Right, PictureBox.Bottom);
-
-				return;
-			}
-
+			// We draw the loor (background and majority of tiles)
+			TileBrush = TextureFactory.CreateBrush("tile");
 			for (int i = 0; i < WorldDimensions.Width; i++) {
 				for (int j = 0; j < WorldDimensions.Height; j++) {
-					TileBrush = TextureFactory.CreateBrush("tile");
 					g.FillRectangle(TileBrush, new Rectangle(i * TileSize, j * TileSize, TileSize, TileSize));
 				}
 			}
 
+            // We draw the actors above the floor
+			foreach (KeyValuePair<string, Point> actor in Model.DisplayableData()) {
+				TileBrush = TextureFactory.CreateBrush(actor.Key);
+				g.FillRectangle(
+					TileBrush,
+					new Rectangle(actor.Value.X * TileSize, actor.Value.Y * TileSize, TileSize, TileSize)
+				);
+			}
+			// => PaintPictureBox
 
         }
     }

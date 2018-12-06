@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Model
 {
-    interface IMobile
+    public interface IMobile
     {
         void Move();
     }

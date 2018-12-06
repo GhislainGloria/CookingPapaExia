@@ -30,7 +30,6 @@
     <StartupObject />
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="AbstractActorStatic.cs" />
     <Compile Include="ActorFactory.cs" />
     <Compile Include="ActorStatic.cs" />
     <Compile Include="ActorMobile.cs" />
@@ -47,7 +46,6 @@
     <Compile Include="IMobile.cs" />
     <Compile Include="ModelRecipe.cs" />
     <Compile Include="ModelStep.cs" />
-    <Compile Include="Position.cs" />
     <Compile Include="RecipeList.cs" />
     <Compile Include="Step.cs" />
     <Compile Include="StockDAO.cs" />
@@ -67,6 +65,10 @@
     <Compile Include="StrategyWaiter.cs" />
     <Compile Include="StrategyWorkingFridge.cs" />
     <Compile Include="IStrategy.cs" />
+    <Compile Include="AbstractActor.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System.Drawing" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>

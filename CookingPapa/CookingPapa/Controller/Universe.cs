@@ -8,8 +8,8 @@ namespace Controller
 {
     public class Universe
     {
-
-		public RestaurantMaps Map { get; set; }
+        
+		public RestaurantMap Map { get; set; }
         TimeManager time;
         private float _DeltaTime;
 		private static Universe _univers = new Universe();
@@ -17,8 +17,10 @@ namespace Controller
         ThreadPool threadPool; 
 
 		private Universe() {
-			Map = new RestaurantMaps();
-			Map.MapSize = new Size(100, 50);
+			Map = new RestaurantMap
+			{
+				MapSize = new Size(100, 50)
+			};
 		}
 
         public static Universe GetInstance()
@@ -29,7 +31,7 @@ namespace Controller
 
         public void NextTick()
         {
-            
+			time.Forward();
         }      
     }
 }
