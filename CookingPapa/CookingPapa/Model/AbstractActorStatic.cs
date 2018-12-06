@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Model
 {
-    abstract class AbstractActorStatic : IActor
+    public abstract class AbstractActorStatic : IActor
     {
         private List<ICarriableItem> _items;
         private Position _position;
@@ -15,6 +15,8 @@ namespace Model
         private bool _busy;
         private Thread _thread;
         private int _maxInventorySize;
+        private Strategy _strategy;
+        private string _name;
 
         public bool Busy { get => _busy; set => _busy = value; }
         public Thread Thread { get => _thread; set => _thread = value; }
@@ -22,6 +24,8 @@ namespace Model
         public List<ICarriableItem> Items { get => _items; set => _items = value; }
         public Position Position { get => _position; set => _position = value; }
         public IActor Target { get => _target; set => _target = value; }
+        public Strategy Strategy { get => _strategy; set => _strategy = value; }
+        public string Name { get => _name; set => _name = value; }
 
         public void CallStrategy()
         {
@@ -34,6 +38,11 @@ namespace Model
         }
 
         public void NextTick()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void SetStrategy(Strategy strategy)
         {
             throw new NotImplementedException();
         }

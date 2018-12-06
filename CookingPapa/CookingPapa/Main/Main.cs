@@ -6,7 +6,7 @@ namespace Main
 {
     public class MainClass
     {
-		public static void Main()
+		public static void Main(string[] args)
         {
 			MainWindow window = new MainWindow();         
 			Application.Run(window);

@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Controller
+namespace Model
+
 {
-    interface IStrategy
+    public interface IStrategy
     {
 
         void Behavior();

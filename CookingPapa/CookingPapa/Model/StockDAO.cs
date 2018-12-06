@@ -8,5 +8,9 @@ namespace Model
 {
     class StockDAO
     {
+        public List<Ingredient> GetAllStock()
+        {
+            return null;
+        }
     }
 }

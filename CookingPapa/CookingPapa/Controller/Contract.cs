@@ -10,7 +10,7 @@ namespace Controller
     class Contract
     {
 
-        Universe univers;
-        MainWindow view;  
+        Universe Univers;
+        MainWindow View;  
     }
 }
