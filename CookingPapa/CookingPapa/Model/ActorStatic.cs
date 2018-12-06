@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CookingPapa
+namespace Model
 {
-    class ActorStatic : AbstractActorStatic
-    {
+    class ActorStatic : AbstractActorStatic { 
+    
         public ActorStatic()
         {
         }

@@ -1,6 +1,7 @@
-
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2012
+# Visual Studio 15
+VisualStudioVersion = 15.0.28010.2046
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ControllerTest", "ControllerTest\ControllerTest.csproj", "{7C38380C-0F54-471A-9066-071918D73F53}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ModelTest", "ModelTest\ModelTest.csproj", "{3B468665-1AC4-4DE9-B9D2-EB2601C3530D}"
@@ -9,7 +10,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ViewTest", "ViewTest\ViewTe
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "View", "View\View.csproj", "{D1BB0DA6-C52B-4E64-9214-34F71F4494DC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Model", "Model\Model.csproj", "{CE8B656A-9477-4FCB-994B-30AD4BF6CA4B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Model", "Model\Model.csproj", "{9BD96A68-45BC-48E4-BF44-822A73F14B7C}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Controller", "Controller\Controller.csproj", "{0882B2E4-3B64-4568-B2B4-40975DFB4F32}"
 EndProject
@@ -37,10 +38,10 @@ Global
 		{D1BB0DA6-C52B-4E64-9214-34F71F4494DC}.Debug|x86.Build.0 = Debug|Any CPU
 		{D1BB0DA6-C52B-4E64-9214-34F71F4494DC}.Release|x86.ActiveCfg = Release|Any CPU
 		{D1BB0DA6-C52B-4E64-9214-34F71F4494DC}.Release|x86.Build.0 = Release|Any CPU
-		{CE8B656A-9477-4FCB-994B-30AD4BF6CA4B}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{CE8B656A-9477-4FCB-994B-30AD4BF6CA4B}.Debug|x86.Build.0 = Debug|Any CPU
-		{CE8B656A-9477-4FCB-994B-30AD4BF6CA4B}.Release|x86.ActiveCfg = Release|Any CPU
-		{CE8B656A-9477-4FCB-994B-30AD4BF6CA4B}.Release|x86.Build.0 = Release|Any CPU
+		{9BD96A68-45BC-48E4-BF44-822A73F14B7C}.Debug|x86.ActiveCfg = Debug|x86
+		{9BD96A68-45BC-48E4-BF44-822A73F14B7C}.Debug|x86.Build.0 = Debug|x86
+		{9BD96A68-45BC-48E4-BF44-822A73F14B7C}.Release|x86.ActiveCfg = Release|x86
+		{9BD96A68-45BC-48E4-BF44-822A73F14B7C}.Release|x86.Build.0 = Release|x86
 		{0882B2E4-3B64-4568-B2B4-40975DFB4F32}.Debug|x86.ActiveCfg = Debug|Any CPU
 		{0882B2E4-3B64-4568-B2B4-40975DFB4F32}.Debug|x86.Build.0 = Debug|Any CPU
 		{0882B2E4-3B64-4568-B2B4-40975DFB4F32}.Release|x86.ActiveCfg = Release|Any CPU
@@ -49,5 +50,11 @@ Global
 		{A3764707-8A17-4BD6-9211-A047F4F36652}.Debug|x86.Build.0 = Debug|x86
 		{A3764707-8A17-4BD6-9211-A047F4F36652}.Release|x86.ActiveCfg = Release|x86
 		{A3764707-8A17-4BD6-9211-A047F4F36652}.Release|x86.Build.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F57633A6-B4AA-40A1-88D1-55A9FDA8EBF6}
 	EndGlobalSection
 EndGlobal

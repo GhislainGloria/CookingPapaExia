@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Controller
 {
-    class Strategybutler : Strategy
+    class StrategyButler : Strategy
     {
 
         public void Behavior()

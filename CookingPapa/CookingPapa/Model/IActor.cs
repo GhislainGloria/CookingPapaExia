@@ -5,9 +5,9 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace CookingPapa
+namespace Model
 {
-    interface IActor
+   public interface IActor
     {
         List<ICarriableItem> Items { get; set; }
         Position Position { get; set; }
