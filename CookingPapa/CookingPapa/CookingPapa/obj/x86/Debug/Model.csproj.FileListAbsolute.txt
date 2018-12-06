@@ -1,1 +1,0 @@
-/home/paul/git/tmp/CookingPapaExia/CookingPapa/CookingPapa/CookingPapa/obj/x86/Debug/Model.csproj.CoreCompileInputs.cache
