@@ -1,2 +1,0 @@
-/home/paul/git/tmp/CookingPapaExia/CookingPapa/CookingPapa/Controller/obj/x86/Debug/Controller.csprojAssemblyReference.cache
-/home/paul/git/tmp/CookingPapaExia/CookingPapa/CookingPapa/Controller/obj/x86/Debug/Controller.csproj.CoreCompileInputs.cache

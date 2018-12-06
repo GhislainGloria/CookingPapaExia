@@ -1,9 +1,0 @@
-/home/paul/git/tmp/CookingPapaExia/CookingPapa/CookingPapa/ControllerTest/bin/Debug/ControllerTest.dll
-/home/paul/git/tmp/CookingPapaExia/CookingPapa/CookingPapa/ControllerTest/bin/Debug/ControllerTest.pdb
-/home/paul/git/tmp/CookingPapaExia/CookingPapa/CookingPapa/ControllerTest/bin/Debug/nunit.framework.dll
-/home/paul/git/tmp/CookingPapaExia/CookingPapa/CookingPapa/ControllerTest/bin/Debug/nunit.framework.xml
-/home/paul/git/tmp/CookingPapaExia/CookingPapa/CookingPapa/ControllerTest/obj/Debug/ControllerTest.csprojAssemblyReference.cache
-/home/paul/git/tmp/CookingPapaExia/CookingPapa/CookingPapa/ControllerTest/obj/Debug/ControllerTest.csproj.CoreCompileInputs.cache
-/home/paul/git/tmp/CookingPapaExia/CookingPapa/CookingPapa/ControllerTest/obj/Debug/ControllerTest.csproj.CopyComplete
-/home/paul/git/tmp/CookingPapaExia/CookingPapa/CookingPapa/ControllerTest/obj/Debug/ControllerTest.dll
-/home/paul/git/tmp/CookingPapaExia/CookingPapa/CookingPapa/ControllerTest/obj/Debug/ControllerTest.pdb

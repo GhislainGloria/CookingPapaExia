@@ -39,7 +39,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\View\View.csproj">
-      <Project>{1D71036E-7791-4728-991F-3099185490A8}</Project>
+      <Project>{D1BB0DA6-C52B-4E64-9214-34F71F4494DC}</Project>
       <Name>View</Name>
     </ProjectReference>
   </ItemGroup>
