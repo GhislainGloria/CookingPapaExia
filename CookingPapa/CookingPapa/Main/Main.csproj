@@ -29,5 +29,23 @@
   <ItemGroup>
     <Compile Include="Main*.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\View\View.csproj">
+      <Project>{D1BB0DA6-C52B-4E64-9214-34F71F4494DC}</Project>
+      <Name>View</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Model\Model.csproj">
+      <Project>{9BD96A68-45BC-48E4-BF44-822A73F14B7C}</Project>
+      <Name>Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Controller\Controller.csproj">
+      <Project>{0882B2E4-3B64-4568-B2B4-40975DFB4F32}</Project>
+      <Name>Controller</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System" />
+  </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>
