@@ -31,6 +31,26 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Contract.cs" />
+    <Compile Include="Dimension.cs" />
+    <Compile Include="IStrategy.cs" />
+    <Compile Include="RestaurantMaps.cs" />
+    <Compile Include="Strategy.cs" />
+    <Compile Include="Strategybutler.cs" />
+    <Compile Include="StrategyChef.cs" />
+    <Compile Include="StrategyCustomers.cs" />
+    <Compile Include="StrategyDiver.cs" />
+    <Compile Include="StrategyFurnace.cs" />
+    <Compile Include="StrategyheadWaiter.cs" />
+    <Compile Include="StrategyKitchenClerk.cs" />
+    <Compile Include="StrategyPartyLeader.cs" />
+    <Compile Include="StrategyRoomClerks.cs" />
+    <Compile Include="StrategyStock.cs" />
+    <Compile Include="StrategyWaiter.cs" />
+    <Compile Include="StrategyWorkingFridge.cs" />
+    <Compile Include="ThreadPool.cs" />
+    <Compile Include="TimeManager.cs" />
+    <Compile Include="Universe.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>
