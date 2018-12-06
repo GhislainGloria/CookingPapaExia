@@ -28,12 +28,12 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.Drawing" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Contract.cs" />
     <Compile Include="Dimension.cs" />
-    <Compile Include="RestaurantMaps.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RestaurantMap.cs" />
     <Compile Include="ThreadPool.cs" />
     <Compile Include="TimeManager.cs" />
     <Compile Include="Universe.cs" />
@@ -42,10 +42,6 @@
     <ProjectReference Include="..\Model\Model.csproj">
       <Project>{9bd96a68-45bc-48e4-bf44-822a73f14b7c}</Project>
       <Name>Model</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\View\View.csproj">
-      <Project>{D1BB0DA6-C52B-4E64-9214-34F71F4494DC}</Project>
-      <Name>View</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />

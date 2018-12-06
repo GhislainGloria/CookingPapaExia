@@ -9,9 +9,7 @@ namespace Model
     class StrategyFurnace : Strategy
     {
 
-#pragma warning disable CS0108 // 'StrategyFurnace.Behavior()' masque le membre hérité 'Strategy.Behavior()'. Utilisez le mot clé new si le masquage est intentionnel.
         public void Behavior()
-#pragma warning restore CS0108 // 'StrategyFurnace.Behavior()' masque le membre hérité 'Strategy.Behavior()'. Utilisez le mot clé new si le masquage est intentionnel.
         {
             // TODO implement here
 

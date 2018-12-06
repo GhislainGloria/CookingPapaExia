@@ -1,5 +1,6 @@
 ﻿using System;
 using View;
+using Controller;
 using System.Windows.Forms;
 
 namespace Main
@@ -8,7 +9,8 @@ namespace Main
     {
 		public static void Main(string[] args)
         {
-			MainWindow window = new MainWindow();         
+			Universe universe = Universe.GetInstance();
+			MainWindow window = new MainWindow(universe);
 			Application.Run(window);
         }
     }

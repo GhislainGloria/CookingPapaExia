@@ -6,13 +6,11 @@ using System.Threading.Tasks;
 
 namespace Model
 {
-    public class StrategyRoomClerks : Strategy
+    class StrategyRoomClerks : Strategy
     {
 
 
-#pragma warning disable CS0108 // 'StrategyRoomClerks.Behavior()' masque le membre hérité 'Strategy.Behavior()'. Utilisez le mot clé new si le masquage est intentionnel.
         public void Behavior()
-#pragma warning restore CS0108 // 'StrategyRoomClerks.Behavior()' masque le membre hérité 'Strategy.Behavior()'. Utilisez le mot clé new si le masquage est intentionnel.
         {
             // TODO implement here
 

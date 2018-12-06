@@ -5,7 +5,6 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Model
-
 {
     public interface IStrategy
     {
