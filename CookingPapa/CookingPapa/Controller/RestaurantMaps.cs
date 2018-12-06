@@ -1,16 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
+using System.Drawing;
 using System.Text;
 using System.Threading.Tasks;
 using Model;
 
 namespace Controller
 {
-    class RestaurantMaps
+    public class RestaurantMaps
     {
 
-        Dimension dim;
+		public Size MapSize;
         public List<IActor> Actors;
 
 

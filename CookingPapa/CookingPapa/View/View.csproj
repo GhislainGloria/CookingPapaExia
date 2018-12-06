@@ -37,5 +37,11 @@
     <Compile Include="ViewWidget.cs" />
     <Compile Include="TextureFactory.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Controller\Controller.csproj">
+      <Project>{0882B2E4-3B64-4568-B2B4-40975DFB4F32}</Project>
+      <Name>Controller</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>

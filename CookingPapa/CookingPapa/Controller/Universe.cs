@@ -1,36 +1,35 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
+using System.Drawing;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Controller
 {
-    class Universe
+    public class Universe
     {
 
-        RestaurantMaps plan;
+		public RestaurantMaps Map { get; set; }
         TimeManager time;
         private float _DeltaTime;
-        private Universe _univers;
+		private static Universe _univers = new Universe();
 
         ThreadPool threadPool; 
 
-        public Universe GetInstance()
+		private Universe() {
+			Map = new RestaurantMaps();
+			Map.MapSize = new Size(100, 50);
+		}
+
+        public static Universe GetInstance()
         {
-            return null; 
+			return _univers; 
 
         }
 
         public void NextTick()
         {
             
-        }
-            
-
-
-        
-
-
+        }      
     }
 }
