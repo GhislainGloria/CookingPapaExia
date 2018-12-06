@@ -1,12 +1,28 @@
 ﻿<Properties StartupConfiguration="{9BD96A68-45BC-48E4-BF44-822A73F14B7C}|Default">
   <MonoDevelop.Ide.ItemProperties.ModelTest FirstBuild="True" />
   <MonoDevelop.Ide.ItemProperties.View FirstBuild="True" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="ViewTest/Test.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="ViewTest/ViewTest.cs">
     <Files>
-      <File FileName="ControllerTest/Test.cs" Line="1" Column="1" />
-      <File FileName="ModelTest/Test.cs" Line="1" Column="1" />
-      <File FileName="ViewTest/Test.cs" Line="9" Column="9" />
+      <File FileName="View/ViewWidget.cs" Line="6" Column="25" />
+      <File FileName="View/MainWindows.cs" Line="21" Column="34" />
+      <File FileName="View/TextureFactory.cs" Line="11" Column="18" />
+      <File FileName="ViewTest/ViewTest.cs" Line="13" Column="29" />
     </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="CookingPapa" expanded="True">
+            <Node name="ControllerTest" expanded="True" />
+            <Node name="View" expanded="True">
+              <Node name="References" expanded="True" />
+            </Node>
+            <Node name="ViewTest" expanded="True">
+              <Node name="ViewTest.cs" selected="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.ItemProperties.Model FirstBuild="True" PreferredExecutionTarget="MonoDevelop.Default" />
   <MonoDevelop.Ide.ItemProperties.ControllerTest FirstBuild="True" />
