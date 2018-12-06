@@ -1,15 +1,15 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{CE8B656A-9477-4FCB-994B-30AD4BF6CA4B}</ProjectGuid>
-    <OutputType>Library</OutputType>
-    <RootNamespace>Model</RootNamespace>
-    <AssemblyName>Model</AssemblyName>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProjectGuid>{9BD96A68-45BC-48E4-BF44-822A73F14B7C}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>CookingPapa</RootNamespace>
+    <AssemblyName>CookingPapa</AssemblyName>
     <TargetFrameworkVersion>v4.7</TargetFrameworkVersion>
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -17,20 +17,39 @@
     <DefineConstants>DEBUG;</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <ConsolePause>false</ConsolePause>
+    <PlatformTarget>x86</PlatformTarget>
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
     <Optimize>true</Optimize>
     <OutputPath>bin\Release</OutputPath>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <ConsolePause>false</ConsolePause>
+    <PlatformTarget>x86</PlatformTarget>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="System" />
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="AbstractActorStatic.cs" />
+    <Compile Include="ActorFactory.cs" />
+    <Compile Include="ActorStatic.cs" />
+    <Compile Include="ActorMobile.cs" />
+    <Compile Include="CarriableItemFacory.cs" />
+    <Compile Include="ClientSpawner.cs" />
+    <Compile Include="Order.cs" />
+    <Compile Include="Counter.cs" />
+    <Compile Include="Dish.cs" />
+    <Compile Include="GroupActor.cs" />
+    <Compile Include="IActor.cs" />
+    <Compile Include="ICarriableItem.cs" />
+    <Compile Include="Ingredient.cs" />
+    <Compile Include="IStatic.cs" />
+    <Compile Include="IMobile.cs" />
+    <Compile Include="ModelRecipe.cs" />
+    <Compile Include="ModelStep.cs" />
+    <Compile Include="Position.cs" />
+    <Compile Include="RecipeList.cs" />
+    <Compile Include="Step.cs" />
+    <Compile Include="StockDAO.cs" />
+    <Compile Include="Table.cs" />
+    <Compile Include="Utensil.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>
