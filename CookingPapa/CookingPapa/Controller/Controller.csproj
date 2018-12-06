@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -36,7 +36,7 @@
     <Compile Include="IStrategy.cs" />
     <Compile Include="RestaurantMaps.cs" />
     <Compile Include="Strategy.cs" />
-    <Compile Include="Strategybutler.cs" />
+    <Compile Include="StrategyButler.cs" />
     <Compile Include="StrategyChef.cs" />
     <Compile Include="StrategyCustomers.cs" />
     <Compile Include="StrategyDiver.cs" />
@@ -51,6 +51,16 @@
     <Compile Include="ThreadPool.cs" />
     <Compile Include="TimeManager.cs" />
     <Compile Include="Universe.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Model\Model.csproj">
+      <Project>{9bd96a68-45bc-48e4-bf44-822a73f14b7c}</Project>
+      <Name>Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\View\View.csproj">
+      <Project>{D1BB0DA6-C52B-4E64-9214-34F71F4494DC}</Project>
+      <Name>View</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>

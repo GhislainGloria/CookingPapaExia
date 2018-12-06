@@ -8,6 +8,8 @@ namespace Controller
 {
    public class TimeManager
     {
+
+        public delegate void VoidDel();
         
         int Hours;
         int Minutes;
@@ -21,22 +23,14 @@ namespace Controller
             
         }
 
-        public event NextDay()
-        {
+        public event VoidDel NextDay;
 
-            
 
-        }
+        public event VoidDel Opened;
 
-         public event Opened()
-         {
-              
-         
-         }
 
-         public event Closed()
-         {
-         }
+         public event VoidDel Closed;
+        
 
     }
 

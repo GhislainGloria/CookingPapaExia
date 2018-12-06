@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace CookingPapa
+namespace Model
 {
     abstract class AbstractActorStatic : IActor
     {

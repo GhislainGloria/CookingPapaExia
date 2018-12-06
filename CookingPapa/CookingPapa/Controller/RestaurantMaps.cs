@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Model;
 
 namespace Controller
 {
@@ -10,7 +11,7 @@ namespace Controller
     {
 
         Dimension dim;
-        public List<IActor> acteurs; 
+        public List<IActor> Actors;
 
 
         public IActor GetClosest()

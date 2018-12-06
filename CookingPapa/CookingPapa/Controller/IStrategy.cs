@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace Controller
 {
-    class IStrategy
+    interface IStrategy
     {
 
+        void Behavior();
 
-     
-        } 
-    }
+    } 
+    
 }
