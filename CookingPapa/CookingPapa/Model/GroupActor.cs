@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Model
 {
-    class GroupActor
+    public class GroupActor
     {
         private List<ActorMobile> _clients;
 

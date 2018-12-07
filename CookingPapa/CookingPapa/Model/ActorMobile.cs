@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Model
 {
-    class ActorMobile : IMobile
+    public class ActorMobile : IMobile
     {
         public void CallStrategy()
         {

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Model
 {
-    class ClientSpawner
+    public class ClientSpawner
     {
         private int _intervalle;
         private int _maxGroupSize;

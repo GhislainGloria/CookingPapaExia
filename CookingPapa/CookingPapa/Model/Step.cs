@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Model
 {
-    class Step : ModelRecipe
+    public class Step : ModelStep
     {
         private bool _prepare;
     }

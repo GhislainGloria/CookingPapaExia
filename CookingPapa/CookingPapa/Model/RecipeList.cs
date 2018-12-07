@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Model
 {
-    class RecipeList
+    public class RecipeList
     {
         List<Dish> _carte;
     }

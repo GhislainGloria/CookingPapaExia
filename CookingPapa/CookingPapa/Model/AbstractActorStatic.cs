@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Model
 {
-    abstract class AbstractActorStatic : IActor
+    public abstract class AbstractActorStatic : IActor
     {
         private List<ICarriableItem> _items;
         private Position _position;

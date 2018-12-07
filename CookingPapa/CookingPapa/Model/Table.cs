@@ -6,20 +6,34 @@ using System.Threading.Tasks;
 
 namespace Model
 {
-    class Table : ActorStatic
+    public class Table : ActorStatic
     {
-        public int _place;
-        public GroupActor _grp;
+        private int _place;
+        private GroupActor _grp;
 
-        public Table(int place, GroupActor grp)
+        public int Place { get => _place; set => _place = value; }
+        public GroupActor Grp { get => _grp; set => _grp = value; }
+
+        public Table(int place)
         {
-            _place = place;
-            _grp = grp;
+            Place = place;
         }
 
-        public void CallStrategy()
+        public void setGroupActor(GroupActor grp)
         {
+            if (Place >= grp.Clients.Count)
+            {
+                Grp = grp;
+            }
+            else
+            {
+                throw new Exception("Too many clients for this table;");
+            }
+        }
 
+        public void removeGroupActor()
+        {
+            Grp = null;
         }
     }
 }
