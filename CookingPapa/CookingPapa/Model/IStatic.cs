@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Model
 {
-    class IStatic
+    public class IStatic
     {
     }
 }

@@ -6,10 +6,17 @@ using System.Threading.Tasks;
 
 namespace Model
 {
-    class Ingredient
+    public class Ingredient : ICarriableItem
     {
-        public Ingredient()
+        private int _timeToLive;
+        public int TimeToLive { get => _timeToLive; set => _timeToLive = value; }
+        public Ingredient(string name, int inventorySize, int timeToLive)
         {
+            this.InventorySize = inventorySize;
+            this.Name = name;
+            this.ID = Instance;
+            this.TimeToLive = timeToLive;
+            Instance++;
         }
     }
 }

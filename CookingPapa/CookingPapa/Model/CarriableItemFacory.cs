@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Model
 {
-    class CarriableItemFacory : ICarriableItem
+    public class CarriableItemFacory : ICarriableItem
     {
         
         public ICarriableItem CreateCarriableItem()
