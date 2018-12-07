@@ -5,7 +5,7 @@
     <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
     <ProjectGuid>{9BD96A68-45BC-48E4-BF44-822A73F14B7C}</ProjectGuid>
     <OutputType>Library</OutputType>
-    <RootNamespace>CookingPapa</RootNamespace>
+    <RootNamespace>Model</RootNamespace>
     <AssemblyName>CookingPapa</AssemblyName>
     <TargetFrameworkVersion>v4.7</TargetFrameworkVersion>
   </PropertyGroup>
@@ -35,6 +35,7 @@
     <Compile Include="ActorMobile.cs" />
     <Compile Include="CarriableItemFacory.cs" />
     <Compile Include="ClientSpawner.cs" />
+    <Compile Include="ModelIngredient.cs" />
     <Compile Include="Order.cs" />
     <Compile Include="Counter.cs" />
     <Compile Include="Dish.cs" />
