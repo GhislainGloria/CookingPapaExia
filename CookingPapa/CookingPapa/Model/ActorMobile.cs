@@ -10,12 +10,12 @@ namespace Model
     {
         public override void CallStrategy()
         {
-			throw new NotImplementedException();
+			Strategy.Behavior();
         }
 
 		public override void NextTick()
 		{
-			throw new NotImplementedException();
+			CallStrategy();
 		}
 
 		public void Move()

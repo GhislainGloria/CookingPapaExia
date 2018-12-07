@@ -36,5 +36,13 @@ namespace Controller
 
 			return CachedDictionnary;
 		}
+
+		public void NextActorsTick()
+		{
+			foreach (IActor actor in Actors)
+			{
+				actor.NextTick();
+			}
+		}
     }
 }

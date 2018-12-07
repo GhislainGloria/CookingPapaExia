@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Model
 {
-    class ActorFactory
+    public class ActorFactory
     {
         public IActor CreateActor()
         {
