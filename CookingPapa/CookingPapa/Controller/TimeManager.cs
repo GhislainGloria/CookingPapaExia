@@ -23,19 +23,8 @@ namespace Controller
             
         }
 
-        public event VoidDel NextDay;
-
-
-        public event VoidDel Opened;
-
-
-         public event VoidDel Closed;
-        
-
+        public event VoidDel NextDay;            
+        public event VoidDel Opened;      
+        public event VoidDel Closed;      
     }
-
-
-      
-     
-    
 }
