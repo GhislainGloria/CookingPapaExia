@@ -15,7 +15,7 @@ namespace Model
 
         public override void CallStrategy()
         {
-			throw new NotImplementedException();
+			this.Strategy.Behavior();
         }
 
 		public override void NextTick()
