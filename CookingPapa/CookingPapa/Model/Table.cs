@@ -27,7 +27,7 @@ namespace Model
             }
             else
             {
-                throw new Exception("Too many clients for this table;");
+                throw new Exception("Too many clients for this table.");
             }
         }
 
