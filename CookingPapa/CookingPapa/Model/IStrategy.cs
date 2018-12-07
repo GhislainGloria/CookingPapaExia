@@ -9,8 +9,7 @@ namespace Model
     public interface IStrategy
     {
 
-        void Behavior();
+		void Behavior(IActor actor, List<IActor> allActors);
 
     } 
-    
 }

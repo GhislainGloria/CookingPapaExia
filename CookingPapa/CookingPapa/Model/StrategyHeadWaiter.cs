@@ -6,13 +6,11 @@ using System.Threading.Tasks;
 
 namespace Model
 {
-    class StrategyHeadWaiter : Strategy
-    {
-
-        public void Behavior()
-        {
-            // TODO implement here
-
-        }
-    }
+	class StrategyHeadWaiter : Strategy
+	{
+		public override void Behavior(IActor self, List<IActor> all)
+		{
+			throw new NotImplementedException();
+		}
+	}
 }

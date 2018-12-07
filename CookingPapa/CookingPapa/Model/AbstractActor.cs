@@ -16,8 +16,8 @@ namespace Model
         public string Name { get; set; }
         public IStrategy Strategy { get; set; }
         
-
-		public abstract void NextTick();
+        
+		public abstract void NextTick(List<IActor> AllActors);
 		public abstract void CallStrategy();
         public abstract void SetStrategy(Strategy strategy);
     }
