@@ -8,7 +8,7 @@ namespace Model
 {
     public class GroupActor
     {
-        private List<ActorMobile> _clients;
+		private List<ActorMobile> _clients = new List<ActorMobile>();
 
         public List<ActorMobile> Clients { get => _clients; set => _clients = value; }
     }

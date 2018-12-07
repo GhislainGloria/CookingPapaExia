@@ -20,11 +20,9 @@ namespace ModelTest
             Table table = new Table(1);
             table.setGroupActor(actors);
             Assert.AreEqual(1, table.Place, "Le nombre de clients max à la table est bon");
-
-            actors.Clients.Add(new ActorMobile());
-            table.setGroupActor(actors);
+            
             try {
-                table.setGroupActor(actors);
+				actors.Clients.Add(new ActorMobile());
             }catch(Exception e)
             {
                 Console.WriteLine(e.StackTrace);
