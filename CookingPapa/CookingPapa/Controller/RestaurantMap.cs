@@ -17,7 +17,7 @@ namespace Controller
 		public RestaurantMap()
 		{
 			Actors = new List<IActor>();
-			ActorMobile testActor = new ActorMobile();
+			IActor testActor = ActorFactory.CreateActor("butler");
 			testActor.Name = "bibi";
 			testActor.Position = new Point(10, 10);
 			Actors.Add(testActor);
@@ -35,6 +35,14 @@ namespace Controller
 			}
 
 			return CachedDictionnary;
+		}
+
+		public void NextActorsTick()
+		{
+			foreach (IActor actor in Actors)
+			{
+				actor.NextTick();
+			}
 		}
     }
 }

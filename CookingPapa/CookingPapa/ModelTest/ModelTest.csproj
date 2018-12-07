@@ -32,18 +32,5 @@
       <HintPath>..\packages\NUnit.2.6.4\lib\nunit.framework.dll</HintPath>
     </Reference>
   </ItemGroup>
-  <ItemGroup>
-    <Compile Include="StockDAOTest.cs" />
-    <Compile Include="TableTest.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Model\Model.csproj">
-      <Project>{9bd96a68-45bc-48e4-bf44-822a73f14b7c}</Project>
-      <Name>Model</Name>
-    </ProjectReference>
-  </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>

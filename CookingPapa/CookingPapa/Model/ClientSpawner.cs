@@ -12,8 +12,16 @@ namespace Model
         private int _maxGroupSize;
         private int _minGroupSize;
 
+
         public int Intervalle { get => _intervalle; set => _intervalle = value; }
         public int MaxGroupSize { get => _maxGroupSize; set => _maxGroupSize = value; }
         public int MinGroupSize { get => _minGroupSize; set => _minGroupSize = value; }
+
+        public ClientSpawner(int intervalle, int maxGroupSize, int minGroupSize)
+        {
+            Intervalle = intervalle;
+            MaxGroupSize = maxGroupSize;
+            MinGroupSize = minGroupSize;
+        }
     }
 }

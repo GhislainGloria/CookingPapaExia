@@ -37,9 +37,6 @@
     <Compile Include="TextureFactoryTest.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\View\View.csproj">
       <Project>{D1BB0DA6-C52B-4E64-9214-34F71F4494DC}</Project>
       <Name>View</Name>

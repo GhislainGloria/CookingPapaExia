@@ -21,6 +21,7 @@ namespace Controller
 			{
 				MapSize = new Size(100, 50)
 			};
+			time = new TimeManager();
 		}
 
         public static Universe GetInstance()
@@ -32,6 +33,7 @@ namespace Controller
         public void NextTick()
         {
 			time.Forward();
+			Map.NextActorsTick();
         }      
     }
 }

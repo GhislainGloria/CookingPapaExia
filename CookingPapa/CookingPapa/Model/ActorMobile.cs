@@ -8,19 +8,29 @@ namespace Model
 {
 	public class ActorMobile : AbstractActor
     {
+        public ActorMobile()
+        {
+            
+        }
+
         public override void CallStrategy()
         {
-			throw new NotImplementedException();
+			Strategy.Behavior();
         }
 
 		public override void NextTick()
 		{
-			throw new NotImplementedException();
+			CallStrategy();
 		}
 
 		public void Move()
         {
             throw new NotImplementedException();
+        }
+
+        public override void SetStrategy(Strategy strategy)
+        {
+            this.Strategy = strategy;
         }
     }
 }

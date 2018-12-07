@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -29,12 +29,23 @@
     <Reference Include="nunit.framework">
       <HintPath>..\packages\NUnit.2.6.4\lib\nunit.framework.dll</HintPath>
     </Reference>
+    <Reference Include="System.Drawing" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Test.cs" />
+    <Compile Include="testRestaurantMap.cs" />
+    <Compile Include="testThreadpool.cs" />
+    <Compile Include="TimeManagerTest.cs" />
+    <Compile Include="testUnivers.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="packages.config" />
+    <ProjectReference Include="..\Controller\Controller.csproj">
+      <Project>{0882b2e4-3b64-4568-b2b4-40975dfb4f32}</Project>
+      <Name>Controller</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Model\Model.csproj">
+      <Project>{9BD96A68-45BC-48E4-BF44-822A73F14B7C}</Project>
+      <Name>Model</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -4,13 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Controller
+namespace ModelTest
 {
-   public  class Dimension
+    class ActorStaticTest
     {
-
-        int x;
-        int y; 
-
     }
 }

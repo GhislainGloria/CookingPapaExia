@@ -19,5 +19,6 @@ namespace Model
 
 		public abstract void NextTick();
 		public abstract void CallStrategy();
+        public abstract void SetStrategy(Strategy strategy);
     }
 }

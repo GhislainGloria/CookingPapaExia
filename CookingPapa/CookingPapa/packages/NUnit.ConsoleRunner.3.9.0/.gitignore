@@ -1,5 +1,4 @@
-/.signature.p7s
-/CHANGES.txt
-/LICENSE.txt
-/NOTICES.txt
 /NUnit.ConsoleRunner.3.9.0.nupkg
+/NOTICES.txt
+*.txt
+*.signature.p7s

@@ -1,4 +1,3 @@
-/.signature.p7s
-/CHANGES.txt
-/LICENSE.txt
 /NUnit.Extension.NUnitV2Driver.3.7.0.nupkg
+*.txt
+*.signature.p7s
