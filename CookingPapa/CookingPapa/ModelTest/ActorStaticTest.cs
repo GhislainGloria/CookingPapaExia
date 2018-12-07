@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ModelTest
 {
-    class ActorStatic
+    class ActorStaticTest
     {
     }
 }
