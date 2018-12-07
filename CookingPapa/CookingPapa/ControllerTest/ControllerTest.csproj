@@ -31,10 +31,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Test.cs" />
     <Compile Include="testRestaurantMap.cs" />
     <Compile Include="testThreadpool.cs" />
-    <Compile Include="testTimeManager.cs" />
+    <Compile Include="TimeManagerTest.cs" />
     <Compile Include="testUnivers.cs" />
   </ItemGroup>
   <ItemGroup>
