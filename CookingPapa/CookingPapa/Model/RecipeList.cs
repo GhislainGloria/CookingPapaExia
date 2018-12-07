@@ -8,6 +8,6 @@ namespace Model
 {
     public class RecipeList
     {
-        List<Dish> _carte;
+        List<Recipe> _carte;
     }
 }
