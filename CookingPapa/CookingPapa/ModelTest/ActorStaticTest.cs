@@ -4,13 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Model
+namespace ModelTest
 {
-    class StockDAO
+    class ActorStaticTest
     {
-        public List<Ingredient> GetAllStock()
-        {
-            return null;
-        }
     }
 }

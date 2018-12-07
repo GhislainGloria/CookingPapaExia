@@ -8,6 +8,11 @@ namespace Model
 {
 	public class ActorMobile : AbstractActor
     {
+        public ActorMobile()
+        {
+            
+        }
+
         public override void CallStrategy()
         {
 			Strategy.Behavior();
@@ -21,6 +26,11 @@ namespace Model
 		public void Move()
         {
             throw new NotImplementedException();
+        }
+
+        public override void SetStrategy(Strategy strategy)
+        {
+            this.Strategy = strategy;
         }
     }
 }

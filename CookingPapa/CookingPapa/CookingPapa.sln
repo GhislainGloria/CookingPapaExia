@@ -1,8 +1,11 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.28010.2046
+VisualStudioVersion = 15.0.28306.52
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ControllerTest", "ControllerTest\ControllerTest.csproj", "{7C38380C-0F54-471A-9066-071918D73F53}"
+	ProjectSection(ProjectDependencies) = postProject
+		{0882B2E4-3B64-4568-B2B4-40975DFB4F32} = {0882B2E4-3B64-4568-B2B4-40975DFB4F32}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ModelTest", "ModelTest\ModelTest.csproj", "{3B468665-1AC4-4DE9-B9D2-EB2601C3530D}"
 EndProject
@@ -55,6 +58,6 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {F57633A6-B4AA-40A1-88D1-55A9FDA8EBF6}
+		SolutionGuid = {8E324E96-F2C3-443D-A3BA-0FDA1431BD86}
 	EndGlobalSection
 EndGlobal

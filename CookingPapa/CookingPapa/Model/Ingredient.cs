@@ -8,5 +8,8 @@ namespace Model
 {
     class Ingredient
     {
+        public Ingredient()
+        {
+        }
     }
 }

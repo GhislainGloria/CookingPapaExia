@@ -8,6 +8,8 @@ namespace Model
 {
     class Step : ModelRecipe
     {
+#pragma warning disable CS0169 // Le champ 'Step._prepare' n'est jamais utilisé
         private bool _prepare;
+#pragma warning restore CS0169 // Le champ 'Step._prepare' n'est jamais utilisé
     }
 }

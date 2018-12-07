@@ -12,7 +12,7 @@ using Model;
 
 namespace ControllerTest
 {
-    [TestFixture()]
+    //[TestFixture()]
     class testRestaurantMap
     {
            private readonly Site MapSize;

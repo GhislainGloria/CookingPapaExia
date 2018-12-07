@@ -8,6 +8,21 @@
     <RootNamespace>CookingPapa</RootNamespace>
     <AssemblyName>CookingPapa</AssemblyName>
     <TargetFrameworkVersion>v4.7</TargetFrameworkVersion>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
     <DebugSymbols>true</DebugSymbols>
@@ -49,16 +64,16 @@
     <Compile Include="RecipeList.cs" />
     <Compile Include="Step.cs" />
     <Compile Include="StockDAO.cs" />
-    <Compile Include="Table.cs" />
-    <Compile Include="Utensil.cs" />
     <Compile Include="Strategy.cs" />
     <Compile Include="StrategyButler.cs" />
     <Compile Include="StrategyChef.cs" />
     <Compile Include="StrategyCustomers.cs" />
     <Compile Include="StrategyDiver.cs" />
     <Compile Include="StrategyFurnace.cs" />
-    <Compile Include="StrategyheadWaiter.cs" />
+    <Compile Include="StrategyHeadWaiter.cs" />
     <Compile Include="StrategyKitchenClerk.cs" />
+    <Compile Include="Table.cs" />
+    <Compile Include="Utensil.cs" />
     <Compile Include="StrategyPartyLeader.cs" />
     <Compile Include="StrategyRoomClerks.cs" />
     <Compile Include="StrategyStock.cs" />
@@ -69,6 +84,18 @@
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System.Drawing" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.7">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.7 %28x86 et x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>

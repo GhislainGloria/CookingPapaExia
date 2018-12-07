@@ -1,15 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using NUnit.Framework;
+﻿using NUnit.Framework;
 using Controller;
 
 
 namespace ControllerTest
 {
-    [TestFixture()]
     class TimeManagerTest
     {
 
@@ -22,7 +16,7 @@ namespace ControllerTest
 
 		private void success()
 		{
-			Assert.Pass("Test passed");
+			//Assert.Pass("Test passed");
 		}
 
         [Test()]
