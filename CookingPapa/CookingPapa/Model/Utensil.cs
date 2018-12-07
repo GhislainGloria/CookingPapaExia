@@ -6,16 +6,12 @@ using System.Threading.Tasks;
 
 namespace Model
 {
-    class Utensil : ICarriableItem
+    public class Utensil : ICarriableItem
     {
         private bool _isSmallItem;
         private Step _lastUsedFor;
 
-        public Utensil()
-        {
-        }
-
         public bool IsSmallItem { get => _isSmallItem; set => _isSmallItem = value; }
-        public Step LastUsedFor { get => _lastUsedFor; set => _lastUsedFor = value; }
+        internal Step LastUsedFor { get => _lastUsedFor; set => _lastUsedFor = value; }
     }
 }

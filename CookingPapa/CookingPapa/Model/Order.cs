@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Model
 {
-    class Order
+    public class Order
     {
         private Table _table;
         private List<Dish> _recipes;

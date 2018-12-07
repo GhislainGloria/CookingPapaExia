@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Model
 {
-    class Step : ModelRecipe
+    public class Step : ModelStep
     {
 #pragma warning disable CS0169 // Le champ 'Step._prepare' n'est jamais utilisé
         private bool _prepare;

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Model
 {
-    class Dish
+    public class Dish
     {
 #pragma warning disable CS0169 // Le champ 'Dish.prepare' n'est jamais utilisé
         bool Prepare;

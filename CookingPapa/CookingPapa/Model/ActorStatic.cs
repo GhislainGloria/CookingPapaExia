@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Model
 {
-    class ActorStatic : AbstractActor { 
+    public class ActorStatic : AbstractActor { 
     
         public ActorStatic()
         {

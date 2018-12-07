@@ -5,7 +5,7 @@
     <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
     <ProjectGuid>{9BD96A68-45BC-48E4-BF44-822A73F14B7C}</ProjectGuid>
     <OutputType>Library</OutputType>
-    <RootNamespace>CookingPapa</RootNamespace>
+    <RootNamespace>Model</RootNamespace>
     <AssemblyName>CookingPapa</AssemblyName>
     <TargetFrameworkVersion>v4.7</TargetFrameworkVersion>
     <PublishUrl>publish\</PublishUrl>
@@ -50,6 +50,7 @@
     <Compile Include="ActorMobile.cs" />
     <Compile Include="CarriableItemFacory.cs" />
     <Compile Include="ClientSpawner.cs" />
+    <Compile Include="ModelIngredient.cs" />
     <Compile Include="Order.cs" />
     <Compile Include="Counter.cs" />
     <Compile Include="Dish.cs" />
@@ -86,16 +87,8 @@
     <Reference Include="System.Drawing" />
   </ItemGroup>
   <ItemGroup>
-    <BootstrapperPackage Include=".NETFramework,Version=v4.7">
-      <Visible>False</Visible>
-      <ProductName>Microsoft .NET Framework 4.7 %28x86 et x64%29</ProductName>
-      <Install>true</Install>
-    </BootstrapperPackage>
-    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
-      <Visible>False</Visible>
-      <ProductName>.NET Framework 3.5 SP1</ProductName>
-      <Install>false</Install>
-    </BootstrapperPackage>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>
