@@ -25,7 +25,7 @@ namespace Model
 
         public override void SetStrategy(Strategy strategy)
         {
-            throw new NotImplementedException();
+            this.Strategy = strategy;
         }
     }
 }

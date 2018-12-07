@@ -11,7 +11,7 @@ namespace ViewTest
 		private Universe universe = Universe.GetInstance();
 		private MainWindow mainWindow;
 
-		[TestFixtureSetUp()]
+		[SetUp()]
 		public void SetupTest()
 		{
 			mainWindow = new MainWindow(universe);

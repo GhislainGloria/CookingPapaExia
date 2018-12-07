@@ -11,26 +11,22 @@ namespace ModelTest
     class ActorFactoryTest
     {
 
-        [TestFixtureSetUp()]
-        public void SetupTest()
-        {
+        [SetUp()]
 
-        }
 
         [Test()]
         public void TestCreateActor()
         {
             Assert.IsNotNull(ActorFactory.CreateActor("butler"));
             Assert.AreNotSame(ActorFactory.CreateActor("customer"), ActorFactory.CreateActor("butler"));
-            Assert.AreEqual(ActorFactory.CreateActor("customer"), ActorFactory.CreateActor("customer"));
-            
-            
+            Assert.IsInstanceOf(typeof(AbstractActor), ActorFactory.CreateActor("customer"));          
         }
 
-        [TestFixtureTearDown()]
+        [TearDown()]
         public void TearDown()
         {
 
         }
+
     }
 }

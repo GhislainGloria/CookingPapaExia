@@ -1,13 +1,14 @@
-﻿using NUnit.Framework;
-using System;
+﻿using System;
 using Model;
+using NUnit.Framework;
+
 namespace ModelTest
 {
     [TestFixture()]
     public class AbstractActorTest
     {
 
-        [TestFixtureSetUp()]
+        [SetUp()]
 
         [Test()]
         public void TestCallStrategy()
@@ -28,7 +29,7 @@ namespace ModelTest
 
         }
 
-        [TestFixtureTearDown()]     
+        [TearDown()]     
         public void TearDown()
         {
 
