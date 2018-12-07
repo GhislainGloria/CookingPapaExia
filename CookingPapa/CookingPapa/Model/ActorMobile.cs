@@ -22,5 +22,10 @@ namespace Model
         {
             throw new NotImplementedException();
         }
+
+        public override void SetStrategy(Strategy strategy)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

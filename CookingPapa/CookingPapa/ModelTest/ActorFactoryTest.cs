@@ -22,6 +22,7 @@ namespace ModelTest
         {
             Assert.IsNotNull(ActorFactory.CreateActor("butler"));
             Assert.AreNotSame(ActorFactory.CreateActor("customer"), ActorFactory.CreateActor("butler"));
+            Assert.AreEqual(ActorFactory.CreateActor("customer"), ActorFactory.CreateActor("customer"));
             
             
         }

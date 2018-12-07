@@ -4,9 +4,8 @@ using Model;
 namespace ModelTest
 {
     [TestFixture()]
-    public class AbstractActorStaticTest
+    public class AbstractActorTest
     {
-        AbstractActorStatic AbstractActorStatic;
 
         [TestFixtureSetUp()]
 
