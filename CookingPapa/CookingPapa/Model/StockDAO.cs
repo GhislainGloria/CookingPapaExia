@@ -1,4 +1,4 @@
-﻿using MySql.Data.MySqlClient;
+﻿using System.Data.Odbc;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -13,18 +13,26 @@ namespace Model
 
         private static List<ModelIngredient> listIngredients = null;
 
-        private static MySqlConnection connection = new MySqlConnection(getDatabaseString());
+		private static OdbcConnection connection = null;
 
-        public static void initializeStockModel()
+        private static void InitializeStockModel()
         {
-            string query = "SELECT `id_model_ingr`, `nom_ingr`, `inventory-size` FROM `model_ingredient` LEFT JOIN `model_stockage` ON `model_ingredient`.`id_mod_stock` = `model_stockage`.`id_mod_stock`";
+			try {
+				connection = new OdbcConnection(getDatabaseString());            
+			} catch (Exception e) {
+				Console.WriteLine("Impossible de se connecter a la BDD!");
+				Console.WriteLine(e);
+				return;
+			}
+
+            const string query = "SELECT `id_model_ingr`, `nom_ingr`, `inventory-size` FROM `model_ingredient` LEFT JOIN `model_stockage` ON `model_ingredient`.`id_mod_stock` = `model_stockage`.`id_mod_stock`";
 
             connection.Open();
 
             //Create Command
-            MySqlCommand cmd = new MySqlCommand(query, connection);
+			OdbcCommand cmd = new OdbcCommand(query, connection);
             //Create a data reader and Execute the command
-            MySqlDataReader dataReader = cmd.ExecuteReader();
+			OdbcDataReader dataReader = cmd.ExecuteReader();
             //Read the data and store them in the list
             while (dataReader.Read())
             {
@@ -42,7 +50,7 @@ namespace Model
         {
             if (listIngredients == null)
             {
-                initializeStockModel();
+                InitializeStockModel();
             }
 
             foreach (ModelIngredient model in listIngredients)
@@ -55,7 +63,7 @@ namespace Model
                         connection.Open();
 
                         // Création d'une commande SQL en fonction de l'objet connection
-                        MySqlCommand cmd = connection.CreateCommand();
+						OdbcCommand cmd = connection.CreateCommand();
 
                         // Requête SQL
                         cmd.CommandText = "DELETE FROM stock_ingredient WHERE `stock_ingredient`.`idk` = @id";
@@ -69,11 +77,13 @@ namespace Model
                         // Fermeture de la connexion
                         connection.Close();
                     }
-                    catch
+					catch(Exception e)
                     {
-                        // Gestion des erreurs :
-                        // Possibilité de créer un Logger pour les exceptions SQL reçus
-                        // Possibilité de créer une méthode avec un booléan en retour pour savoir si le contact à été ajouté correctement.
+						// Gestion des erreurs :
+						// Possibilité de créer un Logger pour les exceptions SQL reçus
+						// Possibilité de créer une méthode avec un booléan en retour pour savoir si le contact à été ajouté correctement.
+						Console.WriteLine("Could not delete from stock in DB!");
+						Console.WriteLine(e);
                     }
                 }
             }
@@ -86,7 +96,7 @@ namespace Model
 
             if (listIngredients == null)
             {
-                initializeStockModel();
+                InitializeStockModel();
             }
 
             foreach(ModelIngredient model in listIngredients)
@@ -99,7 +109,7 @@ namespace Model
                         connection.Open();
 
                         // Création d'une commande SQL en fonction de l'objet connection
-                        MySqlCommand cmd = connection.CreateCommand();
+						OdbcCommand cmd = connection.CreateCommand();
 
                         // Requête SQL
                         cmd.CommandText = "INSERT INTO stock_ingredient (id, quantite, id_model_ingr) VALUES (@id, @quantite, @id_model_ingr)";
@@ -115,11 +125,13 @@ namespace Model
                         // Fermeture de la connexion
                         connection.Close();
                     }
-                    catch
+					catch(Exception e)
                     {
-                        // Gestion des erreurs :
-                        // Possibilité de créer un Logger pour les exceptions SQL reçus
-                        // Possibilité de créer une méthode avec un booléan en retour pour savoir si le contact à été ajouté correctement.
+						// Gestion des erreurs :
+						// Possibilité de créer un Logger pour les exceptions SQL reçus
+						// Possibilité de créer une méthode avec un booléan en retour pour savoir si le contact à été ajouté correctement.
+						Console.WriteLine("Could not add to stock in DB!");
+						Console.WriteLine(e);
                     }
                 }
             }
@@ -128,48 +140,9 @@ namespace Model
 
         public static void addToStock(List<Ingredient> ingredients)
         {
-
-            if (listIngredients == null)
-            {
-                initializeStockModel();
-            }
-
-            foreach (ModelIngredient model in listIngredients)
-            {
-                foreach (Ingredient ingredient in ingredients)
-                {
-                    if (model.Name.Equals(ingredient.Name) && model.InventorySize == ingredient.InventorySize)
-                    {
-                      try
-                      {
-                            // Ouverture de la connexion SQL
-                            connection.Open();
-
-                            // Création d'une commande SQL en fonction de l'objet connection
-                            MySqlCommand cmd = connection.CreateCommand();
-
-                            // Requête SQL
-                            cmd.CommandText = "INSERT INTO stock_ingredient (quantite, id_model_ingr) VALUES (@quantite, @id_model_ingr)";
-
-                            // utilisation de l'objet contact passé en paramètre
-                            cmd.Parameters.AddWithValue("@quantite", 1);
-                            cmd.Parameters.AddWithValue("@id_model_ingr", model.ID);
-
-                            // Exécution de la commande SQL
-                            cmd.ExecuteNonQuery();
-
-                            // Fermeture de la connexion
-                            connection.Close();
-                        }
-                        catch
-                        {
-                            // Gestion des erreurs :
-                            // Possibilité de créer un Logger pour les exceptions SQL reçus
-                            // Possibilité de créer une méthode avec un booléan en retour pour savoir si le contact à été ajouté correctement.
-                        }
-                    }
-                } // Possibilité de créer une méthode avec un booléan en retour pour savoir si le contact à été ajouté correctement.
-            }
+			foreach(Ingredient i in ingredients) {
+				addToStock(i);
+			}
         }
 
 
