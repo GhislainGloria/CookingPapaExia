@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Controller
+namespace Model
 {
-    class StrategyButler : Strategy
+    class StrategyKitchenClerk : Strategy
     {
 
         public void Behavior()

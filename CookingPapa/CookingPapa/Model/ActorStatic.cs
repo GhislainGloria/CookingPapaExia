@@ -6,15 +6,26 @@ using System.Threading.Tasks;
 
 namespace Model
 {
-    class ActorStatic : AbstractActorStatic { 
+    class ActorStatic : AbstractActor { 
     
         public ActorStatic()
         {
+			
         }
 
-        public void CallStrategy()
+        override public void CallStrategy()
         {
-           
+			throw new NotImplementedException();
+        }
+
+		public override void NextTick()
+		{
+			throw new NotImplementedException();
+		}
+
+        public override void SetStrategy(Strategy strategy)
+        {
+            throw new NotImplementedException();
         }
     }
 }

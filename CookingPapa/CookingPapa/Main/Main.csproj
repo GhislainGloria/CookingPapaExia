@@ -1,10 +1,10 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
     <ProjectGuid>{A3764707-8A17-4BD6-9211-A047F4F36652}</ProjectGuid>
-    <OutputType>Exe</OutputType>
+    <OutputType>WinExe</OutputType>
     <RootNamespace>Main</RootNamespace>
     <AssemblyName>Main</AssemblyName>
     <TargetFrameworkVersion>v4.7</TargetFrameworkVersion>
@@ -26,10 +26,25 @@
     <WarningLevel>4</WarningLevel>
     <PlatformTarget>x86</PlatformTarget>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
   <ItemGroup>
     <Compile Include="Main*.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\ControllerTest\ControllerTest.csproj">
+      <Project>{7c38380c-0f54-471a-9066-071918d73f53}</Project>
+      <Name>ControllerTest</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ModelTest\ModelTest.csproj">
+      <Project>{3b468665-1ac4-4de9-b9d2-eb2601c3530d}</Project>
+      <Name>ModelTest</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ViewTest\ViewTest.csproj">
+      <Project>{1fca6071-4870-41f1-8be6-ea22b7236ccd}</Project>
+      <Name>ViewTest</Name>
+    </ProjectReference>
     <ProjectReference Include="..\View\View.csproj">
       <Project>{D1BB0DA6-C52B-4E64-9214-34F71F4494DC}</Project>
       <Name>View</Name>

@@ -4,10 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Controller
+namespace Model
 {
-    class StrategyFurnace : Strategy
+    class StrategyCustomers : Strategy
     {
+
 
         public void Behavior()
         {
