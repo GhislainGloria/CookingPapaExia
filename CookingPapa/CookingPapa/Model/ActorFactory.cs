@@ -53,7 +53,7 @@ namespace Model
                         return actorStatic;
                     }
 
-                case "Dishwasher":
+                case "dishwasher":
                     {
                         ActorStatic actorStatic = new ActorStatic();
                         StrategyDishwasher strategyDiver = new StrategyDishwasher();
@@ -61,7 +61,7 @@ namespace Model
                         return actorStatic;
                     }
 
-                case "Washingmachine":
+                case "washingmachine":
                     {
                         ActorStatic actorStatic = new ActorStatic();
                         StrategyWashingmachine strategyDiver = new StrategyWashingmachine();
