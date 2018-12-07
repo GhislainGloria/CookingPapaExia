@@ -53,6 +53,24 @@ namespace Model
                         return actorStatic;
                     }
 
+                case "Dishwasher":
+                    {
+                        ActorStatic actorStatic = new ActorStatic();
+                        StrategyDishwasher strategyDiver = new StrategyDishwasher();
+                        actorStatic.SetStrategy(strategyDiver);
+                        return actorStatic;
+                    }
+
+                case "Washingmachine":
+                    {
+                        ActorStatic actorStatic = new ActorStatic();
+                        StrategyWashingmachine strategyDiver = new StrategyWashingmachine();
+                        actorStatic.SetStrategy(strategyDiver);
+                        return actorStatic;
+                    }
+
+
+
                 case "headwaiter":
                     {
                         ActorMobile actorMobile = new ActorMobile();
