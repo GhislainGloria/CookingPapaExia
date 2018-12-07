@@ -3,14 +3,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using View;
 
-namespace Controller
+namespace Model
 {
-    class Contract
+    class StrategyChef : Strategy
     {
 
-        Universe univers;
-        MainWindow view;  
+        public void Behavior()
+        {
+            // TODO implement here
+
+        }
     }
 }

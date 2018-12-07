@@ -6,10 +6,11 @@ using System.Threading.Tasks;
 
 namespace Controller
 {
-    class Dimension
+   public  class Dimension
     {
 
         int x;
         int y; 
+
     }
 }

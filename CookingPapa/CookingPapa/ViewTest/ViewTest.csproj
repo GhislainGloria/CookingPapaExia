@@ -30,9 +30,11 @@
       <HintPath>..\packages\NUnit.2.6.4\lib\nunit.framework.dll</HintPath>
     </Reference>
     <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Drawing" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ViewTest.cs" />
+    <Compile Include="TextureFactoryTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -41,6 +43,10 @@
     <ProjectReference Include="..\View\View.csproj">
       <Project>{D1BB0DA6-C52B-4E64-9214-34F71F4494DC}</Project>
       <Name>View</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Controller\Controller.csproj">
+      <Project>{0882B2E4-3B64-4568-B2B4-40975DFB4F32}</Project>
+      <Name>Controller</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />

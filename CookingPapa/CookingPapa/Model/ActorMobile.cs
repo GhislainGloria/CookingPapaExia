@@ -6,16 +6,21 @@ using System.Threading.Tasks;
 
 namespace Model
 {
-    public class ActorMobile : IMobile
+	public class ActorMobile : AbstractActor
     {
-        public void CallStrategy()
+        public override void CallStrategy()
         {
-
+			throw new NotImplementedException();
         }
 
-        public void Move()
+		public override void NextTick()
+		{
+			throw new NotImplementedException();
+		}
+
+		public void Move()
         {
-            throw new System.NotImplementedException();
+            throw new NotImplementedException();
         }
     }
 }

@@ -6,7 +6,14 @@ using System.Threading.Tasks;
 
 namespace Model
 {
-    public class Position
+    class StrategyRoomClerks : Strategy
     {
+
+
+        public void Behavior()
+        {
+            // TODO implement here
+
+        }
     }
 }

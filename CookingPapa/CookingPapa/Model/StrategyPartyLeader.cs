@@ -4,18 +4,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Controller
+namespace Model
 {
-    class StrategyWorkingFridge : Strategy
+    class StrategyPartyLeader : Strategy
     {
-
-
-
 
         public void Behavior()
         {
             // TODO implement here
-           
+
         }
     }
 }
