@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Model
 {
-    abstract class ModelRecipe
+    public abstract class ModelRecipe
     {
         private List<Step> _steps;
         private string _name;

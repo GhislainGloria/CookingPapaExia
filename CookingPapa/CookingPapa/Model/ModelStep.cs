@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Model
 {
-    abstract class ModelStep
+    public abstract class ModelStep
     {
     }
 }

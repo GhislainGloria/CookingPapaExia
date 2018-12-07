@@ -9,6 +9,11 @@ namespace Model
 {
 	public class ICarriableItem : AbstractActor
     {
+        private string name;
+        private int iD;
+        private int inventorySize;
+        private static int instance;
+
 
         public override void CallStrategy()
         {
@@ -24,5 +29,9 @@ namespace Model
         {
             throw new NotImplementedException();
         }
+        public string Name { get => name; set => name = value; }
+        public int ID { get => iD; set => iD = value; }
+        public int InventorySize { get => inventorySize; set => inventorySize = value; }
+        public static int Instance { get => instance; set => instance = value; }
     }
 }

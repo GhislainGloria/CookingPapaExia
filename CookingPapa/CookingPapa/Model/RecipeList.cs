@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Model
 {
-    class RecipeList
+    public class RecipeList
     {
 #pragma warning disable CS0169 // Le champ 'RecipeList._carte' n'est jamais utilisé
         List<Dish> _carte;
