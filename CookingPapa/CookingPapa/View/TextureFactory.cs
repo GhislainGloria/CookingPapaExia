@@ -48,7 +48,7 @@ namespace View
 				return Brushes[BrushName];
 			}
 
-			return MissingBrush;         
+			return MissingBrush;
         }
     }
 }
