@@ -7,7 +7,7 @@ using Model;
 
 namespace Controller
 {
-    class RestaurantMaps
+   public class RestaurantMap
     {
 
         Dimension dim;

@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace Controller
 {
-    class Universe
+   public  class Universe
     {
 
-        RestaurantMaps plan;
+        RestaurantMap map;
         TimeManager time;
         private float _DeltaTime;
         private Universe _univers;

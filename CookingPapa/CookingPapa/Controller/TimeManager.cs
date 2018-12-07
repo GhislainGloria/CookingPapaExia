@@ -11,12 +11,12 @@ namespace Controller
 
         public delegate void VoidDel();
         
-        int Hours;
-        int Minutes;
-        int Seconde;
-        int Days;
-        int Month;
-        int Year;
+        int Hours { get; set; }
+        int Minutes { get; set; }
+        int Seconde { get; set; }
+        int Days { get; set; }
+        int Month { get; set; }
+        int Year { get; set; }
 
         public void Forward()
         {
@@ -24,12 +24,18 @@ namespace Controller
         }
 
         public event VoidDel NextDay;
+/*
+        Days ++; 
 
-
+        if(Days > 7)
+            {
+            Days =>0; 
+            }
+ */
         public event VoidDel Opened;
 
 
-         public event VoidDel Closed;
+        public event VoidDel Closed;
         
 
     }
