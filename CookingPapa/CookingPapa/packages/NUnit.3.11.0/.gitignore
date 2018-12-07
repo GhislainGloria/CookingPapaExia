@@ -3,3 +3,7 @@
 /LICENSE.txt
 /NOTICES.txt
 /NUnit.3.11.0.nupkg
+*.txt
+*.signature.p7s
+*.md
+*.nupkg

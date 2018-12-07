@@ -1,4 +1,4 @@
-/.signature.p7s
-/CHANGES.txt
-/LICENSE.txt
 /NUnit.Extension.NUnitProjectLoader.3.6.0.nupkg
+*.txt
+*.signature.p7s
+*.nupkg

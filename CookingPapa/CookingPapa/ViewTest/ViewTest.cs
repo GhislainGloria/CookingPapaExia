@@ -5,7 +5,7 @@ using Controller;
 
 namespace ViewTest
 {
-    [TestFixture()]
+    //[TestFixture()]
     public class ViewTest
     {
 		private Universe universe = Universe.GetInstance();

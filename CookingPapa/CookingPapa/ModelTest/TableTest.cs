@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace ModelTest
 {
-    [TestFixture()]
+    //[TestFixture()]
     public class TableTest
     {
         GroupActor actors = new GroupActor();

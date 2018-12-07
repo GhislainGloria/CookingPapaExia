@@ -31,7 +31,6 @@
     <Reference Include="System.Drawing" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Dimension.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RestaurantMap.cs" />
     <Compile Include="ThreadPool.cs" />

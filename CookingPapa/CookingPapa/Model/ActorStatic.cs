@@ -20,7 +20,7 @@ namespace Model
 
 		public override void NextTick()
 		{
-			throw new NotImplementedException();
+			this.Strategy.Behavior(); // Todo add this
 		}
 
         public override void SetStrategy(Strategy strategy)

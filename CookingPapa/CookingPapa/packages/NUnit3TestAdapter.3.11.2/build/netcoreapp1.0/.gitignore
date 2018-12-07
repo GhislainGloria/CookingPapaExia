@@ -1,3 +1,4 @@
+/NUnit3.TestAdapter.dll
 /NUnit3.TestAdapter.pdb
 /NUnit3TestAdapter.props
-*.dll
+/nunit.engine.netstandard.dll
