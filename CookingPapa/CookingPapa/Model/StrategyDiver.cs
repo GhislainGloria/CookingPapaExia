@@ -7,13 +7,10 @@ using System.Threading.Tasks;
 namespace Model
 {
     class StrategyDiver : Strategy
-    {
-
-
-        public void Behavior()
-        {
-            // TODO implement here
-
-        }
-    }
+    {      
+		public override void Behavior(IActor self, List<IActor> all)
+		{
+			
+		}
+	}
 }

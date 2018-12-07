@@ -6,13 +6,8 @@ using System.Threading.Tasks;
 
 namespace Model
 {
-    public class Strategy: IStrategy
+	public abstract class Strategy: IStrategy
     {
-
-        public void Behavior()
-        {
-            // TODO implement here
-
-        }
+		public abstract void Behavior(IActor self, List<IActor> all);
     }
 }

@@ -9,7 +9,7 @@ namespace Main
     public class MainClass
     {
 		public static void Main(string[] args)
-        {
+        {         
 			Universe universe = Universe.GetInstance();
 			MainWindow window = new MainWindow(universe);
 

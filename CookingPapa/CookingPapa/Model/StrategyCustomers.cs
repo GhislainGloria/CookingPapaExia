@@ -8,12 +8,9 @@ namespace Model
 {
     class StrategyCustomers : Strategy
     {
-
-
-        public void Behavior()
-        {
-            // TODO implement here
-
-        }
-    }
+		public override void Behavior(IActor self, List<IActor> all)
+		{
+			throw new NotImplementedException();
+		}
+	}
 }

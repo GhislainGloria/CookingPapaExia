@@ -15,12 +15,12 @@ namespace Model
 
         public override void CallStrategy()
         {
-			Strategy.Behavior();
+			//Strategy.Behavior();
         }
 
-		public override void NextTick()
+		public override void NextTick(List<IActor> AllActors)
 		{
-			CallStrategy();
+			Strategy.Behavior(this, AllActors);
 		}
 
 		public void Move()

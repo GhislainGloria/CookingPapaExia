@@ -11,47 +11,38 @@ namespace Model
 
         public static IActor CreateActor(string type)
         {
+			ActorStatic actorStatic = new ActorStatic();
+			ActorMobile actorMobile = new ActorMobile();
+			actorMobile.Name = type;
+			actorStatic.Name = type;
+
             switch(type)
             {
                 case "butler":
-                    {
-                        ActorStatic actorStatic = new ActorStatic();
-                        StrategyButler strategyButler = new StrategyButler();
-                        actorStatic.SetStrategy(strategyButler);
-                        return actorStatic;
-                    }
+                    StrategyButler strategyButler = new StrategyButler();
+                    actorStatic.SetStrategy(strategyButler);
+					actorStatic.Name = "butler";
+                    return actorStatic;
 
                 case "chef":
-                    {
-                        ActorStatic actorStatic = new ActorStatic();
-                        StrategyChef strategyChef = new StrategyChef();
-                        actorStatic.SetStrategy(strategyChef);
-                        return actorStatic;
-                    }
-
+					StrategyChef strategyChef = StrategyChef.getInstance();
+                    actorStatic.SetStrategy(strategyChef);
+                    return actorStatic;
+               
                 case "customer":
-                {
-                    ActorMobile actorMobile = new ActorMobile();
                     StrategyCustomers strategyCustomers = new StrategyCustomers();
                     actorMobile.SetStrategy(strategyCustomers);
                     return actorMobile;
-                }
 
                 case "diver":
-                    {
-                        ActorMobile actorMobile = new ActorMobile();
-                        StrategyDiver strategyDiver = new StrategyDiver();
-                        actorMobile.SetStrategy(strategyDiver);
-                        return actorMobile;
-                    }
+                    StrategyDiver strategyDiver = new StrategyDiver();
+                    actorMobile.SetStrategy(strategyDiver);
+                    return actorMobile;
 
                 case "furnace":
-                    {
-                        ActorStatic actorStatic = new ActorStatic();
-                        StrategyFurnace strategyDiver = new StrategyFurnace();
-                        actorStatic.SetStrategy(strategyDiver);
-                        return actorStatic;
-                    }
+                    StrategyFurnace strategyFurnace = new StrategyFurnace();
+					actorStatic.SetStrategy(strategyFurnace);
+                    return actorStatic;
 
                 case "dishwasher":
                     {
@@ -72,70 +63,46 @@ namespace Model
 
 
                 case "headwaiter":
-                    {
-                        ActorMobile actorMobile = new ActorMobile();
-                        StrategyHeadWaiter strategyHeadWaiter = new StrategyHeadWaiter();
-                        actorMobile.SetStrategy(strategyHeadWaiter);
-                        return actorMobile;
-                    }
+                    StrategyHeadWaiter strategyHeadWaiter = new StrategyHeadWaiter();
+                    actorMobile.SetStrategy(strategyHeadWaiter);
+                    return actorMobile;
 
                 case "kitchenclerk":
-                    {
-                        ActorMobile actorMobile = new ActorMobile();
-                        StrategyKitchenClerk strategyKitchenClerk = new StrategyKitchenClerk();
-                        actorMobile.SetStrategy(strategyKitchenClerk);
-                        return actorMobile;
-                    }
+                    StrategyKitchenClerk strategyKitchenClerk = new StrategyKitchenClerk();
+                    actorMobile.SetStrategy(strategyKitchenClerk);
+                    return actorMobile;
 
                 case "partyleader":
-                    {
-                        ActorMobile actorMobile = new ActorMobile();
-                        StrategyPartyLeader strategyPartyLeader = new StrategyPartyLeader();
-                        actorMobile.SetStrategy(strategyPartyLeader);
-                        return actorMobile;
-                    }
+                    StrategyPartyLeader strategyPartyLeader = new StrategyPartyLeader();
+                    actorMobile.SetStrategy(strategyPartyLeader);
+                    return actorMobile;
 
                 case "roomclerks":
-                    {
-                        ActorMobile actorMobile = new ActorMobile();
-                        StrategyRoomClerks strategyRoomClerks = new StrategyRoomClerks();
-                        actorMobile.SetStrategy(strategyRoomClerks);
-                        return actorMobile;
-                    }
+                    StrategyRoomClerks strategyRoomClerks = new StrategyRoomClerks();
+                    actorMobile.SetStrategy(strategyRoomClerks);
+                    return actorMobile;
 
                 case "stock":
-                    {
-                        ActorStatic actorStatic = new ActorStatic();
-                        StrategyStock strategyStock = new StrategyStock();
-                        actorStatic.SetStrategy(strategyStock);
-                        return actorStatic;
-                    }
+                    StrategyStock strategyStock = new StrategyStock();
+                    actorStatic.SetStrategy(strategyStock);
+                    return actorStatic;
 
                 case "waiter":
-                    {
-                        ActorMobile actorMobile = new ActorMobile();
-                        StrategyWaiter strategyWaiter = new StrategyWaiter();
-                        actorMobile.SetStrategy(strategyWaiter);
-                        return actorMobile;
-                    }
+                    StrategyWaiter strategyWaiter = new StrategyWaiter();
+                    actorMobile.SetStrategy(strategyWaiter);
+                    return actorMobile;
 
                 case "workingfridge":
-                    {
-                        ActorMobile actorMobile = new ActorMobile();
-                        StrategyWorkingFridge strategyWorkingFridge = new StrategyWorkingFridge();
-                        actorMobile.SetStrategy(strategyWorkingFridge);
-                        return actorMobile;
-                    }
+                    StrategyWorkingFridge strategyWorkingFridge = new StrategyWorkingFridge();
+                    actorMobile.SetStrategy(strategyWorkingFridge);
+                    return actorMobile;
 
                 default:
-                {
                      Console.WriteLine("Cet acteur n'existe pas");
-                       return null;
-                }
+                     return null;
             }
-            
-
-            
+            // => end switch
         }
+        // => CreateActor
     }
 }

@@ -19,7 +19,7 @@ namespace Model
         IStrategy Strategy { get; set; }
 
         void CallStrategy();
-        void NextTick();
+		void NextTick(List<IActor> AllActors);
     }
 
     

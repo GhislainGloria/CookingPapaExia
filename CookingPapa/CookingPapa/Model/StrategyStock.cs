@@ -7,15 +7,10 @@ using System.Threading.Tasks;
 namespace Model
 {
     class StrategyStock : Strategy
-    {
-
-
-        public void Behavior()
-        {
-            // TODO implement here
-
-        }
-
-
-    }
+    {      
+		public override void Behavior(IActor self, List<IActor> all)
+		{
+			throw new NotImplementedException();
+		}
+	}
 }

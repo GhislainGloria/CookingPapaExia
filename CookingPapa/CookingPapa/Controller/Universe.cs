@@ -17,10 +17,7 @@ namespace Controller
         ThreadPool threadPool; 
 
 		private Universe() {
-			Map = new RestaurantMap
-			{
-				MapSize = new Size(100, 50)
-			};
+			Map = new RestaurantMap();
 			time = new TimeManager();
 		}
 
