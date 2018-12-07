@@ -18,9 +18,9 @@ namespace Model
 			throw new NotImplementedException();
         }
 
-		public override void NextTick()
+		public override void NextTick(List<IActor> actors)
 		{
-			this.Strategy.Behavior(); // Todo add this
+			//this.Strategy.Behavior(); // Todo add this
 		}
 
         public override void SetStrategy(Strategy strategy)

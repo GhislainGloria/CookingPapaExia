@@ -6,12 +6,18 @@ using System.Threading.Tasks;
 
 namespace Model
 {
-    class StrategyChef : Strategy
+	public class StrategyChef : Strategy
     {
+		private static StrategyChef Instance = new StrategyChef();
+		public static StrategyChef getInstance()
+		{
+			return Instance;
+		}
 
-        public void Behavior()
+		private StrategyChef() {}
+        
+		public override void Behavior(IActor actor, List<IActor> actors)
         {
-            // TODO implement here
 
         }
     }

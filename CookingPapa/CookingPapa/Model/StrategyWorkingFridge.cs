@@ -6,16 +6,11 @@ using System.Threading.Tasks;
 
 namespace Model
 {
-    class StrategyWorkingFridge : Strategy
-    {
-
-
-
-
-        public void Behavior()
-        {
-            // TODO implement here
-           
-        }
-    }
+	class StrategyWorkingFridge : Strategy
+	{
+		public override void Behavior(IActor self, List<IActor> all)
+		{
+			throw new NotImplementedException();
+		}
+	}
 }

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Windows.Forms;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Text;
@@ -12,15 +13,33 @@ namespace Controller
 
 		public Size MapSize;
 		public List<IActor> Actors { get; set; }
-		protected Dictionary<string, Point> CachedDictionnary = new Dictionary<string, Point>();
+		protected Dictionary<string, Point> CachedDictionnary;
 
 		public RestaurantMap()
 		{
 			Actors = new List<IActor>();
-			IActor testActor = ActorFactory.CreateActor("butler");
-			testActor.Name = "bibi";
-			testActor.Position = new Point(10, 10);
-			Actors.Add(testActor);
+            CachedDictionnary = new Dictionary<string, Point>();
+
+			if (MessageBox.Show(
+				"Cliquez sur Oui pour la cuisine, Non pour la salle",
+				"Sélection de la salle", 
+				MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+				// Load the kitchen map
+				MapSize = new Size(50, 50);
+
+				IActor actor = ActorFactory.CreateActor("chef");
+				actor.Position = new Point(10, 10);
+				Actors.Add(actor);
+
+				actor = ActorFactory.CreateActor("diver");
+				actor.Position = new Point(10, 20);
+				Actors.Add(actor);
+            }
+            else
+            {
+                // Load the room map
+            }
 		}
         
 		public IActor GetClosest(IActor CurrentActor, string ActorName)
@@ -41,7 +60,7 @@ namespace Controller
 		{
 			foreach (IActor actor in Actors)
 			{
-				actor.NextTick();
+				actor.NextTick(Actors);
 			}
 		}
     }
