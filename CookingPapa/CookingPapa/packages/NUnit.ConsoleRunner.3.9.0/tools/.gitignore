@@ -6,3 +6,4 @@
 /nunit-agent-x86.exe.config
 /nunit-agent.exe
 /nunit-agent.exe.config
+*.dll
