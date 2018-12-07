@@ -6,3 +6,4 @@
 /nunit.nuget.addins
 /nunit3-console.exe
 /nunit3-console.exe.config
+*.dll
