@@ -19,6 +19,7 @@ namespace Model
         IStrategy Strategy { get; set; }
 
         void CallStrategy();
+        void SetStrategy(Strategy strategy);
         void NextTick();
     }
 

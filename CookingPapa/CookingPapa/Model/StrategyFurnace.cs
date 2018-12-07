@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Model
 {
-    class StrategyFurnace : Strategy
+    public class StrategyFurnace : Strategy
     {
 
         public void Behavior()

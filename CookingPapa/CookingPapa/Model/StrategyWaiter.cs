@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Model
 {
-    class StrategyWaiter : Strategy
+    public class StrategyWaiter : Strategy
     {
 
 

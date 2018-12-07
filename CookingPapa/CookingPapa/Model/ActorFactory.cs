@@ -9,7 +9,7 @@ namespace Model
     public static class ActorFactory
     { 
 
-        public static IActor CreateActor(string type)
+        public static AbstractActor CreateActor(string type)
         {
             switch(type)
             {
@@ -30,12 +30,12 @@ namespace Model
                     }
 
                 case "customer":
-                {
-                    ActorMobile actorMobile = new ActorMobile();
-                    StrategyCustomers strategyCustomers = new StrategyCustomers();
-                    actorMobile.SetStrategy(strategyCustomers);
-                    return actorMobile;
-                }
+                    {
+                        ActorMobile actorMobile = new ActorMobile();
+                        StrategyCustomers strategyCustomers = new StrategyCustomers();
+                        actorMobile.SetStrategy(strategyCustomers);
+                        return actorMobile;
+                    }
 
                 case "diver":
                     {

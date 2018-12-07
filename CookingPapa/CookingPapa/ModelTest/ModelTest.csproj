@@ -35,8 +35,9 @@
     <Reference Include="System" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AbstractActorTest.cs" />
     <Compile Include="ActorFactoryTest.cs" />
+    <Compile Include="ActorMobileTest.cs" />
+    <Compile Include="ActorStaticTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Model\Model.csproj">
