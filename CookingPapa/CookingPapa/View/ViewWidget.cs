@@ -1,16 +1,45 @@
-﻿using System.Windows.Forms;
+﻿using System.Collections.Generic;
+using System.Windows.Forms;
 using System.Drawing;
+using Controller;
+using System;
 
 namespace View
 {
     public class ViewWidget
     {
-        public PictureBox PictureBox { get; set; }
+		private int TileSize;
+		private const int ViewWidth = 800;
+		private const int ViewHeight = 600;
+		private Size WorldDimensions;
+		private Brush TileBrush;
+		private RestaurantMap _Model;
 
+        public PictureBox PictureBox { get; set; }
+		public RestaurantMap Model 
+		{
+			get { return _Model; }
+			set {
+				_Model = value;
+				WorldDimensions = _Model.MapSize;
+				TileSize = Math.Min(
+					ViewWidth / _Model.MapSize.Width,
+					ViewHeight / _Model.MapSize.Height
+				);
+				TextureFactory.TileDimension = TileSize;
+			}
+		}
+
+
+        /**
+         * Constructor
+         */
         public ViewWidget()
         {
             PictureBox = new PictureBox();
+			PictureBox.Size = new Size(ViewWidth, ViewHeight);
             PictureBox.Paint += new PaintEventHandler(this.PaintPictureBox);
+
         }
 
         /**
@@ -20,13 +49,24 @@ namespace View
         {
             Graphics g = e.Graphics;
 
-            // Draw a string on the PictureBox.
-            g.DrawString("This is a diagonal line drawn on the control",
-                null, System.Drawing.Brushes.Blue, new Point(30, 30));
+			// We draw the loor (background and majority of tiles)
+			TileBrush = TextureFactory.CreateBrush("tile");
+			for (int i = 0; i < WorldDimensions.Width; i++) {
+				for (int j = 0; j < WorldDimensions.Height; j++) {
+					g.FillRectangle(TileBrush, new Rectangle(i * TileSize, j * TileSize, TileSize, TileSize));
+				}
+			}
 
-            // Draw a line in the PictureBox.
-            g.DrawLine(System.Drawing.Pens.Red, PictureBox.Left, PictureBox.Top,
-                PictureBox.Right, PictureBox.Bottom);
+            // We draw the actors above the floor
+			foreach (KeyValuePair<string, Point> actor in Model.DisplayableData()) {
+				TileBrush = TextureFactory.CreateBrush(actor.Key);
+				g.FillRectangle(
+					TileBrush,
+					new Rectangle(actor.Value.X * TileSize, actor.Value.Y * TileSize, TileSize, TileSize)
+				);
+			}
+			// => PaintPictureBox
+
         }
     }
 }

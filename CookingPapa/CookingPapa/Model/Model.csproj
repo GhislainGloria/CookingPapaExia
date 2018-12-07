@@ -30,7 +30,6 @@
     <StartupObject />
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="AbstractActorStatic.cs" />
     <Compile Include="ActorFactory.cs" />
     <Compile Include="ActorStatic.cs" />
     <Compile Include="ActorMobile.cs" />
@@ -47,12 +46,29 @@
     <Compile Include="IMobile.cs" />
     <Compile Include="ModelRecipe.cs" />
     <Compile Include="ModelStep.cs" />
-    <Compile Include="Position.cs" />
     <Compile Include="RecipeList.cs" />
     <Compile Include="Step.cs" />
     <Compile Include="StockDAO.cs" />
     <Compile Include="Table.cs" />
     <Compile Include="Utensil.cs" />
+    <Compile Include="Strategy.cs" />
+    <Compile Include="StrategyButler.cs" />
+    <Compile Include="StrategyChef.cs" />
+    <Compile Include="StrategyCustomers.cs" />
+    <Compile Include="StrategyDiver.cs" />
+    <Compile Include="StrategyFurnace.cs" />
+    <Compile Include="StrategyheadWaiter.cs" />
+    <Compile Include="StrategyKitchenClerk.cs" />
+    <Compile Include="StrategyPartyLeader.cs" />
+    <Compile Include="StrategyRoomClerks.cs" />
+    <Compile Include="StrategyStock.cs" />
+    <Compile Include="StrategyWaiter.cs" />
+    <Compile Include="StrategyWorkingFridge.cs" />
+    <Compile Include="IStrategy.cs" />
+    <Compile Include="AbstractActor.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System.Drawing" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>
