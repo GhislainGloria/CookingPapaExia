@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace Model
 {
-    public class Step : ModelStep
+    class Recipe : ModelRecipe
     {
-        private bool _prepare;
+
     }
 }

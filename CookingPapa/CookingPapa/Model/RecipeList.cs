@@ -8,8 +8,6 @@ namespace Model
 {
     public class RecipeList
     {
-#pragma warning disable CS0169 // Le champ 'RecipeList._carte' n'est jamais utilisé
-        List<Dish> _carte;
-#pragma warning restore CS0169 // Le champ 'RecipeList._carte' n'est jamais utilisé
+        List<Recipe> _carte;
     }
 }
