@@ -48,8 +48,8 @@ namespace Model
                 case "furnace":
                     {
                         ActorStatic actorStatic = new ActorStatic();
-                        StrategyFurnace strategyDiver = new StrategyFurnace();
-                        actorStatic.SetStrategy(strategyDiver);
+                        StrategyFurnace strategyFurnace = new StrategyFurnace();
+                        actorStatic.SetStrategy(strategyFurnace);
                         return actorStatic;
                     }
 

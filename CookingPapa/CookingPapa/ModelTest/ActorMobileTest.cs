@@ -2,6 +2,7 @@
 using NUnit.Framework;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,29 +11,37 @@ namespace ModelTest
 {
     class ActorMobileTest
     {
-        ActorMobile actorMobile;
 
         [SetUp()]
-        public void SetUp()
-        {
-            actorMobile = new ActorMobile();
-        }
-        
+
 
         [Test()]
         public void CallStrategyTest()
         {
-            //Assert.actorMobile.CallStrategy();
+            
         }
 
         public void NextTickTest()
         {
-            
+          
         }
 
-        public void MoveTest()
+        public void Move()
         {
-            AbstractActor butler = ActorFactory.CreateActor("butler");
+            ActorMobile butler = (ActorMobile)ActorFactory.CreateActor("butler");
+            IActor furnace = ActorFactory.CreateActor("furnace");
+            butler.Position = new Point(10, 20);
+            furnace.Position = new Point(60, 40);
+            Assert.AreNotEqual(butler.Position, furnace.Position);
+            butler.Move();
+            Assert.AreEqual(butler.Position, furnace.Position);
+            
+
+        }
+
+        public void SetStrategyTest(Strategy strategy)
+        {
+            
         }
 
         [TearDown()]
@@ -41,4 +50,3 @@ namespace ModelTest
 
         }
     }
-}
