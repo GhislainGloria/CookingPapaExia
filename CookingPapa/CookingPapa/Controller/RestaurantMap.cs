@@ -28,11 +28,11 @@ namespace Controller
 				// Load the kitchen map
 				MapSize = new Size(50, 50);
 
-				IActor actor = ActorFactory.CreateActor("chef");
+				IActor actor = ActorFactory.CreateActor("chef"); // Immobile
 				actor.Position = new Point(10, 10);
 				Actors.Add(actor);
 
-				actor = ActorFactory.CreateActor("diver");
+				actor = ActorFactory.CreateActor("diver"); // Mobile
 				actor.Position = new Point(10, 20);
 				Actors.Add(actor);
             }

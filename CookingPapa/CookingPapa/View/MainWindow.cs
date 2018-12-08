@@ -9,6 +9,8 @@ namespace View
     {
         protected ViewWidget ViewWidget;
 		protected NumericUpDown TimeSlider;
+		public delegate void VoidIntDel(int NewMultiplier);   
+		public event VoidIntDel TimeScaleChanged; 
 
 		public MainWindow(Universe model)
         {
@@ -16,7 +18,7 @@ namespace View
             TimeSlider = new NumericUpDown
             {
                 Maximum = 10,
-                Minimum = 0
+                Minimum = 1
             };
 
 			ViewWidget.Model = model.Map;
@@ -24,9 +26,22 @@ namespace View
 			TimeSlider.Location = new Point(800, 0);
 			TimeSlider.Value = 1;
 
+			TimeSlider.ValueChanged += TriggerTimeScaleChangedEvent;
+
 
             this.Controls.Add(ViewWidget.PictureBox);
             this.Controls.Add(TimeSlider);
         }
+
+		private void TriggerTimeScaleChangedEvent(object sender, EventArgs e)
+		{
+			Console.WriteLine("Scale changed to {0}", (int)TimeSlider.Value);
+			TimeScaleChanged((int)TimeSlider.Value);
+		}
+
+		public void RedrawView()
+		{
+			ViewWidget.PictureBox.Refresh();
+		}
     }
 }

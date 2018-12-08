@@ -82,6 +82,9 @@
     <Compile Include="StrategyWorkingFridge.cs" />
     <Compile Include="IStrategy.cs" />
     <Compile Include="AbstractActor.cs" />
+    <Compile Include="Recipe.cs" />
+    <Compile Include="StrategyDishwasher.cs" />
+    <Compile Include="StrategyWashingmachine.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System.Drawing" />

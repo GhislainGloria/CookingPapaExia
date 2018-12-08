@@ -11,14 +11,18 @@ namespace Main
 		public static void Main(string[] args)
         {         
 			Universe universe = Universe.GetInstance();
-			MainWindow window = new MainWindow(universe);
+			MainWindow window = new MainWindow(universe);         
 
 			Thread mainSimulationThread = new Thread(() =>
 			{
+				int SimulationSpeed = 1000;
+				window.TimeScaleChanged += (int NewScale) => { SimulationSpeed = SimulationSpeed / NewScale; };
+
 				while(true)
 				{
-					Thread.Sleep(1000);
+					Thread.Sleep(SimulationSpeed);
 					universe.NextTick();
+					window.RedrawView();
 				}
 			});
 			mainSimulationThread.Start();

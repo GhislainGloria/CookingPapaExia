@@ -35,7 +35,7 @@ namespace Model
                     return actorMobile;
 
                 case "diver":
-                    StrategyDiver strategyDiver = new StrategyDiver();
+					StrategyDiver strategyDiver = StrategyDiver.GetInstance();
                     actorMobile.SetStrategy(strategyDiver);
                     return actorMobile;
 
@@ -45,22 +45,14 @@ namespace Model
                     return actorStatic;
 
                 case "dishwasher":
-                    {
-                        ActorStatic actorStatic = new ActorStatic();
-                        StrategyDishwasher strategyDiver = new StrategyDishwasher();
-                        actorStatic.SetStrategy(strategyDiver);
-                        return actorStatic;
-                    }
+                    StrategyDishwasher strategyDishwasher = new StrategyDishwasher();
+                    actorStatic.SetStrategy(strategyDishwasher);
+                    return actorStatic;
 
                 case "washingmachine":
-                    {
-                        ActorStatic actorStatic = new ActorStatic();
-                        StrategyWashingmachine strategyDiver = new StrategyWashingmachine();
-                        actorStatic.SetStrategy(strategyDiver);
-                        return actorStatic;
-                    }
-
-
+                    StrategyWashingmachine strategyWashingMachine = new StrategyWashingmachine();
+                    actorStatic.SetStrategy(strategyWashingMachine);
+                    return actorStatic;                  
 
                 case "headwaiter":
                     StrategyHeadWaiter strategyHeadWaiter = new StrategyHeadWaiter();
