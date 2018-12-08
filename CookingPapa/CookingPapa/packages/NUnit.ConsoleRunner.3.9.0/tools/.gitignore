@@ -7,3 +7,4 @@
 /nunit-agent.exe
 /nunit-agent.exe.config
 *.dll
+*.xml

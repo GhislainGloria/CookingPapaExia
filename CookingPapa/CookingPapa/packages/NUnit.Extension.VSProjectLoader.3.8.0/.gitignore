@@ -1,3 +1,4 @@
 /NUnit.Extension.VSProjectLoader.3.8.0.nupkg
 *.txt
 *.signature.p7s
+*.nupkg
