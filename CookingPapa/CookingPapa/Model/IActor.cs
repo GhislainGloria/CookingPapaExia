@@ -19,7 +19,8 @@ namespace Model
         IStrategy Strategy { get; set; }
 
         void CallStrategy();
-		void NextTick(List<IActor> AllActors);
+        void SetStrategy(Strategy strategy);
+        void NextTick(List<IActor> AllActors);
     }
 
     

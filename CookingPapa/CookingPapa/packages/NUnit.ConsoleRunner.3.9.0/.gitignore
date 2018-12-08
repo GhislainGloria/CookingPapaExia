@@ -2,3 +2,4 @@
 /NOTICES.txt
 *.txt
 *.signature.p7s
+*.nupkg

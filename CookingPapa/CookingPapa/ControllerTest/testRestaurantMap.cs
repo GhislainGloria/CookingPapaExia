@@ -13,7 +13,7 @@ using Model;
 namespace ControllerTest
 {
     //[TestFixture()]
-    class testRestaurantMap
+    class TestRestaurantMap
     {
            private readonly Site MapSize;
            public  List<IActor> Actors { get; set; }

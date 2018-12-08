@@ -7,14 +7,30 @@ using System.Threading.Tasks;
 
 namespace Model
 {
-    public class ICarriableItem
+	public class ICarriableItem : AbstractActor
     {
         private string name;
         private int iD;
         private int inventorySize;
         private static int instance;
 
-        public string Name { get => name; set => name = value; }
+
+        public override void CallStrategy()
+        {
+            throw new NotImplementedException();
+        }
+        
+
+        public override void SetStrategy(Strategy strategy)
+        {
+            throw new NotImplementedException();
+        }
+
+		public override void NextTick(List<IActor> AllActors)
+		{
+			throw new NotImplementedException();
+		}
+        
         public int ID { get => iD; set => iD = value; }
         public int InventorySize { get => inventorySize; set => inventorySize = value; }
         public static int Instance { get => instance; set => instance = value; }

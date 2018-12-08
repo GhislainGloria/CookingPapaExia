@@ -1,3 +1,4 @@
 /NUnit.Extension.TeamCityEventListener.1.0.5.nupkg
 *.txt
 *.signature.p7s
+*.nupkg

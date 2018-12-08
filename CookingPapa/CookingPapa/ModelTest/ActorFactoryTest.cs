@@ -11,7 +11,7 @@ namespace ModelTest
     class ActorFactoryTest
     {
 
-        //[SetUp()]
+        [SetUp()]
 
 
         [Test()]
@@ -21,7 +21,7 @@ namespace ModelTest
             Assert.AreNotSame(ActorFactory.CreateActor("customer"), ActorFactory.CreateActor("butler"));
             Assert.IsInstanceOfType(typeof(AbstractActor), ActorFactory.CreateActor("customer"));          
         }
-
+        
         [TearDown()]
         public void TearDown()
         {

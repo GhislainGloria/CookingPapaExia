@@ -1,2 +1,3 @@
 /NUnit.Console.3.9.0.nupkg
 *.signature.p7s
+*.nupkg

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Model
 {
-    class StrategyButler : Strategy
+    public class StrategyButler : Strategy
     {      
 		public override void Behavior(IActor self, List<IActor> all)
 		{
