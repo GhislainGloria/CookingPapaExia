@@ -34,7 +34,6 @@
   <ItemGroup>
     <Compile Include="ActorFactoryTest.cs" />
     <Compile Include="ActorMobileTest.cs" />
-    <Compile Include="ActorStaticTest.cs" />
     <Compile Include="StockDAOTest.cs" />
     <Compile Include="TableTest.cs" />
   </ItemGroup>

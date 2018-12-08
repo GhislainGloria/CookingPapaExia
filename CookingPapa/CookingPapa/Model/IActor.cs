@@ -19,8 +19,10 @@ namespace Model
         IStrategy Strategy { get; set; }
 
         void CallStrategy();
+		void Move();
         void SetStrategy(Strategy strategy);
         void NextTick(List<IActor> AllActors);
+		IActor FindClosest(string Name, List<IActor> AllActors);
     }
 
     

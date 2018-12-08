@@ -1,5 +1,4 @@
-﻿using System;
-using View;
+﻿using View;
 using Controller;
 using System.Windows.Forms;
 using System.Threading;
@@ -16,7 +15,7 @@ namespace Main
 			Thread mainSimulationThread = new Thread(() =>
 			{
 				int SimulationSpeed = 1000;
-				window.TimeScaleChanged += (int NewScale) => { SimulationSpeed = SimulationSpeed / NewScale; };
+				window.TimeScaleChanged += (int NewScale) => { SimulationSpeed = 1000 / NewScale; };
 
 				while(true)
 				{

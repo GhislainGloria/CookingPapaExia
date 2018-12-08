@@ -11,7 +11,11 @@ namespace Model
 
 		public override void Behavior(IActor self, List<IActor> all)
 		{
-            //self.Position = new System.Drawing.Point(self.Position.X, self.Position.Y + 1);
+			if (!self.Busy)
+			{
+				self.Target = self.FindClosest("chef", all);
+			}
+			self.Move();
 		}
 	}
 }

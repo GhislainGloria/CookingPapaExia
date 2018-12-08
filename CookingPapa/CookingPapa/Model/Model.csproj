@@ -33,7 +33,6 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="ActorFactory.cs" />
-    <Compile Include="ActorStatic.cs" />
     <Compile Include="ActorMobile.cs" />
     <Compile Include="CarriableItemFacory.cs" />
     <Compile Include="ClientSpawner.cs" />

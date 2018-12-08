@@ -11,23 +11,21 @@ namespace Model
 
         public static IActor CreateActor(string type)
         {
-			ActorStatic actorStatic = new ActorStatic();
 			ActorMobile actorMobile = new ActorMobile();
 			actorMobile.Name = type;
-			actorStatic.Name = type;
 
             switch(type)
             {
                 case "butler":
                     StrategyButler strategyButler = new StrategyButler();
-                    actorStatic.SetStrategy(strategyButler);
-					actorStatic.Name = "butler";
-                    return actorStatic;
+                    actorMobile.SetStrategy(strategyButler);
+					actorMobile.Name = "butler";
+                    return actorMobile;
 
                 case "chef":
 					StrategyChef strategyChef = StrategyChef.getInstance();
-                    actorStatic.SetStrategy(strategyChef);
-                    return actorStatic;
+                    actorMobile.SetStrategy(strategyChef);
+                    return actorMobile;
                
                 case "customer":
                     StrategyCustomers strategyCustomers = new StrategyCustomers();
@@ -41,18 +39,18 @@ namespace Model
 
                 case "furnace":
                     StrategyFurnace strategyFurnace = new StrategyFurnace();
-					actorStatic.SetStrategy(strategyFurnace);
-                    return actorStatic;
+					actorMobile.SetStrategy(strategyFurnace);
+                    return actorMobile;
 
                 case "dishwasher":
                     StrategyDishwasher strategyDishwasher = new StrategyDishwasher();
-                    actorStatic.SetStrategy(strategyDishwasher);
-                    return actorStatic;
+                    actorMobile.SetStrategy(strategyDishwasher);
+                    return actorMobile;
 
                 case "washingmachine":
                     StrategyWashingmachine strategyWashingMachine = new StrategyWashingmachine();
-                    actorStatic.SetStrategy(strategyWashingMachine);
-                    return actorStatic;                  
+                    actorMobile.SetStrategy(strategyWashingMachine);
+                    return actorMobile;                  
 
                 case "headwaiter":
                     StrategyHeadWaiter strategyHeadWaiter = new StrategyHeadWaiter();
@@ -76,8 +74,8 @@ namespace Model
 
                 case "stock":
                     StrategyStock strategyStock = new StrategyStock();
-                    actorStatic.SetStrategy(strategyStock);
-                    return actorStatic;
+                    actorMobile.SetStrategy(strategyStock);
+                    return actorMobile;
 
                 case "waiter":
                     StrategyWaiter strategyWaiter = new StrategyWaiter();
