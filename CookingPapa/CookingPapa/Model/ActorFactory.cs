@@ -44,6 +44,24 @@ namespace Model
 					actorStatic.SetStrategy(strategyFurnace);
                     return actorStatic;
 
+                case "dishwasher":
+                    {
+                        ActorStatic actorStatic = new ActorStatic();
+                        StrategyDishwasher strategyDiver = new StrategyDishwasher();
+                        actorStatic.SetStrategy(strategyDiver);
+                        return actorStatic;
+                    }
+
+                case "washingmachine":
+                    {
+                        ActorStatic actorStatic = new ActorStatic();
+                        StrategyWashingmachine strategyDiver = new StrategyWashingmachine();
+                        actorStatic.SetStrategy(strategyDiver);
+                        return actorStatic;
+                    }
+
+
+
                 case "headwaiter":
                     StrategyHeadWaiter strategyHeadWaiter = new StrategyHeadWaiter();
                     actorMobile.SetStrategy(strategyHeadWaiter);
