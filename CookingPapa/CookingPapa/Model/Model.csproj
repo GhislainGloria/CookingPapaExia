@@ -34,8 +34,9 @@
   <ItemGroup>
     <Compile Include="ActorFactory.cs" />
     <Compile Include="ActorMobile.cs" />
-    <Compile Include="CarriableItemFacory.cs" />
+    <Compile Include="CarriableItemFactory.cs" />
     <Compile Include="ClientSpawner.cs" />
+    <Compile Include="IngredientFactory.cs" />
     <Compile Include="ModelIngredient.cs" />
     <Compile Include="Order.cs" />
     <Compile Include="Counter.cs" />
@@ -71,6 +72,7 @@
     <Compile Include="Recipe.cs" />
     <Compile Include="StrategyDishwasher.cs" />
     <Compile Include="StrategyWashingmachine.cs" />
+    <Compile Include="UtensileFactory.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System.Drawing" />
