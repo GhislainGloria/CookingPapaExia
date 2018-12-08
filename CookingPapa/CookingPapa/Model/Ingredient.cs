@@ -9,6 +9,9 @@ namespace Model
     public class Ingredient : ICarriableItem
     {
         private int _timeToLive;
+        private string ingredient;
+        private int v;
+
         public int TimeToLive { get => _timeToLive; set => _timeToLive = value; }
         public Ingredient(string name, int inventorySize, int timeToLive)
         {
