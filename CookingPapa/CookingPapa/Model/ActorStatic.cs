@@ -8,19 +8,19 @@ namespace Model
 {
     public class ActorStatic : AbstractActor { 
     
-        public ActorStatic()
+        public ActorStatic() : base()
         {
 			
         }
 
         override public void CallStrategy()
         {
-			throw new NotImplementedException();
+            Strategy.Behavior();
         }
 
 		public override void NextTick()
 		{
-			this.Strategy.Behavior(); // Todo add this
+            CallStrategy();// Todo add this
 		}
 
         public override void SetStrategy(Strategy strategy)

@@ -18,14 +18,16 @@ namespace ModelTest
         [Test()]
         public void CallStrategyTest()
         {
-            
+
         }
 
+        [Test()]
         public void NextTickTest()
         {
-          
+
         }
 
+        [Test()]
         public void Move()
         {
             ActorMobile butler = (ActorMobile)ActorFactory.CreateActor("butler");
@@ -33,15 +35,15 @@ namespace ModelTest
             butler.Position = new Point(10, 20);
             furnace.Position = new Point(60, 40);
             Assert.AreNotEqual(butler.Position, furnace.Position);
-            butler.Move();
+            butler.Move(furnace);
             Assert.AreEqual(butler.Position, furnace.Position);
-            
+
 
         }
 
         public void SetStrategyTest(Strategy strategy)
         {
-            
+
         }
 
         [TearDown()]
@@ -50,3 +52,4 @@ namespace ModelTest
 
         }
     }
+}

@@ -15,10 +15,10 @@ namespace Model
             {
                 case "butler":
                     {
-                        ActorStatic actorStatic = new ActorStatic();
+                        ActorMobile actorMobile = new ActorMobile();
                         StrategyButler strategyButler = new StrategyButler();
-                        actorStatic.SetStrategy(strategyButler);
-                        return actorStatic;
+                        actorMobile.SetStrategy(strategyButler);
+                        return actorMobile;
                     }
 
                 case "chef":
