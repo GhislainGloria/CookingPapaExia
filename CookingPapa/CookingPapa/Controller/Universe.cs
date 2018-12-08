@@ -10,27 +10,24 @@ namespace Controller
     {
         
 		public RestaurantMap Map { get; set; }
-        TimeManager time;
-        private float _DeltaTime;
+        TimeManager Time;
 		private static Universe _univers = new Universe();
-
-        ThreadPool threadPool; 
 
 		private Universe() {
 			Map = new RestaurantMap();
-			time = new TimeManager();
+			Time = new TimeManager();
 		}
 
         public static Universe GetInstance()
         {
-			return _univers; 
-
+			return _univers;          
         }
 
         public void NextTick()
         {
-			time.Forward();
+			Time.Forward();
 			Map.NextActorsTick();
-        }      
+			ThreadPool.WaitCompletion();
+        }
     }
 }

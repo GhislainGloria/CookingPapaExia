@@ -60,7 +60,8 @@ namespace Controller
 		{
 			foreach (IActor actor in Actors)
 			{
-				actor.NextTick(Actors);
+				Task task = Task.Factory.StartNew(() => actor.NextTick(Actors));
+				ThreadPool.AddTask(task);            
 			}
 		}
     }
