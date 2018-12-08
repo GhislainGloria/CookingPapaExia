@@ -1,5 +1,4 @@
-﻿using System;
-using View;
+﻿using View;
 using Controller;
 using System.Windows.Forms;
 using System.Threading;
@@ -11,14 +10,18 @@ namespace Main
 		public static void Main(string[] args)
         {         
 			Universe universe = Universe.GetInstance();
-			MainWindow window = new MainWindow(universe);
+			MainWindow window = new MainWindow(universe);         
 
 			Thread mainSimulationThread = new Thread(() =>
 			{
+				int SimulationSpeed = 1000;
+				window.TimeScaleChanged += (int NewScale) => { SimulationSpeed = 1000 / NewScale; };
+
 				while(true)
 				{
-					Thread.Sleep(1000);
+					Thread.Sleep(SimulationSpeed);
 					universe.NextTick();
+					window.RedrawView();
 				}
 			});
 			mainSimulationThread.Start();

@@ -16,9 +16,9 @@ namespace Model
 
 		private StrategyChef() {}
         
-		public override void Behavior(IActor actor, List<IActor> actors)
+		public override void Behavior(IActor self, List<IActor> all)
         {
-
+			
         }
     }
 }

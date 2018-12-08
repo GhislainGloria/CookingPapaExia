@@ -19,17 +19,18 @@ namespace Model
         {
             throw new NotImplementedException();
         }
-
-		public override void NextTick()
-        {
-            throw new NotImplementedException();
-        }
+        
 
         public override void SetStrategy(Strategy strategy)
         {
             throw new NotImplementedException();
         }
-        public string Name { get => name; set => name = value; }
+
+		public override void NextTick(List<IActor> AllActors)
+		{
+			throw new NotImplementedException();
+		}
+        
         public int ID { get => iD; set => iD = value; }
         public int InventorySize { get => inventorySize; set => inventorySize = value; }
         public static int Instance { get => instance; set => instance = value; }

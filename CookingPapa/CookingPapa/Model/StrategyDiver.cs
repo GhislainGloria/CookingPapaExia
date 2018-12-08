@@ -1,16 +1,21 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace Model
 {
-    public class StrategyDiver : Strategy
-    {      
+    class StrategyDiver : Strategy
+    {
+		private static StrategyDiver Instance = new StrategyDiver();
+		public static StrategyDiver GetInstance() { return Instance; }
+		private StrategyDiver() {}
+
 		public override void Behavior(IActor self, List<IActor> all)
 		{
-			
+			if (!self.Busy)
+			{
+				self.Target = self.FindClosest("chef", all);
+			}
+			self.Move();
 		}
 	}
 }
