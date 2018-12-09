@@ -5,12 +5,33 @@ namespace Model
 {
     public class Order
     {
-        private Table _table;
-        private List<Dish> _recipes;
-        private bool _prepare;
+		public Table Table { get; private set; }
+		public List<DishModel> Recipes { get; set; }
+		public List<Dish> DishInstances { get; set; }
+		private int CompletedDishes = 0;
+        
+		public Order(Table table, List<DishModel> dishModels)
+		{
+			Recipes = dishModels;
+			DishInstances = new List<Dish>();
 
-        public bool Prepare { get => _prepare; set => _prepare = value; }
-        public Table Table { get => _table; set => _table = value; }
-        public List<Dish> Recipes { get => _recipes; set => _recipes = value; }
+			foreach (DishModel dm in Recipes)
+			{
+				DishInstances.Add(new Dish(dm, this));
+			}
+		}
+
+		public void MarkDishCompleted()
+		{
+			if(CompletedDishes++ >= Recipes.Count)
+			{
+				Console.WriteLine("Order completed for table #{0}", "TODO");
+			}
+		}
+
+		public bool Completed()
+		{
+			return CompletedDishes >= Recipes.Count;
+		}
     }
 }

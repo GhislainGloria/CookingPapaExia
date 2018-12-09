@@ -1,15 +1,35 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace Model
 {
     public class Dish
-    {
+    {      
+		public List<Step> Steps { get; set; }
+		public int CompletedSteps { get; set; }
+		protected Order Order;
 
-        bool Prepare;
+		public Dish(DishModel model, Order order)
+		{
+			Steps = new List<Step>();
+			CompletedSteps = 0;
+			Order = order;
 
+			foreach(StepModel sm in model.ModelSteps)
+			{
+				Step step = new Step(sm, this);
+				Steps.Add(step);
+			}
+		}
+
+		public void MarkStepCompleted()
+		{
+			if (CompletedSteps++ >= Steps.Count)
+			{
+				Order.MarkDishCompleted();
+			}
+		}
     }
 }

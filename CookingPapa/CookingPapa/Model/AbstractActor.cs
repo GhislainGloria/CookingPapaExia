@@ -16,12 +16,12 @@ namespace Model
         public int MaxInventorySize { get; set; }
         public string Name { get; set; }
         public IStrategy Strategy { get; set; }
+		public List<object> Stack { get; set; }
         
 		public abstract void NextTick(List<IActor> AllActors);
 		public abstract void CallStrategy();
 
-		public event EventHandler EventNewOrder;
-		public event EventHandler EventCookingFinished;
+		public event EventHandler EventGeneric;
 
         /**
          * Constructor to init basic properties
@@ -31,6 +31,7 @@ namespace Model
 			Initialized = false;
 			Busy = false;
 			Items = new List<ICarriableItem>();
+			Stack = new List<object>();
 		}
 
         /**
@@ -109,12 +110,7 @@ namespace Model
 		public void TriggerEvent(string name, object arg)
 		{
 			MyEventArgs eventArgs = new MyEventArgs(name, arg);
-			switch (name)
-			{
-				case "order received":
-					EventNewOrder?.Invoke(this, eventArgs);
-					break;
-			}
+			EventGeneric?.Invoke(this, eventArgs);
 		}
 
         /**

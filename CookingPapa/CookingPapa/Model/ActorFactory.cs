@@ -20,11 +20,10 @@ namespace Model
             {
                 case "butler":
 					actorMobile.Strategy = new StrategyButler();
-					actorMobile.Name = "butler";
                     return actorMobile;
 
                 case "chef": // AKA "Chef de cuisine"
-					actorMobile.Strategy = StrategyChef.getInstance();
+					actorMobile.Strategy = StrategyChef.GetInstance();
                     return actorMobile;
                
                 case "customer":
@@ -55,8 +54,8 @@ namespace Model
 					actorMobile.Strategy = new StrategyKitchenClerk();
                     return actorMobile;
 
-                case "partyleader":
-					actorMobile.Strategy = new StrategyPartyLeader();
+                case "partyleader": // AKA Chef de partie
+					actorMobile.Strategy = StrategyPartyLeader.GetInstance();
                     return actorMobile;
 
                 case "roomclerks":

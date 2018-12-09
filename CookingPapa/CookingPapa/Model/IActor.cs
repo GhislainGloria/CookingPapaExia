@@ -14,6 +14,7 @@ namespace Model
         IStrategy Strategy { get; set; }
         int MaxInventorySize { get; set;}
         List<ICarriableItem> Items { get; set; }
+		List<object> Stack { get; set; } // For all purposes
 
         void Move();
         void CallStrategy();      
@@ -22,7 +23,6 @@ namespace Model
 		void StrategyCallback(object sender, EventArgs args);
         IActor FindClosest(string Name, List<IActor> AllActors);
 
-        event EventHandler EventNewOrder;
-        event EventHandler EventCookingFinished;
+        event EventHandler EventGeneric;
     } 
 }

@@ -46,9 +46,7 @@
     <Compile Include="Ingredient.cs" />
     <Compile Include="IStatic.cs" />
     <Compile Include="IMobile.cs" />
-    <Compile Include="ModelRecipe.cs" />
-    <Compile Include="ModelStep.cs" />
-    <Compile Include="RecipeList.cs" />
+    <Compile Include="StepModel.cs" />
     <Compile Include="Step.cs" />
     <Compile Include="StockDAO.cs" />
     <Compile Include="Strategy.cs" />
@@ -68,11 +66,12 @@
     <Compile Include="StrategyWorkingFridge.cs" />
     <Compile Include="IStrategy.cs" />
     <Compile Include="AbstractActor.cs" />
-    <Compile Include="Recipe.cs" />
     <Compile Include="StrategyDishwasher.cs" />
     <Compile Include="StrategyWashingmachine.cs" />
     <Compile Include="ActorMobileSocket.cs" />
     <Compile Include="StrategyServerCounter.cs" />
+    <Compile Include="DishModel.cs" />
+    <Compile Include="DishModelList.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System.Drawing" />

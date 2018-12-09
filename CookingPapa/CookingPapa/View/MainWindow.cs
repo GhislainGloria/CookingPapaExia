@@ -23,6 +23,7 @@ namespace View
 
 			ViewWidget.Model = model.Map;
 			this.Size = new Size(1000, 600);
+			this.Text = "CookingPapa EXIA";
 			TimeSlider.Location = new Point(800, 0);
 			TimeSlider.Value = 1;
 

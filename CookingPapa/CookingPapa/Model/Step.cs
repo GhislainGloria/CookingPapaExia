@@ -6,8 +6,24 @@ using System.Threading.Tasks;
 
 namespace Model
 {
-    public class Step : ModelStep
+	public class Step
     {
-        private bool _prepare;
+		public bool Prepared { get; private set; }
+		public StepModel Model { get; }
+		public Dish Dish { get; }
+		public int TimeSpentSoFar = 0;
+
+		public Step(StepModel model, Dish dish)
+		{
+			Model = model;
+			Dish = dish;
+			Prepared = false;
+		}
+
+		public void Complete()
+		{
+			Prepared = true;
+			Dish.MarkStepCompleted();
+		}
     }
 }
