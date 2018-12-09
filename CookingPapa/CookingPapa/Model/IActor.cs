@@ -1,29 +1,28 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
 
 namespace Model
 {
-   public interface IActor
-    {
-        List<ICarriableItem> Items { get; set; }
-        Point Position { get; set; }
-        IActor Target { get; set; }
+    public interface IActor
+    {      
         bool Busy { get; set; }
-        Thread Thread { get; set; }
-        int MaxInventorySize { get; set;}
-		string Name { get; set; }
+		bool Initialized { get; set; }
+        string Name { get; set; }
+        IActor Target { get; set; }
+        Point Position { get; set; }
         IStrategy Strategy { get; set; }
+        int MaxInventorySize { get; set;}
+        List<ICarriableItem> Items { get; set; }
 
-        void CallStrategy();
-		void Move();
-        void SetStrategy(Strategy strategy);
+        void Move();
+        void CallStrategy();      
         void NextTick(List<IActor> AllActors);
-		IActor FindClosest(string Name, List<IActor> AllActors);
-    }
+        void TriggerEvent(string name, object arg);
+		void StrategyCallback(object sender, EventArgs args);
+        IActor FindClosest(string Name, List<IActor> AllActors);
 
-    
+        event EventHandler EventNewOrder;
+        event EventHandler EventCookingFinished;
+    } 
 }

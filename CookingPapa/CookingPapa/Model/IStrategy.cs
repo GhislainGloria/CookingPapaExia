@@ -10,6 +10,6 @@ namespace Model
     {
 
 		void Behavior(IActor actor, List<IActor> allActors);
-
+		void ReactToEvent(IActor self, MyEventArgs args);      
     } 
 }

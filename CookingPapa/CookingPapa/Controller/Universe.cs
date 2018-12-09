@@ -25,6 +25,7 @@ namespace Controller
 
         public void NextTick()
         {
+			Console.WriteLine("====== New Universe tick =======");
 			Time.Forward();
 			Map.NextActorsTick();
 			ThreadPool.WaitCompletion();

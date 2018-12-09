@@ -35,17 +35,19 @@ namespace Controller
 				actor = ActorFactory.CreateActor("diver"); // Mobile
 				actor.Position = new Point(10, 20);
 				Actors.Add(actor);
+
+				actor = ActorFactory.CreateActor("server counter");
+				actor.Position = new Point(15, 15);
+				Actors.Add(actor);
+
+
+
             }
             else
             {
                 // Load the room map
             }
 		}
-        
-		public IActor GetClosest(IActor CurrentActor, string ActorName)
-        {
-            return null;
-        }
 
 		public Dictionary<string, Point> DisplayableData() {         
 			CachedDictionnary.Clear();

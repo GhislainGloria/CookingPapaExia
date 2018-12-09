@@ -71,6 +71,8 @@
     <Compile Include="Recipe.cs" />
     <Compile Include="StrategyDishwasher.cs" />
     <Compile Include="StrategyWashingmachine.cs" />
+    <Compile Include="ActorMobileSocket.cs" />
+    <Compile Include="StrategyServerCounter.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System.Drawing" />

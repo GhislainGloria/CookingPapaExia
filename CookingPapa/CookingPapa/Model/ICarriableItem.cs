@@ -9,19 +9,12 @@ namespace Model
 {
 	public class ICarriableItem : AbstractActor
     {
-        private string name;
         private int iD;
         private int inventorySize;
         private static int instance;
 
 
         public override void CallStrategy()
-        {
-            throw new NotImplementedException();
-        }
-        
-
-        public override void SetStrategy(Strategy strategy)
         {
             throw new NotImplementedException();
         }

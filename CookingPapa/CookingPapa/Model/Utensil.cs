@@ -13,5 +13,12 @@ namespace Model
 
         public bool IsSmallItem { get => _isSmallItem; set => _isSmallItem = value; }
         internal Step LastUsedFor { get => _lastUsedFor; set => _lastUsedFor = value; }
+
+        public Utensil(string name, int inventorySize)
+        {
+            this.InventorySize = inventorySize;
+            this.Name = name;
+        }
+
     }
 }

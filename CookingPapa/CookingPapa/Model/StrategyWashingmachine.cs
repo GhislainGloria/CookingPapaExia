@@ -12,5 +12,10 @@ namespace Model
 		{
 			throw new NotImplementedException();
 		}
+
+		public override void ReactToEvent(IActor self, MyEventArgs args)
+		{
+			throw new NotImplementedException();
+		}
 	}
 }
