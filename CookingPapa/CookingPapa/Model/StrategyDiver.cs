@@ -11,11 +11,16 @@ namespace Model
 
 		public override void Behavior(IActor self, List<IActor> all)
 		{
-			if (!self.Busy)
+			/*if (!self.Busy)
 			{
 				self.Target = self.FindClosest("chef", all);
 			}
-			self.Move();
+			self.Move();*/
+		}
+
+		public override void ReactToEvent(IActor self, MyEventArgs args)
+		{
+			throw new System.NotImplementedException();
 		}
 	}
 }

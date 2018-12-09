@@ -12,16 +12,31 @@ namespace Model
 		public Point Position { get; set; }
 		public IActor Target { get; set; }
         public bool Busy { get; set; }
-        public Thread Thread { get; set; }
+		public bool Initialized { get; set; }
         public int MaxInventorySize { get; set; }
         public string Name { get; set; }
         public IStrategy Strategy { get; set; }
         
-        
 		public abstract void NextTick(List<IActor> AllActors);
 		public abstract void CallStrategy();
-        public abstract void SetStrategy(Strategy strategy);
 
+		public event EventHandler EventNewOrder;
+		public event EventHandler EventCookingFinished;
+
+        /**
+         * Constructor to init basic properties
+         */
+		protected AbstractActor()
+		{
+			Initialized = false;
+			Busy = false;
+			Items = new List<ICarriableItem>();
+		}
+
+        /**
+         * Find the closest actor of a certain type, relatively to the instance's
+         * position. Can return 'this' if no actor is found.
+         */
 		public IActor FindClosest(string Name, List<IActor> AllActors)
         {
             List<IActor> filteredActors = AllActors.Where(a => a.Name == Name).ToList();
@@ -48,6 +63,9 @@ namespace Model
             return nearest;
         }
 
+        /**
+         * Changes the actor's position. Makes it move toward its target.
+         */
 		public void Move()
         {
             Busy = true;
@@ -84,5 +102,39 @@ namespace Model
             int Y = Math.Abs(OtherActor.Position.Y - Position.Y);
             return X + Y;
         }
-    }
+
+        /**
+         * Triggers an event, usually only called from Strategies
+         */
+		public void TriggerEvent(string name, object arg)
+		{
+			MyEventArgs eventArgs = new MyEventArgs(name, arg);
+			switch (name)
+			{
+				case "order received":
+					EventNewOrder?.Invoke(this, eventArgs);
+					break;
+			}
+		}
+
+        /**
+         * When an event is triggered, this method will be the callback
+         */
+		public void StrategyCallback(object sender, EventArgs args)
+		{
+			Strategy.ReactToEvent(this, (MyEventArgs)args);
+		}
+	}
+
+	public class MyEventArgs : EventArgs
+	{
+		public object Arg { get; set; }
+		public string EventName { get; set; }
+
+		public MyEventArgs(string eventName, object arg) 
+		{
+			Arg = arg;
+			EventName = eventName;
+		}
+	}
 }

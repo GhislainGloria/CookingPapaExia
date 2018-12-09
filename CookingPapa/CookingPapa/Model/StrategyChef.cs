@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Model
 {
@@ -14,11 +11,33 @@ namespace Model
 			return Instance;
 		}
 
-		private StrategyChef() {}
-        
+		private StrategyChef() {}      
+
+		private void InitChef(IActor chef, List<IActor> all)
+		{
+			List<IActor> allCounters = all.Where(a => a.Name == "counter").ToList();
+			foreach(IActor a in allCounters)
+			{
+				a.EventNewOrder += chef.StrategyCallback;
+			}
+			chef.Initialized = true;
+		}
+
 		public override void Behavior(IActor self, List<IActor> all)
         {
-			
+			if (!self.Initialized) InitChef(self, all);
         }
-    }
+
+		public override void ReactToEvent(IActor self, MyEventArgs args)
+		{
+			switch(args.EventName)
+			{
+				case "order received":
+					// Ici on ajoute la nouvelle Order (avec args.Arg) dans la liste
+                    // des trucs à faire du chef. Le process se fera par la suite
+					// dans Behavior()
+					break;
+			}
+		}
+	}
 }

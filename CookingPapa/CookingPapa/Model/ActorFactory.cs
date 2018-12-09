@@ -9,87 +9,87 @@ namespace Model
     public static class ActorFactory
     { 
 
+		// TODO: Replace news by singletons
         public static IActor CreateActor(string type)
         {
 			ActorMobile actorMobile = new ActorMobile();
+			ActorMobileSocket counter;
 			actorMobile.Name = type;
 
             switch(type)
             {
                 case "butler":
-                    StrategyButler strategyButler = new StrategyButler();
-                    actorMobile.SetStrategy(strategyButler);
+					actorMobile.Strategy = new StrategyButler();
 					actorMobile.Name = "butler";
                     return actorMobile;
 
-                case "chef":
-					StrategyChef strategyChef = StrategyChef.getInstance();
-                    actorMobile.SetStrategy(strategyChef);
+                case "chef": // AKA "Chef de cuisine"
+					actorMobile.Strategy = StrategyChef.getInstance();
                     return actorMobile;
                
                 case "customer":
-                    StrategyCustomers strategyCustomers = new StrategyCustomers();
-                    actorMobile.SetStrategy(strategyCustomers);
+					actorMobile.Strategy = new StrategyCustomers();
                     return actorMobile;
 
                 case "diver":
-					StrategyDiver strategyDiver = StrategyDiver.GetInstance();
-                    actorMobile.SetStrategy(strategyDiver);
+					actorMobile.Strategy = StrategyDiver.GetInstance();
                     return actorMobile;
 
                 case "furnace":
-                    StrategyFurnace strategyFurnace = new StrategyFurnace();
-					actorMobile.SetStrategy(strategyFurnace);
+					actorMobile.Strategy = new StrategyFurnace();
                     return actorMobile;
 
                 case "dishwasher":
-                    StrategyDishwasher strategyDishwasher = new StrategyDishwasher();
-                    actorMobile.SetStrategy(strategyDishwasher);
+					actorMobile.Strategy = new StrategyDishwasher();
                     return actorMobile;
 
                 case "washingmachine":
-                    StrategyWashingmachine strategyWashingMachine = new StrategyWashingmachine();
-                    actorMobile.SetStrategy(strategyWashingMachine);
+					actorMobile.Strategy = new StrategyWashingmachine();
                     return actorMobile;                  
 
                 case "headwaiter":
-                    StrategyHeadWaiter strategyHeadWaiter = new StrategyHeadWaiter();
-                    actorMobile.SetStrategy(strategyHeadWaiter);
+					actorMobile.Strategy = new StrategyHeadWaiter();
                     return actorMobile;
 
                 case "kitchenclerk":
-                    StrategyKitchenClerk strategyKitchenClerk = new StrategyKitchenClerk();
-                    actorMobile.SetStrategy(strategyKitchenClerk);
+					actorMobile.Strategy = new StrategyKitchenClerk();
                     return actorMobile;
 
                 case "partyleader":
-                    StrategyPartyLeader strategyPartyLeader = new StrategyPartyLeader();
-                    actorMobile.SetStrategy(strategyPartyLeader);
+					actorMobile.Strategy = new StrategyPartyLeader();
                     return actorMobile;
 
                 case "roomclerks":
-                    StrategyRoomClerks strategyRoomClerks = new StrategyRoomClerks();
-                    actorMobile.SetStrategy(strategyRoomClerks);
+					actorMobile.Strategy = new StrategyRoomClerks();
                     return actorMobile;
 
                 case "stock":
-                    StrategyStock strategyStock = new StrategyStock();
-                    actorMobile.SetStrategy(strategyStock);
+					actorMobile.Strategy = new StrategyStock();
                     return actorMobile;
 
                 case "waiter":
-                    StrategyWaiter strategyWaiter = new StrategyWaiter();
-                    actorMobile.SetStrategy(strategyWaiter);
+					actorMobile.Strategy = new StrategyWaiter();
                     return actorMobile;
 
                 case "workingfridge":
-                    StrategyWorkingFridge strategyWorkingFridge = new StrategyWorkingFridge();
-                    actorMobile.SetStrategy(strategyWorkingFridge);
+					actorMobile.Strategy = new StrategyWorkingFridge();
                     return actorMobile;
 
+				case "client counter":
+					counter = new ActorMobileSocket("client");
+					counter.Name = "counter";
+                    // TODO: Set strat
+					return counter;
+
+				case "server counter":
+                    counter = new ActorMobileSocket("server");
+					counter.Name = "counter";
+					counter.Strategy = StrategyServerCounter.GetInstance();
+                    return counter;
+
                 default:
-                     Console.WriteLine("Cet acteur n'existe pas");
-                     return null;
+                    Console.WriteLine("Impossible to create an actor of type " + type);
+                    return null;
             }
             // => end switch
         }
