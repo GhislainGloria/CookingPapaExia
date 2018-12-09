@@ -14,6 +14,7 @@ namespace Main
 
 			Thread mainSimulationThread = new Thread(() =>
 			{
+				Thread.CurrentThread.Name = "MainSimulationThread";
 				int SimulationSpeed = 1000;
 				window.TimeScaleChanged += (int NewScale) => { SimulationSpeed = 1000 / NewScale; };
 

@@ -40,12 +40,14 @@ namespace Controller
 				actor.Position = new Point(15, 15);
 				Actors.Add(actor);
 
-
-
+				actor = ActorFactory.CreateActor("partyleader");
+				actor.Position = new Point(25, 25);
+				Actors.Add(actor);            
             }
             else
             {
-                // Load the room map
+				// Load the room map
+				MapSize = new Size(100, 50);
             }
 		}
 
