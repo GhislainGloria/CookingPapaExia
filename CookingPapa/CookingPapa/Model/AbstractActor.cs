@@ -104,10 +104,22 @@ namespace Model
             return X + Y;
         }
 
+        public void giveItemTo(ICarriableItem item, IActor actor)
+        {
+            if(EvaluateDistanceTo(actor) < 1)
+            {
+                actor.Items.Add(item);
+            }
+            else
+            {
+                Console.WriteLine(this.Name + ": I'm too far away !");
+            }
+        }
+
         /**
          * Triggers an event, usually only called from Strategies
          */
-		public void TriggerEvent(string name, object arg)
+        public void TriggerEvent(string name, object arg)
 		{
 			MyEventArgs eventArgs = new MyEventArgs(name, arg);
 			EventGeneric?.Invoke(this, eventArgs);
