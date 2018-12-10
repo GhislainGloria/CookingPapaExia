@@ -9,7 +9,7 @@ namespace Model
     public abstract class ACommand
     {
         public AbstractActor Self { get; protected set; }
-        protected bool IsCompleted { get; set; }
+        public bool IsCompleted { get; protected set; }
         public abstract void Execute();
     }
 }

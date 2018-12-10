@@ -35,10 +35,12 @@ namespace ModelTest
             furnace.Position = new Point(60, 40);
             Assert.AreNotEqual(butler.Position, furnace.Position);
             butler.Target = furnace;
-            for (int i = 0; i < 100; i++)
+            butler.CommandList.Add(new Move(butler));
+            while(!butler.CommandList[0].IsCompleted)
             {
-                butler.Move();
+                butler.CommandList[0].Execute();
             }
+            butler.CommandList.RemoveAt(0);
            
             Assert.AreEqual(butler.Position, furnace.Position);
         }

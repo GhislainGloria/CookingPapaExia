@@ -34,10 +34,14 @@
     <StartupObject />
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="GetItem.cs" />
+    <Compile Include="GiveItem.cs" />
+    <Compile Include="ACommand.cs" />
     <Compile Include="ActorFactory.cs" />
     <Compile Include="ActorMobile.cs" />
     <Compile Include="ClientSpawner.cs" />
     <Compile Include="ModelIngredient.cs" />
+    <Compile Include="Move.cs" />
     <Compile Include="Order.cs" />
     <Compile Include="Counter.cs" />
     <Compile Include="Dish.cs" />
@@ -74,7 +78,7 @@
     <Compile Include="StrategyIdle.cs" />
     <Compile Include="CarriableItemFactory.cs" />
     <Compile Include="IngredientFactory.cs" />
-    <Compile Include="UtensileFactory.cs" />
+    <Compile Include="UtensilFactory.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="nunit.framework, Version=3.11.0.0, Culture=neutral, PublicKeyToken=2638cd05610744eb, processorArchitecture=MSIL">

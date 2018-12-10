@@ -21,9 +21,6 @@ namespace Model
 		public bool BusyWalking { get; set; }
         public List<ACommand> CommandList{ get; set; }
         public abstract void NextTick(List<IActor> AllActors);
-        public Move Move { get; set; }
-        public GiveItem GiveItem { get; set; }
-        public GetItem GetItem { get; set; }
         public abstract void CallStrategy();
 
 		public event EventHandler EventGeneric;
