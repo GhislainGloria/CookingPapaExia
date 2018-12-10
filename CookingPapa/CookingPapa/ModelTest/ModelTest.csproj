@@ -35,6 +35,7 @@
     <Reference Include="System.Drawing" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AbstractActorTest.cs" />
     <Compile Include="ActorFactoryTest.cs" />
     <Compile Include="ActorMobileTest.cs" />
     <Compile Include="StockDAOTest.cs" />
