@@ -19,6 +19,7 @@ namespace Model
 			modelStep.Workboard = "Furnace";
 
 			dishModel.ModelSteps.Add(modelStep);
+			dishModel.Name = "Generic recipe";
 
 			Dishes.Add(dishModel);
 
