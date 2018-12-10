@@ -6,7 +6,7 @@ namespace Model
 	public static class DishModelList
     {
 		private static List<DishModel> Dishes = new List<DishModel>();
-		private static bool Initialized = false;
+		private static bool SingletonInitialized = false;
 
 		private static void Init()
 		{
@@ -22,12 +22,12 @@ namespace Model
 
 			Dishes.Add(dishModel);
 
-			Initialized = true;
+			SingletonInitialized = true;
 		}
 
 		public static List<DishModel> GetAvailableDishes()
 		{
-			if (!Initialized) Init();
+			if (!SingletonInitialized) Init();
 			return Dishes;
 		}
     }
