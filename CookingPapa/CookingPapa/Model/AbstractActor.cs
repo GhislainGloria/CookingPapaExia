@@ -110,7 +110,7 @@ namespace Model
             return X + Y;
         }
 
-        public void giveItemTo(ICarriableItem item, IActor actor)
+        public void giveItemTo(ACarriableItem item, IActor actor)
         {
             if(EvaluateDistanceTo(actor) < 1)
             {
