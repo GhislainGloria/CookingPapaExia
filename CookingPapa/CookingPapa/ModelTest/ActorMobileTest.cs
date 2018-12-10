@@ -27,19 +27,6 @@ namespace ModelTest
 
         }
 
-        [Test()]
-        public void MoveTest()
-        {
-            ActorMobile butler = (ActorMobile)ActorFactory.CreateActor("butler");
-            IActor furnace = ActorFactory.CreateActor("furnace");
-            butler.Position = new Point(10, 20);
-            furnace.Position = new Point(60, 40);
-            Assert.AreNotEqual(butler.Position, furnace.Position);
-			butler.Target = furnace;
-			butler.Move();
-            Assert.AreEqual(butler.Position, furnace.Position);         
-        }
-
 		[Test()]
 		public void GetClosestTest()
 		{
