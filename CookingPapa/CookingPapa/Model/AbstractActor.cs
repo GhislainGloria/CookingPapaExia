@@ -19,9 +19,12 @@ namespace Model
 		public List<object> Stack { get; set; }
 		public bool BusyWaiting { get; set; }
 		public bool BusyWalking { get; set; }
-
-		public abstract void NextTick(List<IActor> AllActors);
-		public abstract void CallStrategy();
+        public List<ACommand> CommandList{ get; set; }
+        public abstract void NextTick(List<IActor> AllActors);
+        public Move Move { get; set; }
+        public GiveItem GiveItem { get; set; }
+        public GetItem GetItem { get; set; }
+        public abstract void CallStrategy();
 
 		public event EventHandler EventGeneric;
 
@@ -36,7 +39,9 @@ namespace Model
 			BusyWalking = false;
 			Items = new List<ACarriableItem>();
 			Stack = new List<object>();
-		}
+            CommandList = new List<ACommand>();
+
+        }
 
         /**
          * Find the closest actor of a certain type, relatively to the instance's
@@ -68,73 +73,41 @@ namespace Model
             return nearest;
         }
 
-        /**
-         * Changes the actor's position. Makes it move toward its target.
-         */
-		public void Move()
-        {
-			if (Target == null) return;
-
-            BusyWalking = true;
-            Point targetPosition = Target.Position;
-            if (Position.X > targetPosition.X)
-            {
-                Position = new Point(Position.X - 1, Position.Y);
-            }
-            else if (Position.X < targetPosition.X)
-            {
-                Position = new Point(Position.X + 1, Position.Y);
-            }
-            else if (Position.Y < targetPosition.Y)
-            {
-                Position = new Point(Position.X, Position.Y + 1);
-            }
-            else if (Position.Y > targetPosition.Y)
-            {
-                Position = new Point(Position.X, Position.Y - 1);
-            }
-            else
-            {
-                // We are on point
-                BusyWalking = false;
-                Target = null;
-            }
-        }
-
 		// Actors can only move in straight vertical or horizontal lines,
         // therefore calculating the distance of a straight diagonal line is useless.
-        protected int EvaluateDistanceTo(IActor OtherActor)
+        public int EvaluateDistanceTo(IActor OtherActor)
         {
             int X = Math.Abs(OtherActor.Position.X - Position.X);
             int Y = Math.Abs(OtherActor.Position.Y - Position.Y);
             return X + Y;
         }
 
-        public void giveItemTo(ACarriableItem item, IActor actor)
-        {
-            if(EvaluateDistanceTo(actor) < 1)
-            {
-                actor.Items.Add(item);
-            }
-            else
-            {
-                Console.WriteLine(this.Name + ": I'm too far away !");
-            }
-        }
-
         /**
          * Triggers an event, usually only called from Strategies
          */
         public void TriggerEvent(string name, object arg)
-		{
-			MyEventArgs eventArgs = new MyEventArgs(name, arg);
-			EventGeneric?.Invoke(this, eventArgs);
-		}
+        {
+            MyEventArgs eventArgs = new MyEventArgs(name, arg);
+            EventGeneric?.Invoke(this, eventArgs);
+        }
+
+        /**
+         * Get an item from IActor where and give it to the IActor actor
+         */
+        public void FetchItem(ACarriableItem item, IActor actor, List<IActor> allActors)
+        {
+            if (!Busy)
+            {
+                Busy = true;
+                Target = FindNearestCarriableItem(item.Name, allActors);
+            }
+
+        }
 
         /**
          * When an event is triggered, this method will be the callback
          */
-		public void StrategyCallback(object sender, EventArgs args)
+        public void StrategyCallback(object sender, EventArgs args)
 		{
 			Strategy.ReactToEvent(this, (MyEventArgs)args);
 		}

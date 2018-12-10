@@ -17,15 +17,14 @@ namespace Model
         int MaxInventorySize { get; set;}
         List<ACarriableItem> Items { get; set; }
 		List<object> Stack { get; set; } // For all purposes
+        List<ACommand> CommandList { get; set; }
 
-        void Move();
         void CallStrategy();      
         void NextTick(List<IActor> AllActors);
 		IActor FindNearestCarriableItem(string itemName, List<IActor> allActors);
         void TriggerEvent(string name, object arg);
 		void StrategyCallback(object sender, EventArgs args);
         IActor FindClosest(string Name, List<IActor> AllActors);
-        void giveItemTo(ACarriableItem item, IActor actor);
 
         event EventHandler EventGeneric;
     } 

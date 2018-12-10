@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Model
 {
-    public static class UtensileFactory
+    public static class UtensilFactory
     {
         public static Utensil createUtensil(string utensil)
         {
