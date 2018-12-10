@@ -42,7 +42,10 @@ namespace View
 
 		public void RedrawView()
 		{
-			ViewWidget.PictureBox.Refresh();
+            Invoke(new MethodInvoker(() => ViewWidget.PictureBox.Refresh()));
+            
+                
+            
 		}
     }
 }
