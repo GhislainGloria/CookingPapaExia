@@ -6,9 +6,17 @@ using System.Threading.Tasks;
 
 namespace Model
 {
-	class StrategyKitchenClerk : Strategy
+	public class StrategyKitchenClerk : Strategy
 	{
-		public override void Behavior(IActor self, List<IActor> all)
+        private static StrategyKitchenClerk Instance = new StrategyKitchenClerk();
+        public static StrategyKitchenClerk GetInstance()
+        {
+            return Instance;
+        }
+
+        private StrategyKitchenClerk() { }
+
+        public override void Behavior(IActor self, List<IActor> all)
 		{
 
 		}

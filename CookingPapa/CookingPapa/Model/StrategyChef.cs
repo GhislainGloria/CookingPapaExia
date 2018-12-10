@@ -12,7 +12,7 @@ namespace Model
 			return Instance;
 		}
 
-		private StrategyChef() {}      
+		private StrategyChef() {}
 
 		private void InitChef(IActor chef, List<IActor> all)
 		{
