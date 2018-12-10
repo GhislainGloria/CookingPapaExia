@@ -50,7 +50,7 @@ namespace Controller
 
 				actor = ActorFactory.CreateActor("shed");
 				actor.Position = new Point(2, 2);
-				//actor.Items.Add(); // TODO
+				actor.Items.Add(UtensileFactory.createUtensil("fork")); // TODO
 				Actors.Add(actor);
             }
             else

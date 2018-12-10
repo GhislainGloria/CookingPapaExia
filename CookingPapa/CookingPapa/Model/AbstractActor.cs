@@ -139,13 +139,13 @@ namespace Model
 			Strategy.ReactToEvent(this, (MyEventArgs)args);
 		}
 
-		public IActor FindNearestCarriableItem(string itemName, List<IActor> allActors)      
+		public IActor FindClosestCarriableItem(string Name, List<IActor> allActors)  
 		{
 			foreach(IActor a in allActors.ToList())
 			{
 				foreach (ACarriableItem i in a.Items.ToList())
 				{
-					if (i.Name == itemName && i.Clean)
+					if (i.Name == Name && i.Clean)
 					{
 						return a;
 					}

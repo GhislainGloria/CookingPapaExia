@@ -33,7 +33,7 @@ namespace Model
 						if(!a.Busy)
 						{
 							// TODO: find nearest carriable
-							IActor target = a.FindClosest(step.Model.Utensil, all);
+							IActor target = a.FindClosestCarriableItem(step.Model.Utensil, all);
 							if(target != null)
 							{
 								Console.WriteLine("Party Leader: I asked a clerk to fetch me a " + step.Model.Utensil);

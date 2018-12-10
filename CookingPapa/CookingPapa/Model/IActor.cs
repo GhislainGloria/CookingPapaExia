@@ -21,10 +21,10 @@ namespace Model
         void Move();
         void CallStrategy();      
         void NextTick(List<IActor> AllActors);
-		IActor FindNearestCarriableItem(string itemName, List<IActor> allActors);
         void TriggerEvent(string name, object arg);
 		void StrategyCallback(object sender, EventArgs args);
-        IActor FindClosest(string Name, List<IActor> AllActors);
+		IActor FindClosest(string Name, List<IActor> AllActors);
+        IActor FindClosestCarriableItem(string Name, List<IActor> AllActors);
         void giveItemTo(ACarriableItem item, IActor actor);
 
         event EventHandler EventGeneric;
