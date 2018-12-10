@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -17,7 +17,7 @@ namespace Model
                     return new Ingredient(ingredient, 1, 1);
 
                 default:
-                    Console.WriteLine("Cet ingrédient n'existe pas");
+                    Console.WriteLine("Cet ingr�dient n'existe pas");
                     return null;
             }
         }

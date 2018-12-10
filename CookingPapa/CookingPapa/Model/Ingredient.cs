@@ -8,7 +8,7 @@ namespace Model
 {
 	public class Ingredient : ACarriableItem
     {
-		public int TimeToLive { get; private set; }
+		public int TimeToLive { get; set; }
         
 		public Ingredient(string name, int inventorySize, int timeToLive) : base(name, inventorySize)
         {
