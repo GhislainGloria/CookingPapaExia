@@ -22,6 +22,7 @@ namespace Model
         void TriggerEvent(string name, object arg);
 		void StrategyCallback(object sender, EventArgs args);
         IActor FindClosest(string Name, List<IActor> AllActors);
+        void giveItemTo(ICarriableItem item, IActor actor);
 
         event EventHandler EventGeneric;
     } 
