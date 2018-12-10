@@ -42,7 +42,7 @@
     <Compile Include="Dish.cs" />
     <Compile Include="GroupActor.cs" />
     <Compile Include="IActor.cs" />
-    <Compile Include="ICarriableItem.cs" />
+    <Compile Include="ACarriableItem.cs" />
     <Compile Include="Ingredient.cs" />
     <Compile Include="IStatic.cs" />
     <Compile Include="IMobile.cs" />
@@ -72,6 +72,7 @@
     <Compile Include="StrategyServerCounter.cs" />
     <Compile Include="DishModel.cs" />
     <Compile Include="DishModelList.cs" />
+    <Compile Include="StrategyIdle.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System.Drawing" />

@@ -8,7 +8,7 @@ namespace Model
 {
 	public abstract class AbstractActor : IActor
     {
-		public List<ICarriableItem> Items { get; set; }
+		public List<ACarriableItem> Items { get; set; }
 		public Point Position { get; set; }
 		public IActor Target { get; set; }
         public bool Busy { get; set; }
@@ -17,7 +17,9 @@ namespace Model
         public string Name { get; set; }
         public IStrategy Strategy { get; set; }
 		public List<object> Stack { get; set; }
-        
+		public bool BusyWaiting { get; set; }
+		public bool BusyWalking { get; set; }
+
 		public abstract void NextTick(List<IActor> AllActors);
 		public abstract void CallStrategy();
 
@@ -30,7 +32,9 @@ namespace Model
 		{
 			Initialized = false;
 			Busy = false;
-			Items = new List<ICarriableItem>();
+			BusyWaiting = false;
+			BusyWalking = false;
+			Items = new List<ACarriableItem>();
 			Stack = new List<object>();
 		}
 
@@ -69,7 +73,9 @@ namespace Model
          */
 		public void Move()
         {
-            Busy = true;
+			if (Target == null) return;
+
+            BusyWalking = true;
             Point targetPosition = Target.Position;
             if (Position.X > targetPosition.X)
             {
@@ -90,8 +96,8 @@ namespace Model
             else
             {
                 // We are on point
-                Busy = false;
-                Target = this;
+                BusyWalking = false;
+                Target = null;
             }
         }
 
@@ -119,6 +125,21 @@ namespace Model
 		public void StrategyCallback(object sender, EventArgs args)
 		{
 			Strategy.ReactToEvent(this, (MyEventArgs)args);
+		}
+
+		public IActor FindNearestCarriableItem(string itemName, List<IActor> allActors)      
+		{
+			foreach(IActor a in allActors.ToList())
+			{
+				foreach (ACarriableItem i in a.Items.ToList())
+				{
+					if (i.Name == itemName && i.Clean)
+					{
+						return a;
+					}
+				}
+			}
+			return null;
 		}
 	}
 

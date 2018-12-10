@@ -74,6 +74,10 @@ namespace Model
 					actorMobile.Strategy = new StrategyWorkingFridge();
                     return actorMobile;
 
+				case "shed": // "Armoire" in which we put all the utensils
+					actorMobile.Strategy = StrategyIdle.GetInstance();
+					return actorMobile;
+
 				case "client counter":
 					counter = new ActorMobileSocket("client");
 					counter.Name = "counter";

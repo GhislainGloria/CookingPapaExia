@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace Model
 {
-    public class CarriableItemFacory : ICarriableItem
+    public class CarriableItemFacory
     {
         
-        public ICarriableItem CreateCarriableItem()
+        public ACarriableItem CreateCarriableItem()
         {
             return null;
         }

@@ -42,7 +42,16 @@ namespace Controller
 
 				actor = ActorFactory.CreateActor("partyleader");
 				actor.Position = new Point(25, 25);
-				Actors.Add(actor);            
+				Actors.Add(actor);
+
+				actor = ActorFactory.CreateActor("kitchenclerk");
+				actor.Position = new Point(30, 30);            
+				Actors.Add(actor);
+
+				actor = ActorFactory.CreateActor("shed");
+				actor.Position = new Point(2, 2);
+				//actor.Items.Add(); // TODO
+				Actors.Add(actor);
             }
             else
             {

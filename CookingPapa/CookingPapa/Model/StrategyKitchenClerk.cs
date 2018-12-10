@@ -10,12 +10,12 @@ namespace Model
 	{
 		public override void Behavior(IActor self, List<IActor> all)
 		{
-			throw new NotImplementedException();
+
 		}
 
 		public override void ReactToEvent(IActor self, MyEventArgs args)
 		{
-			throw new NotImplementedException();
+
 		}
 	}
 }

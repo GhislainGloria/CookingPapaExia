@@ -36,7 +36,13 @@ namespace Model
             //Read the data and store them in the list
             while (dataReader.Read())
             {
-                listIngredients.Add(new ModelIngredient(dataReader["nom_ingr"] + "", Int32.Parse(dataReader["inventory-size"] + ""), Int32.Parse(dataReader["id_model_ingr"] + "")));
+				listIngredients.Add(
+					new ModelIngredient(
+						dataReader["nom_ingr"].ToString(), 
+						Int32.Parse(dataReader["inventory-size"].ToString()), 
+						Int32.Parse(dataReader["id_model_ingr"].ToString())
+					)
+				);
             }
 
             //close Data Reader

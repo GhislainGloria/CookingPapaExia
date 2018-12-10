@@ -2,6 +2,7 @@
 using Controller;
 using System.Windows.Forms;
 using System.Threading;
+using System;
 
 namespace Main
 {
@@ -10,7 +11,7 @@ namespace Main
 		public static void Main(string[] args)
         {         
 			Universe universe = Universe.GetInstance();
-			MainWindow window = new MainWindow(universe);         
+			MainWindow window = new MainWindow(universe);
 
 			Thread mainSimulationThread = new Thread(() =>
 			{

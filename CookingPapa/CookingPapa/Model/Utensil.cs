@@ -6,19 +6,15 @@ using System.Threading.Tasks;
 
 namespace Model
 {
-    public class Utensil : ICarriableItem
+	public class Utensil : ACarriableItem
     {
-        private bool _isSmallItem;
-        private Step _lastUsedFor;
+		private Step LastUsedFor { get; set; }
+		public bool Clean { get; set; }
 
-        public bool IsSmallItem { get => _isSmallItem; set => _isSmallItem = value; }
-        internal Step LastUsedFor { get => _lastUsedFor; set => _lastUsedFor = value; }
-
-        public Utensil(string name, int inventorySize)
-        {
-            this.InventorySize = inventorySize;
-            this.Name = name;
-        }
+		public Utensil(string name, int inventorySize) : base(name, inventorySize)
+		{
+			
+		}
 
     }
 }
