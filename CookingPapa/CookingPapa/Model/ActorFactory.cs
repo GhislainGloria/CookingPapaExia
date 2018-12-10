@@ -35,7 +35,7 @@ namespace Model
                     return actorMobile;
 
                 case "furnace":
-					actorMobile.Strategy = new StrategyFurnace();
+					actorMobile.Strategy = StrategyFurnace.GetInstance();
                     return actorMobile;
 
                 case "dishwasher":

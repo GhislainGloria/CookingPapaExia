@@ -11,12 +11,5 @@ namespace ModelTest
     //[TestFixture()]
     public class StockDAOTest
     {
-
-        [Test()]
-        public void TestCase()
-        {
-            Console.WriteLine(StockDAO.getDatabaseString());
-
-        }
     }
 }
