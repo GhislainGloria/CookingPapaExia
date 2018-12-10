@@ -8,8 +8,13 @@ namespace Model
 {
     public static class CarriableItemFactory
     {
-
-        public static ICarriableItem CreateCarriableItem(string type)
+        /**
+         * Usage: 
+         * @param type: like: type:name
+         * 
+         * e.g: utensil:carrot
+         */
+        public static ACarriableItem CreateCarriableItem(string type)
         {
             string carriable = type.Substring(0, type.IndexOf(":"));
 
