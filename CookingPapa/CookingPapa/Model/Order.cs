@@ -23,7 +23,8 @@ namespace Model
 
 		public void MarkDishCompleted()
 		{
-			if(CompletedDishes++ >= Recipes.Count)
+			CompletedDishes++;
+			if(CompletedDishes >= Recipes.Count)
 			{
 				Console.WriteLine("Order completed for table #{0}", "TODO");
 			}

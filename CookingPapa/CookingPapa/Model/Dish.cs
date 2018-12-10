@@ -26,7 +26,8 @@ namespace Model
 
 		public void MarkStepCompleted()
 		{
-			if (CompletedSteps++ >= Steps.Count)
+			CompletedSteps++;
+			if (CompletedSteps >= Steps.Count)
 			{
 				Order.MarkDishCompleted();
 			}

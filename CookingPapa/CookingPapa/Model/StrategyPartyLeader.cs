@@ -27,6 +27,7 @@ namespace Model
 				{
 					step.Complete();
 					Console.WriteLine("Party Leader: I completed a step");
+					self.Stack.RemoveAt(0);
 					self.Busy = false;
 				}
 			}

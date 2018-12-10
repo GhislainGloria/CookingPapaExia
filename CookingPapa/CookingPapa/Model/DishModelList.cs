@@ -21,6 +21,8 @@ namespace Model
 			dishModel.ModelSteps.Add(modelStep);
 
 			Dishes.Add(dishModel);
+
+			Initialized = true;
 		}
 
 		public static List<DishModel> GetAvailableDishes()
