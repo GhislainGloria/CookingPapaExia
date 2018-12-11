@@ -15,11 +15,13 @@ namespace ControllerTest
     //[TestFixture()]
     class TestRestaurantMap
     {
-           private readonly Site MapSize;
+           private readonly Site mapSize;
            public  List<AbstractActor> Actors { get; set; }
-           private readonly RestaurantMap retaurant = new  RestaurantMap();
 
-    
+        private readonly RestaurantMap retaurant = new  RestaurantMap();
+
+        public Site MapSize => mapSize;
+
 
         [Test()]
         public void testrange()

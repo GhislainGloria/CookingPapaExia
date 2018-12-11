@@ -8,19 +8,19 @@ using NUnit.Framework;
 
 namespace ModelTest
 {
-    class StrategyFurnaceTest
+    public class StrategyFurnaceTest
     {
-        StrategyFurnace strategyFurnace;
-        List<IActor> actors;
-        IActor Furnace;
+        StrategyWorkingFridge strategyFurnace;
+        List<AbstractActor> actors;
+        AbstractActor Furnace;
         private Ingredient ingredient;
 
         [SetUp()]
         public void SetUp()
         {
-            strategyFurnace = StrategyFurnace.GetInstance();
+            strategyFurnace = StrategyWorkingFridge.GetInstance();
           
-            List<IActor> actors = new List<IActor>();
+            List<AbstractActor> actors = new List<AbstractActor>();
             ingredient = new Ingredient("beef", 2, 5);
         }
 

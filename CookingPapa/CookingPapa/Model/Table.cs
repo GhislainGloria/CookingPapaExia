@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Model
 {
-    public class Table : ActorMobile
+    public class Table : Actor
     {
         private int _place;
         private GroupActor _grp;

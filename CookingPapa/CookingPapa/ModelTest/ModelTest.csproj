@@ -43,6 +43,8 @@
     <Compile Include="ActorFactoryTest.cs" />
     <Compile Include="ActorMobileTest.cs" />
     <Compile Include="StockDAOTest.cs" />
+    <Compile Include="StrategyWashingMachineTest.cs" />
+    <Compile Include="StrategyWorkingFridgeTest.cs" />
     <Compile Include="StrategyFurnaceTest.cs" />
     <Compile Include="TableTest.cs" />
   </ItemGroup>

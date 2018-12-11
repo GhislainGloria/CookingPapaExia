@@ -30,9 +30,9 @@ namespace ModelTest
 		[Test()]
 		public void GetClosestTest()
 		{
-			ActorMobile diver = (ActorMobile)ActorFactory.CreateActor("diver");
-			ActorMobile diver2 = (ActorMobile)ActorFactory.CreateActor("diver");
-			ActorMobile diver3 = (ActorMobile)ActorFactory.CreateActor("diver");
+			Actor diver = (Actor)ActorFactory.CreateActor("diver");
+			Actor diver2 = (Actor)ActorFactory.CreateActor("diver");
+			Actor diver3 = (Actor)ActorFactory.CreateActor("diver");
 			diver.Position = new Point(0, 0);
 			diver2.Position = new Point(1, 0);
 			diver3.Position = new Point(10, 10);
