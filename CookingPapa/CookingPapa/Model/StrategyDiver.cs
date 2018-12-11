@@ -9,7 +9,7 @@ namespace Model
 		public static StrategyDiver GetInstance() { return Instance; }
 		private StrategyDiver() {}
 
-		public override void Behavior(IActor self, List<IActor> all)
+		public override void Behavior(AbstractActor self, List<AbstractActor> all)
 		{
 			/*if (!self.Busy)
 			{
@@ -18,7 +18,7 @@ namespace Model
 			self.Move();*/
 		}
 
-		public override void ReactToEvent(IActor self, MyEventArgs args)
+		public override void ReactToEvent(AbstractActor self, MyEventArgs args)
 		{
 			throw new System.NotImplementedException();
 		}

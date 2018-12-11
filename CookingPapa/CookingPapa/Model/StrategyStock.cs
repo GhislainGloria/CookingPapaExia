@@ -6,14 +6,30 @@ using System.Threading.Tasks;
 
 namespace Model
 {
-    class StrategyStock : Strategy
-    {      
-		public override void Behavior(IActor self, List<IActor> all)
+    public class StrategyStock : Strategy
+    {
+
+        private static StrategyStock Instance = new StrategyStock();
+        public static StrategyStock GetInstance()
+        {
+            return Instance;
+        }
+
+        public StrategyStock() { }
+
+        public override void Behavior(AbstractActor self, List<AbstractActor> all)
 		{
-			throw new NotImplementedException();
+			foreach(Ingredient ingredient in self.Items.ToList())
+            {
+                ingredient.TimeToLive--;
+                if(ingredient.TimeToLive < 1)
+                {
+                    self.Items.Remove(ingredient);
+                }
+            }
 		}
 
-		public override void ReactToEvent(IActor self, MyEventArgs args)
+		public override void ReactToEvent(AbstractActor self, MyEventArgs args)
 		{
 			throw new NotImplementedException();
 		}

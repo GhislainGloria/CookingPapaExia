@@ -8,21 +8,31 @@ namespace Model
 {
     public static class CarriableItemFactory
     {
-
-        public static ICarriableItem CreateCarriableItem(string type)
+        /**
+         * Usage: 
+         * @param type: like: type:name
+         * 
+         * e.g: utensil:carrot
+         */
+        public static ACarriableItem CreateCarriableItem(string type)
         {
-            string carriable = type.Substring(0, type.IndexOf(":"));
+			string[] explode = type.Split(':');
+			if(explode.Length != 2)
+			{
+				Console.WriteLine("Wrong format: " + type);
+				return null;
+			}
 
-            switch (carriable)
+			switch (explode[0])
             {
                 case "utensil":
-                    return UtensileFactory.createUtensil(type);
+					return UtensilFactory.CreateUtensil(explode[1]);
 
                 case "ingredient":
-                    return IngredientFactory.createIngredient(type);
+					return IngredientFactory.createIngredient(explode[1]);
 
                 default:
-                    Console.WriteLine("Cet acteur n'existe pas");
+					Console.WriteLine("L'item " + type + " ne peut etre instancie.");
                     return null;
             }
         }

@@ -1,0 +1,2132 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>CookingPapa.Fakes</name>
+    </assembly>
+    <members>
+        <member name="T:Model.Fakes.ShimAbstractActor">
+            <summary>Type shim de Model.AbstractActor</summary>
+        </member>
+        <member name="M:Model.Fakes.ShimAbstractActor.#ctor(Model.AbstractActor)">
+            <summary>Initialise un nouveau shim pour l&apos;instance donnée</summary>
+        </member>
+        <member name="T:Model.Fakes.ShimAbstractActor.AllInstances">
+            <summary>Définir des shims pour tous les membres des instances</summary>
+        </member>
+        <member name="P:Model.Fakes.ShimAbstractActor.AllInstances.BusyGet">
+            <summary>Définit le shim de AbstractActor.get_Busy()</summary>
+        </member>
+        <member name="P:Model.Fakes.ShimAbstractActor.AllInstances.BusySetBoolean">
+            <summary>Définit le shim de AbstractActor.set_Busy(Boolean value)</summary>
+        </member>
+        <member name="P:Model.Fakes.ShimAbstractActor.AllInstances.EvaluateDistanceToIActor">
+            <summary>Définit le shim de AbstractActor.EvaluateDistanceTo(IActor OtherActor)</summary>
+        </member>
+        <member name="P:Model.Fakes.ShimAbstractActor.AllInstances.EventGenericAddEventHandler">
+            <summary>Définit le shim de AbstractActor.add_EventGeneric(EventHandler value)</summary>
+        </member>
+        <member name="P:Model.Fakes.ShimAbstractActor.AllInstances.EventGenericRemoveEventHandler">
+            <summary>Définit le shim de AbstractActor.remove_EventGeneric(EventHandler value)</summary>
+        </member>
+        <member name="P:Model.Fakes.ShimAbstractActor.AllInstances.FindClosestStringListOfIActor">
+            <summary>Définit le shim de AbstractActor.FindClosest(String Name, List`1&lt;IActor&gt; AllActors)</summary>
+        </member>
+        <member name="P:Model.Fakes.ShimAbstractActor.AllInstances.InitializedGet">
+            <summary>Définit le shim de AbstractActor.get_Initialized()</summary>
+        </member>
+        <member name="P:Model.Fakes.ShimAbstractActor.AllInstances.InitializedSetBoolean">
+            <summary>Définit le shim de AbstractActor.set_Initialized(Boolean value)</summary>
+        </member>
+        <member name="P:Model.Fakes.ShimAbstractActor.AllInstances.ItemsGet">
+            <summary>Définit le shim de AbstractActor.get_Items()</summary>
+        </member>
+        <member name="P:Model.Fakes.ShimAbstractActor.AllInstances.ItemsSetListOfICarriableItem">
+            <summary>Définit le shim de AbstractActor.set_Items(List`1&lt;ICarriableItem&gt; value)</summary>
+        </member>
+        <member name="P:Model.Fakes.ShimAbstractActor.AllInstances.MaxInventorySizeGet">
+            <summary>Définit le shim de AbstractActor.get_MaxInventorySize()</summary>
+        </member>
+        <member name="P:Model.Fakes.ShimAbstractActor.AllInstances.MaxInventorySizeSetInt32">
+            <summary>Définit le shim de AbstractActor.set_MaxInventorySize(Int32 value)</summary>
+        </member>
+        <member name="P:Model.Fakes.ShimAbstractActor.AllInstances.Move">
+            <summary>Définit le shim de AbstractActor.Move()</summary>
+        </member>
+        <member name="P:Model.Fakes.ShimAbstractActor.AllInstances.NameGet">
+            <summary>Définit le shim de AbstractActor.get_Name()</summary>
+        </member>
+        <member name="P:Model.Fakes.ShimAbstractActor.AllInstances.NameSetString">
+            <summary>Définit le shim de AbstractActor.set_Name(String value)</summary>
+        </member>
+        <member name="P:Model.Fakes.ShimAbstractActor.AllInstances.PositionGet">
+            <summary>Définit le shim de AbstractActor.get_Position()</summary>
+        </member>
+        <member name="P:Model.Fakes.ShimAbstractActor.AllInstances.PositionSetPoint">
+            <summary>Définit le shim de AbstractActor.set_Position(Point value)</summary>
+        </member>
+        <member name="P:Model.Fakes.ShimAbstractActor.AllInstances.StackGet">
+            <summary>Définit le shim de AbstractActor.get_Stack()</summary>
+        </member>
+        <member name="P:Model.Fakes.ShimAbstractActor.AllInstances.StackSetListOfObject">
+            <summary>Définit le shim de AbstractActor.set_Stack(List`1&lt;Object&gt; value)</summary>
+        </member>
+        <member name="P:Model.Fakes.ShimAbstractActor.AllInstances.StrategyCallbackObjectEventArgs">
+            <summary>Définit le shim de AbstractActor.StrategyCallback(Object sender, EventArgs args)</summary>
+        </member>
+        <member name="P:Model.Fakes.ShimAbstractActor.AllInstances.StrategyGet">
+            <summary>Définit le shim de AbstractActor.get_Strategy()</summary>
+        </member>
+        <member name="P:Model.Fakes.ShimAbstractActor.AllInstances.StrategySetIStrategy">
+            <summary>Définit le shim de AbstractActor.set_Strategy(IStrategy value)</summary>
+        </member>
+        <member name="P:Model.Fakes.ShimAbstractActor.AllInstances.TargetGet">
+            <summary>Définit le shim de AbstractActor.get_Target()</summary>
+        </member>
+        <member name="P:Model.Fakes.ShimAbstractActor.AllInstances.TargetSetIActor">
+            <summary>Définit le shim de AbstractActor.set_Target(IActor value)</summary>
+        </member>
+        <member name="P:Model.Fakes.ShimAbstractActor.AllInstances.TriggerEventStringObject">
+            <summary>Définit le shim de AbstractActor.TriggerEvent(String name, Object arg)</summary>
+        </member>
+        <member name="P:Model.Fakes.ShimAbstractActor.AllInstances.giveItemToICarriableItemIActor">
+            <summary>Définit le shim de AbstractActor.giveItemTo(ICarriableItem item, IActor actor)</summary>
+        </member>
+        <member name="M:Model.Fakes.ShimAbstractActor.BehaveAsCurrent">
+            <summary>Attribue le comportement &apos;Current&apos; à toutes les méthodes du type ayant fait l&apos;objet d&apos;un shim</summary>
+        </member>
+        <member name="M:Model.Fakes.ShimAbstractActor.BehaveAsNotImplemented">
+            <summary>Attribue le comportement &apos;NotImplemented&apos; à toutes les méthodes du type ayant fait l&apos;objet d&apos;un shim</summary>
+        </member>
+        <member name="P:Model.Fakes.ShimAbstractActor.Behavior">
+            <summary>Attribue le comportement à toutes les méthodes du type ayant fait l&apos;objet d&apos;un shim</summary>
+        </member>
+        <member name="M:Model.Fakes.ShimAbstractActor.Bind(Model.IActor)">
+            <summary>Relie les membres de l&apos;interface au shim.</summary>
+        </member>
+        <member name="P:Model.Fakes.ShimAbstractActor.BusyGet">
+            <summary>Définit le shim de AbstractActor.get_Busy()</summary>
+        </member>
+        <member name="P:Model.Fakes.ShimAbstractActor.BusySetBoolean">
+            <summary>Définit le shim de AbstractActor.set_Busy(Boolean value)</summary>
+        </member>
+        <member name="P:Model.Fakes.ShimAbstractActor.Constructor">
+            <summary>Définit le shim de AbstractActor.AbstractActor()</summary>
+        </member>
+        <member name="P:Model.Fakes.ShimAbstractActor.EvaluateDistanceToIActor">
+            <summary>Définit le shim de AbstractActor.EvaluateDistanceTo(IActor OtherActor)</summary>
+        </member>
+        <member name="P:Model.Fakes.ShimAbstractActor.EventGenericAddEventHandler">
+            <summary>Définit le shim de AbstractActor.add_EventGeneric(EventHandler value)</summary>
+        </member>
+        <member name="P:Model.Fakes.ShimAbstractActor.EventGenericRemoveEventHandler">
+            <summary>Définit le shim de AbstractActor.remove_EventGeneric(EventHandler value)</summary>
+        </member>
+        <member name="P:Model.Fakes.ShimAbstractActor.FindClosestStringListOfIActor">
+            <summary>Définit le shim de AbstractActor.FindClosest(String Name, List`1&lt;IActor&gt; AllActors)</summary>
+        </member>
+        <member name="P:Model.Fakes.ShimAbstractActor.InitializedGet">
+            <summary>Définit le shim de AbstractActor.get_Initialized()</summary>
+        </member>
+        <member name="P:Model.Fakes.ShimAbstractActor.InitializedSetBoolean">
+            <summary>Définit le shim de AbstractActor.set_Initialized(Boolean value)</summary>
+        </member>
+        <member name="P:Model.Fakes.ShimAbstractActor.ItemsGet">
+            <summary>Définit le shim de AbstractActor.get_Items()</summary>
+        </member>
+        <member name="P:Model.Fakes.ShimAbstractActor.ItemsSetListOfICarriableItem">
+            <summary>Définit le shim de AbstractActor.set_Items(List`1&lt;ICarriableItem&gt; value)</summary>
+        </member>
+        <member name="P:Model.Fakes.ShimAbstractActor.MaxInventorySizeGet">
+            <summary>Définit le shim de AbstractActor.get_MaxInventorySize()</summary>
+        </member>
+        <member name="P:Model.Fakes.ShimAbstractActor.MaxInventorySizeSetInt32">
+            <summary>Définit le shim de AbstractActor.set_MaxInventorySize(Int32 value)</summary>
+        </member>
+        <member name="P:Model.Fakes.ShimAbstractActor.Move">
+            <summary>Définit le shim de AbstractActor.Move()</summary>
+        </member>
+        <member name="P:Model.Fakes.ShimAbstractActor.NameGet">
+            <summary>Définit le shim de AbstractActor.get_Name()</summary>
+        </member>
+        <member name="P:Model.Fakes.ShimAbstractActor.NameSetString">
+            <summary>Définit le shim de AbstractActor.set_Name(String value)</summary>
+        </member>
+        <member name="P:Model.Fakes.ShimAbstractActor.PositionGet">
+            <summary>Définit le shim de AbstractActor.get_Position()</summary>
+        </member>
+        <member name="P:Model.Fakes.ShimAbstractActor.PositionSetPoint">
+            <summary>Définit le shim de AbstractActor.set_Position(Point value)</summary>
+        </member>
+        <member name="P:Model.Fakes.ShimAbstractActor.StackGet">
+            <summary>Définit le shim de AbstractActor.get_Stack()</summary>
+        </member>
+        <member name="P:Model.Fakes.ShimAbstractActor.StackSetListOfObject">
+            <summary>Définit le shim de AbstractActor.set_Stack(List`1&lt;Object&gt; value)</summary>
+        </member>
+        <member name="P:Model.Fakes.ShimAbstractActor.StrategyCallbackObjectEventArgs">
+            <summary>Définit le shim de AbstractActor.StrategyCallback(Object sender, EventArgs args)</summary>
+        </member>
+        <member name="P:Model.Fakes.ShimAbstractActor.StrategyGet">
+            <summary>Définit le shim de AbstractActor.get_Strategy()</summary>
+        </member>
+        <member name="P:Model.Fakes.ShimAbstractActor.StrategySetIStrategy">
+            <summary>Définit le shim de AbstractActor.set_Strategy(IStrategy value)</summary>
+        </member>
+        <member name="P:Model.Fakes.ShimAbstractActor.TargetGet">
+            <summary>Définit le shim de AbstractActor.get_Target()</summary>
+        </member>
+        <member name="P:Model.Fakes.ShimAbstractActor.TargetSetIActor">
+            <summary>Définit le shim de AbstractActor.set_Target(IActor value)</summary>
+        </member>
+        <member name="P:Model.Fakes.ShimAbstractActor.TriggerEventStringObject">
+            <summary>Définit le shim de AbstractActor.TriggerEvent(String name, Object arg)</summary>
+        </member>
+        <member name="P:Model.Fakes.ShimAbstractActor.giveItemToICarriableItemIActor">
+            <summary>Définit le shim de AbstractActor.giveItemTo(ICarriableItem item, IActor actor)</summary>
+        </member>
+        <member name="T:Model.Fakes.ShimActorFactory">
+            <summary>Type shim de Model.ActorFactory</summary>
+        </member>
+        <member name="M:Model.Fakes.ShimActorFactory.#ctor">
+            <summary>Initialise une nouvelle instance de shim</summary>
+        </member>
+        <member name="M:Model.Fakes.ShimActorFactory.BehaveAsCurrent">
+            <summary>Attribue le comportement &apos;Current&apos; à toutes les méthodes du type ayant fait l&apos;objet d&apos;un shim</summary>
+        </member>
+        <member name="M:Model.Fakes.ShimActorFactory.BehaveAsNotImplemented">
+            <summary>Attribue le comportement &apos;NotImplemented&apos; à toutes les méthodes du type ayant fait l&apos;objet d&apos;un shim</summary>
+        </member>
+        <member name="P:Model.Fakes.ShimActorFactory.Behavior">
+            <summary>Attribue le comportement à toutes les méthodes du type ayant fait l&apos;objet d&apos;un shim</summary>
+        </member>
+        <member name="P:Model.Fakes.ShimActorFactory.CreateActorString">
+            <summary>Définit le shim de ActorFactory.CreateActor(String type)</summary>
+        </member>
+        <member name="T:Model.Fakes.ShimActorMobile">
+            <summary>Type shim de Model.ActorMobile</summary>
+        </member>
+        <member name="M:Model.Fakes.ShimActorMobile.#ctor">
+            <summary>Initialise une nouvelle instance de shim</summary>
+        </member>
+        <member name="M:Model.Fakes.ShimActorMobile.#ctor(Model.ActorMobile)">
+            <summary>Initialise un nouveau shim pour l&apos;instance donnée</summary>
+        </member>
+        <member name="T:Model.Fakes.ShimActorMobile.AllInstances">
+            <summary>Définir des shims pour tous les membres des instances</summary>
+        </member>
+        <member name="P:Model.Fakes.ShimActorMobile.AllInstances.CallStrategy">
+            <summary>Définit le shim de ActorMobile.CallStrategy()</summary>
+        </member>
+        <member name="P:Model.Fakes.ShimActorMobile.AllInstances.NextTickListOfIActor">
+            <summary>Définit le shim de ActorMobile.NextTick(List`1&lt;IActor&gt; AllActors)</summary>
+        </member>
+        <member name="M:Model.Fakes.ShimActorMobile.BehaveAsCurrent">
+            <summary>Attribue le comportement &apos;Current&apos; à toutes les méthodes du type ayant fait l&apos;objet d&apos;un shim</summary>
+        </member>
+        <member name="M:Model.Fakes.ShimActorMobile.BehaveAsNotImplemented">
+            <summary>Attribue le comportement &apos;NotImplemented&apos; à toutes les méthodes du type ayant fait l&apos;objet d&apos;un shim</summary>
+        </member>
+        <member name="P:Model.Fakes.ShimActorMobile.Behavior">
+            <summary>Attribue le comportement à toutes les méthodes du type ayant fait l&apos;objet d&apos;un shim</summary>
+        </member>
+        <member name="M:Model.Fakes.ShimActorMobile.Bind(Model.IActor)">
+            <summary>Relie les membres de l&apos;interface au shim.</summary>
+        </member>
+        <member name="P:Model.Fakes.ShimActorMobile.CallStrategy">
+            <summary>Définit le shim de ActorMobile.CallStrategy()</summary>
+        </member>
+        <member name="P:Model.Fakes.ShimActorMobile.Constructor">
+            <summary>Définit le shim de ActorMobile.ActorMobile()</summary>
+        </member>
+        <member name="P:Model.Fakes.ShimActorMobile.NextTickListOfIActor">
+            <summary>Définit le shim de ActorMobile.NextTick(List`1&lt;IActor&gt; AllActors)</summary>
+        </member>
+        <member name="T:Model.Fakes.ShimActorMobileSocket">
+            <summary>Type shim de Model.ActorMobileSocket</summary>
+        </member>
+        <member name="M:Model.Fakes.ShimActorMobileSocket.#ctor">
+            <summary>Initialise une nouvelle instance de shim</summary>
+        </member>
+        <member name="M:Model.Fakes.ShimActorMobileSocket.#ctor(Model.ActorMobileSocket)">
+            <summary>Initialise un nouveau shim pour l&apos;instance donnée</summary>
+        </member>
+        <member name="T:Model.Fakes.ShimActorMobileSocket.AllInstances">
+            <summary>Définir des shims pour tous les membres des instances</summary>
+        </member>
+        <member name="M:Model.Fakes.ShimActorMobileSocket.BehaveAsCurrent">
+            <summary>Attribue le comportement &apos;Current&apos; à toutes les méthodes du type ayant fait l&apos;objet d&apos;un shim</summary>
+        </member>
+        <member name="M:Model.Fakes.ShimActorMobileSocket.BehaveAsNotImplemented">
+            <summary>Attribue le comportement &apos;NotImplemented&apos; à toutes les méthodes du type ayant fait l&apos;objet d&apos;un shim</summary>
+        </member>
+        <member name="P:Model.Fakes.ShimActorMobileSocket.Behavior">
+            <summary>Attribue le comportement à toutes les méthodes du type ayant fait l&apos;objet d&apos;un shim</summary>
+        </member>
+        <member name="M:Model.Fakes.ShimActorMobileSocket.Bind(Model.IActor)">
+            <summary>Relie les membres de l&apos;interface au shim.</summary>
+        </member>
+        <member name="P:Model.Fakes.ShimActorMobileSocket.ConstructorString">
+            <summary>Définit le shim de ActorMobileSocket.ActorMobileSocket(String ClientOrServer)</summary>
+        </member>
+        <member name="T:Model.Fakes.ShimCarriableItemFactory">
+            <summary>Type shim de Model.CarriableItemFactory</summary>
+        </member>
+        <member name="M:Model.Fakes.ShimCarriableItemFactory.#ctor">
+            <summary>Initialise une nouvelle instance de shim</summary>
+        </member>
+        <member name="M:Model.Fakes.ShimCarriableItemFactory.BehaveAsCurrent">
+            <summary>Attribue le comportement &apos;Current&apos; à toutes les méthodes du type ayant fait l&apos;objet d&apos;un shim</summary>
+        </member>
+        <member name="M:Model.Fakes.ShimCarriableItemFactory.BehaveAsNotImplemented">
+            <summary>Attribue le comportement &apos;NotImplemented&apos; à toutes les méthodes du type ayant fait l&apos;objet d&apos;un shim</summary>
+        </member>
+        <member name="P:Model.Fakes.ShimCarriableItemFactory.Behavior">
+            <summary>Attribue le comportement à toutes les méthodes du type ayant fait l&apos;objet d&apos;un shim</summary>
+        </member>
+        <member name="P:Model.Fakes.ShimCarriableItemFactory.CreateCarriableItemString">
+            <summary>Définit le shim de CarriableItemFactory.CreateCarriableItem(String type)</summary>
+        </member>
+        <member name="T:Model.Fakes.ShimClientSpawner">
+            <summary>Type shim de Model.ClientSpawner</summary>
+        </member>
+        <member name="M:Model.Fakes.ShimClientSpawner.#ctor">
+            <summary>Initialise une nouvelle instance de shim</summary>
+        </member>
+        <member name="M:Model.Fakes.ShimClientSpawner.#ctor(Model.ClientSpawner)">
+            <summary>Initialise un nouveau shim pour l&apos;instance donnée</summary>
+        </member>
+        <member name="T:Model.Fakes.ShimClientSpawner.AllInstances">
+            <summary>Définir des shims pour tous les membres des instances</summary>
+        </member>
+        <member name="P:Model.Fakes.ShimClientSpawner.AllInstances.IntervalleGet">
+            <summary>Définit le shim de ClientSpawner.get_Intervalle()</summary>
+        </member>
+        <member name="P:Model.Fakes.ShimClientSpawner.AllInstances.IntervalleSetInt32">
+            <summary>Définit le shim de ClientSpawner.set_Intervalle(Int32 value)</summary>
+        </member>
+        <member name="P:Model.Fakes.ShimClientSpawner.AllInstances.MaxGroupSizeGet">
+            <summary>Définit le shim de ClientSpawner.get_MaxGroupSize()</summary>
+        </member>
+        <member name="P:Model.Fakes.ShimClientSpawner.AllInstances.MaxGroupSizeSetInt32">
+            <summary>Définit le shim de ClientSpawner.set_MaxGroupSize(Int32 value)</summary>
+        </member>
+        <member name="P:Model.Fakes.ShimClientSpawner.AllInstances.MinGroupSizeGet">
+            <summary>Définit le shim de ClientSpawner.get_MinGroupSize()</summary>
+        </member>
+        <member name="P:Model.Fakes.ShimClientSpawner.AllInstances.MinGroupSizeSetInt32">
+            <summary>Définit le shim de ClientSpawner.set_MinGroupSize(Int32 value)</summary>
+        </member>
+        <member name="M:Model.Fakes.ShimClientSpawner.BehaveAsCurrent">
+            <summary>Attribue le comportement &apos;Current&apos; à toutes les méthodes du type ayant fait l&apos;objet d&apos;un shim</summary>
+        </member>
+        <member name="M:Model.Fakes.ShimClientSpawner.BehaveAsNotImplemented">
+            <summary>Attribue le comportement &apos;NotImplemented&apos; à toutes les méthodes du type ayant fait l&apos;objet d&apos;un shim</summary>
+        </member>
+        <member name="P:Model.Fakes.ShimClientSpawner.Behavior">
+            <summary>Attribue le comportement à toutes les méthodes du type ayant fait l&apos;objet d&apos;un shim</summary>
+        </member>
+        <member name="P:Model.Fakes.ShimClientSpawner.ConstructorInt32Int32Int32">
+            <summary>Définit le shim de ClientSpawner.ClientSpawner(Int32 intervalle, Int32 maxGroupSize, Int32 minGroupSize)</summary>
+        </member>
+        <member name="P:Model.Fakes.ShimClientSpawner.IntervalleGet">
+            <summary>Définit le shim de ClientSpawner.get_Intervalle()</summary>
+        </member>
+        <member name="P:Model.Fakes.ShimClientSpawner.IntervalleSetInt32">
+            <summary>Définit le shim de ClientSpawner.set_Intervalle(Int32 value)</summary>
+        </member>
+        <member name="P:Model.Fakes.ShimClientSpawner.MaxGroupSizeGet">
+            <summary>Définit le shim de ClientSpawner.get_MaxGroupSize()</summary>
+        </member>
+        <member name="P:Model.Fakes.ShimClientSpawner.MaxGroupSizeSetInt32">
+            <summary>Définit le shim de ClientSpawner.set_MaxGroupSize(Int32 value)</summary>
+        </member>
+        <member name="P:Model.Fakes.ShimClientSpawner.MinGroupSizeGet">
+            <summary>Définit le shim de ClientSpawner.get_MinGroupSize()</summary>
+        </member>
+        <member name="P:Model.Fakes.ShimClientSpawner.MinGroupSizeSetInt32">
+            <summary>Définit le shim de ClientSpawner.set_MinGroupSize(Int32 value)</summary>
+        </member>
+        <member name="T:Model.Fakes.ShimCounter">
+            <summary>Type shim de Model.Counter</summary>
+        </member>
+        <member name="M:Model.Fakes.ShimCounter.#ctor">
+            <summary>Initialise une nouvelle instance de shim</summary>
+        </member>
+        <member name="M:Model.Fakes.ShimCounter.#ctor(Model.Counter)">
+            <summary>Initialise un nouveau shim pour l&apos;instance donnée</summary>
+        </member>
+        <member name="T:Model.Fakes.ShimCounter.AllInstances">
+            <summary>Définir des shims pour tous les membres des instances</summary>
+        </member>
+        <member name="M:Model.Fakes.ShimCounter.BehaveAsCurrent">
+            <summary>Attribue le comportement &apos;Current&apos; à toutes les méthodes du type ayant fait l&apos;objet d&apos;un shim</summary>
+        </member>
+        <member name="M:Model.Fakes.ShimCounter.BehaveAsNotImplemented">
+            <summary>Attribue le comportement &apos;NotImplemented&apos; à toutes les méthodes du type ayant fait l&apos;objet d&apos;un shim</summary>
+        </member>
+        <member name="P:Model.Fakes.ShimCounter.Behavior">
+            <summary>Attribue le comportement à toutes les méthodes du type ayant fait l&apos;objet d&apos;un shim</summary>
+        </member>
+        <member name="P:Model.Fakes.ShimCounter.Constructor">
+            <summary>Définit le shim de Counter.Counter()</summary>
+        </member>
+        <member name="T:Model.Fakes.ShimDish">
+            <summary>Type shim de Model.Dish</summary>
+        </member>
+        <member name="M:Model.Fakes.ShimDish.#ctor">
+            <summary>Initialise une nouvelle instance de shim</summary>
+        </member>
+        <member name="M:Model.Fakes.ShimDish.#ctor(Model.Dish)">
+            <summary>Initialise un nouveau shim pour l&apos;instance donnée</summary>
+        </member>
+        <member name="T:Model.Fakes.ShimDish.AllInstances">
+            <summary>Définir des shims pour tous les membres des instances</summary>
+        </member>
+        <member name="P:Model.Fakes.ShimDish.AllInstances.CompletedStepsGet">
+            <summary>Définit le shim de Dish.get_CompletedSteps()</summary>
+        </member>
+        <member name="P:Model.Fakes.ShimDish.AllInstances.CompletedStepsSetInt32">
+            <summary>Définit le shim de Dish.set_CompletedSteps(Int32 value)</summary>
+        </member>
+        <member name="P:Model.Fakes.ShimDish.AllInstances.MarkStepCompleted">
+            <summary>Définit le shim de Dish.MarkStepCompleted()</summary>
+        </member>
+        <member name="P:Model.Fakes.ShimDish.AllInstances.StepsGet">
+            <summary>Définit le shim de Dish.get_Steps()</summary>
+        </member>
+        <member name="P:Model.Fakes.ShimDish.AllInstances.StepsSetListOfStep">
+            <summary>Définit le shim de Dish.set_Steps(List`1&lt;Step&gt; value)</summary>
+        </member>
+        <member name="M:Model.Fakes.ShimDish.BehaveAsCurrent">
+            <summary>Attribue le comportement &apos;Current&apos; à toutes les méthodes du type ayant fait l&apos;objet d&apos;un shim</summary>
+        </member>
+        <member name="M:Model.Fakes.ShimDish.BehaveAsNotImplemented">
+            <summary>Attribue le comportement &apos;NotImplemented&apos; à toutes les méthodes du type ayant fait l&apos;objet d&apos;un shim</summary>
+        </member>
+        <member name="P:Model.Fakes.ShimDish.Behavior">
+            <summary>Attribue le comportement à toutes les méthodes du type ayant fait l&apos;objet d&apos;un shim</summary>
+        </member>
+        <member name="P:Model.Fakes.ShimDish.CompletedStepsGet">
+            <summary>Définit le shim de Dish.get_CompletedSteps()</summary>
+        </member>
+        <member name="P:Model.Fakes.ShimDish.CompletedStepsSetInt32">
+            <summary>Définit le shim de Dish.set_CompletedSteps(Int32 value)</summary>
+        </member>
+        <member name="P:Model.Fakes.ShimDish.ConstructorDishModelOrder">
+            <summary>Définit le shim de Dish.Dish(DishModel model, Order order)</summary>
+        </member>
+        <member name="P:Model.Fakes.ShimDish.MarkStepCompleted">
+            <summary>Définit le shim de Dish.MarkStepCompleted()</summary>
+        </member>
+        <member name="P:Model.Fakes.ShimDish.StepsGet">
+            <summary>Définit le shim de Dish.get_Steps()</summary>
+        </member>
+        <member name="P:Model.Fakes.ShimDish.StepsSetListOfStep">
+            <summary>Définit le shim de Dish.set_Steps(List`1&lt;Step&gt; value)</summary>
+        </member>
+        <member name="T:Model.Fakes.ShimDishModel">
+            <summary>Type shim de Model.DishModel</summary>
+        </member>
+        <member name="M:Model.Fakes.ShimDishModel.#ctor">
+            <summary>Initialise une nouvelle instance de shim</summary>
+        </member>
+        <member name="M:Model.Fakes.ShimDishModel.#ctor(Model.DishModel)">
+            <summary>Initialise un nouveau shim pour l&apos;instance donnée</summary>
+        </member>
+        <member name="T:Model.Fakes.ShimDishModel.AllInstances">
+            <summary>Définir des shims pour tous les membres des instances</summary>
+        </member>
+        <member name="P:Model.Fakes.ShimDishModel.AllInstances.ModelStepsGet">
+            <summary>Définit le shim de DishModel.get_ModelSteps()</summary>
+        </member>
+        <member name="P:Model.Fakes.ShimDishModel.AllInstances.ModelStepsSetListOfStepModel">
+            <summary>Définit le shim de DishModel.set_ModelSteps(List`1&lt;StepModel&gt; value)</summary>
+        </member>
+        <member name="P:Model.Fakes.ShimDishModel.AllInstances.NameGet">
+            <summary>Définit le shim de DishModel.get_Name()</summary>
+        </member>
+        <member name="P:Model.Fakes.ShimDishModel.AllInstances.NameSetString">
+            <summary>Définit le shim de DishModel.set_Name(String value)</summary>
+        </member>
+        <member name="M:Model.Fakes.ShimDishModel.BehaveAsCurrent">
+            <summary>Attribue le comportement &apos;Current&apos; à toutes les méthodes du type ayant fait l&apos;objet d&apos;un shim</summary>
+        </member>
+        <member name="M:Model.Fakes.ShimDishModel.BehaveAsNotImplemented">
+            <summary>Attribue le comportement &apos;NotImplemented&apos; à toutes les méthodes du type ayant fait l&apos;objet d&apos;un shim</summary>
+        </member>
+        <member name="P:Model.Fakes.ShimDishModel.Behavior">
+            <summary>Attribue le comportement à toutes les méthodes du type ayant fait l&apos;objet d&apos;un shim</summary>
+        </member>
+        <member name="P:Model.Fakes.ShimDishModel.Constructor">
+            <summary>Définit le shim de DishModel.DishModel()</summary>
+        </member>
+        <member name="P:Model.Fakes.ShimDishModel.ModelStepsGet">
+            <summary>Définit le shim de DishModel.get_ModelSteps()</summary>
+        </member>
+        <member name="P:Model.Fakes.ShimDishModel.ModelStepsSetListOfStepModel">
+            <summary>Définit le shim de DishModel.set_ModelSteps(List`1&lt;StepModel&gt; value)</summary>
+        </member>
+        <member name="P:Model.Fakes.ShimDishModel.NameGet">
+            <summary>Définit le shim de DishModel.get_Name()</summary>
+        </member>
+        <member name="P:Model.Fakes.ShimDishModel.NameSetString">
+            <summary>Définit le shim de DishModel.set_Name(String value)</summary>
+        </member>
+        <member name="T:Model.Fakes.ShimDishModelList">
+            <summary>Type shim de Model.DishModelList</summary>
+        </member>
+        <member name="M:Model.Fakes.ShimDishModelList.#ctor">
+            <summary>Initialise une nouvelle instance de shim</summary>
+        </member>
+        <member name="M:Model.Fakes.ShimDishModelList.BehaveAsCurrent">
+            <summary>Attribue le comportement &apos;Current&apos; à toutes les méthodes du type ayant fait l&apos;objet d&apos;un shim</summary>
+        </member>
+        <member name="M:Model.Fakes.ShimDishModelList.BehaveAsNotImplemented">
+            <summary>Attribue le comportement &apos;NotImplemented&apos; à toutes les méthodes du type ayant fait l&apos;objet d&apos;un shim</summary>
+        </member>
+        <member name="P:Model.Fakes.ShimDishModelList.Behavior">
+            <summary>Attribue le comportement à toutes les méthodes du type ayant fait l&apos;objet d&apos;un shim</summary>
+        </member>
+        <member name="P:Model.Fakes.ShimDishModelList.GetAvailableDishes">
+            <summary>Définit le shim de DishModelList.GetAvailableDishes()</summary>
+        </member>
+        <member name="P:Model.Fakes.ShimDishModelList.Init">
+            <summary>Définit le shim de DishModelList.Init()</summary>
+        </member>
+        <member name="P:Model.Fakes.ShimDishModelList.StaticConstructor">
+            <summary>Définit le shim de DishModelList.DishModelList()</summary>
+        </member>
+        <member name="T:Model.Fakes.ShimGroupActor">
+            <summary>Type shim de Model.GroupActor</summary>
+        </member>
+        <member name="M:Model.Fakes.ShimGroupActor.#ctor">
+            <summary>Initialise une nouvelle instance de shim</summary>
+        </member>
+        <member name="M:Model.Fakes.ShimGroupActor.#ctor(Model.GroupActor)">
+            <summary>Initialise un nouveau shim pour l&apos;instance donnée</summary>
+        </member>
+        <member name="T:Model.Fakes.ShimGroupActor.AllInstances">
+            <summary>Définir des shims pour tous les membres des instances</summary>
+        </member>
+        <member name="P:Model.Fakes.ShimGroupActor.AllInstances.ClientsGet">
+            <summary>Définit le shim de GroupActor.get_Clients()</summary>
+        </member>
+        <member name="P:Model.Fakes.ShimGroupActor.AllInstances.ClientsSetListOfActorMobile">
+            <summary>Définit le shim de GroupActor.set_Clients(List`1&lt;ActorMobile&gt; value)</summary>
+        </member>
+        <member name="M:Model.Fakes.ShimGroupActor.BehaveAsCurrent">
+            <summary>Attribue le comportement &apos;Current&apos; à toutes les méthodes du type ayant fait l&apos;objet d&apos;un shim</summary>
+        </member>
+        <member name="M:Model.Fakes.ShimGroupActor.BehaveAsNotImplemented">
+            <summary>Attribue le comportement &apos;NotImplemented&apos; à toutes les méthodes du type ayant fait l&apos;objet d&apos;un shim</summary>
+        </member>
+        <member name="P:Model.Fakes.ShimGroupActor.Behavior">
+            <summary>Attribue le comportement à toutes les méthodes du type ayant fait l&apos;objet d&apos;un shim</summary>
+        </member>
+        <member name="P:Model.Fakes.ShimGroupActor.ClientsGet">
+            <summary>Définit le shim de GroupActor.get_Clients()</summary>
+        </member>
+        <member name="P:Model.Fakes.ShimGroupActor.ClientsSetListOfActorMobile">
+            <summary>Définit le shim de GroupActor.set_Clients(List`1&lt;ActorMobile&gt; value)</summary>
+        </member>
+        <member name="P:Model.Fakes.ShimGroupActor.Constructor">
+            <summary>Définit le shim de GroupActor.GroupActor()</summary>
+        </member>
+        <member name="T:Model.Fakes.ShimICarriableItem">
+            <summary>Type shim de Model.ICarriableItem</summary>
+        </member>
+        <member name="M:Model.Fakes.ShimICarriableItem.#ctor">
+            <summary>Initialise une nouvelle instance de shim</summary>
+        </member>
+        <member name="M:Model.Fakes.ShimICarriableItem.#ctor(Model.ICarriableItem)">
+            <summary>Initialise un nouveau shim pour l&apos;instance donnée</summary>
+        </member>
+        <member name="T:Model.Fakes.ShimICarriableItem.AllInstances">
+            <summary>Définir des shims pour tous les membres des instances</summary>
+        </member>
+        <member name="P:Model.Fakes.ShimICarriableItem.AllInstances.CallStrategy">
+            <summary>Définit le shim de ICarriableItem.CallStrategy()</summary>
+        </member>
+        <member name="P:Model.Fakes.ShimICarriableItem.AllInstances.IDGet">
+            <summary>Définit le shim de ICarriableItem.get_ID()</summary>
+        </member>
+        <member name="P:Model.Fakes.ShimICarriableItem.AllInstances.IDSetInt32">
+            <summary>Définit le shim de ICarriableItem.set_ID(Int32 value)</summary>
+        </member>
+        <member name="P:Model.Fakes.ShimICarriableItem.AllInstances.InventorySizeGet">
+            <summary>Définit le shim de ICarriableItem.get_InventorySize()</summary>
+        </member>
+        <member name="P:Model.Fakes.ShimICarriableItem.AllInstances.InventorySizeSetInt32">
+            <summary>Définit le shim de ICarriableItem.set_InventorySize(Int32 value)</summary>
+        </member>
+        <member name="P:Model.Fakes.ShimICarriableItem.AllInstances.NextTickListOfIActor">
+            <summary>Définit le shim de ICarriableItem.NextTick(List`1&lt;IActor&gt; AllActors)</summary>
+        </member>
+        <member name="M:Model.Fakes.ShimICarriableItem.BehaveAsCurrent">
+            <summary>Attribue le comportement &apos;Current&apos; à toutes les méthodes du type ayant fait l&apos;objet d&apos;un shim</summary>
+        </member>
+        <member name="M:Model.Fakes.ShimICarriableItem.BehaveAsNotImplemented">
+            <summary>Attribue le comportement &apos;NotImplemented&apos; à toutes les méthodes du type ayant fait l&apos;objet d&apos;un shim</summary>
+        </member>
+        <member name="P:Model.Fakes.ShimICarriableItem.Behavior">
+            <summary>Attribue le comportement à toutes les méthodes du type ayant fait l&apos;objet d&apos;un shim</summary>
+        </member>
+        <member name="M:Model.Fakes.ShimICarriableItem.Bind(Model.IActor)">
+            <summary>Relie les membres de l&apos;interface au shim.</summary>
+        </member>
+        <member name="P:Model.Fakes.ShimICarriableItem.CallStrategy">
+            <summary>Définit le shim de ICarriableItem.CallStrategy()</summary>
+        </member>
+        <member name="P:Model.Fakes.ShimICarriableItem.Constructor">
+            <summary>Définit le shim de ICarriableItem.ICarriableItem()</summary>
+        </member>
+        <member name="P:Model.Fakes.ShimICarriableItem.IDGet">
+            <summary>Définit le shim de ICarriableItem.get_ID()</summary>
+        </member>
+        <member name="P:Model.Fakes.ShimICarriableItem.IDSetInt32">
+            <summary>Définit le shim de ICarriableItem.set_ID(Int32 value)</summary>
+        </member>
+        <member name="P:Model.Fakes.ShimICarriableItem.InstanceGet">
+            <summary>Définit le shim de ICarriableItem.get_Instance()</summary>
+        </member>
+        <member name="P:Model.Fakes.ShimICarriableItem.InstanceSetInt32">
+            <summary>Définit le shim de ICarriableItem.set_Instance(Int32 value)</summary>
+        </member>
+        <member name="P:Model.Fakes.ShimICarriableItem.InventorySizeGet">
+            <summary>Définit le shim de ICarriableItem.get_InventorySize()</summary>
+        </member>
+        <member name="P:Model.Fakes.ShimICarriableItem.InventorySizeSetInt32">
+            <summary>Définit le shim de ICarriableItem.set_InventorySize(Int32 value)</summary>
+        </member>
+        <member name="P:Model.Fakes.ShimICarriableItem.NextTickListOfIActor">
+            <summary>Définit le shim de ICarriableItem.NextTick(List`1&lt;IActor&gt; AllActors)</summary>
+        </member>
+        <member name="T:Model.Fakes.ShimIngredient">
+            <summary>Type shim de Model.Ingredient</summary>
+        </member>
+        <member name="M:Model.Fakes.ShimIngredient.#ctor">
+            <summary>Initialise une nouvelle instance de shim</summary>
+        </member>
+        <member name="M:Model.Fakes.ShimIngredient.#ctor(Model.Ingredient)">
+            <summary>Initialise un nouveau shim pour l&apos;instance donnée</summary>
+        </member>
+        <member name="T:Model.Fakes.ShimIngredient.AllInstances">
+            <summary>Définir des shims pour tous les membres des instances</summary>
+        </member>
+        <member name="P:Model.Fakes.ShimIngredient.AllInstances.TimeToLiveGet">
+            <summary>Définit le shim de Ingredient.get_TimeToLive()</summary>
+        </member>
+        <member name="P:Model.Fakes.ShimIngredient.AllInstances.TimeToLiveSetInt32">
+            <summary>Définit le shim de Ingredient.set_TimeToLive(Int32 value)</summary>
+        </member>
+        <member name="M:Model.Fakes.ShimIngredient.BehaveAsCurrent">
+            <summary>Attribue le comportement &apos;Current&apos; à toutes les méthodes du type ayant fait l&apos;objet d&apos;un shim</summary>
+        </member>
+        <member name="M:Model.Fakes.ShimIngredient.BehaveAsNotImplemented">
+            <summary>Attribue le comportement &apos;NotImplemented&apos; à toutes les méthodes du type ayant fait l&apos;objet d&apos;un shim</summary>
+        </member>
+        <member name="P:Model.Fakes.ShimIngredient.Behavior">
+            <summary>Attribue le comportement à toutes les méthodes du type ayant fait l&apos;objet d&apos;un shim</summary>
+        </member>
+        <member name="M:Model.Fakes.ShimIngredient.Bind(Model.IActor)">
+            <summary>Relie les membres de l&apos;interface au shim.</summary>
+        </member>
+        <member name="P:Model.Fakes.ShimIngredient.ConstructorStringInt32Int32">
+            <summary>Définit le shim de Ingredient.Ingredient(String name, Int32 inventorySize, Int32 timeToLive)</summary>
+        </member>
+        <member name="P:Model.Fakes.ShimIngredient.TimeToLiveGet">
+            <summary>Définit le shim de Ingredient.get_TimeToLive()</summary>
+        </member>
+        <member name="P:Model.Fakes.ShimIngredient.TimeToLiveSetInt32">
+            <summary>Définit le shim de Ingredient.set_TimeToLive(Int32 value)</summary>
+        </member>
+        <member name="T:Model.Fakes.ShimIngredientFactory">
+            <summary>Type shim de Model.IngredientFactory</summary>
+        </member>
+        <member name="M:Model.Fakes.ShimIngredientFactory.#ctor">
+            <summary>Initialise une nouvelle instance de shim</summary>
+        </member>
+        <member name="M:Model.Fakes.ShimIngredientFactory.BehaveAsCurrent">
+            <summary>Attribue le comportement &apos;Current&apos; à toutes les méthodes du type ayant fait l&apos;objet d&apos;un shim</summary>
+        </member>
+        <member name="M:Model.Fakes.ShimIngredientFactory.BehaveAsNotImplemented">
+            <summary>Attribue le comportement &apos;NotImplemented&apos; à toutes les méthodes du type ayant fait l&apos;objet d&apos;un shim</summary>
+        </member>
+        <member name="P:Model.Fakes.ShimIngredientFactory.Behavior">
+            <summary>Attribue le comportement à toutes les méthodes du type ayant fait l&apos;objet d&apos;un shim</summary>
+        </member>
+        <member name="P:Model.Fakes.ShimIngredientFactory.createIngredientString">
+            <summary>Définit le shim de IngredientFactory.createIngredient(String ingredient)</summary>
+        </member>
+        <member name="T:Model.Fakes.ShimModelIngredient">
+            <summary>Type shim de Model.ModelIngredient</summary>
+        </member>
+        <member name="M:Model.Fakes.ShimModelIngredient.#ctor">
+            <summary>Initialise une nouvelle instance de shim</summary>
+        </member>
+        <member name="M:Model.Fakes.ShimModelIngredient.#ctor(Model.ModelIngredient)">
+            <summary>Initialise un nouveau shim pour l&apos;instance donnée</summary>
+        </member>
+        <member name="T:Model.Fakes.ShimModelIngredient.AllInstances">
+            <summary>Définir des shims pour tous les membres des instances</summary>
+        </member>
+        <member name="M:Model.Fakes.ShimModelIngredient.BehaveAsCurrent">
+            <summary>Attribue le comportement &apos;Current&apos; à toutes les méthodes du type ayant fait l&apos;objet d&apos;un shim</summary>
+        </member>
+        <member name="M:Model.Fakes.ShimModelIngredient.BehaveAsNotImplemented">
+            <summary>Attribue le comportement &apos;NotImplemented&apos; à toutes les méthodes du type ayant fait l&apos;objet d&apos;un shim</summary>
+        </member>
+        <member name="P:Model.Fakes.ShimModelIngredient.Behavior">
+            <summary>Attribue le comportement à toutes les méthodes du type ayant fait l&apos;objet d&apos;un shim</summary>
+        </member>
+        <member name="M:Model.Fakes.ShimModelIngredient.Bind(Model.IActor)">
+            <summary>Relie les membres de l&apos;interface au shim.</summary>
+        </member>
+        <member name="P:Model.Fakes.ShimModelIngredient.ConstructorStringInt32Int32">
+            <summary>Définit le shim de ModelIngredient.ModelIngredient(String name, Int32 inventorySize, Int32 ID)</summary>
+        </member>
+        <member name="T:Model.Fakes.ShimMyEventArgs">
+            <summary>Type shim de Model.MyEventArgs</summary>
+        </member>
+        <member name="M:Model.Fakes.ShimMyEventArgs.#ctor">
+            <summary>Initialise une nouvelle instance de shim</summary>
+        </member>
+        <member name="M:Model.Fakes.ShimMyEventArgs.#ctor(Model.MyEventArgs)">
+            <summary>Initialise un nouveau shim pour l&apos;instance donnée</summary>
+        </member>
+        <member name="T:Model.Fakes.ShimMyEventArgs.AllInstances">
+            <summary>Définir des shims pour tous les membres des instances</summary>
+        </member>
+        <member name="P:Model.Fakes.ShimMyEventArgs.AllInstances.ArgGet">
+            <summary>Définit le shim de MyEventArgs.get_Arg()</summary>
+        </member>
+        <member name="P:Model.Fakes.ShimMyEventArgs.AllInstances.ArgSetObject">
+            <summary>Définit le shim de MyEventArgs.set_Arg(Object value)</summary>
+        </member>
+        <member name="P:Model.Fakes.ShimMyEventArgs.AllInstances.EventNameGet">
+            <summary>Définit le shim de MyEventArgs.get_EventName()</summary>
+        </member>
+        <member name="P:Model.Fakes.ShimMyEventArgs.AllInstances.EventNameSetString">
+            <summary>Définit le shim de MyEventArgs.set_EventName(String value)</summary>
+        </member>
+        <member name="P:Model.Fakes.ShimMyEventArgs.ArgGet">
+            <summary>Définit le shim de MyEventArgs.get_Arg()</summary>
+        </member>
+        <member name="P:Model.Fakes.ShimMyEventArgs.ArgSetObject">
+            <summary>Définit le shim de MyEventArgs.set_Arg(Object value)</summary>
+        </member>
+        <member name="M:Model.Fakes.ShimMyEventArgs.BehaveAsCurrent">
+            <summary>Attribue le comportement &apos;Current&apos; à toutes les méthodes du type ayant fait l&apos;objet d&apos;un shim</summary>
+        </member>
+        <member name="M:Model.Fakes.ShimMyEventArgs.BehaveAsNotImplemented">
+            <summary>Attribue le comportement &apos;NotImplemented&apos; à toutes les méthodes du type ayant fait l&apos;objet d&apos;un shim</summary>
+        </member>
+        <member name="P:Model.Fakes.ShimMyEventArgs.Behavior">
+            <summary>Attribue le comportement à toutes les méthodes du type ayant fait l&apos;objet d&apos;un shim</summary>
+        </member>
+        <member name="P:Model.Fakes.ShimMyEventArgs.ConstructorStringObject">
+            <summary>Définit le shim de MyEventArgs.MyEventArgs(String eventName, Object arg)</summary>
+        </member>
+        <member name="P:Model.Fakes.ShimMyEventArgs.EventNameGet">
+            <summary>Définit le shim de MyEventArgs.get_EventName()</summary>
+        </member>
+        <member name="P:Model.Fakes.ShimMyEventArgs.EventNameSetString">
+            <summary>Définit le shim de MyEventArgs.set_EventName(String value)</summary>
+        </member>
+        <member name="T:Model.Fakes.ShimOrder">
+            <summary>Type shim de Model.Order</summary>
+        </member>
+        <member name="M:Model.Fakes.ShimOrder.#ctor">
+            <summary>Initialise une nouvelle instance de shim</summary>
+        </member>
+        <member name="M:Model.Fakes.ShimOrder.#ctor(Model.Order)">
+            <summary>Initialise un nouveau shim pour l&apos;instance donnée</summary>
+        </member>
+        <member name="T:Model.Fakes.ShimOrder.AllInstances">
+            <summary>Définir des shims pour tous les membres des instances</summary>
+        </member>
+        <member name="P:Model.Fakes.ShimOrder.AllInstances.Completed">
+            <summary>Définit le shim de Order.Completed()</summary>
+        </member>
+        <member name="P:Model.Fakes.ShimOrder.AllInstances.DishInstancesGet">
+            <summary>Définit le shim de Order.get_DishInstances()</summary>
+        </member>
+        <member name="P:Model.Fakes.ShimOrder.AllInstances.DishInstancesSetListOfDish">
+            <summary>Définit le shim de Order.set_DishInstances(List`1&lt;Dish&gt; value)</summary>
+        </member>
+        <member name="P:Model.Fakes.ShimOrder.AllInstances.MarkDishCompleted">
+            <summary>Définit le shim de Order.MarkDishCompleted()</summary>
+        </member>
+        <member name="P:Model.Fakes.ShimOrder.AllInstances.RecipesGet">
+            <summary>Définit le shim de Order.get_Recipes()</summary>
+        </member>
+        <member name="P:Model.Fakes.ShimOrder.AllInstances.RecipesSetListOfDishModel">
+            <summary>Définit le shim de Order.set_Recipes(List`1&lt;DishModel&gt; value)</summary>
+        </member>
+        <member name="P:Model.Fakes.ShimOrder.AllInstances.TableGet">
+            <summary>Définit le shim de Order.get_Table()</summary>
+        </member>
+        <member name="P:Model.Fakes.ShimOrder.AllInstances.TableSetTable">
+            <summary>Définit le shim de Order.set_Table(Table value)</summary>
+        </member>
+        <member name="M:Model.Fakes.ShimOrder.BehaveAsCurrent">
+            <summary>Attribue le comportement &apos;Current&apos; à toutes les méthodes du type ayant fait l&apos;objet d&apos;un shim</summary>
+        </member>
+        <member name="M:Model.Fakes.ShimOrder.BehaveAsNotImplemented">
+            <summary>Attribue le comportement &apos;NotImplemented&apos; à toutes les méthodes du type ayant fait l&apos;objet d&apos;un shim</summary>
+        </member>
+        <member name="P:Model.Fakes.ShimOrder.Behavior">
+            <summary>Attribue le comportement à toutes les méthodes du type ayant fait l&apos;objet d&apos;un shim</summary>
+        </member>
+        <member name="P:Model.Fakes.ShimOrder.Completed">
+            <summary>Définit le shim de Order.Completed()</summary>
+        </member>
+        <member name="P:Model.Fakes.ShimOrder.ConstructorTableListOfDishModel">
+            <summary>Définit le shim de Order.Order(Table table, List`1&lt;DishModel&gt; dishModels)</summary>
+        </member>
+        <member name="P:Model.Fakes.ShimOrder.DishInstancesGet">
+            <summary>Définit le shim de Order.get_DishInstances()</summary>
+        </member>
+        <member name="P:Model.Fakes.ShimOrder.DishInstancesSetListOfDish">
+            <summary>Définit le shim de Order.set_DishInstances(List`1&lt;Dish&gt; value)</summary>
+        </member>
+        <member name="P:Model.Fakes.ShimOrder.MarkDishCompleted">
+            <summary>Définit le shim de Order.MarkDishCompleted()</summary>
+        </member>
+        <member name="P:Model.Fakes.ShimOrder.RecipesGet">
+            <summary>Définit le shim de Order.get_Recipes()</summary>
+        </member>
+        <member name="P:Model.Fakes.ShimOrder.RecipesSetListOfDishModel">
+            <summary>Définit le shim de Order.set_Recipes(List`1&lt;DishModel&gt; value)</summary>
+        </member>
+        <member name="P:Model.Fakes.ShimOrder.TableGet">
+            <summary>Définit le shim de Order.get_Table()</summary>
+        </member>
+        <member name="P:Model.Fakes.ShimOrder.TableSetTable">
+            <summary>Définit le shim de Order.set_Table(Table value)</summary>
+        </member>
+        <member name="T:Model.Fakes.ShimStep">
+            <summary>Type shim de Model.Step</summary>
+        </member>
+        <member name="M:Model.Fakes.ShimStep.#ctor">
+            <summary>Initialise une nouvelle instance de shim</summary>
+        </member>
+        <member name="M:Model.Fakes.ShimStep.#ctor(Model.Step)">
+            <summary>Initialise un nouveau shim pour l&apos;instance donnée</summary>
+        </member>
+        <member name="T:Model.Fakes.ShimStep.AllInstances">
+            <summary>Définir des shims pour tous les membres des instances</summary>
+        </member>
+        <member name="P:Model.Fakes.ShimStep.AllInstances.Complete">
+            <summary>Définit le shim de Step.Complete()</summary>
+        </member>
+        <member name="P:Model.Fakes.ShimStep.AllInstances.DishGet">
+            <summary>Définit le shim de Step.get_Dish()</summary>
+        </member>
+        <member name="P:Model.Fakes.ShimStep.AllInstances.ModelGet">
+            <summary>Définit le shim de Step.get_Model()</summary>
+        </member>
+        <member name="P:Model.Fakes.ShimStep.AllInstances.PreparedGet">
+            <summary>Définit le shim de Step.get_Prepared()</summary>
+        </member>
+        <member name="P:Model.Fakes.ShimStep.AllInstances.PreparedSetBoolean">
+            <summary>Définit le shim de Step.set_Prepared(Boolean value)</summary>
+        </member>
+        <member name="M:Model.Fakes.ShimStep.BehaveAsCurrent">
+            <summary>Attribue le comportement &apos;Current&apos; à toutes les méthodes du type ayant fait l&apos;objet d&apos;un shim</summary>
+        </member>
+        <member name="M:Model.Fakes.ShimStep.BehaveAsNotImplemented">
+            <summary>Attribue le comportement &apos;NotImplemented&apos; à toutes les méthodes du type ayant fait l&apos;objet d&apos;un shim</summary>
+        </member>
+        <member name="P:Model.Fakes.ShimStep.Behavior">
+            <summary>Attribue le comportement à toutes les méthodes du type ayant fait l&apos;objet d&apos;un shim</summary>
+        </member>
+        <member name="P:Model.Fakes.ShimStep.Complete">
+            <summary>Définit le shim de Step.Complete()</summary>
+        </member>
+        <member name="P:Model.Fakes.ShimStep.ConstructorStepModelDish">
+            <summary>Définit le shim de Step.Step(StepModel model, Dish dish)</summary>
+        </member>
+        <member name="P:Model.Fakes.ShimStep.DishGet">
+            <summary>Définit le shim de Step.get_Dish()</summary>
+        </member>
+        <member name="P:Model.Fakes.ShimStep.ModelGet">
+            <summary>Définit le shim de Step.get_Model()</summary>
+        </member>
+        <member name="P:Model.Fakes.ShimStep.PreparedGet">
+            <summary>Définit le shim de Step.get_Prepared()</summary>
+        </member>
+        <member name="P:Model.Fakes.ShimStep.PreparedSetBoolean">
+            <summary>Définit le shim de Step.set_Prepared(Boolean value)</summary>
+        </member>
+        <member name="T:Model.Fakes.ShimStepModel">
+            <summary>Type shim de Model.StepModel</summary>
+        </member>
+        <member name="M:Model.Fakes.ShimStepModel.#ctor">
+            <summary>Initialise une nouvelle instance de shim</summary>
+        </member>
+        <member name="M:Model.Fakes.ShimStepModel.#ctor(Model.StepModel)">
+            <summary>Initialise un nouveau shim pour l&apos;instance donnée</summary>
+        </member>
+        <member name="T:Model.Fakes.ShimStepModel.AllInstances">
+            <summary>Définir des shims pour tous les membres des instances</summary>
+        </member>
+        <member name="P:Model.Fakes.ShimStepModel.AllInstances.DurationGet">
+            <summary>Définit le shim de StepModel.get_Duration()</summary>
+        </member>
+        <member name="P:Model.Fakes.ShimStepModel.AllInstances.DurationSetInt32">
+            <summary>Définit le shim de StepModel.set_Duration(Int32 value)</summary>
+        </member>
+        <member name="P:Model.Fakes.ShimStepModel.AllInstances.IngredientGet">
+            <summary>Définit le shim de StepModel.get_Ingredient()</summary>
+        </member>
+        <member name="P:Model.Fakes.ShimStepModel.AllInstances.IngredientSetString">
+            <summary>Définit le shim de StepModel.set_Ingredient(String value)</summary>
+        </member>
+        <member name="P:Model.Fakes.ShimStepModel.AllInstances.UtensilGet">
+            <summary>Définit le shim de StepModel.get_Utensil()</summary>
+        </member>
+        <member name="P:Model.Fakes.ShimStepModel.AllInstances.UtensilSetString">
+            <summary>Définit le shim de StepModel.set_Utensil(String value)</summary>
+        </member>
+        <member name="P:Model.Fakes.ShimStepModel.AllInstances.WorkboardGet">
+            <summary>Définit le shim de StepModel.get_Workboard()</summary>
+        </member>
+        <member name="P:Model.Fakes.ShimStepModel.AllInstances.WorkboardSetString">
+            <summary>Définit le shim de StepModel.set_Workboard(String value)</summary>
+        </member>
+        <member name="M:Model.Fakes.ShimStepModel.BehaveAsCurrent">
+            <summary>Attribue le comportement &apos;Current&apos; à toutes les méthodes du type ayant fait l&apos;objet d&apos;un shim</summary>
+        </member>
+        <member name="M:Model.Fakes.ShimStepModel.BehaveAsNotImplemented">
+            <summary>Attribue le comportement &apos;NotImplemented&apos; à toutes les méthodes du type ayant fait l&apos;objet d&apos;un shim</summary>
+        </member>
+        <member name="P:Model.Fakes.ShimStepModel.Behavior">
+            <summary>Attribue le comportement à toutes les méthodes du type ayant fait l&apos;objet d&apos;un shim</summary>
+        </member>
+        <member name="P:Model.Fakes.ShimStepModel.Constructor">
+            <summary>Définit le shim de StepModel.StepModel()</summary>
+        </member>
+        <member name="P:Model.Fakes.ShimStepModel.DurationGet">
+            <summary>Définit le shim de StepModel.get_Duration()</summary>
+        </member>
+        <member name="P:Model.Fakes.ShimStepModel.DurationSetInt32">
+            <summary>Définit le shim de StepModel.set_Duration(Int32 value)</summary>
+        </member>
+        <member name="P:Model.Fakes.ShimStepModel.IngredientGet">
+            <summary>Définit le shim de StepModel.get_Ingredient()</summary>
+        </member>
+        <member name="P:Model.Fakes.ShimStepModel.IngredientSetString">
+            <summary>Définit le shim de StepModel.set_Ingredient(String value)</summary>
+        </member>
+        <member name="P:Model.Fakes.ShimStepModel.UtensilGet">
+            <summary>Définit le shim de StepModel.get_Utensil()</summary>
+        </member>
+        <member name="P:Model.Fakes.ShimStepModel.UtensilSetString">
+            <summary>Définit le shim de StepModel.set_Utensil(String value)</summary>
+        </member>
+        <member name="P:Model.Fakes.ShimStepModel.WorkboardGet">
+            <summary>Définit le shim de StepModel.get_Workboard()</summary>
+        </member>
+        <member name="P:Model.Fakes.ShimStepModel.WorkboardSetString">
+            <summary>Définit le shim de StepModel.set_Workboard(String value)</summary>
+        </member>
+        <member name="T:Model.Fakes.ShimStockDAO">
+            <summary>Type shim de Model.StockDAO</summary>
+        </member>
+        <member name="M:Model.Fakes.ShimStockDAO.#ctor">
+            <summary>Initialise une nouvelle instance de shim</summary>
+        </member>
+        <member name="M:Model.Fakes.ShimStockDAO.BehaveAsCurrent">
+            <summary>Attribue le comportement &apos;Current&apos; à toutes les méthodes du type ayant fait l&apos;objet d&apos;un shim</summary>
+        </member>
+        <member name="M:Model.Fakes.ShimStockDAO.BehaveAsNotImplemented">
+            <summary>Attribue le comportement &apos;NotImplemented&apos; à toutes les méthodes du type ayant fait l&apos;objet d&apos;un shim</summary>
+        </member>
+        <member name="P:Model.Fakes.ShimStockDAO.Behavior">
+            <summary>Attribue le comportement à toutes les méthodes du type ayant fait l&apos;objet d&apos;un shim</summary>
+        </member>
+        <member name="P:Model.Fakes.ShimStockDAO.InitializeStockModel">
+            <summary>Définit le shim de StockDAO.InitializeStockModel()</summary>
+        </member>
+        <member name="P:Model.Fakes.ShimStockDAO.StaticConstructor">
+            <summary>Définit le shim de StockDAO.StockDAO()</summary>
+        </member>
+        <member name="P:Model.Fakes.ShimStockDAO.addToStockIngredient">
+            <summary>Définit le shim de StockDAO.addToStock(Ingredient ingredient)</summary>
+        </member>
+        <member name="P:Model.Fakes.ShimStockDAO.addToStockListOfIngredient">
+            <summary>Définit le shim de StockDAO.addToStock(List`1&lt;Ingredient&gt; ingredients)</summary>
+        </member>
+        <member name="P:Model.Fakes.ShimStockDAO.deleteFromStockIngredient">
+            <summary>Définit le shim de StockDAO.deleteFromStock(Ingredient ingredient)</summary>
+        </member>
+        <member name="P:Model.Fakes.ShimStockDAO.getDatabaseString">
+            <summary>Définit le shim de StockDAO.getDatabaseString()</summary>
+        </member>
+        <member name="T:Model.Fakes.ShimStrategy">
+            <summary>Type shim de Model.Strategy</summary>
+        </member>
+        <member name="M:Model.Fakes.ShimStrategy.#ctor(Model.Strategy)">
+            <summary>Initialise un nouveau shim pour l&apos;instance donnée</summary>
+        </member>
+        <member name="T:Model.Fakes.ShimStrategy.AllInstances">
+            <summary>Définir des shims pour tous les membres des instances</summary>
+        </member>
+        <member name="M:Model.Fakes.ShimStrategy.BehaveAsCurrent">
+            <summary>Attribue le comportement &apos;Current&apos; à toutes les méthodes du type ayant fait l&apos;objet d&apos;un shim</summary>
+        </member>
+        <member name="M:Model.Fakes.ShimStrategy.BehaveAsNotImplemented">
+            <summary>Attribue le comportement &apos;NotImplemented&apos; à toutes les méthodes du type ayant fait l&apos;objet d&apos;un shim</summary>
+        </member>
+        <member name="P:Model.Fakes.ShimStrategy.Behavior">
+            <summary>Attribue le comportement à toutes les méthodes du type ayant fait l&apos;objet d&apos;un shim</summary>
+        </member>
+        <member name="M:Model.Fakes.ShimStrategy.Bind(Model.IStrategy)">
+            <summary>Relie les membres de l&apos;interface au shim.</summary>
+        </member>
+        <member name="P:Model.Fakes.ShimStrategy.Constructor">
+            <summary>Définit le shim de Strategy.Strategy()</summary>
+        </member>
+        <member name="T:Model.Fakes.ShimStrategyButler">
+            <summary>Type shim de Model.StrategyButler</summary>
+        </member>
+        <member name="M:Model.Fakes.ShimStrategyButler.#ctor">
+            <summary>Initialise une nouvelle instance de shim</summary>
+        </member>
+        <member name="M:Model.Fakes.ShimStrategyButler.#ctor(Model.StrategyButler)">
+            <summary>Initialise un nouveau shim pour l&apos;instance donnée</summary>
+        </member>
+        <member name="T:Model.Fakes.ShimStrategyButler.AllInstances">
+            <summary>Définir des shims pour tous les membres des instances</summary>
+        </member>
+        <member name="P:Model.Fakes.ShimStrategyButler.AllInstances.BehaviorIActorListOfIActor">
+            <summary>Définit le shim de StrategyButler.Behavior(IActor self, List`1&lt;IActor&gt; all)</summary>
+        </member>
+        <member name="P:Model.Fakes.ShimStrategyButler.AllInstances.ReactToEventIActorMyEventArgs">
+            <summary>Définit le shim de StrategyButler.ReactToEvent(IActor self, MyEventArgs args)</summary>
+        </member>
+        <member name="M:Model.Fakes.ShimStrategyButler.BehaveAsCurrent">
+            <summary>Attribue le comportement &apos;Current&apos; à toutes les méthodes du type ayant fait l&apos;objet d&apos;un shim</summary>
+        </member>
+        <member name="M:Model.Fakes.ShimStrategyButler.BehaveAsNotImplemented">
+            <summary>Attribue le comportement &apos;NotImplemented&apos; à toutes les méthodes du type ayant fait l&apos;objet d&apos;un shim</summary>
+        </member>
+        <member name="P:Model.Fakes.ShimStrategyButler.Behavior">
+            <summary>Attribue le comportement à toutes les méthodes du type ayant fait l&apos;objet d&apos;un shim</summary>
+        </member>
+        <member name="P:Model.Fakes.ShimStrategyButler.BehaviorIActorListOfIActor">
+            <summary>Définit le shim de StrategyButler.Behavior(IActor self, List`1&lt;IActor&gt; all)</summary>
+        </member>
+        <member name="M:Model.Fakes.ShimStrategyButler.Bind(Model.IStrategy)">
+            <summary>Relie les membres de l&apos;interface au shim.</summary>
+        </member>
+        <member name="P:Model.Fakes.ShimStrategyButler.Constructor">
+            <summary>Définit le shim de StrategyButler.StrategyButler()</summary>
+        </member>
+        <member name="P:Model.Fakes.ShimStrategyButler.ReactToEventIActorMyEventArgs">
+            <summary>Définit le shim de StrategyButler.ReactToEvent(IActor self, MyEventArgs args)</summary>
+        </member>
+        <member name="T:Model.Fakes.ShimStrategyChef">
+            <summary>Type shim de Model.StrategyChef</summary>
+        </member>
+        <member name="M:Model.Fakes.ShimStrategyChef.#ctor">
+            <summary>Initialise une nouvelle instance de shim</summary>
+        </member>
+        <member name="M:Model.Fakes.ShimStrategyChef.#ctor(Model.StrategyChef)">
+            <summary>Initialise un nouveau shim pour l&apos;instance donnée</summary>
+        </member>
+        <member name="T:Model.Fakes.ShimStrategyChef.AllInstances">
+            <summary>Définir des shims pour tous les membres des instances</summary>
+        </member>
+        <member name="P:Model.Fakes.ShimStrategyChef.AllInstances.BehaviorIActorListOfIActor">
+            <summary>Définit le shim de StrategyChef.Behavior(IActor self, List`1&lt;IActor&gt; all)</summary>
+        </member>
+        <member name="P:Model.Fakes.ShimStrategyChef.AllInstances.InitChefIActorListOfIActor">
+            <summary>Définit le shim de StrategyChef.InitChef(IActor chef, List`1&lt;IActor&gt; all)</summary>
+        </member>
+        <member name="P:Model.Fakes.ShimStrategyChef.AllInstances.ReactToEventIActorMyEventArgs">
+            <summary>Définit le shim de StrategyChef.ReactToEvent(IActor self, MyEventArgs args)</summary>
+        </member>
+        <member name="M:Model.Fakes.ShimStrategyChef.BehaveAsCurrent">
+            <summary>Attribue le comportement &apos;Current&apos; à toutes les méthodes du type ayant fait l&apos;objet d&apos;un shim</summary>
+        </member>
+        <member name="M:Model.Fakes.ShimStrategyChef.BehaveAsNotImplemented">
+            <summary>Attribue le comportement &apos;NotImplemented&apos; à toutes les méthodes du type ayant fait l&apos;objet d&apos;un shim</summary>
+        </member>
+        <member name="P:Model.Fakes.ShimStrategyChef.Behavior">
+            <summary>Attribue le comportement à toutes les méthodes du type ayant fait l&apos;objet d&apos;un shim</summary>
+        </member>
+        <member name="P:Model.Fakes.ShimStrategyChef.BehaviorIActorListOfIActor">
+            <summary>Définit le shim de StrategyChef.Behavior(IActor self, List`1&lt;IActor&gt; all)</summary>
+        </member>
+        <member name="M:Model.Fakes.ShimStrategyChef.Bind(Model.IStrategy)">
+            <summary>Relie les membres de l&apos;interface au shim.</summary>
+        </member>
+        <member name="P:Model.Fakes.ShimStrategyChef.Constructor">
+            <summary>Définit le shim de StrategyChef.StrategyChef()</summary>
+        </member>
+        <member name="P:Model.Fakes.ShimStrategyChef.GetInstance">
+            <summary>Définit le shim de StrategyChef.GetInstance()</summary>
+        </member>
+        <member name="P:Model.Fakes.ShimStrategyChef.InitChefIActorListOfIActor">
+            <summary>Définit le shim de StrategyChef.InitChef(IActor chef, List`1&lt;IActor&gt; all)</summary>
+        </member>
+        <member name="P:Model.Fakes.ShimStrategyChef.ReactToEventIActorMyEventArgs">
+            <summary>Définit le shim de StrategyChef.ReactToEvent(IActor self, MyEventArgs args)</summary>
+        </member>
+        <member name="P:Model.Fakes.ShimStrategyChef.StaticConstructor">
+            <summary>Définit le shim de StrategyChef.StrategyChef()</summary>
+        </member>
+        <member name="T:Model.Fakes.ShimStrategyCustomers">
+            <summary>Type shim de Model.StrategyCustomers</summary>
+        </member>
+        <member name="M:Model.Fakes.ShimStrategyCustomers.#ctor">
+            <summary>Initialise une nouvelle instance de shim</summary>
+        </member>
+        <member name="M:Model.Fakes.ShimStrategyCustomers.#ctor(Model.StrategyCustomers)">
+            <summary>Initialise un nouveau shim pour l&apos;instance donnée</summary>
+        </member>
+        <member name="T:Model.Fakes.ShimStrategyCustomers.AllInstances">
+            <summary>Définir des shims pour tous les membres des instances</summary>
+        </member>
+        <member name="P:Model.Fakes.ShimStrategyCustomers.AllInstances.BehaviorIActorListOfIActor">
+            <summary>Définit le shim de StrategyCustomers.Behavior(IActor self, List`1&lt;IActor&gt; all)</summary>
+        </member>
+        <member name="P:Model.Fakes.ShimStrategyCustomers.AllInstances.ReactToEventIActorMyEventArgs">
+            <summary>Définit le shim de StrategyCustomers.ReactToEvent(IActor self, MyEventArgs args)</summary>
+        </member>
+        <member name="M:Model.Fakes.ShimStrategyCustomers.BehaveAsCurrent">
+            <summary>Attribue le comportement &apos;Current&apos; à toutes les méthodes du type ayant fait l&apos;objet d&apos;un shim</summary>
+        </member>
+        <member name="M:Model.Fakes.ShimStrategyCustomers.BehaveAsNotImplemented">
+            <summary>Attribue le comportement &apos;NotImplemented&apos; à toutes les méthodes du type ayant fait l&apos;objet d&apos;un shim</summary>
+        </member>
+        <member name="P:Model.Fakes.ShimStrategyCustomers.Behavior">
+            <summary>Attribue le comportement à toutes les méthodes du type ayant fait l&apos;objet d&apos;un shim</summary>
+        </member>
+        <member name="P:Model.Fakes.ShimStrategyCustomers.BehaviorIActorListOfIActor">
+            <summary>Définit le shim de StrategyCustomers.Behavior(IActor self, List`1&lt;IActor&gt; all)</summary>
+        </member>
+        <member name="M:Model.Fakes.ShimStrategyCustomers.Bind(Model.IStrategy)">
+            <summary>Relie les membres de l&apos;interface au shim.</summary>
+        </member>
+        <member name="P:Model.Fakes.ShimStrategyCustomers.Constructor">
+            <summary>Définit le shim de StrategyCustomers.StrategyCustomers()</summary>
+        </member>
+        <member name="P:Model.Fakes.ShimStrategyCustomers.ReactToEventIActorMyEventArgs">
+            <summary>Définit le shim de StrategyCustomers.ReactToEvent(IActor self, MyEventArgs args)</summary>
+        </member>
+        <member name="T:Model.Fakes.ShimStrategyServerCounter">
+            <summary>Type shim de Model.StrategyServerCounter</summary>
+        </member>
+        <member name="M:Model.Fakes.ShimStrategyServerCounter.#ctor">
+            <summary>Initialise une nouvelle instance de shim</summary>
+        </member>
+        <member name="M:Model.Fakes.ShimStrategyServerCounter.#ctor(Model.StrategyServerCounter)">
+            <summary>Initialise un nouveau shim pour l&apos;instance donnée</summary>
+        </member>
+        <member name="T:Model.Fakes.ShimStrategyServerCounter.AllInstances">
+            <summary>Définir des shims pour tous les membres des instances</summary>
+        </member>
+        <member name="P:Model.Fakes.ShimStrategyServerCounter.AllInstances.BehaviorIActorListOfIActor">
+            <summary>Définit le shim de StrategyServerCounter.Behavior(IActor self, List`1&lt;IActor&gt; all)</summary>
+        </member>
+        <member name="P:Model.Fakes.ShimStrategyServerCounter.AllInstances.ReactToEventIActorMyEventArgs">
+            <summary>Définit le shim de StrategyServerCounter.ReactToEvent(IActor self, MyEventArgs args)</summary>
+        </member>
+        <member name="M:Model.Fakes.ShimStrategyServerCounter.BehaveAsCurrent">
+            <summary>Attribue le comportement &apos;Current&apos; à toutes les méthodes du type ayant fait l&apos;objet d&apos;un shim</summary>
+        </member>
+        <member name="M:Model.Fakes.ShimStrategyServerCounter.BehaveAsNotImplemented">
+            <summary>Attribue le comportement &apos;NotImplemented&apos; à toutes les méthodes du type ayant fait l&apos;objet d&apos;un shim</summary>
+        </member>
+        <member name="P:Model.Fakes.ShimStrategyServerCounter.Behavior">
+            <summary>Attribue le comportement à toutes les méthodes du type ayant fait l&apos;objet d&apos;un shim</summary>
+        </member>
+        <member name="P:Model.Fakes.ShimStrategyServerCounter.BehaviorIActorListOfIActor">
+            <summary>Définit le shim de StrategyServerCounter.Behavior(IActor self, List`1&lt;IActor&gt; all)</summary>
+        </member>
+        <member name="M:Model.Fakes.ShimStrategyServerCounter.Bind(Model.IStrategy)">
+            <summary>Relie les membres de l&apos;interface au shim.</summary>
+        </member>
+        <member name="P:Model.Fakes.ShimStrategyServerCounter.Constructor">
+            <summary>Définit le shim de StrategyServerCounter.StrategyServerCounter()</summary>
+        </member>
+        <member name="P:Model.Fakes.ShimStrategyServerCounter.GetInstance">
+            <summary>Définit le shim de StrategyServerCounter.GetInstance()</summary>
+        </member>
+        <member name="P:Model.Fakes.ShimStrategyServerCounter.ReactToEventIActorMyEventArgs">
+            <summary>Définit le shim de StrategyServerCounter.ReactToEvent(IActor self, MyEventArgs args)</summary>
+        </member>
+        <member name="P:Model.Fakes.ShimStrategyServerCounter.StaticConstructor">
+            <summary>Définit le shim de StrategyServerCounter.StrategyServerCounter()</summary>
+        </member>
+        <member name="T:Model.Fakes.ShimStrategyWaiter">
+            <summary>Type shim de Model.StrategyWaiter</summary>
+        </member>
+        <member name="M:Model.Fakes.ShimStrategyWaiter.#ctor">
+            <summary>Initialise une nouvelle instance de shim</summary>
+        </member>
+        <member name="M:Model.Fakes.ShimStrategyWaiter.#ctor(Model.StrategyWaiter)">
+            <summary>Initialise un nouveau shim pour l&apos;instance donnée</summary>
+        </member>
+        <member name="T:Model.Fakes.ShimStrategyWaiter.AllInstances">
+            <summary>Définir des shims pour tous les membres des instances</summary>
+        </member>
+        <member name="P:Model.Fakes.ShimStrategyWaiter.AllInstances.BehaviorIActorListOfIActor">
+            <summary>Définit le shim de StrategyWaiter.Behavior(IActor self, List`1&lt;IActor&gt; all)</summary>
+        </member>
+        <member name="P:Model.Fakes.ShimStrategyWaiter.AllInstances.ReactToEventIActorMyEventArgs">
+            <summary>Définit le shim de StrategyWaiter.ReactToEvent(IActor self, MyEventArgs args)</summary>
+        </member>
+        <member name="M:Model.Fakes.ShimStrategyWaiter.BehaveAsCurrent">
+            <summary>Attribue le comportement &apos;Current&apos; à toutes les méthodes du type ayant fait l&apos;objet d&apos;un shim</summary>
+        </member>
+        <member name="M:Model.Fakes.ShimStrategyWaiter.BehaveAsNotImplemented">
+            <summary>Attribue le comportement &apos;NotImplemented&apos; à toutes les méthodes du type ayant fait l&apos;objet d&apos;un shim</summary>
+        </member>
+        <member name="P:Model.Fakes.ShimStrategyWaiter.Behavior">
+            <summary>Attribue le comportement à toutes les méthodes du type ayant fait l&apos;objet d&apos;un shim</summary>
+        </member>
+        <member name="P:Model.Fakes.ShimStrategyWaiter.BehaviorIActorListOfIActor">
+            <summary>Définit le shim de StrategyWaiter.Behavior(IActor self, List`1&lt;IActor&gt; all)</summary>
+        </member>
+        <member name="M:Model.Fakes.ShimStrategyWaiter.Bind(Model.IStrategy)">
+            <summary>Relie les membres de l&apos;interface au shim.</summary>
+        </member>
+        <member name="P:Model.Fakes.ShimStrategyWaiter.Constructor">
+            <summary>Définit le shim de StrategyWaiter.StrategyWaiter()</summary>
+        </member>
+        <member name="P:Model.Fakes.ShimStrategyWaiter.ReactToEventIActorMyEventArgs">
+            <summary>Définit le shim de StrategyWaiter.ReactToEvent(IActor self, MyEventArgs args)</summary>
+        </member>
+        <member name="T:Model.Fakes.ShimStrategyWorkingFridge">
+            <summary>Type shim de Model.StrategyWorkingFridge</summary>
+        </member>
+        <member name="M:Model.Fakes.ShimStrategyWorkingFridge.#ctor">
+            <summary>Initialise une nouvelle instance de shim</summary>
+        </member>
+        <member name="M:Model.Fakes.ShimStrategyWorkingFridge.#ctor(Model.StrategyWorkingFridge)">
+            <summary>Initialise un nouveau shim pour l&apos;instance donnée</summary>
+        </member>
+        <member name="T:Model.Fakes.ShimStrategyWorkingFridge.AllInstances">
+            <summary>Définir des shims pour tous les membres des instances</summary>
+        </member>
+        <member name="P:Model.Fakes.ShimStrategyWorkingFridge.AllInstances.BehaviorIActorListOfIActor">
+            <summary>Définit le shim de StrategyWorkingFridge.Behavior(IActor self, List`1&lt;IActor&gt; all)</summary>
+        </member>
+        <member name="P:Model.Fakes.ShimStrategyWorkingFridge.AllInstances.ReactToEventIActorMyEventArgs">
+            <summary>Définit le shim de StrategyWorkingFridge.ReactToEvent(IActor self, MyEventArgs args)</summary>
+        </member>
+        <member name="M:Model.Fakes.ShimStrategyWorkingFridge.BehaveAsCurrent">
+            <summary>Attribue le comportement &apos;Current&apos; à toutes les méthodes du type ayant fait l&apos;objet d&apos;un shim</summary>
+        </member>
+        <member name="M:Model.Fakes.ShimStrategyWorkingFridge.BehaveAsNotImplemented">
+            <summary>Attribue le comportement &apos;NotImplemented&apos; à toutes les méthodes du type ayant fait l&apos;objet d&apos;un shim</summary>
+        </member>
+        <member name="P:Model.Fakes.ShimStrategyWorkingFridge.Behavior">
+            <summary>Attribue le comportement à toutes les méthodes du type ayant fait l&apos;objet d&apos;un shim</summary>
+        </member>
+        <member name="P:Model.Fakes.ShimStrategyWorkingFridge.BehaviorIActorListOfIActor">
+            <summary>Définit le shim de StrategyWorkingFridge.Behavior(IActor self, List`1&lt;IActor&gt; all)</summary>
+        </member>
+        <member name="M:Model.Fakes.ShimStrategyWorkingFridge.Bind(Model.IStrategy)">
+            <summary>Relie les membres de l&apos;interface au shim.</summary>
+        </member>
+        <member name="P:Model.Fakes.ShimStrategyWorkingFridge.Constructor">
+            <summary>Définit le shim de StrategyWorkingFridge.StrategyWorkingFridge()</summary>
+        </member>
+        <member name="P:Model.Fakes.ShimStrategyWorkingFridge.ReactToEventIActorMyEventArgs">
+            <summary>Définit le shim de StrategyWorkingFridge.ReactToEvent(IActor self, MyEventArgs args)</summary>
+        </member>
+        <member name="T:Model.Fakes.ShimTable">
+            <summary>Type shim de Model.Table</summary>
+        </member>
+        <member name="M:Model.Fakes.ShimTable.#ctor">
+            <summary>Initialise une nouvelle instance de shim</summary>
+        </member>
+        <member name="M:Model.Fakes.ShimTable.#ctor(Model.Table)">
+            <summary>Initialise un nouveau shim pour l&apos;instance donnée</summary>
+        </member>
+        <member name="T:Model.Fakes.ShimTable.AllInstances">
+            <summary>Définir des shims pour tous les membres des instances</summary>
+        </member>
+        <member name="P:Model.Fakes.ShimTable.AllInstances.GrpGet">
+            <summary>Définit le shim de Table.get_Grp()</summary>
+        </member>
+        <member name="P:Model.Fakes.ShimTable.AllInstances.GrpSetGroupActor">
+            <summary>Définit le shim de Table.set_Grp(GroupActor value)</summary>
+        </member>
+        <member name="P:Model.Fakes.ShimTable.AllInstances.PlaceGet">
+            <summary>Définit le shim de Table.get_Place()</summary>
+        </member>
+        <member name="P:Model.Fakes.ShimTable.AllInstances.PlaceSetInt32">
+            <summary>Définit le shim de Table.set_Place(Int32 value)</summary>
+        </member>
+        <member name="P:Model.Fakes.ShimTable.AllInstances.removeGroupActor">
+            <summary>Définit le shim de Table.removeGroupActor()</summary>
+        </member>
+        <member name="P:Model.Fakes.ShimTable.AllInstances.setGroupActorGroupActor">
+            <summary>Définit le shim de Table.setGroupActor(GroupActor grp)</summary>
+        </member>
+        <member name="M:Model.Fakes.ShimTable.BehaveAsCurrent">
+            <summary>Attribue le comportement &apos;Current&apos; à toutes les méthodes du type ayant fait l&apos;objet d&apos;un shim</summary>
+        </member>
+        <member name="M:Model.Fakes.ShimTable.BehaveAsNotImplemented">
+            <summary>Attribue le comportement &apos;NotImplemented&apos; à toutes les méthodes du type ayant fait l&apos;objet d&apos;un shim</summary>
+        </member>
+        <member name="P:Model.Fakes.ShimTable.Behavior">
+            <summary>Attribue le comportement à toutes les méthodes du type ayant fait l&apos;objet d&apos;un shim</summary>
+        </member>
+        <member name="M:Model.Fakes.ShimTable.Bind(Model.IActor)">
+            <summary>Relie les membres de l&apos;interface au shim.</summary>
+        </member>
+        <member name="P:Model.Fakes.ShimTable.ConstructorInt32">
+            <summary>Définit le shim de Table.Table(Int32 place)</summary>
+        </member>
+        <member name="P:Model.Fakes.ShimTable.GrpGet">
+            <summary>Définit le shim de Table.get_Grp()</summary>
+        </member>
+        <member name="P:Model.Fakes.ShimTable.GrpSetGroupActor">
+            <summary>Définit le shim de Table.set_Grp(GroupActor value)</summary>
+        </member>
+        <member name="P:Model.Fakes.ShimTable.PlaceGet">
+            <summary>Définit le shim de Table.get_Place()</summary>
+        </member>
+        <member name="P:Model.Fakes.ShimTable.PlaceSetInt32">
+            <summary>Définit le shim de Table.set_Place(Int32 value)</summary>
+        </member>
+        <member name="P:Model.Fakes.ShimTable.removeGroupActor">
+            <summary>Définit le shim de Table.removeGroupActor()</summary>
+        </member>
+        <member name="P:Model.Fakes.ShimTable.setGroupActorGroupActor">
+            <summary>Définit le shim de Table.setGroupActor(GroupActor grp)</summary>
+        </member>
+        <member name="T:Model.Fakes.ShimUtensil">
+            <summary>Type shim de Model.Utensil</summary>
+        </member>
+        <member name="M:Model.Fakes.ShimUtensil.#ctor">
+            <summary>Initialise une nouvelle instance de shim</summary>
+        </member>
+        <member name="M:Model.Fakes.ShimUtensil.#ctor(Model.Utensil)">
+            <summary>Initialise un nouveau shim pour l&apos;instance donnée</summary>
+        </member>
+        <member name="T:Model.Fakes.ShimUtensil.AllInstances">
+            <summary>Définir des shims pour tous les membres des instances</summary>
+        </member>
+        <member name="P:Model.Fakes.ShimUtensil.AllInstances.IsSmallItemGet">
+            <summary>Définit le shim de Utensil.get_IsSmallItem()</summary>
+        </member>
+        <member name="P:Model.Fakes.ShimUtensil.AllInstances.IsSmallItemSetBoolean">
+            <summary>Définit le shim de Utensil.set_IsSmallItem(Boolean value)</summary>
+        </member>
+        <member name="P:Model.Fakes.ShimUtensil.AllInstances.LastUsedForGet">
+            <summary>Définit le shim de Utensil.get_LastUsedFor()</summary>
+        </member>
+        <member name="P:Model.Fakes.ShimUtensil.AllInstances.LastUsedForSetStep">
+            <summary>Définit le shim de Utensil.set_LastUsedFor(Step value)</summary>
+        </member>
+        <member name="M:Model.Fakes.ShimUtensil.BehaveAsCurrent">
+            <summary>Attribue le comportement &apos;Current&apos; à toutes les méthodes du type ayant fait l&apos;objet d&apos;un shim</summary>
+        </member>
+        <member name="M:Model.Fakes.ShimUtensil.BehaveAsNotImplemented">
+            <summary>Attribue le comportement &apos;NotImplemented&apos; à toutes les méthodes du type ayant fait l&apos;objet d&apos;un shim</summary>
+        </member>
+        <member name="P:Model.Fakes.ShimUtensil.Behavior">
+            <summary>Attribue le comportement à toutes les méthodes du type ayant fait l&apos;objet d&apos;un shim</summary>
+        </member>
+        <member name="M:Model.Fakes.ShimUtensil.Bind(Model.IActor)">
+            <summary>Relie les membres de l&apos;interface au shim.</summary>
+        </member>
+        <member name="P:Model.Fakes.ShimUtensil.ConstructorStringInt32">
+            <summary>Définit le shim de Utensil.Utensil(String name, Int32 inventorySize)</summary>
+        </member>
+        <member name="P:Model.Fakes.ShimUtensil.IsSmallItemGet">
+            <summary>Définit le shim de Utensil.get_IsSmallItem()</summary>
+        </member>
+        <member name="P:Model.Fakes.ShimUtensil.IsSmallItemSetBoolean">
+            <summary>Définit le shim de Utensil.set_IsSmallItem(Boolean value)</summary>
+        </member>
+        <member name="P:Model.Fakes.ShimUtensil.LastUsedForGet">
+            <summary>Définit le shim de Utensil.get_LastUsedFor()</summary>
+        </member>
+        <member name="P:Model.Fakes.ShimUtensil.LastUsedForSetStep">
+            <summary>Définit le shim de Utensil.set_LastUsedFor(Step value)</summary>
+        </member>
+        <member name="T:Model.Fakes.ShimUtensileFactory">
+            <summary>Type shim de Model.UtensileFactory</summary>
+        </member>
+        <member name="M:Model.Fakes.ShimUtensileFactory.#ctor">
+            <summary>Initialise une nouvelle instance de shim</summary>
+        </member>
+        <member name="M:Model.Fakes.ShimUtensileFactory.BehaveAsCurrent">
+            <summary>Attribue le comportement &apos;Current&apos; à toutes les méthodes du type ayant fait l&apos;objet d&apos;un shim</summary>
+        </member>
+        <member name="M:Model.Fakes.ShimUtensileFactory.BehaveAsNotImplemented">
+            <summary>Attribue le comportement &apos;NotImplemented&apos; à toutes les méthodes du type ayant fait l&apos;objet d&apos;un shim</summary>
+        </member>
+        <member name="P:Model.Fakes.ShimUtensileFactory.Behavior">
+            <summary>Attribue le comportement à toutes les méthodes du type ayant fait l&apos;objet d&apos;un shim</summary>
+        </member>
+        <member name="P:Model.Fakes.ShimUtensileFactory.createUtensilString">
+            <summary>Définit le shim de UtensileFactory.createUtensil(String utensil)</summary>
+        </member>
+        <member name="T:Model.Fakes.StubAbstractActor">
+            <summary>Type stub de Model.AbstractActor</summary>
+        </member>
+        <member name="M:Model.Fakes.StubAbstractActor.#ctor">
+            <summary>Initialise une nouvelle instance</summary>
+        </member>
+        <member name="P:Model.Fakes.StubAbstractActor.CallBase">
+            <summary>Obtient ou définit une valeur qui indique si la méthode de base doit être appelée à la place du comportement de secours</summary>
+        </member>
+        <member name="M:Model.Fakes.StubAbstractActor.CallStrategy">
+            <summary>Définit le stub de AbstractActor.CallStrategy()</summary>
+        </member>
+        <member name="F:Model.Fakes.StubAbstractActor.CallStrategy01">
+            <summary>Définit le stub de AbstractActor.CallStrategy()</summary>
+        </member>
+        <member name="M:Model.Fakes.StubAbstractActor.InitializeStub">
+            <summary>Initialise une nouvelle instance de type StubAbstractActor</summary>
+        </member>
+        <member name="P:Model.Fakes.StubAbstractActor.InstanceBehavior">
+            <summary>Obtient ou définit le comportement de l&apos;instance.</summary>
+        </member>
+        <member name="P:Model.Fakes.StubAbstractActor.InstanceObserver">
+            <summary>Obtient ou définit l&apos;observateur d&apos;instance.</summary>
+        </member>
+        <member name="M:Model.Fakes.StubAbstractActor.NextTick(System.Collections.Generic.List{Model.IActor})">
+            <summary>Définit le stub de AbstractActor.NextTick(List`1&lt;IActor&gt; AllActors)</summary>
+        </member>
+        <member name="F:Model.Fakes.StubAbstractActor.NextTickListOfIActor">
+            <summary>Définit le stub de AbstractActor.NextTick(List`1&lt;IActor&gt; AllActors)</summary>
+        </member>
+        <member name="T:Model.Fakes.StubActorMobile">
+            <summary>Type stub de Model.ActorMobile</summary>
+        </member>
+        <member name="M:Model.Fakes.StubActorMobile.#ctor">
+            <summary>Initialise une nouvelle instance</summary>
+        </member>
+        <member name="P:Model.Fakes.StubActorMobile.CallBase">
+            <summary>Obtient ou définit une valeur qui indique si la méthode de base doit être appelée à la place du comportement de secours</summary>
+        </member>
+        <member name="M:Model.Fakes.StubActorMobile.CallStrategy">
+            <summary>Définit le stub de ActorMobile.CallStrategy()</summary>
+        </member>
+        <member name="F:Model.Fakes.StubActorMobile.CallStrategy01">
+            <summary>Définit le stub de ActorMobile.CallStrategy()</summary>
+        </member>
+        <member name="M:Model.Fakes.StubActorMobile.InitializeStub">
+            <summary>Initialise une nouvelle instance de type StubActorMobile</summary>
+        </member>
+        <member name="P:Model.Fakes.StubActorMobile.InstanceBehavior">
+            <summary>Obtient ou définit le comportement de l&apos;instance.</summary>
+        </member>
+        <member name="P:Model.Fakes.StubActorMobile.InstanceObserver">
+            <summary>Obtient ou définit l&apos;observateur d&apos;instance.</summary>
+        </member>
+        <member name="M:Model.Fakes.StubActorMobile.NextTick(System.Collections.Generic.List{Model.IActor})">
+            <summary>Définit le stub de ActorMobile.NextTick(List`1&lt;IActor&gt; AllActors)</summary>
+        </member>
+        <member name="F:Model.Fakes.StubActorMobile.NextTickListOfIActor">
+            <summary>Définit le stub de ActorMobile.NextTick(List`1&lt;IActor&gt; AllActors)</summary>
+        </member>
+        <member name="T:Model.Fakes.StubActorMobileSocket">
+            <summary>Type stub de Model.ActorMobileSocket</summary>
+        </member>
+        <member name="M:Model.Fakes.StubActorMobileSocket.#ctor(System.String)">
+            <summary>Initialise une nouvelle instance</summary>
+        </member>
+        <member name="P:Model.Fakes.StubActorMobileSocket.CallBase">
+            <summary>Obtient ou définit une valeur qui indique si la méthode de base doit être appelée à la place du comportement de secours</summary>
+        </member>
+        <member name="M:Model.Fakes.StubActorMobileSocket.CallStrategy">
+            <summary>Définit le stub de ActorMobile.CallStrategy()</summary>
+        </member>
+        <member name="F:Model.Fakes.StubActorMobileSocket.CallStrategy01">
+            <summary>Définit le stub de ActorMobile.CallStrategy()</summary>
+        </member>
+        <member name="M:Model.Fakes.StubActorMobileSocket.InitializeStub">
+            <summary>Initialise une nouvelle instance de type StubActorMobileSocket</summary>
+        </member>
+        <member name="P:Model.Fakes.StubActorMobileSocket.InstanceBehavior">
+            <summary>Obtient ou définit le comportement de l&apos;instance.</summary>
+        </member>
+        <member name="P:Model.Fakes.StubActorMobileSocket.InstanceObserver">
+            <summary>Obtient ou définit l&apos;observateur d&apos;instance.</summary>
+        </member>
+        <member name="M:Model.Fakes.StubActorMobileSocket.NextTick(System.Collections.Generic.List{Model.IActor})">
+            <summary>Définit le stub de ActorMobile.NextTick(List`1&lt;IActor&gt; AllActors)</summary>
+        </member>
+        <member name="F:Model.Fakes.StubActorMobileSocket.NextTickListOfIActor">
+            <summary>Définit le stub de ActorMobile.NextTick(List`1&lt;IActor&gt; AllActors)</summary>
+        </member>
+        <member name="T:Model.Fakes.StubClientSpawner">
+            <summary>Type stub de Model.ClientSpawner</summary>
+        </member>
+        <member name="M:Model.Fakes.StubClientSpawner.#ctor(System.Int32,System.Int32,System.Int32)">
+            <summary>Initialise une nouvelle instance</summary>
+        </member>
+        <member name="P:Model.Fakes.StubClientSpawner.CallBase">
+            <summary>Obtient ou définit une valeur qui indique si la méthode de base doit être appelée à la place du comportement de secours</summary>
+        </member>
+        <member name="M:Model.Fakes.StubClientSpawner.InitializeStub">
+            <summary>Initialise une nouvelle instance de type StubClientSpawner</summary>
+        </member>
+        <member name="P:Model.Fakes.StubClientSpawner.InstanceBehavior">
+            <summary>Obtient ou définit le comportement de l&apos;instance.</summary>
+        </member>
+        <member name="P:Model.Fakes.StubClientSpawner.InstanceObserver">
+            <summary>Obtient ou définit l&apos;observateur d&apos;instance.</summary>
+        </member>
+        <member name="T:Model.Fakes.StubCounter">
+            <summary>Type stub de Model.Counter</summary>
+        </member>
+        <member name="M:Model.Fakes.StubCounter.#ctor">
+            <summary>Initialise une nouvelle instance</summary>
+        </member>
+        <member name="P:Model.Fakes.StubCounter.CallBase">
+            <summary>Obtient ou définit une valeur qui indique si la méthode de base doit être appelée à la place du comportement de secours</summary>
+        </member>
+        <member name="M:Model.Fakes.StubCounter.InitializeStub">
+            <summary>Initialise une nouvelle instance de type StubCounter</summary>
+        </member>
+        <member name="P:Model.Fakes.StubCounter.InstanceBehavior">
+            <summary>Obtient ou définit le comportement de l&apos;instance.</summary>
+        </member>
+        <member name="P:Model.Fakes.StubCounter.InstanceObserver">
+            <summary>Obtient ou définit l&apos;observateur d&apos;instance.</summary>
+        </member>
+        <member name="T:Model.Fakes.StubDish">
+            <summary>Type stub de Model.Dish</summary>
+        </member>
+        <member name="M:Model.Fakes.StubDish.#ctor(Model.DishModel,Model.Order)">
+            <summary>Initialise une nouvelle instance</summary>
+        </member>
+        <member name="P:Model.Fakes.StubDish.CallBase">
+            <summary>Obtient ou définit une valeur qui indique si la méthode de base doit être appelée à la place du comportement de secours</summary>
+        </member>
+        <member name="M:Model.Fakes.StubDish.InitializeStub">
+            <summary>Initialise une nouvelle instance de type StubDish</summary>
+        </member>
+        <member name="P:Model.Fakes.StubDish.InstanceBehavior">
+            <summary>Obtient ou définit le comportement de l&apos;instance.</summary>
+        </member>
+        <member name="P:Model.Fakes.StubDish.InstanceObserver">
+            <summary>Obtient ou définit l&apos;observateur d&apos;instance.</summary>
+        </member>
+        <member name="T:Model.Fakes.StubDishModel">
+            <summary>Type stub de Model.DishModel</summary>
+        </member>
+        <member name="M:Model.Fakes.StubDishModel.#ctor">
+            <summary>Initialise une nouvelle instance</summary>
+        </member>
+        <member name="P:Model.Fakes.StubDishModel.CallBase">
+            <summary>Obtient ou définit une valeur qui indique si la méthode de base doit être appelée à la place du comportement de secours</summary>
+        </member>
+        <member name="M:Model.Fakes.StubDishModel.InitializeStub">
+            <summary>Initialise une nouvelle instance de type StubDishModel</summary>
+        </member>
+        <member name="P:Model.Fakes.StubDishModel.InstanceBehavior">
+            <summary>Obtient ou définit le comportement de l&apos;instance.</summary>
+        </member>
+        <member name="P:Model.Fakes.StubDishModel.InstanceObserver">
+            <summary>Obtient ou définit l&apos;observateur d&apos;instance.</summary>
+        </member>
+        <member name="T:Model.Fakes.StubGroupActor">
+            <summary>Type stub de Model.GroupActor</summary>
+        </member>
+        <member name="M:Model.Fakes.StubGroupActor.#ctor">
+            <summary>Initialise une nouvelle instance</summary>
+        </member>
+        <member name="P:Model.Fakes.StubGroupActor.CallBase">
+            <summary>Obtient ou définit une valeur qui indique si la méthode de base doit être appelée à la place du comportement de secours</summary>
+        </member>
+        <member name="M:Model.Fakes.StubGroupActor.InitializeStub">
+            <summary>Initialise une nouvelle instance de type StubGroupActor</summary>
+        </member>
+        <member name="P:Model.Fakes.StubGroupActor.InstanceBehavior">
+            <summary>Obtient ou définit le comportement de l&apos;instance.</summary>
+        </member>
+        <member name="P:Model.Fakes.StubGroupActor.InstanceObserver">
+            <summary>Obtient ou définit l&apos;observateur d&apos;instance.</summary>
+        </member>
+        <member name="T:Model.Fakes.StubIActor">
+            <summary>Type stub de Model.IActor</summary>
+        </member>
+        <member name="M:Model.Fakes.StubIActor.#ctor">
+            <summary>Initialise une nouvelle instance de type StubIActor</summary>
+        </member>
+        <member name="M:Model.Fakes.StubIActor.AttachBackingFieldToBusy">
+            <summary>Attache les délégués pour émuler StubIActor.Busy en tant que propriété avec un champ de stockage.</summary>
+        </member>
+        <member name="M:Model.Fakes.StubIActor.AttachBackingFieldToInitialized">
+            <summary>Attache les délégués pour émuler StubIActor.Initialized en tant que propriété avec un champ de stockage.</summary>
+        </member>
+        <member name="M:Model.Fakes.StubIActor.AttachBackingFieldToItems">
+            <summary>Attache les délégués pour émuler StubIActor.Items en tant que propriété avec un champ de stockage.</summary>
+        </member>
+        <member name="M:Model.Fakes.StubIActor.AttachBackingFieldToMaxInventorySize">
+            <summary>Attache les délégués pour émuler StubIActor.MaxInventorySize en tant que propriété avec un champ de stockage.</summary>
+        </member>
+        <member name="M:Model.Fakes.StubIActor.AttachBackingFieldToName">
+            <summary>Attache les délégués pour émuler StubIActor.Name en tant que propriété avec un champ de stockage.</summary>
+        </member>
+        <member name="M:Model.Fakes.StubIActor.AttachBackingFieldToPosition">
+            <summary>Attache les délégués pour émuler StubIActor.Position en tant que propriété avec un champ de stockage.</summary>
+        </member>
+        <member name="M:Model.Fakes.StubIActor.AttachBackingFieldToStack">
+            <summary>Attache les délégués pour émuler StubIActor.Stack en tant que propriété avec un champ de stockage.</summary>
+        </member>
+        <member name="M:Model.Fakes.StubIActor.AttachBackingFieldToStrategy">
+            <summary>Attache les délégués pour émuler StubIActor.Strategy en tant que propriété avec un champ de stockage.</summary>
+        </member>
+        <member name="M:Model.Fakes.StubIActor.AttachBackingFieldToTarget">
+            <summary>Attache les délégués pour émuler StubIActor.Target en tant que propriété avec un champ de stockage.</summary>
+        </member>
+        <member name="P:Model.Fakes.StubIActor.Model#IActor#Busy">
+            <summary>Définit le stub de IActor.get_Busy()</summary>
+        </member>
+        <member name="F:Model.Fakes.StubIActor.BusyGet">
+            <summary>Définit le stub de IActor.get_Busy()</summary>
+        </member>
+        <member name="F:Model.Fakes.StubIActor.BusySetBoolean">
+            <summary>Définit le stub de IActor.set_Busy(Boolean value)</summary>
+        </member>
+        <member name="F:Model.Fakes.StubIActor.CallStrategy">
+            <summary>Définit le stub de IActor.CallStrategy()</summary>
+        </member>
+        <member name="F:Model.Fakes.StubIActor.FindClosestStringListOfIActor">
+            <summary>Définit le stub de IActor.FindClosest(String Name, List`1&lt;IActor&gt; AllActors)</summary>
+        </member>
+        <member name="F:Model.Fakes.StubIActor.GiveItemToICarriableItemIActor">
+            <summary>Définit le stub de IActor.giveItemTo(ICarriableItem item, IActor actor)</summary>
+        </member>
+        <member name="P:Model.Fakes.StubIActor.Model#IActor#Initialized">
+            <summary>Définit le stub de IActor.get_Initialized()</summary>
+        </member>
+        <member name="F:Model.Fakes.StubIActor.InitializedGet">
+            <summary>Définit le stub de IActor.get_Initialized()</summary>
+        </member>
+        <member name="F:Model.Fakes.StubIActor.InitializedSetBoolean">
+            <summary>Définit le stub de IActor.set_Initialized(Boolean value)</summary>
+        </member>
+        <member name="P:Model.Fakes.StubIActor.Model#IActor#Items">
+            <summary>Définit le stub de IActor.get_Items()</summary>
+        </member>
+        <member name="F:Model.Fakes.StubIActor.ItemsGet">
+            <summary>Définit le stub de IActor.get_Items()</summary>
+        </member>
+        <member name="F:Model.Fakes.StubIActor.ItemsSetListOfICarriableItem">
+            <summary>Définit le stub de IActor.set_Items(List`1&lt;ICarriableItem&gt; value)</summary>
+        </member>
+        <member name="P:Model.Fakes.StubIActor.Model#IActor#MaxInventorySize">
+            <summary>Définit le stub de IActor.get_MaxInventorySize()</summary>
+        </member>
+        <member name="F:Model.Fakes.StubIActor.MaxInventorySizeGet">
+            <summary>Définit le stub de IActor.get_MaxInventorySize()</summary>
+        </member>
+        <member name="F:Model.Fakes.StubIActor.MaxInventorySizeSetInt32">
+            <summary>Définit le stub de IActor.set_MaxInventorySize(Int32 value)</summary>
+        </member>
+        <member name="M:Model.Fakes.StubIActor.Model#IActor#CallStrategy">
+            <summary>Définit le stub de IActor.CallStrategy()</summary>
+        </member>
+        <member name="M:Model.Fakes.StubIActor.Model#IActor#FindClosest(System.String,System.Collections.Generic.List{Model.IActor})">
+            <summary>Définit le stub de IActor.FindClosest(String Name, List`1&lt;IActor&gt; AllActors)</summary>
+        </member>
+        <member name="M:Model.Fakes.StubIActor.Model#IActor#Move">
+            <summary>Définit le stub de IActor.Move()</summary>
+        </member>
+        <member name="M:Model.Fakes.StubIActor.Model#IActor#NextTick(System.Collections.Generic.List{Model.IActor})">
+            <summary>Définit le stub de IActor.NextTick(List`1&lt;IActor&gt; AllActors)</summary>
+        </member>
+        <member name="M:Model.Fakes.StubIActor.Model#IActor#StrategyCallback(System.Object,System.EventArgs)">
+            <summary>Définit le stub de IActor.StrategyCallback(Object sender, EventArgs args)</summary>
+        </member>
+        <member name="M:Model.Fakes.StubIActor.Model#IActor#TriggerEvent(System.String,System.Object)">
+            <summary>Définit le stub de IActor.TriggerEvent(String name, Object arg)</summary>
+        </member>
+        <member name="M:Model.Fakes.StubIActor.Model#IActor#giveItemTo(Model.ICarriableItem,Model.IActor)">
+            <summary>Définit le stub de IActor.giveItemTo(ICarriableItem item, IActor actor)</summary>
+        </member>
+        <member name="F:Model.Fakes.StubIActor.Move">
+            <summary>Définit le stub de IActor.Move()</summary>
+        </member>
+        <member name="P:Model.Fakes.StubIActor.Model#IActor#Name">
+            <summary>Définit le stub de IActor.get_Name()</summary>
+        </member>
+        <member name="F:Model.Fakes.StubIActor.NameGet">
+            <summary>Définit le stub de IActor.get_Name()</summary>
+        </member>
+        <member name="F:Model.Fakes.StubIActor.NameSetString">
+            <summary>Définit le stub de IActor.set_Name(String value)</summary>
+        </member>
+        <member name="F:Model.Fakes.StubIActor.NextTickListOfIActor">
+            <summary>Définit le stub de IActor.NextTick(List`1&lt;IActor&gt; AllActors)</summary>
+        </member>
+        <member name="P:Model.Fakes.StubIActor.Model#IActor#Position">
+            <summary>Définit le stub de IActor.get_Position()</summary>
+        </member>
+        <member name="F:Model.Fakes.StubIActor.PositionGet">
+            <summary>Définit le stub de IActor.get_Position()</summary>
+        </member>
+        <member name="F:Model.Fakes.StubIActor.PositionSetPoint">
+            <summary>Définit le stub de IActor.set_Position(Point value)</summary>
+        </member>
+        <member name="P:Model.Fakes.StubIActor.Model#IActor#Stack">
+            <summary>Définit le stub de IActor.get_Stack()</summary>
+        </member>
+        <member name="F:Model.Fakes.StubIActor.StackGet">
+            <summary>Définit le stub de IActor.get_Stack()</summary>
+        </member>
+        <member name="F:Model.Fakes.StubIActor.StackSetListOfObject">
+            <summary>Définit le stub de IActor.set_Stack(List`1&lt;Object&gt; value)</summary>
+        </member>
+        <member name="P:Model.Fakes.StubIActor.Model#IActor#Strategy">
+            <summary>Définit le stub de IActor.get_Strategy()</summary>
+        </member>
+        <member name="F:Model.Fakes.StubIActor.StrategyCallbackObjectEventArgs">
+            <summary>Définit le stub de IActor.StrategyCallback(Object sender, EventArgs args)</summary>
+        </member>
+        <member name="F:Model.Fakes.StubIActor.StrategyGet">
+            <summary>Définit le stub de IActor.get_Strategy()</summary>
+        </member>
+        <member name="F:Model.Fakes.StubIActor.StrategySetIStrategy">
+            <summary>Définit le stub de IActor.set_Strategy(IStrategy value)</summary>
+        </member>
+        <member name="P:Model.Fakes.StubIActor.Model#IActor#Target">
+            <summary>Définit le stub de IActor.get_Target()</summary>
+        </member>
+        <member name="F:Model.Fakes.StubIActor.TargetGet">
+            <summary>Définit le stub de IActor.get_Target()</summary>
+        </member>
+        <member name="F:Model.Fakes.StubIActor.TargetSetIActor">
+            <summary>Définit le stub de IActor.set_Target(IActor value)</summary>
+        </member>
+        <member name="F:Model.Fakes.StubIActor.TriggerEventStringObject">
+            <summary>Définit le stub de IActor.TriggerEvent(String name, Object arg)</summary>
+        </member>
+        <member name="T:Model.Fakes.StubICarriableItem">
+            <summary>Type stub de Model.ICarriableItem</summary>
+        </member>
+        <member name="M:Model.Fakes.StubICarriableItem.#ctor">
+            <summary>Initialise une nouvelle instance</summary>
+        </member>
+        <member name="P:Model.Fakes.StubICarriableItem.CallBase">
+            <summary>Obtient ou définit une valeur qui indique si la méthode de base doit être appelée à la place du comportement de secours</summary>
+        </member>
+        <member name="M:Model.Fakes.StubICarriableItem.CallStrategy">
+            <summary>Définit le stub de ICarriableItem.CallStrategy()</summary>
+        </member>
+        <member name="F:Model.Fakes.StubICarriableItem.CallStrategy01">
+            <summary>Définit le stub de ICarriableItem.CallStrategy()</summary>
+        </member>
+        <member name="M:Model.Fakes.StubICarriableItem.InitializeStub">
+            <summary>Initialise une nouvelle instance de type StubICarriableItem</summary>
+        </member>
+        <member name="P:Model.Fakes.StubICarriableItem.InstanceBehavior">
+            <summary>Obtient ou définit le comportement de l&apos;instance.</summary>
+        </member>
+        <member name="P:Model.Fakes.StubICarriableItem.InstanceObserver">
+            <summary>Obtient ou définit l&apos;observateur d&apos;instance.</summary>
+        </member>
+        <member name="M:Model.Fakes.StubICarriableItem.NextTick(System.Collections.Generic.List{Model.IActor})">
+            <summary>Définit le stub de ICarriableItem.NextTick(List`1&lt;IActor&gt; AllActors)</summary>
+        </member>
+        <member name="F:Model.Fakes.StubICarriableItem.NextTickListOfIActor">
+            <summary>Définit le stub de ICarriableItem.NextTick(List`1&lt;IActor&gt; AllActors)</summary>
+        </member>
+        <member name="T:Model.Fakes.StubIStrategy">
+            <summary>Type stub de Model.IStrategy</summary>
+        </member>
+        <member name="M:Model.Fakes.StubIStrategy.#ctor">
+            <summary>Initialise une nouvelle instance de type StubIStrategy</summary>
+        </member>
+        <member name="F:Model.Fakes.StubIStrategy.BehaviorIActorListOfIActor">
+            <summary>Définit le stub de IStrategy.Behavior(IActor actor, List`1&lt;IActor&gt; allActors)</summary>
+        </member>
+        <member name="M:Model.Fakes.StubIStrategy.Model#IStrategy#Behavior(Model.IActor,System.Collections.Generic.List{Model.IActor})">
+            <summary>Définit le stub de IStrategy.Behavior(IActor actor, List`1&lt;IActor&gt; allActors)</summary>
+        </member>
+        <member name="M:Model.Fakes.StubIStrategy.Model#IStrategy#ReactToEvent(Model.IActor,Model.MyEventArgs)">
+            <summary>Définit le stub de IStrategy.ReactToEvent(IActor self, MyEventArgs args)</summary>
+        </member>
+        <member name="F:Model.Fakes.StubIStrategy.ReactToEventIActorMyEventArgs">
+            <summary>Définit le stub de IStrategy.ReactToEvent(IActor self, MyEventArgs args)</summary>
+        </member>
+        <member name="T:Model.Fakes.StubIngredient">
+            <summary>Type stub de Model.Ingredient</summary>
+        </member>
+        <member name="M:Model.Fakes.StubIngredient.#ctor(System.String,System.Int32,System.Int32)">
+            <summary>Initialise une nouvelle instance</summary>
+        </member>
+        <member name="P:Model.Fakes.StubIngredient.CallBase">
+            <summary>Obtient ou définit une valeur qui indique si la méthode de base doit être appelée à la place du comportement de secours</summary>
+        </member>
+        <member name="M:Model.Fakes.StubIngredient.CallStrategy">
+            <summary>Définit le stub de ICarriableItem.CallStrategy()</summary>
+        </member>
+        <member name="F:Model.Fakes.StubIngredient.CallStrategy01">
+            <summary>Définit le stub de ICarriableItem.CallStrategy()</summary>
+        </member>
+        <member name="M:Model.Fakes.StubIngredient.InitializeStub">
+            <summary>Initialise une nouvelle instance de type StubIngredient</summary>
+        </member>
+        <member name="P:Model.Fakes.StubIngredient.InstanceBehavior">
+            <summary>Obtient ou définit le comportement de l&apos;instance.</summary>
+        </member>
+        <member name="P:Model.Fakes.StubIngredient.InstanceObserver">
+            <summary>Obtient ou définit l&apos;observateur d&apos;instance.</summary>
+        </member>
+        <member name="M:Model.Fakes.StubIngredient.NextTick(System.Collections.Generic.List{Model.IActor})">
+            <summary>Définit le stub de ICarriableItem.NextTick(List`1&lt;IActor&gt; AllActors)</summary>
+        </member>
+        <member name="F:Model.Fakes.StubIngredient.NextTickListOfIActor">
+            <summary>Définit le stub de ICarriableItem.NextTick(List`1&lt;IActor&gt; AllActors)</summary>
+        </member>
+        <member name="T:Model.Fakes.StubModelIngredient">
+            <summary>Type stub de Model.ModelIngredient</summary>
+        </member>
+        <member name="M:Model.Fakes.StubModelIngredient.#ctor(System.String,System.Int32,System.Int32)">
+            <summary>Initialise une nouvelle instance</summary>
+        </member>
+        <member name="P:Model.Fakes.StubModelIngredient.CallBase">
+            <summary>Obtient ou définit une valeur qui indique si la méthode de base doit être appelée à la place du comportement de secours</summary>
+        </member>
+        <member name="M:Model.Fakes.StubModelIngredient.CallStrategy">
+            <summary>Définit le stub de ICarriableItem.CallStrategy()</summary>
+        </member>
+        <member name="F:Model.Fakes.StubModelIngredient.CallStrategy01">
+            <summary>Définit le stub de ICarriableItem.CallStrategy()</summary>
+        </member>
+        <member name="M:Model.Fakes.StubModelIngredient.InitializeStub">
+            <summary>Initialise une nouvelle instance de type StubModelIngredient</summary>
+        </member>
+        <member name="P:Model.Fakes.StubModelIngredient.InstanceBehavior">
+            <summary>Obtient ou définit le comportement de l&apos;instance.</summary>
+        </member>
+        <member name="P:Model.Fakes.StubModelIngredient.InstanceObserver">
+            <summary>Obtient ou définit l&apos;observateur d&apos;instance.</summary>
+        </member>
+        <member name="M:Model.Fakes.StubModelIngredient.NextTick(System.Collections.Generic.List{Model.IActor})">
+            <summary>Définit le stub de ICarriableItem.NextTick(List`1&lt;IActor&gt; AllActors)</summary>
+        </member>
+        <member name="F:Model.Fakes.StubModelIngredient.NextTickListOfIActor">
+            <summary>Définit le stub de ICarriableItem.NextTick(List`1&lt;IActor&gt; AllActors)</summary>
+        </member>
+        <member name="T:Model.Fakes.StubMyEventArgs">
+            <summary>Type stub de Model.MyEventArgs</summary>
+        </member>
+        <member name="M:Model.Fakes.StubMyEventArgs.#ctor(System.String,System.Object)">
+            <summary>Initialise une nouvelle instance</summary>
+        </member>
+        <member name="P:Model.Fakes.StubMyEventArgs.CallBase">
+            <summary>Obtient ou définit une valeur qui indique si la méthode de base doit être appelée à la place du comportement de secours</summary>
+        </member>
+        <member name="M:Model.Fakes.StubMyEventArgs.InitializeStub">
+            <summary>Initialise une nouvelle instance de type StubMyEventArgs</summary>
+        </member>
+        <member name="P:Model.Fakes.StubMyEventArgs.InstanceBehavior">
+            <summary>Obtient ou définit le comportement de l&apos;instance.</summary>
+        </member>
+        <member name="P:Model.Fakes.StubMyEventArgs.InstanceObserver">
+            <summary>Obtient ou définit l&apos;observateur d&apos;instance.</summary>
+        </member>
+        <member name="T:Model.Fakes.StubOrder">
+            <summary>Type stub de Model.Order</summary>
+        </member>
+        <member name="M:Model.Fakes.StubOrder.#ctor(Model.Table,System.Collections.Generic.List{Model.DishModel})">
+            <summary>Initialise une nouvelle instance</summary>
+        </member>
+        <member name="P:Model.Fakes.StubOrder.CallBase">
+            <summary>Obtient ou définit une valeur qui indique si la méthode de base doit être appelée à la place du comportement de secours</summary>
+        </member>
+        <member name="M:Model.Fakes.StubOrder.InitializeStub">
+            <summary>Initialise une nouvelle instance de type StubOrder</summary>
+        </member>
+        <member name="P:Model.Fakes.StubOrder.InstanceBehavior">
+            <summary>Obtient ou définit le comportement de l&apos;instance.</summary>
+        </member>
+        <member name="P:Model.Fakes.StubOrder.InstanceObserver">
+            <summary>Obtient ou définit l&apos;observateur d&apos;instance.</summary>
+        </member>
+        <member name="T:Model.Fakes.StubStep">
+            <summary>Type stub de Model.Step</summary>
+        </member>
+        <member name="M:Model.Fakes.StubStep.#ctor(Model.StepModel,Model.Dish)">
+            <summary>Initialise une nouvelle instance</summary>
+        </member>
+        <member name="P:Model.Fakes.StubStep.CallBase">
+            <summary>Obtient ou définit une valeur qui indique si la méthode de base doit être appelée à la place du comportement de secours</summary>
+        </member>
+        <member name="M:Model.Fakes.StubStep.InitializeStub">
+            <summary>Initialise une nouvelle instance de type StubStep</summary>
+        </member>
+        <member name="P:Model.Fakes.StubStep.InstanceBehavior">
+            <summary>Obtient ou définit le comportement de l&apos;instance.</summary>
+        </member>
+        <member name="P:Model.Fakes.StubStep.InstanceObserver">
+            <summary>Obtient ou définit l&apos;observateur d&apos;instance.</summary>
+        </member>
+        <member name="T:Model.Fakes.StubStepModel">
+            <summary>Type stub de Model.StepModel</summary>
+        </member>
+        <member name="M:Model.Fakes.StubStepModel.#ctor">
+            <summary>Initialise une nouvelle instance</summary>
+        </member>
+        <member name="P:Model.Fakes.StubStepModel.CallBase">
+            <summary>Obtient ou définit une valeur qui indique si la méthode de base doit être appelée à la place du comportement de secours</summary>
+        </member>
+        <member name="M:Model.Fakes.StubStepModel.InitializeStub">
+            <summary>Initialise une nouvelle instance de type StubStepModel</summary>
+        </member>
+        <member name="P:Model.Fakes.StubStepModel.InstanceBehavior">
+            <summary>Obtient ou définit le comportement de l&apos;instance.</summary>
+        </member>
+        <member name="P:Model.Fakes.StubStepModel.InstanceObserver">
+            <summary>Obtient ou définit l&apos;observateur d&apos;instance.</summary>
+        </member>
+        <member name="T:Model.Fakes.StubStrategy">
+            <summary>Type stub de Model.Strategy</summary>
+        </member>
+        <member name="M:Model.Fakes.StubStrategy.#ctor">
+            <summary>Initialise une nouvelle instance</summary>
+        </member>
+        <member name="M:Model.Fakes.StubStrategy.Behavior(Model.IActor,System.Collections.Generic.List{Model.IActor})">
+            <summary>Définit le stub de Strategy.Behavior(IActor self, List`1&lt;IActor&gt; all)</summary>
+        </member>
+        <member name="F:Model.Fakes.StubStrategy.BehaviorIActorListOfIActor">
+            <summary>Définit le stub de Strategy.Behavior(IActor self, List`1&lt;IActor&gt; all)</summary>
+        </member>
+        <member name="P:Model.Fakes.StubStrategy.CallBase">
+            <summary>Obtient ou définit une valeur qui indique si la méthode de base doit être appelée à la place du comportement de secours</summary>
+        </member>
+        <member name="M:Model.Fakes.StubStrategy.InitializeStub">
+            <summary>Initialise une nouvelle instance de type StubStrategy</summary>
+        </member>
+        <member name="P:Model.Fakes.StubStrategy.InstanceBehavior">
+            <summary>Obtient ou définit le comportement de l&apos;instance.</summary>
+        </member>
+        <member name="P:Model.Fakes.StubStrategy.InstanceObserver">
+            <summary>Obtient ou définit l&apos;observateur d&apos;instance.</summary>
+        </member>
+        <member name="M:Model.Fakes.StubStrategy.ReactToEvent(Model.IActor,Model.MyEventArgs)">
+            <summary>Définit le stub de Strategy.ReactToEvent(IActor self, MyEventArgs args)</summary>
+        </member>
+        <member name="F:Model.Fakes.StubStrategy.ReactToEventIActorMyEventArgs">
+            <summary>Définit le stub de Strategy.ReactToEvent(IActor self, MyEventArgs args)</summary>
+        </member>
+        <member name="T:Model.Fakes.StubStrategyButler">
+            <summary>Type stub de Model.StrategyButler</summary>
+        </member>
+        <member name="M:Model.Fakes.StubStrategyButler.#ctor">
+            <summary>Initialise une nouvelle instance</summary>
+        </member>
+        <member name="M:Model.Fakes.StubStrategyButler.Behavior(Model.IActor,System.Collections.Generic.List{Model.IActor})">
+            <summary>Définit le stub de StrategyButler.Behavior(IActor self, List`1&lt;IActor&gt; all)</summary>
+        </member>
+        <member name="F:Model.Fakes.StubStrategyButler.BehaviorIActorListOfIActor">
+            <summary>Définit le stub de StrategyButler.Behavior(IActor self, List`1&lt;IActor&gt; all)</summary>
+        </member>
+        <member name="P:Model.Fakes.StubStrategyButler.CallBase">
+            <summary>Obtient ou définit une valeur qui indique si la méthode de base doit être appelée à la place du comportement de secours</summary>
+        </member>
+        <member name="M:Model.Fakes.StubStrategyButler.InitializeStub">
+            <summary>Initialise une nouvelle instance de type StubStrategyButler</summary>
+        </member>
+        <member name="P:Model.Fakes.StubStrategyButler.InstanceBehavior">
+            <summary>Obtient ou définit le comportement de l&apos;instance.</summary>
+        </member>
+        <member name="P:Model.Fakes.StubStrategyButler.InstanceObserver">
+            <summary>Obtient ou définit l&apos;observateur d&apos;instance.</summary>
+        </member>
+        <member name="M:Model.Fakes.StubStrategyButler.ReactToEvent(Model.IActor,Model.MyEventArgs)">
+            <summary>Définit le stub de StrategyButler.ReactToEvent(IActor self, MyEventArgs args)</summary>
+        </member>
+        <member name="F:Model.Fakes.StubStrategyButler.ReactToEventIActorMyEventArgs">
+            <summary>Définit le stub de StrategyButler.ReactToEvent(IActor self, MyEventArgs args)</summary>
+        </member>
+        <member name="T:Model.Fakes.StubStrategyCustomers">
+            <summary>Type stub de Model.StrategyCustomers</summary>
+        </member>
+        <member name="M:Model.Fakes.StubStrategyCustomers.#ctor">
+            <summary>Initialise une nouvelle instance</summary>
+        </member>
+        <member name="M:Model.Fakes.StubStrategyCustomers.Behavior(Model.IActor,System.Collections.Generic.List{Model.IActor})">
+            <summary>Définit le stub de StrategyCustomers.Behavior(IActor self, List`1&lt;IActor&gt; all)</summary>
+        </member>
+        <member name="F:Model.Fakes.StubStrategyCustomers.BehaviorIActorListOfIActor">
+            <summary>Définit le stub de StrategyCustomers.Behavior(IActor self, List`1&lt;IActor&gt; all)</summary>
+        </member>
+        <member name="P:Model.Fakes.StubStrategyCustomers.CallBase">
+            <summary>Obtient ou définit une valeur qui indique si la méthode de base doit être appelée à la place du comportement de secours</summary>
+        </member>
+        <member name="M:Model.Fakes.StubStrategyCustomers.InitializeStub">
+            <summary>Initialise une nouvelle instance de type StubStrategyCustomers</summary>
+        </member>
+        <member name="P:Model.Fakes.StubStrategyCustomers.InstanceBehavior">
+            <summary>Obtient ou définit le comportement de l&apos;instance.</summary>
+        </member>
+        <member name="P:Model.Fakes.StubStrategyCustomers.InstanceObserver">
+            <summary>Obtient ou définit l&apos;observateur d&apos;instance.</summary>
+        </member>
+        <member name="M:Model.Fakes.StubStrategyCustomers.ReactToEvent(Model.IActor,Model.MyEventArgs)">
+            <summary>Définit le stub de StrategyCustomers.ReactToEvent(IActor self, MyEventArgs args)</summary>
+        </member>
+        <member name="F:Model.Fakes.StubStrategyCustomers.ReactToEventIActorMyEventArgs">
+            <summary>Définit le stub de StrategyCustomers.ReactToEvent(IActor self, MyEventArgs args)</summary>
+        </member>
+        <member name="T:Model.Fakes.StubStrategyServerCounter">
+            <summary>Type stub de Model.StrategyServerCounter</summary>
+        </member>
+        <member name="M:Model.Fakes.StubStrategyServerCounter.#ctor">
+            <summary>Initialise une nouvelle instance</summary>
+        </member>
+        <member name="M:Model.Fakes.StubStrategyServerCounter.Behavior(Model.IActor,System.Collections.Generic.List{Model.IActor})">
+            <summary>Définit le stub de StrategyServerCounter.Behavior(IActor self, List`1&lt;IActor&gt; all)</summary>
+        </member>
+        <member name="F:Model.Fakes.StubStrategyServerCounter.BehaviorIActorListOfIActor">
+            <summary>Définit le stub de StrategyServerCounter.Behavior(IActor self, List`1&lt;IActor&gt; all)</summary>
+        </member>
+        <member name="P:Model.Fakes.StubStrategyServerCounter.CallBase">
+            <summary>Obtient ou définit une valeur qui indique si la méthode de base doit être appelée à la place du comportement de secours</summary>
+        </member>
+        <member name="M:Model.Fakes.StubStrategyServerCounter.InitializeStub">
+            <summary>Initialise une nouvelle instance de type StubStrategyServerCounter</summary>
+        </member>
+        <member name="P:Model.Fakes.StubStrategyServerCounter.InstanceBehavior">
+            <summary>Obtient ou définit le comportement de l&apos;instance.</summary>
+        </member>
+        <member name="P:Model.Fakes.StubStrategyServerCounter.InstanceObserver">
+            <summary>Obtient ou définit l&apos;observateur d&apos;instance.</summary>
+        </member>
+        <member name="M:Model.Fakes.StubStrategyServerCounter.ReactToEvent(Model.IActor,Model.MyEventArgs)">
+            <summary>Définit le stub de StrategyServerCounter.ReactToEvent(IActor self, MyEventArgs args)</summary>
+        </member>
+        <member name="F:Model.Fakes.StubStrategyServerCounter.ReactToEventIActorMyEventArgs">
+            <summary>Définit le stub de StrategyServerCounter.ReactToEvent(IActor self, MyEventArgs args)</summary>
+        </member>
+        <member name="T:Model.Fakes.StubStrategyWaiter">
+            <summary>Type stub de Model.StrategyWaiter</summary>
+        </member>
+        <member name="M:Model.Fakes.StubStrategyWaiter.#ctor">
+            <summary>Initialise une nouvelle instance</summary>
+        </member>
+        <member name="M:Model.Fakes.StubStrategyWaiter.Behavior(Model.IActor,System.Collections.Generic.List{Model.IActor})">
+            <summary>Définit le stub de StrategyWaiter.Behavior(IActor self, List`1&lt;IActor&gt; all)</summary>
+        </member>
+        <member name="F:Model.Fakes.StubStrategyWaiter.BehaviorIActorListOfIActor">
+            <summary>Définit le stub de StrategyWaiter.Behavior(IActor self, List`1&lt;IActor&gt; all)</summary>
+        </member>
+        <member name="P:Model.Fakes.StubStrategyWaiter.CallBase">
+            <summary>Obtient ou définit une valeur qui indique si la méthode de base doit être appelée à la place du comportement de secours</summary>
+        </member>
+        <member name="M:Model.Fakes.StubStrategyWaiter.InitializeStub">
+            <summary>Initialise une nouvelle instance de type StubStrategyWaiter</summary>
+        </member>
+        <member name="P:Model.Fakes.StubStrategyWaiter.InstanceBehavior">
+            <summary>Obtient ou définit le comportement de l&apos;instance.</summary>
+        </member>
+        <member name="P:Model.Fakes.StubStrategyWaiter.InstanceObserver">
+            <summary>Obtient ou définit l&apos;observateur d&apos;instance.</summary>
+        </member>
+        <member name="M:Model.Fakes.StubStrategyWaiter.ReactToEvent(Model.IActor,Model.MyEventArgs)">
+            <summary>Définit le stub de StrategyWaiter.ReactToEvent(IActor self, MyEventArgs args)</summary>
+        </member>
+        <member name="F:Model.Fakes.StubStrategyWaiter.ReactToEventIActorMyEventArgs">
+            <summary>Définit le stub de StrategyWaiter.ReactToEvent(IActor self, MyEventArgs args)</summary>
+        </member>
+        <member name="T:Model.Fakes.StubStrategyWorkingFridge">
+            <summary>Type stub de Model.StrategyWorkingFridge</summary>
+        </member>
+        <member name="M:Model.Fakes.StubStrategyWorkingFridge.#ctor">
+            <summary>Initialise une nouvelle instance</summary>
+        </member>
+        <member name="M:Model.Fakes.StubStrategyWorkingFridge.Behavior(Model.IActor,System.Collections.Generic.List{Model.IActor})">
+            <summary>Définit le stub de StrategyWorkingFridge.Behavior(IActor self, List`1&lt;IActor&gt; all)</summary>
+        </member>
+        <member name="F:Model.Fakes.StubStrategyWorkingFridge.BehaviorIActorListOfIActor">
+            <summary>Définit le stub de StrategyWorkingFridge.Behavior(IActor self, List`1&lt;IActor&gt; all)</summary>
+        </member>
+        <member name="P:Model.Fakes.StubStrategyWorkingFridge.CallBase">
+            <summary>Obtient ou définit une valeur qui indique si la méthode de base doit être appelée à la place du comportement de secours</summary>
+        </member>
+        <member name="M:Model.Fakes.StubStrategyWorkingFridge.InitializeStub">
+            <summary>Initialise une nouvelle instance de type StubStrategyWorkingFridge</summary>
+        </member>
+        <member name="P:Model.Fakes.StubStrategyWorkingFridge.InstanceBehavior">
+            <summary>Obtient ou définit le comportement de l&apos;instance.</summary>
+        </member>
+        <member name="P:Model.Fakes.StubStrategyWorkingFridge.InstanceObserver">
+            <summary>Obtient ou définit l&apos;observateur d&apos;instance.</summary>
+        </member>
+        <member name="M:Model.Fakes.StubStrategyWorkingFridge.ReactToEvent(Model.IActor,Model.MyEventArgs)">
+            <summary>Définit le stub de StrategyWorkingFridge.ReactToEvent(IActor self, MyEventArgs args)</summary>
+        </member>
+        <member name="F:Model.Fakes.StubStrategyWorkingFridge.ReactToEventIActorMyEventArgs">
+            <summary>Définit le stub de StrategyWorkingFridge.ReactToEvent(IActor self, MyEventArgs args)</summary>
+        </member>
+        <member name="T:Model.Fakes.StubTable">
+            <summary>Type stub de Model.Table</summary>
+        </member>
+        <member name="M:Model.Fakes.StubTable.#ctor(System.Int32)">
+            <summary>Initialise une nouvelle instance</summary>
+        </member>
+        <member name="P:Model.Fakes.StubTable.CallBase">
+            <summary>Obtient ou définit une valeur qui indique si la méthode de base doit être appelée à la place du comportement de secours</summary>
+        </member>
+        <member name="M:Model.Fakes.StubTable.CallStrategy">
+            <summary>Définit le stub de ActorMobile.CallStrategy()</summary>
+        </member>
+        <member name="F:Model.Fakes.StubTable.CallStrategy01">
+            <summary>Définit le stub de ActorMobile.CallStrategy()</summary>
+        </member>
+        <member name="M:Model.Fakes.StubTable.InitializeStub">
+            <summary>Initialise une nouvelle instance de type StubTable</summary>
+        </member>
+        <member name="P:Model.Fakes.StubTable.InstanceBehavior">
+            <summary>Obtient ou définit le comportement de l&apos;instance.</summary>
+        </member>
+        <member name="P:Model.Fakes.StubTable.InstanceObserver">
+            <summary>Obtient ou définit l&apos;observateur d&apos;instance.</summary>
+        </member>
+        <member name="M:Model.Fakes.StubTable.NextTick(System.Collections.Generic.List{Model.IActor})">
+            <summary>Définit le stub de ActorMobile.NextTick(List`1&lt;IActor&gt; AllActors)</summary>
+        </member>
+        <member name="F:Model.Fakes.StubTable.NextTickListOfIActor">
+            <summary>Définit le stub de ActorMobile.NextTick(List`1&lt;IActor&gt; AllActors)</summary>
+        </member>
+        <member name="T:Model.Fakes.StubUtensil">
+            <summary>Type stub de Model.Utensil</summary>
+        </member>
+        <member name="M:Model.Fakes.StubUtensil.#ctor(System.String,System.Int32)">
+            <summary>Initialise une nouvelle instance</summary>
+        </member>
+        <member name="P:Model.Fakes.StubUtensil.CallBase">
+            <summary>Obtient ou définit une valeur qui indique si la méthode de base doit être appelée à la place du comportement de secours</summary>
+        </member>
+        <member name="M:Model.Fakes.StubUtensil.CallStrategy">
+            <summary>Définit le stub de ICarriableItem.CallStrategy()</summary>
+        </member>
+        <member name="F:Model.Fakes.StubUtensil.CallStrategy01">
+            <summary>Définit le stub de ICarriableItem.CallStrategy()</summary>
+        </member>
+        <member name="M:Model.Fakes.StubUtensil.InitializeStub">
+            <summary>Initialise une nouvelle instance de type StubUtensil</summary>
+        </member>
+        <member name="P:Model.Fakes.StubUtensil.InstanceBehavior">
+            <summary>Obtient ou définit le comportement de l&apos;instance.</summary>
+        </member>
+        <member name="P:Model.Fakes.StubUtensil.InstanceObserver">
+            <summary>Obtient ou définit l&apos;observateur d&apos;instance.</summary>
+        </member>
+        <member name="M:Model.Fakes.StubUtensil.NextTick(System.Collections.Generic.List{Model.IActor})">
+            <summary>Définit le stub de ICarriableItem.NextTick(List`1&lt;IActor&gt; AllActors)</summary>
+        </member>
+        <member name="F:Model.Fakes.StubUtensil.NextTickListOfIActor">
+            <summary>Définit le stub de ICarriableItem.NextTick(List`1&lt;IActor&gt; AllActors)</summary>
+        </member>
+    </members>
+</doc>

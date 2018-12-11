@@ -13,7 +13,7 @@ namespace Model
 			// To be removed?
         }
 
-		public override void NextTick(List<IActor> AllActors)
+		public override void NextTick(List<AbstractActor> AllActors)
 		{
 			Strategy.Behavior(this, AllActors);
 		}

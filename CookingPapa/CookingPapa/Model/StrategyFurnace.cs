@@ -19,18 +19,34 @@ namespace Model
 
         }
 
-        private void InitFurnace(IActor furnace, List<IActor> all)
+        private void InitFurnace(AbstractActor furnace, List<AbstractActor> all)
         {
+<<<<<<< HEAD
+=======
+            List<AbstractActor> allCounters = all.Where(a => a.Name == "counter").ToList();
+            foreach (AbstractActor a in allCounters)
+            {
+                a.EventGeneric += furnace.StrategyCallback;
+            }
+>>>>>>> origin/master
             furnace.Initialized = true;
             Console.WriteLine("Furnace Init");
         }
 
-        public override void Behavior(IActor self, List<IActor> all)
+        public override void Behavior(AbstractActor self, List<AbstractActor> all)
         {
             if (!self.Initialized) InitFurnace(self, all);
 
+<<<<<<< HEAD
         //Item contient les ingredients
         //Stack contient les etapes
+=======
+            if (self.Stack.Count > 0)
+            {
+                Console.WriteLine("Chef: I must complete {0} more orders.", self.Stack.Count);
+                Order topOrder = (Order)self.Stack[0];
+                List<AbstractActor> partyLeaders = all.Where(a => a.Name == "partyleader").ToList();
+>>>>>>> origin/master
 
             if (self.Items.Count == 1 && self.Stack.Count == 1)
             {
@@ -45,6 +61,7 @@ namespace Model
                 step.TimeSpentSoFar++;
                 if (step.TimeSpentSoFar >= step.TimeNeed)
                 {
+<<<<<<< HEAD
                     self.Busy = false;
                     Console.WriteLine("Furnace Off");
 
@@ -55,11 +72,33 @@ namespace Model
                 }
 
                 
+=======
+                    // We look for non-completed step, and assign it to a party leader
+                    foreach (Dish d in topOrder.DishInstances.ToList())
+                    {
+                        foreach (Step s in d.Steps.ToList())
+                        {
+                            if (!s.Prepared)
+                            {
+                                foreach (AbstractActor a in partyLeaders)
+                                {
+                                    if (!a.Busy)
+                                    {
+                                        a.Stack.Add(s);
+                                        a.Busy = true;
+                                        Console.WriteLine("Chef has dispatched a step");
+                                        break;
+                                    }
+                                }
+                            }
+                        }
+                    }
+>>>>>>> origin/master
                     // end foreach nest
                 }
             }
 
-        public override void ReactToEvent(IActor self, MyEventArgs args)
+        public override void ReactToEvent(AbstractActor self, MyEventArgs args)
         {
             throw new NotImplementedException();
         }

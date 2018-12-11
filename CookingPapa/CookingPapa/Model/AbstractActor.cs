@@ -6,20 +6,24 @@ using System.Linq;
 
 namespace Model
 {
-	public abstract class AbstractActor : IActor
+	public abstract class AbstractActor
     {
-		public List<ICarriableItem> Items { get; set; }
+		public List<ACarriableItem> Items { get; set; }
+		public List<ACommand> CommandList { get; set; }
+		public List<object> Stack { get; set; }
 		public Point Position { get; set; }
-		public IActor Target { get; set; }
+		public AbstractActor Target { get; set; }
+		public IStrategy Strategy { get; set; }
+
         public bool Busy { get; set; }
 		public bool Initialized { get; set; }
         public int MaxInventorySize { get; set; }
         public string Name { get; set; }
-        public IStrategy Strategy { get; set; }
-		public List<object> Stack { get; set; }
-        
-		public abstract void NextTick(List<IActor> AllActors);
-		public abstract void CallStrategy();
+		public bool BusyWaiting { get; set; }
+		public bool BusyWalking { get; set; }
+
+        public abstract void NextTick(List<AbstractActor> AllActors);
+        public abstract void CallStrategy();
 
 		public event EventHandler EventGeneric;
 
@@ -30,22 +34,26 @@ namespace Model
 		{
 			Initialized = false;
 			Busy = false;
-			Items = new List<ICarriableItem>();
+			BusyWaiting = false;
+			BusyWalking = false;
+			Items = new List<ACarriableItem>();
 			Stack = new List<object>();
-		}
+            CommandList = new List<ACommand>();
+
+        }
 
         /**
          * Find the closest actor of a certain type, relatively to the instance's
          * position. Can return 'this' if no actor is found.
          */
-		public IActor FindClosest(string Name, List<IActor> AllActors)
+		public AbstractActor FindClosest(string Name, List<AbstractActor> AllActors)
         {
-            List<IActor> filteredActors = AllActors.Where(a => a.Name == Name).ToList();
-            IActor nearest = null;
+            List<AbstractActor> filteredActors = AllActors.Where(a => a.Name == Name).ToList();
+            AbstractActor nearest = null;
             int lowestDistance = 10000000;
             int currentDistance = 0;
 
-            foreach (IActor actor in filteredActors)
+            foreach (AbstractActor actor in filteredActors)
             {
                 currentDistance = EvaluateDistanceTo(actor);
 				if (currentDistance < lowestDistance && !ReferenceEquals(this, actor))
@@ -64,40 +72,9 @@ namespace Model
             return nearest;
         }
 
-        /**
-         * Changes the actor's position. Makes it move toward its target.
-         */
-		public void Move()
-        {
-            Busy = true;
-            Point targetPosition = Target.Position;
-            if (Position.X > targetPosition.X)
-            {
-                Position = new Point(Position.X - 1, Position.Y);
-            }
-            else if (Position.X < targetPosition.X)
-            {
-                Position = new Point(Position.X + 1, Position.Y);
-            }
-            else if (Position.Y < targetPosition.Y)
-            {
-                Position = new Point(Position.X, Position.Y + 1);
-            }
-            else if (Position.Y > targetPosition.Y)
-            {
-                Position = new Point(Position.X, Position.Y - 1);
-            }
-            else
-            {
-                // We are on point
-                Busy = false;
-                Target = this;
-            }
-        }
-
 		// Actors can only move in straight vertical or horizontal lines,
         // therefore calculating the distance of a straight diagonal line is useless.
-        protected int EvaluateDistanceTo(IActor OtherActor)
+        public int EvaluateDistanceTo(AbstractActor OtherActor)
         {
             int X = Math.Abs(OtherActor.Position.X - Position.X);
             int Y = Math.Abs(OtherActor.Position.Y - Position.Y);
@@ -107,18 +84,47 @@ namespace Model
         /**
          * Triggers an event, usually only called from Strategies
          */
-		public void TriggerEvent(string name, object arg)
-		{
-			MyEventArgs eventArgs = new MyEventArgs(name, arg);
-			EventGeneric?.Invoke(this, eventArgs);
-		}
+        public void TriggerEvent(string name, object arg)
+        {
+            MyEventArgs eventArgs = new MyEventArgs(name, arg);
+            EventGeneric?.Invoke(this, eventArgs);
+        }
+
+        /**
+         * Get an item from AbstractActor where and give it to the AbstractActor actor
+         */
+        public void FetchItem(ACarriableItem item, AbstractActor actor, List<AbstractActor> allActors)
+        {
+            if (!Busy)
+            {
+                Busy = true;
+                Target = FindNearestCarriableItem(item.Name, allActors);
+            }
+
+        }
 
         /**
          * When an event is triggered, this method will be the callback
          */
-		public void StrategyCallback(object sender, EventArgs args)
+        public void StrategyCallback(object sender, EventArgs args)
 		{
 			Strategy.ReactToEvent(this, (MyEventArgs)args);
+		}
+
+		public AbstractActor FindNearestCarriableItem(string itemName, List<AbstractActor> allActors)      
+		{
+			foreach(AbstractActor a in allActors.ToList())
+			{
+				foreach (ACarriableItem i in a.Items.ToList())
+				{
+					if (i.Name == itemName && i.Clean)
+					{
+						return a;
+					}
+				}
+			}
+			Console.WriteLine("Unable to find a " + itemName);
+			return null;
 		}
 	}
 
