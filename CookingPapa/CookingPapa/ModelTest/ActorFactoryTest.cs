@@ -20,7 +20,7 @@ namespace ModelTest
         {
             Assert.IsNotNull(ActorFactory.CreateActor("butler"));
             Assert.AreNotSame(ActorFactory.CreateActor("customer"), ActorFactory.CreateActor("butler"));
-            Assert.IsInstanceOfType(typeof(AbstractActor), ActorFactory.CreateActor("customer"));          
+            Assert.IsInstanceOf(typeof(AbstractActor), ActorFactory.CreateActor("customer"));          
         }
         
         [TearDown()]
