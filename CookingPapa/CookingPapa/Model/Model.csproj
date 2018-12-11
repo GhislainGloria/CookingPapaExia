@@ -33,7 +33,6 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="ActorFactory.cs" />
-    <Compile Include="ActorMobile.cs" />
     <Compile Include="ClientSpawner.cs" />
     <Compile Include="ModelIngredient.cs" />
     <Compile Include="Order.cs" />
@@ -64,7 +63,6 @@
     <Compile Include="AbstractActor.cs" />
     <Compile Include="StrategyDishwasher.cs" />
     <Compile Include="StrategyWashingmachine.cs" />
-    <Compile Include="ActorMobileSocket.cs" />
     <Compile Include="StrategyServerCounter.cs" />
     <Compile Include="DishModel.cs" />
     <Compile Include="DishModelList.cs" />
@@ -77,9 +75,14 @@
     <Compile Include="CommandMove.cs" />
     <Compile Include="UtensilFactory.cs" />
     <Compile Include="CommandSetTarget.cs" />
+    <Compile Include="Actor.cs" />
+    <Compile Include="ActorSocket.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System.Drawing" />
+    <Reference Include="nunit.framework">
+      <HintPath>..\packages\NUnit.3.11.0\lib\net45\nunit.framework.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
