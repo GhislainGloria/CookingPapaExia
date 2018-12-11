@@ -42,6 +42,10 @@ namespace Model
 								a.CommandList.Add(new CommandGetItem(a, target, step.Model.Utensil));
 								a.CommandList.Add(new CommandSetTarget(a, self));
 								a.CommandList.Add(new CommandMove(a));
+								a.CommandList.Add(new CommandGiveItem(a, self, step.Model.Utensil));
+
+                                // We want to know if the clerk failed
+								a.EventGeneric += self.StrategyCallback;
 
 								self.BusyWaiting = true;
 								return;
@@ -63,7 +67,15 @@ namespace Model
 
 		public override void ReactToEvent(AbstractActor self, MyEventArgs args)
 		{
-
+			switch (args.EventName)
+			{
+				case "CommandQueueFailed":
+					self.BusyWaiting = false;
+					AbstractActor failureMan = ((AbstractActor)args.Arg);
+					failureMan.EventGeneric -= self.StrategyCallback;
+					Console.WriteLine(self.Name + ": Fuck, my " + failureMan.Name + " failed!");
+					break;
+			}
 		}
 	}
 }

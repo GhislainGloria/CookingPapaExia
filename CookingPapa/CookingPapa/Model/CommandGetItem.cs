@@ -43,6 +43,13 @@ namespace Model
 					Self.Name + ": I'm too far away to get item " + Item + " from " + Getfrom.Name
 				);
             }
+
+			Console.WriteLine(
+				Self.Name + ": I failed to get the " + Item + " from " + Getfrom.Name
+			);
+			Self.Busy = false;
+			Self.CommandList.Clear();         
+			Self.TriggerEvent("CommandQueueFailed", Self);
         }
     }
 }

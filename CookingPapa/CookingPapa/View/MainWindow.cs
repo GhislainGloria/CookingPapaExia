@@ -17,7 +17,7 @@ namespace View
             ViewWidget = new ViewWidget();
             TimeSlider = new NumericUpDown
             {
-                Maximum = 10,
+                Maximum = 100,
                 Minimum = 1
             };
 

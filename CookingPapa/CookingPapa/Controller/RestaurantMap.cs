@@ -26,14 +26,14 @@ namespace Controller
 				MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
 				// Load the kitchen map
-				MapSize = new Size(50, 50);
+				MapSize = new Size(20, 20);
 
 				AbstractActor actor = ActorFactory.CreateActor("chef"); // Immobile
 				actor.Position = new Point(10, 10);
 				Actors.Add(actor);
 
 				actor = ActorFactory.CreateActor("diver"); // Mobile
-				actor.Position = new Point(10, 20);
+				actor.Position = new Point(10, 19);
 				Actors.Add(actor);
 
 				actor = ActorFactory.CreateActor("server counter");
@@ -41,11 +41,11 @@ namespace Controller
 				Actors.Add(actor);
 
 				actor = ActorFactory.CreateActor("partyleader");
-				actor.Position = new Point(25, 25);
+				actor.Position = new Point(13, 13);
 				Actors.Add(actor);
 
 				actor = ActorFactory.CreateActor("kitchenclerk");
-				actor.Position = new Point(30, 30);            
+				actor.Position = new Point(1, 18);
 				Actors.Add(actor);
 
 				actor = ActorFactory.CreateActor("shed");
