@@ -18,7 +18,7 @@ namespace Model
 		private bool HasEverythingNeededToCook(AbstractActor self, Step step, List<AbstractActor> all)
 		{
 			AbstractActor nearest = self.FindClosest(step.Model.Workboard, all);
-			bool hasUtensil = self.Items.Where(i => i.Name == step.Model.Utensil).ToList().Count > 0;
+			bool hasUtensil = self.Items.Where(i => i.Name == step.Model.Utensil && ((Utensil)i).Clean).ToList().Count > 0;
 			bool hasIngredient = self.Items.Where(i => i.Name == step.Model.Ingredient).ToList().Count > 0;
 
 			return self.EvaluateDistanceTo(nearest) <= 2 && hasUtensil && hasIngredient;
@@ -92,10 +92,10 @@ namespace Model
 
                                 a.CommandList.Add(new CommandSetTarget(a, target));
                                 a.CommandList.Add(new CommandMove(a));
-                                a.CommandList.Add(new CommandGetItem(a, target, step.Model.Utensil));
+								a.CommandList.Add(new CommandGetItem(a, target, step.Model.Ingredient));
                                 a.CommandList.Add(new CommandSetTarget(a, self));
                                 a.CommandList.Add(new CommandMove(a));
-                                a.CommandList.Add(new CommandGiveItem(a, self, step.Model.Utensil));
+								a.CommandList.Add(new CommandGiveItem(a, self, step.Model.Ingredient));
 
                                 // We want to know if the clerk failed
                                 a.EventGeneric += self.StrategyCallback;
@@ -133,6 +133,7 @@ namespace Model
 
 					if(self.EvaluateDistanceTo(target) > 2)
 					{
+						self.BusyWalking = true;
 						self.Target = target;
 						self.CommandList.Add(new CommandMove(self));
 						return;
@@ -140,12 +141,39 @@ namespace Model
 				}
 
                 // If we have everything needed to cook, then let's cook
-				if(HasEverythingNeededToCook(self, step, all) && step.TimeSpentSoFar++ >= step.Model.Duration)
+				if(HasEverythingNeededToCook(self, step, all))
 				{
-					step.Complete();
-					Console.WriteLine("Party Leader: I completed a step");
-					self.Stack.RemoveAt(0);
-					self.Busy = false;
+					step.TimeSpentSoFar++;
+					Console.WriteLine(self.Name + ": I've been cooking for {0} tick, {1} required", step.TimeSpentSoFar, step.Model.Duration);
+                                   
+					if(step.TimeSpentSoFar >= step.Model.Duration)
+					{
+						step.Complete();
+                        Console.WriteLine("Party Leader: I completed a step");
+
+                        // Delete the ingredient
+						foreach(ACarriableItem i in self.Items)
+						{
+							if(i.Name == step.Model.Ingredient)
+							{
+								self.Items.Remove(i);
+								break;
+							}
+						}
+
+                        // Utensil isn't clean anymore
+						foreach (ACarriableItem i in self.Items)
+                        {
+							if (i.Name == step.Model.Utensil)
+                            {
+								((Utensil)i).Clean = false;
+                                break;
+                            }
+                        }
+
+						self.Stack.Clear();
+                        self.Busy = false;	
+					}
 				}
 			}
 			else
