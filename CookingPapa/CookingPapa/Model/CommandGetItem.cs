@@ -29,13 +29,19 @@ namespace Model
                     {
                         Getfrom.Items.Remove(itemFrom);
                         Self.Items.Add(itemFrom);
+
+						Console.WriteLine(
+							Self.Name + ": I picked up a " + Item + " from " + Getfrom.Name
+						);
                         return;
                     }
                 }
             }
             else
             {
-                Console.WriteLine(Self.Name + ": I'm too far away !");
+				Console.WriteLine(
+					Self.Name + ": I'm too far away to get item " + Item + " from " + Getfrom.Name
+				);
             }
         }
     }
