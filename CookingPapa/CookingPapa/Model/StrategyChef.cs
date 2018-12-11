@@ -6,7 +6,7 @@ namespace Model
 {
 	public class StrategyChef : Strategy
     {
-		private static StrategyChef Instance = new StrategyChef();
+		private static readonly StrategyChef Instance = new StrategyChef();
 		public static StrategyChef GetInstance()
 		{
 			return Instance;

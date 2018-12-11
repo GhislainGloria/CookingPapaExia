@@ -36,7 +36,7 @@
   <ItemGroup>
     <Compile Include="ACommand.cs" />
     <Compile Include="ActorFactory.cs" />
-    <Compile Include="ActorMobile.cs" />
+    <Compile Include="Actor.cs" />
     <Compile Include="ClientSpawner.cs" />
     <Compile Include="CommandGetItem.cs" />
     <Compile Include="CommandGiveItem.cs" />
@@ -70,8 +70,8 @@
     <Compile Include="IStrategy.cs" />
     <Compile Include="AbstractActor.cs" />
     <Compile Include="StrategyDishwasher.cs" />
-    <Compile Include="StrategyWashingmachine.cs" />
-    <Compile Include="ActorMobileSocket.cs" />
+    <Compile Include="StrategyWashingMachine.cs" />
+    <Compile Include="ActorSocket.cs" />
     <Compile Include="StrategyServerCounter.cs" />
     <Compile Include="DishModel.cs" />
     <Compile Include="DishModelList.cs" />
