@@ -8,7 +8,7 @@ namespace Model
 {
     public static class UtensilFactory
     {
-        public static Utensil createUtensil(string utensil)
+        public static Utensil CreateUtensil(string utensil)
         {
             switch (utensil)
             {

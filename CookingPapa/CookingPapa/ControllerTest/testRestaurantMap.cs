@@ -16,7 +16,7 @@ namespace ControllerTest
     class TestRestaurantMap
     {
            private readonly Site MapSize;
-           public  List<IActor> Actors { get; set; }
+           public  List<AbstractActor> Actors { get; set; }
            private readonly RestaurantMap retaurant = new  RestaurantMap();
 
     
@@ -24,7 +24,7 @@ namespace ControllerTest
         [Test()]
         public void testrange()
         {
-            /*Actors = new List<IActor>();
+            /*Actors = new List<AbstractActor>();
             ActorMobile testActor = new ActorMobile();
             testActor.Name = "bibi";
             testActor.Position = new Point(10, 10);

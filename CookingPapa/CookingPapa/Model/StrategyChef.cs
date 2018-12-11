@@ -14,24 +14,24 @@ namespace Model
 
 		private StrategyChef() {}
 
-		private void InitChef(IActor chef, List<IActor> all)
+		private void InitChef(AbstractActor chef, List<AbstractActor> all)
 		{
-			List<IActor> allCounters = all.Where(a => a.Name == "counter").ToList();
-			foreach(IActor a in allCounters)
+			List<AbstractActor> allCounters = all.Where(a => a.Name == "counter").ToList();
+			foreach(AbstractActor a in allCounters)
 			{
 				a.EventGeneric += chef.StrategyCallback;
 			}
 			chef.Initialized = true;
 		}
 
-		public override void Behavior(IActor self, List<IActor> all)
+		public override void Behavior(AbstractActor self, List<AbstractActor> all)
         {
 			if (!self.Initialized) InitChef(self, all);
                      
 			if (self.Stack.Count > 0) {
 				Console.WriteLine("Chef: I must complete {0} more orders.", self.Stack.Count);
 				Order topOrder = (Order)self.Stack[0];
-				List<IActor> partyLeaders = all.Where(a => a.Name == "partyleader").ToList();
+				List<AbstractActor> partyLeaders = all.Where(a => a.Name == "partyleader").ToList();
 
 				if(topOrder.Completed())
 				{
@@ -48,7 +48,7 @@ namespace Model
                         {
                             if (!s.Prepared)
                             {
-                                foreach (IActor a in partyLeaders)
+                                foreach (AbstractActor a in partyLeaders)
                                 {
                                     if (!a.Busy)
                                     {
@@ -66,7 +66,7 @@ namespace Model
 			}
         }
 
-		public override void ReactToEvent(IActor self, MyEventArgs args)
+		public override void ReactToEvent(AbstractActor self, MyEventArgs args)
 		{
 			switch(args.EventName)
 			{

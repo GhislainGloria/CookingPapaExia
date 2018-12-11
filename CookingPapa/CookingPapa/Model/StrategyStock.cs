@@ -17,7 +17,7 @@ namespace Model
 
         public StrategyStock() { }
 
-        public override void Behavior(IActor self, List<IActor> all)
+        public override void Behavior(AbstractActor self, List<AbstractActor> all)
 		{
 			foreach(Ingredient ingredient in self.Items.ToList())
             {
@@ -29,7 +29,7 @@ namespace Model
             }
 		}
 
-		public override void ReactToEvent(IActor self, MyEventArgs args)
+		public override void ReactToEvent(AbstractActor self, MyEventArgs args)
 		{
 			throw new NotImplementedException();
 		}

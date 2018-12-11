@@ -40,7 +40,6 @@
     <Compile Include="Counter.cs" />
     <Compile Include="Dish.cs" />
     <Compile Include="GroupActor.cs" />
-    <Compile Include="IActor.cs" />
     <Compile Include="ACarriableItem.cs" />
     <Compile Include="Ingredient.cs" />
     <Compile Include="StepModel.cs" />
@@ -73,10 +72,11 @@
     <Compile Include="CarriableItemFactory.cs" />
     <Compile Include="IngredientFactory.cs" />
     <Compile Include="ACommand.cs" />
-    <Compile Include="GetItem.cs" />
-    <Compile Include="GiveItem.cs" />
-    <Compile Include="Move.cs" />
+    <Compile Include="CommandGetItem.cs" />
+    <Compile Include="CommandGiveItem.cs" />
+    <Compile Include="CommandMove.cs" />
     <Compile Include="UtensilFactory.cs" />
+    <Compile Include="CommandSetTarget.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System.Drawing" />

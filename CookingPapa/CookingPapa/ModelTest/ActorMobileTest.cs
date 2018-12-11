@@ -37,12 +37,12 @@ namespace ModelTest
 			diver2.Position = new Point(1, 0);
 			diver3.Position = new Point(10, 10);
 
-			List<IActor> all = new List<IActor>();
+			List<AbstractActor> all = new List<AbstractActor>();
 			all.Add(diver);
 			all.Add(diver2);
 			all.Add(diver3);
 
-			IActor closest = diver.FindClosest("diver", all);
+			AbstractActor closest = diver.FindClosest("diver", all);
 
 			Assert.IsTrue(object.ReferenceEquals(closest, diver2));
 		}

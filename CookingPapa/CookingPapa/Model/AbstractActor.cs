@@ -6,21 +6,23 @@ using System.Linq;
 
 namespace Model
 {
-	public abstract class AbstractActor : IActor
+	public abstract class AbstractActor
     {
 		public List<ACarriableItem> Items { get; set; }
+		public List<ACommand> CommandList { get; set; }
+		public List<object> Stack { get; set; }
 		public Point Position { get; set; }
-		public IActor Target { get; set; }
+		public AbstractActor Target { get; set; }
+		public IStrategy Strategy { get; set; }
+
         public bool Busy { get; set; }
 		public bool Initialized { get; set; }
         public int MaxInventorySize { get; set; }
         public string Name { get; set; }
-        public IStrategy Strategy { get; set; }
-		public List<object> Stack { get; set; }
 		public bool BusyWaiting { get; set; }
 		public bool BusyWalking { get; set; }
-        public List<ACommand> CommandList{ get; set; }
-        public abstract void NextTick(List<IActor> AllActors);
+
+        public abstract void NextTick(List<AbstractActor> AllActors);
         public abstract void CallStrategy();
 
 		public event EventHandler EventGeneric;
@@ -44,14 +46,14 @@ namespace Model
          * Find the closest actor of a certain type, relatively to the instance's
          * position. Can return 'this' if no actor is found.
          */
-		public IActor FindClosest(string Name, List<IActor> AllActors)
+		public AbstractActor FindClosest(string Name, List<AbstractActor> AllActors)
         {
-            List<IActor> filteredActors = AllActors.Where(a => a.Name == Name).ToList();
-            IActor nearest = null;
+            List<AbstractActor> filteredActors = AllActors.Where(a => a.Name == Name).ToList();
+            AbstractActor nearest = null;
             int lowestDistance = 10000000;
             int currentDistance = 0;
 
-            foreach (IActor actor in filteredActors)
+            foreach (AbstractActor actor in filteredActors)
             {
                 currentDistance = EvaluateDistanceTo(actor);
 				if (currentDistance < lowestDistance && !ReferenceEquals(this, actor))
@@ -72,7 +74,7 @@ namespace Model
 
 		// Actors can only move in straight vertical or horizontal lines,
         // therefore calculating the distance of a straight diagonal line is useless.
-        public int EvaluateDistanceTo(IActor OtherActor)
+        public int EvaluateDistanceTo(AbstractActor OtherActor)
         {
             int X = Math.Abs(OtherActor.Position.X - Position.X);
             int Y = Math.Abs(OtherActor.Position.Y - Position.Y);
@@ -89,9 +91,9 @@ namespace Model
         }
 
         /**
-         * Get an item from IActor where and give it to the IActor actor
+         * Get an item from AbstractActor where and give it to the AbstractActor actor
          */
-        public void FetchItem(ACarriableItem item, IActor actor, List<IActor> allActors)
+        public void FetchItem(ACarriableItem item, AbstractActor actor, List<AbstractActor> allActors)
         {
             if (!Busy)
             {
@@ -109,9 +111,9 @@ namespace Model
 			Strategy.ReactToEvent(this, (MyEventArgs)args);
 		}
 
-		public IActor FindNearestCarriableItem(string itemName, List<IActor> allActors)      
+		public AbstractActor FindNearestCarriableItem(string itemName, List<AbstractActor> allActors)      
 		{
-			foreach(IActor a in allActors.ToList())
+			foreach(AbstractActor a in allActors.ToList())
 			{
 				foreach (ACarriableItem i in a.Items.ToList())
 				{
@@ -121,6 +123,7 @@ namespace Model
 					}
 				}
 			}
+			Console.WriteLine("Unable to find a " + itemName);
 			return null;
 		}
 	}

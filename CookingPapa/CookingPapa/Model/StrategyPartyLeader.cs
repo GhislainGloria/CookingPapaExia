@@ -15,29 +15,40 @@ namespace Model
         }      
         private StrategyPartyLeader() {} 
 
-		public override void Behavior(IActor self, List<IActor> all)
-		{
+		public override void Behavior(AbstractActor self, List<AbstractActor> all)
+		{         
+			// In the stack, there is the current step to execute
 			if(self.Stack.Count > 0)
 			{
-				Console.WriteLine("Party Leader: I'm busy");
+				if (self.BusyWaiting) return;
+                
 				self.Busy = true;
 				Step step = (Step)self.Stack[0];
-
-				//TODO ask for required utensils and ingredients            
-				if (self.BusyWaiting) return;
+                
 				if(self.Items.Where(i => i.Name == step.Model.Utensil).ToList().Count == 0)
 				{
-					List<IActor> kc = all.Where(a => a.Name == "kitchenclerk").ToList();
-					foreach(IActor a in kc)
+					List<AbstractActor> kc = all.Where(a => a.Name == "kitchenclerk").ToList();
+					foreach(AbstractActor a in kc)
 					{
 						if(!a.Busy)
 						{
-							// TODO: find nearest carriable
-							IActor target = a.FindClosest(step.Model.Utensil, all);
+							if(all == null)
+							{
+								Console.WriteLine("fguck");
+							}
+								
+
+							AbstractActor target = a.FindNearestCarriableItem(step.Model.Utensil, all);
 							if(target != null)
 							{
 								Console.WriteLine("Party Leader: I asked a clerk to fetch me a " + step.Model.Utensil);
-								a.Target = target;
+
+								a.CommandList.Add(new CommandSetTarget(a, target));
+								a.CommandList.Add(new CommandMove(a));
+								a.CommandList.Add(new CommandGetItem(a, target, step.Model.Utensil));
+								a.CommandList.Add(new CommandSetTarget(a, self));
+								a.CommandList.Add(new CommandMove(a));
+
 								self.BusyWaiting = true;
 								return;
 							}
@@ -56,7 +67,7 @@ namespace Model
 			}
 		}
 
-		public override void ReactToEvent(IActor self, MyEventArgs args)
+		public override void ReactToEvent(AbstractActor self, MyEventArgs args)
 		{
 
 		}

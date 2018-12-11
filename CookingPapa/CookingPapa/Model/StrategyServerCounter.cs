@@ -9,7 +9,7 @@ namespace Model
 		public static StrategyServerCounter GetInstance() { return Instance; }
 		protected StrategyServerCounter() { }
 
-		public override void Behavior(IActor self, List<IActor> all)
+		public override void Behavior(AbstractActor self, List<AbstractActor> all)
 		{
 			Random random = new Random();
 			if(random.Next(0, 2) == 1)
@@ -20,7 +20,7 @@ namespace Model
 			}
 		}
 
-		public override void ReactToEvent(IActor self, MyEventArgs args)
+		public override void ReactToEvent(AbstractActor self, MyEventArgs args)
 		{
 			throw new NotImplementedException();
 		}

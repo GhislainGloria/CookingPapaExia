@@ -10,7 +10,7 @@ namespace Model
     { 
 
 		// TODO: Replace news by singletons
-        public static IActor CreateActor(string type)
+        public static AbstractActor CreateActor(string type)
         {
 			ActorMobile actorMobile = new ActorMobile();
 			ActorMobileSocket counter;

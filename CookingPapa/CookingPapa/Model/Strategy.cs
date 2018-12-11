@@ -8,7 +8,7 @@ namespace Model
 {
 	public abstract class Strategy: IStrategy
     {
-		public abstract void Behavior(IActor self, List<IActor> all);
-		public abstract void ReactToEvent(IActor self, MyEventArgs args);
+		public abstract void Behavior(AbstractActor self, List<AbstractActor> all);
+		public abstract void ReactToEvent(AbstractActor self, MyEventArgs args);
     }
 }

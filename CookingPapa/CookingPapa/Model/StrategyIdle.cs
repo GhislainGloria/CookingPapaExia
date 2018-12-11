@@ -12,11 +12,11 @@ namespace Model
 		public static StrategyIdle GetInstance() { return Instance; }
 		private StrategyIdle() {}
 
-  		public override void Behavior(IActor self, List<IActor> all)
+  		public override void Behavior(AbstractActor self, List<AbstractActor> all)
 		{
 		}
 
-		public override void ReactToEvent(IActor self, MyEventArgs args)
+		public override void ReactToEvent(AbstractActor self, MyEventArgs args)
         {
         }
     }

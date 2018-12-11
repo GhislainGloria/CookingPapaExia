@@ -1,16 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Drawing;
 
 namespace Model
 {
-    public class Move : ACommand
+    public class CommandMove : ACommand
     {
 
-        public Move(AbstractActor self)
+        public CommandMove(AbstractActor self)
         {
             Self = self;
         }
@@ -22,6 +17,7 @@ namespace Model
         {
             if (Self.Target == null)
             {
+				IsCompleted = true;            
                 return;
             }
 

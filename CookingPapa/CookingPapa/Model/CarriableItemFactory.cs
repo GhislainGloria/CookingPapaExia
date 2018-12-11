@@ -26,7 +26,7 @@ namespace Model
 			switch (explode[0])
             {
                 case "utensil":
-					return UtensilFactory.createUtensil(explode[1]);
+					return UtensilFactory.CreateUtensil(explode[1]);
 
                 case "ingredient":
 					return IngredientFactory.createIngredient(explode[1]);
