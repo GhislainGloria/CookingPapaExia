@@ -10,7 +10,7 @@ namespace ModelTest
 {
     public class StrategyFurnaceTest
     {
-        StrategyWorkingFridge strategyFurnace;
+        StrategyFurnace strategyFurnace;
         List<AbstractActor> actors;
         AbstractActor Furnace;
         private Ingredient ingredient;
@@ -18,7 +18,7 @@ namespace ModelTest
         [SetUp()]
         public void SetUp()
         {
-            strategyFurnace = StrategyWorkingFridge.GetInstance();
+            strategyFurnace = StrategyFurnace.GetInstance();
           
             List<AbstractActor> actors = new List<AbstractActor>();
             ingredient = new Ingredient("beef", 2, 5);
@@ -27,7 +27,8 @@ namespace ModelTest
         [Test()]
         public void BehaviorTest()
         {
-                       
+            Furnace = ActorFactory.CreateActor("furnace");
+            
                  strategyFurnace.Behavior(Furnace, actors);
                  if (Furnace.Items.Contains(ingredient))
                      {
