@@ -6,9 +6,20 @@ using System.Threading.Tasks;
 
 namespace Model
 {
-	class StrategyWashingmachine : Strategy
+	public class StrategyWashingMachine : Strategy
 	{
-		public override void Behavior(AbstractActor self, List<AbstractActor> all)
+        private static readonly StrategyWashingMachine Instance = new StrategyWashingMachine();
+        public static StrategyWashingMachine GetInstance()
+        {
+            return Instance;
+        }
+
+        private StrategyWashingMachine()
+        {
+
+        }
+
+        public override void Behavior(AbstractActor self, List<AbstractActor> all)
 		{
 			throw new NotImplementedException();
 		}

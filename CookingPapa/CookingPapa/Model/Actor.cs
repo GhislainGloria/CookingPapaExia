@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Model
 {
-	public class ActorMobile : AbstractActor
+	public class Actor : AbstractActor
     {      
         public override void CallStrategy()
         {

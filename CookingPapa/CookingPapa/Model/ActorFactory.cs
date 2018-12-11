@@ -12,8 +12,8 @@ namespace Model
 		// TODO: Replace news by singletons
         public static AbstractActor CreateActor(string type)
         {
-			ActorMobile actorMobile = new ActorMobile();
-			ActorMobileSocket counter;
+			Actor actorMobile = new Actor();
+			ActorSocket counter;
 			actorMobile.Name = type;
 
             switch(type)
@@ -35,7 +35,7 @@ namespace Model
                     return actorMobile;
 
                 case "furnace":
-					actorMobile.Strategy = StrategyFurnace.GetInstance();
+					actorMobile.Strategy = StrategyWorkingFridge.GetInstance();
                     return actorMobile;
 
                 case "dishwasher":
@@ -43,7 +43,7 @@ namespace Model
                     return actorMobile;
 
                 case "washingmachine":
-					actorMobile.Strategy = new StrategyWashingmachine();
+					actorMobile.Strategy = StrategyWashingMachine.GetInstance();
                     return actorMobile;                  
 
                 case "headwaiter":
@@ -71,7 +71,7 @@ namespace Model
                     return actorMobile;
 
                 case "workingfridge":
-					actorMobile.Strategy = new StrategyWorkingFridge();
+					actorMobile.Strategy = StrategyWorkingFridge.GetInstance();
                     return actorMobile;
 
 				case "shed": // "Armoire" in which we put all the utensils
@@ -79,15 +79,19 @@ namespace Model
 					return actorMobile;
 
 				case "client counter":
-					counter = new ActorMobileSocket("client");
-					counter.Name = "counter";
+                    counter = new ActorSocket("client")
+                    {
+                        Name = "counter"
+                    };
                     // TODO: Set strat
-					return counter;
+                    return counter;
 
 				case "server counter":
-                    counter = new ActorMobileSocket("server");
-					counter.Name = "counter";
-					counter.Strategy = StrategyServerCounter.GetInstance();
+                    counter = new ActorSocket("server")
+                    {
+                        Name = "counter",
+                        Strategy = StrategyServerCounter.GetInstance()
+                    };
                     return counter;
 
                 default:

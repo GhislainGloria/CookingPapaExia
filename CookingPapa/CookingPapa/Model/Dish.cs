@@ -19,12 +19,23 @@ namespace Model
 
 			foreach(StepModel sm in model.ModelSteps)
 			{
-				Step step = new Step(sm, this);
+				Step step = new Step(sm, this, 5);
 				Steps.Add(step);
 			}
 		}
 
-		public void MarkStepCompleted()
+        public Dish(List<Step> steps, int completedSteps, Order order)
+        {
+            Steps = steps;
+            CompletedSteps = completedSteps;
+            Order = order;
+        }
+
+        public Dish()
+        {
+        }
+
+        public void MarkStepCompleted()
 		{
 			CompletedSteps++;
 			if (CompletedSteps >= Steps.Count)

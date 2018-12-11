@@ -12,9 +12,11 @@ namespace Model
 		public StepModel Model { get; }
 		public Dish Dish { get; }
 		public int TimeSpentSoFar = 0;
+        public int TimeNeed { get; set; }
 
-		public Step(StepModel model, Dish dish)
+		public Step(StepModel model, Dish dish, int timeNeed)
 		{
+            TimeNeed = timeNeed;
 			Model = model;
 			Dish = dish;
 			Prepared = false;

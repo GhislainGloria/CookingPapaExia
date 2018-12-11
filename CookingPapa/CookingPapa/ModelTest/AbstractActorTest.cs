@@ -30,12 +30,12 @@ namespace ModelTest
         public void MoveTest()
         {
             AbstractActor butler = (AbstractActor)ActorFactory.CreateActor("butler");
-            IActor furnace = ActorFactory.CreateActor("furnace");
+            AbstractActor furnace = ActorFactory.CreateActor("furnace");
             butler.Position = new Point(10, 20);
             furnace.Position = new Point(60, 40);
             Assert.AreNotEqual(butler.Position, furnace.Position);
             butler.Target = furnace;
-            butler.CommandList.Add(new Move(butler));
+           // butler.CommandList.Add(new Move(butler));
             while(!butler.CommandList[0].IsCompleted)
             {
                 butler.CommandList[0].Execute();
@@ -48,19 +48,19 @@ namespace ModelTest
         [Test()]
         public void GetClosestTest()
         {
-            ActorMobile diver = (ActorMobile)ActorFactory.CreateActor("diver");
-            ActorMobile diver2 = (ActorMobile)ActorFactory.CreateActor("diver");
-            ActorMobile diver3 = (ActorMobile)ActorFactory.CreateActor("diver");
+            Actor diver = (Actor)ActorFactory.CreateActor("diver");
+            Actor diver2 = (Actor)ActorFactory.CreateActor("diver");
+            Actor diver3 = (Actor)ActorFactory.CreateActor("diver");
             diver.Position = new Point(0, 0);
             diver2.Position = new Point(1, 0);
             diver3.Position = new Point(10, 10);
 
-            List<IActor> all = new List<IActor>();
+            List<AbstractActor> all = new List<AbstractActor>();
             all.Add(diver);
             all.Add(diver2);
             all.Add(diver3);
 
-            IActor closest = diver.FindClosest("diver", all);
+            AbstractActor closest = diver.FindClosest("diver", all);
 
             Assert.IsTrue(object.ReferenceEquals(closest, diver2));
         }
