@@ -12,12 +12,12 @@ namespace Controller
     {
 
 		public Size MapSize;
-		public List<IActor> Actors { get; set; }
+		public List<AbstractActor> Actors { get; set; }
 		protected Dictionary<string, Point> CachedDictionnary;
 
 		public RestaurantMap()
 		{
-			Actors = new List<IActor>();
+			Actors = new List<AbstractActor>();
             CachedDictionnary = new Dictionary<string, Point>();
 
 			if (MessageBox.Show(
@@ -28,7 +28,7 @@ namespace Controller
 				// Load the kitchen map
 				MapSize = new Size(50, 50);
 
-				IActor actor = ActorFactory.CreateActor("chef"); // Immobile
+				AbstractActor actor = ActorFactory.CreateActor("chef"); // Immobile
 				actor.Position = new Point(10, 10);
 				Actors.Add(actor);
 
@@ -50,7 +50,7 @@ namespace Controller
 
 				actor = ActorFactory.CreateActor("shed");
 				actor.Position = new Point(2, 2);
-				actor.Items.Add(UtensileFactory.createUtensil("fork")); // TODO
+				actor.Items.Add(UtensilFactory.CreateUtensil("fork"));
 				Actors.Add(actor);
             }
             else
@@ -62,7 +62,7 @@ namespace Controller
 
 		public Dictionary<string, Point> DisplayableData() {         
 			CachedDictionnary.Clear();
-			foreach(IActor actor in Actors) {
+			foreach(AbstractActor actor in Actors) {
 				CachedDictionnary.Add(actor.Name, actor.Position);
 			}
 
@@ -71,7 +71,7 @@ namespace Controller
 
 		public void NextActorsTick()
 		{
-			foreach (IActor actor in Actors)
+			foreach (AbstractActor actor in Actors)
 			{
 				Task task = Task.Factory.StartNew(() => actor.NextTick(Actors));
 				ThreadPool.AddTask(task);            

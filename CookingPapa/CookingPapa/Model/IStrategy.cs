@@ -9,7 +9,7 @@ namespace Model
     public interface IStrategy
     {
 
-		void Behavior(IActor actor, List<IActor> allActors);
-		void ReactToEvent(IActor self, MyEventArgs args);      
+		void Behavior(AbstractActor actor, List<AbstractActor> allActors);
+		void ReactToEvent(AbstractActor self, MyEventArgs args);      
     } 
 }

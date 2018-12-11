@@ -10,7 +10,7 @@ namespace Model
     { 
 
 		// TODO: Replace news by singletons
-        public static IActor CreateActor(string type)
+        public static AbstractActor CreateActor(string type)
         {
 			ActorMobile actorMobile = new ActorMobile();
 			ActorMobileSocket counter;
@@ -51,7 +51,7 @@ namespace Model
                     return actorMobile;
 
                 case "kitchenclerk":
-					actorMobile.Strategy = new StrategyKitchenClerk();
+					actorMobile.Strategy = StrategyKitchenClerk.GetInstance();
                     return actorMobile;
 
                 case "partyleader": // AKA Chef de partie
@@ -63,7 +63,7 @@ namespace Model
                     return actorMobile;
 
                 case "stock":
-					actorMobile.Strategy = new StrategyStock();
+					actorMobile.Strategy = StrategyStock.GetInstance();
                     return actorMobile;
 
                 case "waiter":

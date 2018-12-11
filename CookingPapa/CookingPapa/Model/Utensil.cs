@@ -9,7 +9,6 @@ namespace Model
 	public class Utensil : ACarriableItem
     {
 		private Step LastUsedFor { get; set; }
-		public bool Clean { get; set; }
 
 		public Utensil(string name, int inventorySize) : base(name, inventorySize)
 		{
