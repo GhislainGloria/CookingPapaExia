@@ -29,13 +29,18 @@ namespace Model
                     {
                         Self.Items.Remove(itemFrom);
                         Giveto.Items.Add(itemFrom);
+						Console.WriteLine(
+							Self.Name + ": I gave my " + Item + " to " + Giveto.Name
+                        );
                         return;
                     }
                 }
             }
             else
             {
-                Console.WriteLine(Self.Name + ": I'm too far away !");
+				Console.WriteLine(
+					Self.Name + ": I'm too far away to give item " + Item + " to " + Giveto.Name
+                );
             }
         }
     }

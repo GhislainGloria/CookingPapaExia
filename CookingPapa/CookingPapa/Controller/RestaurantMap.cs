@@ -74,7 +74,7 @@ namespace Controller
 			foreach (AbstractActor actor in Actors)
 			{
 				Task task = Task.Factory.StartNew(() => actor.NextTick(Actors));
-				ThreadPool.AddTask(task);            
+				ThreadPool.AddTask(task);
 			}
 		}
     }
