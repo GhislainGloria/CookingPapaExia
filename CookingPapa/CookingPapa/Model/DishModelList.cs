@@ -16,7 +16,7 @@ namespace Model
 			modelStep.Duration = 10;
 			modelStep.Ingredient = "carrot";
 			modelStep.Utensil = "fork";
-			modelStep.Workboard = "Furnace";
+			modelStep.Workboard = "furnace";
 
 			dishModel.ModelSteps.Add(modelStep);
 			dishModel.Name = "Generic recipe";

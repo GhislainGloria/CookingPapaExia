@@ -8,13 +8,15 @@ namespace Model
 {
     public static class IngredientFactory
     {
-        public static Ingredient createIngredient(string ingredient)
+        public static Ingredient CreateIngredient(string ingredient)
         {
-
             switch (ingredient)
             {
                 case "ingredient":
                     return new Ingredient(ingredient, 1, 1);
+
+				case "carrot":
+					return new Ingredient(ingredient, 1, 100000);
 
                 default:
                     Console.WriteLine("Cet ingrédient n'existe pas");

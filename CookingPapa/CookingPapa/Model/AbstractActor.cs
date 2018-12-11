@@ -66,7 +66,7 @@ namespace Model
             if (nearest == null)
             {
                 Console.WriteLine("Unable to find another " + Name);
-                nearest = this;
+                nearest = null;
             }
 
             return nearest;
@@ -87,6 +87,15 @@ namespace Model
         public void TriggerEvent(string name, object arg)
         {
             MyEventArgs eventArgs = new MyEventArgs(name, arg);
+            EventGeneric?.Invoke(this, eventArgs);
+        }
+
+        /**
+         * Same as above, but with an additionnal argument
+         */
+		public void TriggerEvent(string name, object arg, object arg2)
+        {
+            MyEventArgs eventArgs = new MyEventArgs(name, arg, arg2);
             EventGeneric?.Invoke(this, eventArgs);
         }
 
@@ -125,18 +134,6 @@ namespace Model
 			}
 			Console.WriteLine(Name + ": I could not find a " + itemName);
 			return null;
-		}
-	}
-
-	public class MyEventArgs : EventArgs
-	{
-		public object Arg { get; set; }
-		public string EventName { get; set; }
-
-		public MyEventArgs(string eventName, object arg) 
-		{
-			Arg = arg;
-			EventName = eventName;
 		}
 	}
 }

@@ -20,6 +20,8 @@ namespace Model
 		{
 			if(self.CommandList.Count > 0)
 			{
+				self.Busy = true;
+
 				if(self.CommandList[0].IsCompleted)
 				{
 					self.CommandList.RemoveAt(0);
@@ -28,6 +30,10 @@ namespace Model
 				{
 					self.CommandList[0].Execute();
 				}
+			}
+			else
+			{
+				self.Busy = false;
 			}
 		}
 
