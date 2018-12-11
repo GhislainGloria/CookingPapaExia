@@ -48,6 +48,15 @@ namespace Controller
 				actor.Position = new Point(1, 18);
 				Actors.Add(actor);
 
+				actor = ActorFactory.CreateActor("stock");
+                actor.Position = new Point(5, 5);
+				actor.Items.Add(IngredientFactory.CreateIngredient("carrot"));
+                Actors.Add(actor);
+
+				actor = ActorFactory.CreateActor("furnace");
+                actor.Position = new Point(3, 18);
+                Actors.Add(actor);
+
 				actor = ActorFactory.CreateActor("shed");
 				actor.Position = new Point(2, 2);
 				actor.Items.Add(UtensilFactory.CreateUtensil("fork"));
