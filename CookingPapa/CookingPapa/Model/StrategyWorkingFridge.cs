@@ -19,16 +19,8 @@ namespace Model
 
         }
 
-        private void InitFurnace(AbstractActor furnace, List<AbstractActor> all)
-        {         
-            furnace.Initialized = true;
-        }
-
         public override void Behavior(AbstractActor self, List<AbstractActor> all)
-        {
-            if (!self.Initialized) InitWorkingFridge(self, all);
-
-
+        {         
             //Item contient les ingredients
             //Stack contient les etapes
 
