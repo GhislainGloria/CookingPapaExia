@@ -15,7 +15,9 @@ namespace ControllerTest
     //[TestFixture()]
     class TestRestaurantMap
     {
+#pragma warning disable CS0649 // Le champ 'TestRestaurantMap.mapSize' n'est jamais assigné et aura toujours sa valeur par défaut null
            private readonly Site mapSize;
+#pragma warning restore CS0649 // Le champ 'TestRestaurantMap.mapSize' n'est jamais assigné et aura toujours sa valeur par défaut null
            public  List<AbstractActor> Actors { get; set; }
 
         private readonly RestaurantMap retaurant = new  RestaurantMap();
@@ -24,7 +26,7 @@ namespace ControllerTest
 
 
         [Test()]
-        public void testrange()
+        public void Testrange()
         {
             /*Actors = new List<AbstractActor>();
             ActorMobile testActor = new ActorMobile();

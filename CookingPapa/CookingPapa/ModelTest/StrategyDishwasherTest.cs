@@ -10,8 +10,11 @@ namespace ModelTest
 {
     class StrategyDishwasherTest
     {
-        List<AbstractActor> actors;
+#pragma warning disable CS0649 // Le champ 'StrategyDishwasherTest.actors' n'est jamais assigné et aura toujours sa valeur par défaut null
+        private readonly List<AbstractActor> actors;
+#pragma warning restore CS0649 // Le champ 'StrategyDishwasherTest.actors' n'est jamais assigné et aura toujours sa valeur par défaut null
         AbstractActor dishwasher;
+        public List<AbstractActor> Actors => actors;
 
         [SetUp()]
         public void SetUp()
@@ -32,7 +35,7 @@ namespace ModelTest
             dishwasher.Items.Add(fork);
             dishwasher.Items.Add(plate);
 
-            StrategyWashingMachine.GetInstance().Behavior(dishwasher, actors);
+            StrategyWashingMachine.GetInstance().Behavior(dishwasher, Actors);
 
             foreach (ACarriableItem item in dishwasher.Items)
             {

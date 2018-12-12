@@ -11,7 +11,9 @@ namespace ModelTest
     public class StrategyFurnaceTest
     {
         StrategyFurnace strategyFurnace;
-        List<AbstractActor> actors;
+#pragma warning disable CS0649 // Le champ 'StrategyFurnaceTest.actors' n'est jamais assigné et aura toujours sa valeur par défaut null
+        readonly List<AbstractActor> actors;
+#pragma warning restore CS0649 // Le champ 'StrategyFurnaceTest.actors' n'est jamais assigné et aura toujours sa valeur par défaut null
         AbstractActor Furnace;
         private Ingredient ingredient;
 

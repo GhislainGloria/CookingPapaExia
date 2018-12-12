@@ -3,11 +3,14 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Threading;
 using System.Linq;
+using log4net;
 
 namespace Model
 {
 	public abstract class AbstractActor
     {
+
+
 		public List<ACarriableItem> Items { get; set; }
 		public List<ACommand> CommandList { get; set; }
 		public List<object> Stack { get; set; }

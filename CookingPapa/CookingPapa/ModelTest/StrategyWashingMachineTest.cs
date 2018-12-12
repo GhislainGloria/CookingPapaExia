@@ -14,6 +14,8 @@ namespace ModelTest
         List<AbstractActor> actors;
         AbstractActor washingMachine;
 
+        public List<AbstractActor> Actors { get => actors; set => actors = value; }
+
         [SetUp()]
         public void SetUp()
         {
@@ -33,7 +35,7 @@ namespace ModelTest
             washingMachine.Items.Add(fork);
             washingMachine.Items.Add(plate);
 
-            StrategyWashingMachine.GetInstance().Behavior(washingMachine, actors);
+            StrategyWashingMachine.GetInstance().Behavior(washingMachine, Actors);
 
             foreach (ACarriableItem item in washingMachine.Items)
             {

@@ -8,7 +8,8 @@ namespace Model
 {
     public class StrategyWorkingFridge : Strategy
     {
-        private static StrategyWorkingFridge Instance = new StrategyWorkingFridge();
+
+        private static readonly StrategyWorkingFridge Instance = new StrategyWorkingFridge();
         public static StrategyWorkingFridge GetInstance()
         {
             return Instance;

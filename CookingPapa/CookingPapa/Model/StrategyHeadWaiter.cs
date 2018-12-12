@@ -9,7 +9,7 @@ namespace Model
     public class StrategyHeadWaiter : Strategy
     {
 
-        private static StrategyHeadWaiter Instance = new StrategyHeadWaiter();
+        private static readonly StrategyHeadWaiter Instance = new StrategyHeadWaiter();
         public static StrategyHeadWaiter GetInstance()
         {
             return Instance;
