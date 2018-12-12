@@ -27,39 +27,37 @@ namespace Model
 
         public override void Behavior(AbstractActor self, List<AbstractActor> all)
         {
-            if (!self.Initialized) InitFurnace(self, all);
-
+            if (!self.Initialized) InitFurnace(self, all);         
 
             //Item contient les ingredients
-            //Stack contient les etapes
+            //Stack contient les etapes         
+            if (self.Items.Count == 1 && self.Stack.Count == 1)
+            {
+                Ingredient ingredient = (Ingredient)self.Items[0];
+                Step step = (Step)self.Stack[0];
+                List<AbstractActor> partyLeaders = all.Where(a => a.Name == "partyleader").ToList();
 
-                if (self.Items.Count == 1 && self.Stack.Count == 1)
+                if (step.TimeSpentSoFar == 0)
                 {
-                    Ingredient ingredient = (Ingredient)self.Items[0];
-                    Step step = (Step)self.Stack[0];
-                    List<AbstractActor> partyLeaders = all.Where(a => a.Name == "partyleader").ToList();
+                    self.Busy = true;
+                    Console.WriteLine("Furnace On");
+                }
+                step.TimeSpentSoFar++;
 
-                    if (step.TimeSpentSoFar == 0)
-                    {
-                        self.Busy = true;
-                        Console.WriteLine("Furnace On");
-                    }
-                    step.TimeSpentSoFar++;
+			    if (step.TimeSpentSoFar >= step.Model.Duration)
+                {
 
-				    if (step.TimeSpentSoFar >= step.Model.Duration)
-                    {
+                    self.Busy = false;
+                    Console.WriteLine("Furnace Off");
 
-                        self.Busy = false;
-                        Console.WriteLine("Furnace Off");
+                    
+                    self.TriggerEvent("Dring", partyLeaders);
 
-                        
-                        self.TriggerEvent("Dring", partyLeaders);
-
-                        self.Items.Clear();
-                        self.Stack.Clear();
-                    }
+                    self.Items.Clear();
+                    self.Stack.Clear();
                 }
             }
+        }
 
         public override void ReactToEvent(AbstractActor self, MyEventArgs args)
         {

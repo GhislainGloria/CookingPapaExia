@@ -2,7 +2,6 @@
 using System.Windows.Forms;
 using System.Collections.Generic;
 using System.Drawing;
-using System.Text;
 using System.Threading.Tasks;
 using Model;
 
@@ -61,6 +60,10 @@ namespace Controller
 				actor.Position = new Point(2, 2);
 				actor.Items.Add(UtensilFactory.CreateUtensil("fork"));
 				Actors.Add(actor);
+
+				actor = ActorFactory.CreateActor("dishwasher");
+                actor.Position = new Point(3, 2);
+                Actors.Add(actor);
 
                 actor = ActorFactory.CreateActor("chef"); // Immobile
                 actor.Position = new Point(10, 10);

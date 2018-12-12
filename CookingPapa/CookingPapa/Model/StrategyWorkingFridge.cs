@@ -20,8 +20,7 @@ namespace Model
         }
 
         private void InitFurnace(AbstractActor furnace, List<AbstractActor> all)
-        {
-
+        {         
             furnace.Initialized = true;
         }
 
