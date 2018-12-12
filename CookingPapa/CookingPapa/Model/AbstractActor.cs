@@ -148,7 +148,7 @@ namespace Model
 			if(!giveTo.AcceptItemExchange)
 			{
 				Console.WriteLine(
-					this + ": Can't give my " + item + " because " + giveTo.Name + " doesn't accept item trades at the moment."
+					this + ": Can't give my " + item + " because " + giveTo + " doesn't accept item trades at the moment."
 				);
 				return false;
 			}
@@ -166,14 +166,14 @@ namespace Model
 							InventorySize -= itemFrom.InventorySize;
 							giveTo.InventorySize += itemFrom.InventorySize;
                             Console.WriteLine(
-								this + ": I gave my " + item + " to " + giveTo.Name
+								this + ": I gave my " + item + " to " + giveTo
                             );
                             return true;
 						}
 						else
 						{
 							Console.WriteLine(
-								this + ": I cannot give a " + item + " to " + giveTo.Name + " because he doesn't have enough inventory space."
+								this + ": I cannot give a " + item + " to " + giveTo + " because he doesn't have enough inventory space."
 							);
 							return false;
 						}                  
@@ -181,13 +181,13 @@ namespace Model
                 }
 
 				Console.WriteLine(
-					this + ": I cannot give a " + item + " to " + giveTo.Name + " because I don't have any in my inventory."
+					this + ": I cannot give a " + item + " to " + giveTo + " because I don't have any in my inventory."
 				);
 				return false;
             }
 
 			Console.WriteLine(
-				this + ": I cannot give a " + item + " to " + giveTo.Name + " because I'm too far away!"
+				this + ": I cannot give a " + item + " to " + giveTo + " because I'm too far away!"
 			);
 			return false;
 		}
@@ -197,7 +197,7 @@ namespace Model
 			if (!getFrom.AcceptItemExchange)
             {
                 Console.WriteLine(
-					this + ": Can't grab a " + item + " because " + getFrom.Name + " doesn't accept item trades at the moment."
+					this + ": Can't grab a " + item + " because " + getFrom + " doesn't accept item trades at the moment."
                 );
                 return false;
             }
@@ -216,14 +216,14 @@ namespace Model
 							InventorySize += itemFrom.InventorySize;
 							getFrom.InventorySize -= itemFrom.InventorySize;
                             Console.WriteLine(
-								this + ": I took a " + item + " from " + getFrom.Name
+								this + ": I took a " + item + " from " + getFrom
                             );
                             return true;
                         }
                         else
                         {
                             Console.WriteLine(
-								this + ": I cannot grab a " + item + " from " + getFrom.Name + " because I don't have enough inventory space."
+								this + ": I cannot grab a " + item + " from " + getFrom + " because I don't have enough inventory space."
                             );
                             return false;
                         }
@@ -231,13 +231,13 @@ namespace Model
                 }
 
                 Console.WriteLine(
-					this + ": I cannot grab a " + item + " from " + getFrom.Name + " because he doesn't have any in his inventory."
+					this + ": I cannot grab a " + item + " from " + getFrom + " because he doesn't have any in his inventory."
                 );
                 return false;
             }
 
             Console.WriteLine(
-				this + ": I cannot grab a " + item + " from " + getFrom.Name + " because I'm too far away!"
+				this + ": I cannot grab a " + item + " from " + getFrom + " because I'm too far away!"
             );
             return false;
         }

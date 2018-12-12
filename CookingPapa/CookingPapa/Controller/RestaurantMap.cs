@@ -53,6 +53,7 @@ namespace Controller
 				for (int _ = 0; _ < 40; _++)
 				{
 					actor.Items.Add(IngredientFactory.CreateIngredient("carrot"));
+					actor.Items.Add(IngredientFactory.CreateIngredient("tomato"));
 				}
                 Actors.Add(actor);
 
@@ -66,9 +67,11 @@ namespace Controller
 
 				actor = ActorFactory.CreateActor("shed");
 				actor.Position = new Point(2, 2);
-				for (int _ = 0; _ < 5; _++)
+				for (int _ = 0; _ < 3; _++)
                 {
 					actor.Items.Add(UtensilFactory.CreateUtensil("fork"));
+					actor.Items.Add(UtensilFactory.CreateUtensil("fork"));
+					actor.Items.Add(UtensilFactory.CreateUtensil("blender"));
                 }
 				Actors.Add(actor);
 

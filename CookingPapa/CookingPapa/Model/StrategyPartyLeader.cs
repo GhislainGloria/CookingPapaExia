@@ -57,7 +57,7 @@ namespace Model
 							AbstractActor target = a.FindNearestCarriableItem(step.Model.Utensil, all);
 							if(target != null)
 							{
-								Console.WriteLine("Party Leader: I asked a clerk to fetch me a " + step.Model.Utensil);
+								Console.WriteLine(self + ": I asked a clerk to fetch me a " + step.Model.Utensil);
 
 								a.CommandList.Add(new CommandSetTarget(a, target));
 								a.CommandList.Add(new CommandMove(a));
@@ -88,7 +88,7 @@ namespace Model
 							AbstractActor target = a.FindNearestCarriableItem(step.Model.Ingredient, all);
                             if (target != null)
                             {
-								Console.WriteLine("Party Leader: I asked a clerk to fetch me a " + step.Model.Ingredient);
+								Console.WriteLine(self + ": I asked a clerk to fetch me a " + step.Model.Ingredient);
 
                                 a.CommandList.Add(new CommandSetTarget(a, target));
                                 a.CommandList.Add(new CommandMove(a));
