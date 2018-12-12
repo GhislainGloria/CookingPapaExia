@@ -8,7 +8,7 @@ namespace Model
 {
 	class StrategyDishwasher : Strategy
 	{
-        private static readonly StrategyWashingMachine Instance = new StrategyDishwasher();
+        private static readonly StrategyDishwasher Instance = new StrategyDishwasher();
         private int washing;
 
         public static StrategyDishwasher GetInstance()

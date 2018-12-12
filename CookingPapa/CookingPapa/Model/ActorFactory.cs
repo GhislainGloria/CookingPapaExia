@@ -39,7 +39,7 @@ namespace Model
                     return actor;
 
                 case "dishwasher":
-                    actor.Strategy = new StrategyDishwasher();
+                    actor.Strategy = StrategyDishwasher.GetInstance();
                     return actor;
 
                 case "washingmachine":
