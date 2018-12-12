@@ -26,7 +26,7 @@ namespace Model
 
         public override void Behavior(AbstractActor self, List<AbstractActor> all)
         {
-            if (!self.Initialized) InitFurnace(self, all);
+            if (!self.Initialized) InitWorkingFridge(self, all);
 
 
             //Item contient les ingredients
