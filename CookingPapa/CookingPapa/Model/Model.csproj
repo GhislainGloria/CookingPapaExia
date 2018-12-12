@@ -33,7 +33,6 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="ActorFactory.cs" />
-    <Compile Include="ClientSpawner.cs" />
     <Compile Include="ModelIngredient.cs" />
     <Compile Include="Order.cs" />
     <Compile Include="Counter.cs" />
@@ -47,17 +46,19 @@
     <Compile Include="Strategy.cs" />
     <Compile Include="StrategyButler.cs" />
     <Compile Include="StrategyChef.cs" />
+    <Compile Include="StrategyClientSpawner.cs" />
     <Compile Include="StrategyCustomers.cs" />
     <Compile Include="StrategyDiver.cs" />
     <Compile Include="StrategyFurnace.cs" />
-    <Compile Include="StrategyHeadWaiter.cs" />
+    <Compile Include="StrategyGroupActor.cs" />
+    <Compile Include="StrategyWaiter.cs" />
     <Compile Include="StrategyKitchenClerk.cs" />
     <Compile Include="Table.cs" />
     <Compile Include="Utensil.cs" />
     <Compile Include="StrategyPartyLeader.cs" />
     <Compile Include="StrategyRoomClerks.cs" />
     <Compile Include="StrategyStock.cs" />
-    <Compile Include="StrategyWaiter.cs" />
+    <Compile Include="StrategyHeadWaiter.cs" />
     <Compile Include="StrategyWorkingFridge.cs" />
     <Compile Include="IStrategy.cs" />
     <Compile Include="AbstractActor.cs" />
