@@ -14,19 +14,8 @@ namespace Model
 
 		private StrategyChef() {}
 
-		private void InitChef(AbstractActor chef, List<AbstractActor> all)
-		{
-			List<AbstractActor> allCounters = all.Where(a => a.Name == "counter").ToList();
-			foreach(AbstractActor a in allCounters)
-			{
-				a.EventGeneric += chef.StrategyCallback;
-			}
-			chef.Initialized = true;
-		}
-
 		public override void Behavior(AbstractActor self, List<AbstractActor> all)
         {
-			if (!self.Initialized) InitChef(self, all);
                      
 			if (self.Stack.Count > 0) {
 				Console.WriteLine("Chef: I must complete {0} more orders.", self.Stack.Count);

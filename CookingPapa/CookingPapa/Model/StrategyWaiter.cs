@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace Model
 {
-    public class StrategyWaiter : Strategy
-    {      
+	class StrategyWaiter : Strategy
+	{
 		public override void Behavior(AbstractActor self, List<AbstractActor> all)
 		{
 			throw new NotImplementedException();

@@ -6,16 +6,48 @@ using System.Threading.Tasks;
 
 namespace Model
 {
-	class StrategyHeadWaiter : Strategy
-	{
-		public override void Behavior(AbstractActor self, List<AbstractActor> all)
+    public class StrategyHeadWaiter : Strategy
+    {
+
+        private static StrategyHeadWaiter Instance = new StrategyHeadWaiter();
+        public static StrategyHeadWaiter GetInstance()
+        {
+            return Instance;
+        }
+        private StrategyHeadWaiter() { }
+        public override void Behavior(AbstractActor self, List<AbstractActor> all)
 		{
-			throw new NotImplementedException();
-		}
+            GroupActor Client = null;
+            Table closestTable = null;
+            foreach (AbstractActor group in all.Where(n => n.Name == "clientgroup" && n.Busy == false))
+            {
+                Client = (GroupActor)group;
+                break;
+            }
+            foreach (AbstractActor table in all.Where(n => n.Name == "table"))
+            {
+                if(((Table)table).Place > Client.Clients.Count && (closestTable == null || ((Table)table).Place < closestTable.Place))
+                {
+                    closestTable = ((Table)table);
+                }
+            }
+            if(closestTable != null)
+            {
+                Client.Target = closestTable;
+                Client.CommandList.Add(new CommandMove(Client));
+            }
+        }
 
 		public override void ReactToEvent(AbstractActor self, MyEventArgs args)
 		{
-			throw new NotImplementedException();
+			switch (args.EventName)
+            {
+                case "clientSpawned":
+                    GroupActor newClients = ((GroupActor)args.Arg);
+                    newClients.Target = self;
+                    newClients.CommandList.Add(new CommandMove(newClients));
+                    break;
+            }
 		}
 	}
 }

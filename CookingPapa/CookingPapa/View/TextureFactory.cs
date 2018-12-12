@@ -2,6 +2,7 @@
 using System.IO;
 using System.Drawing;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace View
 {
@@ -17,9 +18,9 @@ namespace View
 			Brushes = new Dictionary<string, TextureBrush>();
 
 			DirectoryInfo d = new DirectoryInfo(Directory.GetCurrentDirectory() + "/../../../../resources/images/");//Assuming Test is your Folder
-            FileInfo[] Files = d.GetFiles("*.jpg"); //Getting Text files
+            FileInfo[] Files = d.GetFiles("*.jpg").Union(d.GetFiles("*.png")).ToArray(); //Getting Text files
 
-			string tmp = "";
+            string tmp = "";
 			foreach (FileInfo file in Files)
 			{
 				// Remove the .jpg at the end

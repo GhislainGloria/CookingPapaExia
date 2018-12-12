@@ -12,7 +12,6 @@ namespace Model
 
 		public Utensil(string name, int inventorySize) : base(name, inventorySize)
 		{
-			
 		}
 
     }
