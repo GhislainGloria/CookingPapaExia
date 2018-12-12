@@ -10,7 +10,7 @@ namespace Model
     {
         private int square;
         private int _place;
-        private GroupActor _grp;
+        private GroupActor _grp = null;
 
         public int Place { get => _place; set => _place = value; }
         public GroupActor Grp { get => _grp; set => _grp = value; }

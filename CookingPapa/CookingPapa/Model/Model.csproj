@@ -51,6 +51,7 @@
     <Compile Include="StrategyDiver.cs" />
     <Compile Include="StrategyFurnace.cs" />
     <Compile Include="StrategyGroupActor.cs" />
+    <Compile Include="StrategyHeadWaiter.cs" />
     <Compile Include="StrategyWaiter.cs" />
     <Compile Include="StrategyKitchenClerk.cs" />
     <Compile Include="Table.cs" />
@@ -58,7 +59,7 @@
     <Compile Include="StrategyPartyLeader.cs" />
     <Compile Include="StrategyRoomClerks.cs" />
     <Compile Include="StrategyStock.cs" />
-    <Compile Include="StrategyHeadWaiter.cs" />
+    <Compile Include="StrategyReceptionnist.cs" />
     <Compile Include="StrategyWorkingFridge.cs" />
     <Compile Include="IStrategy.cs" />
     <Compile Include="AbstractActor.cs" />
