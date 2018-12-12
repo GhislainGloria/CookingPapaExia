@@ -9,6 +9,7 @@ namespace Model
 	public class Step
     {
 		public bool Prepared { get; private set; }
+		public bool Assigned { get; set; }
 		public StepModel Model { get; }
 		public Dish Dish { get; }
 		public int TimeSpentSoFar = 0;
@@ -18,6 +19,7 @@ namespace Model
 			Model = model;
 			Dish = dish;
 			Prepared = false;
+			Assigned = false;
 		}
 
 		public void Complete()

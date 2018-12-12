@@ -58,11 +58,11 @@ namespace View
 			}
 
             // We draw the actors above the floor
-			foreach (KeyValuePair<string, Point> actor in Model.DisplayableData()) {
-				TileBrush = TextureFactory.CreateBrush(actor.Key);
+			foreach (Tuple<string, Point> actor in Model.DisplayableData()) {
+				TileBrush = TextureFactory.CreateBrush(actor.Item1);
 				g.FillRectangle(
 					TileBrush,
-					new Rectangle(actor.Value.X * TileSize, actor.Value.Y * TileSize, TileSize, TileSize)
+					new Rectangle(actor.Item2.X * TileSize, actor.Item2.Y * TileSize, TileSize, TileSize)
 				);
 			}
 			// => PaintPictureBox

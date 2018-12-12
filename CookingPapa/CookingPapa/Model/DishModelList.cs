@@ -13,6 +13,7 @@ namespace Model
 			DishModel dishModel = new DishModel();
 			StepModel modelStep = new StepModel();
 
+            //  #1
 			modelStep.Duration = 10;
 			modelStep.Ingredient = "carrot";
 			modelStep.Utensil = "fork";
@@ -22,6 +23,20 @@ namespace Model
 			dishModel.Name = "Generic recipe";
 
 			Dishes.Add(dishModel);
+
+            // #2
+			dishModel = new DishModel();
+            modelStep = new StepModel();
+
+            modelStep.Duration = 5;
+            modelStep.Ingredient = "tomato";
+            modelStep.Utensil = "blender";
+            modelStep.Workboard = "cookingplate";
+
+            dishModel.ModelSteps.Add(modelStep);
+            dishModel.Name = "Generic recipe 2";
+
+            Dishes.Add(dishModel);
 
 			SingletonInitialized = true;
 		}

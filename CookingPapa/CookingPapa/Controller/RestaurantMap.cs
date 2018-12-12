@@ -12,12 +12,12 @@ namespace Controller
 
 		public Size MapSize;
 		public List<AbstractActor> Actors { get; set; }
-		protected Dictionary<string, Point> CachedDictionnary;
+		protected List<Tuple<string, Point>> CachedDictionnary;
 
 		public RestaurantMap()
 		{
 			Actors = new List<AbstractActor>();
-            CachedDictionnary = new Dictionary<string, Point>();
+			CachedDictionnary = new List<Tuple<string, Point>>();
 
 			if (MessageBox.Show(
 				"Cliquez sur Oui pour la cuisine, Non pour la salle",
@@ -40,6 +40,10 @@ namespace Controller
 				actor.Position = new Point(13, 13);
 				Actors.Add(actor);
 
+				actor = ActorFactory.CreateActor("partyleader");
+                actor.Position = new Point(14, 13);
+                Actors.Add(actor);
+
 				actor = ActorFactory.CreateActor("kitchenclerk");
 				actor.Position = new Point(1, 10);
 				Actors.Add(actor);
@@ -56,9 +60,16 @@ namespace Controller
                 actor.Position = new Point(3, 10);
                 Actors.Add(actor);
 
+				actor = ActorFactory.CreateActor("cookingplate");
+                actor.Position = new Point(5, 10);
+                Actors.Add(actor); 
+
 				actor = ActorFactory.CreateActor("shed");
 				actor.Position = new Point(2, 2);
-				actor.Items.Add(UtensilFactory.CreateUtensil("fork"));
+				for (int _ = 0; _ < 5; _++)
+                {
+					actor.Items.Add(UtensilFactory.CreateUtensil("fork"));
+                }
 				Actors.Add(actor);
 
 				actor = ActorFactory.CreateActor("dishwasher");
@@ -77,10 +88,10 @@ namespace Controller
             }
 		}
 
-		public Dictionary<string, Point> DisplayableData() {         
+		public List<Tuple<string, Point>> DisplayableData() {         
 			CachedDictionnary.Clear();
 			foreach(AbstractActor actor in Actors) {
-				CachedDictionnary.Add(actor.Name, actor.Position);
+				CachedDictionnary.Add(new Tuple<string, Point>(actor.Name, actor.Position));
 			}
 
 			return CachedDictionnary;

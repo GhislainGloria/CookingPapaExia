@@ -9,7 +9,7 @@ namespace Model
 	class StrategyDishwasher : Strategy
 	{
         private static readonly StrategyDishwasher Instance = new StrategyDishwasher();
-        private int TimeSpentWashing;
+        private int TimeSpentWashing = 0;
 		private readonly int TIME_TO_WASH_ALL = 10;
 
         public static StrategyDishwasher GetInstance()
@@ -26,6 +26,7 @@ namespace Model
         {         
 			if (TimeSpentWashing == 0 && self.Items.Count >= 5)
             {
+				Console.WriteLine(self + ": I start wasing my items");
 				TimeSpentWashing++;
 				self.Busy = true;
 				self.AcceptItemExchange = false;

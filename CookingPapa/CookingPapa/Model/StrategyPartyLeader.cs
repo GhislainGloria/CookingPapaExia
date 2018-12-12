@@ -144,7 +144,7 @@ namespace Model
 				if(HasEverythingNeededToCook(self, step, all))
 				{
 					step.TimeSpentSoFar++;
-					Console.WriteLine(self.Name + ": I've been cooking for {0} tick, {1} required", step.TimeSpentSoFar, step.Model.Duration);
+					Console.WriteLine(self + ": I've been cooking for {0} tick, {1} required", step.TimeSpentSoFar, step.Model.Duration);
                                    
 					if(step.TimeSpentSoFar >= step.Model.Duration)
 					{
@@ -185,11 +185,11 @@ namespace Model
             // Whether we're busy or not, we can always ask the divers to wash our dirty utensils
 			if (!self.BusyWaiting && self.Items.Where((i => !i.Clean)).ToList().Count > 0)
 			{
-				Console.WriteLine(self.Name + ": I must find a diver to wash my utensils");
+				Console.WriteLine(self + ": I must find a diver to wash my utensils");
 				foreach (AbstractActor a in all.Where(a => a.Name == "diver" && !a.Busy))
 				{
 					self.BusyWaiting = true;
-					Console.WriteLine("Same " + self.Name + ": Okay I found one!");
+					Console.WriteLine("Same " + self + ": Okay I found one!");
 					AbstractActor dishwasher = a.FindClosest("dishwasher", all);
 					a.Target = self;
 					a.CommandList.Add(new CommandMove(a));
@@ -216,28 +216,28 @@ namespace Model
 					AbstractActor failureMan = ((AbstractActor)args.Arg);
 					failureMan.EventGeneric -= self.StrategyCallback;
 
-					Console.WriteLine(self.Name + ": Fuck, my " + failureMan.Name + " failed to get me a " + missingItem);
+					Console.WriteLine(self + ": Fuck, my " + failureMan.Name + " failed to get me a " + missingItem);
 
 					if (self.Stack.Count == 3)
 					{
 						if (missingItem == ((Step)self.Stack[0]).Model.Ingredient)
 						{
-							Console.WriteLine("Same " + self.Name + ": Nevermind, I'll ask for another one of this ingredient");
+							Console.WriteLine("Same " + self + ": Nevermind, I'll ask for another one of this ingredient");
 							self.Stack[2] = false;
 						}
 						else if (missingItem == ((Step)self.Stack[0]).Model.Utensil)
 						{
-							Console.WriteLine("Same " + self.Name + ": Nevermind, I'll ask for another one of this utensil");
+							Console.WriteLine("Same " + self + ": Nevermind, I'll ask for another one of this utensil");
                             self.Stack[1] = false;
 						}
 						else
 						{
-							Console.WriteLine("Same " + self.Name + ": But WTF, I don't need that anyway?? Pls fix or think");                     
+							Console.WriteLine("Same " + self + ": But WTF, I don't need that anyway?? Pls fix or think");                     
 						}
 					}
 					else
 					{
-						Console.WriteLine("Same " + self.Name + ": But WTF I'm not initialized??");                  
+						Console.WriteLine("Same " + self + ": But WTF I'm not initialized??");                  
 					}
 
 					break;
