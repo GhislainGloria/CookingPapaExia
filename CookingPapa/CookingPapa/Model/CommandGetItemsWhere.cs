@@ -23,12 +23,7 @@ namespace Model
             IsCompleted = true;
 			foreach (ACarriableItem i in Getfrom.Items.Where(WhereCondition).ToList())
             {
-                if (Self.GetItemFrom(Getfrom, i.Name))
-                {
-                    Console.WriteLine(
-                        Self.Name + ": I grabbed a " + i.Name + " from " + Getfrom.Name
-                    );
-                }
+				Self.GetItemFrom(Getfrom, i.Name);
             }
         }
     }

@@ -48,7 +48,7 @@ namespace Controller
                 actor.Position = new Point(5, 5);
 				for (int _ = 0; _ < 40; _++)
 				{
-					actor.Items.Add(IngredientFactory.CreateIngredient("carrot"));               
+					actor.Items.Add(IngredientFactory.CreateIngredient("carrot"));
 				}
                 Actors.Add(actor);
 

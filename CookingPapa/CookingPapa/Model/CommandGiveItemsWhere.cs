@@ -23,12 +23,7 @@ namespace Model
             IsCompleted = true;
             foreach (ACarriableItem i in Self.Items.Where(WhereCondition).ToList())
             {
-				if (Self.GiveItemTo(GiveTo, i.Name))
-                {
-                    Console.WriteLine(
-						Self.Name + ": I gave a " + i.Name + " to " + GiveTo.Name
-                    );
-                }
+				Self.GiveItemTo(GiveTo, i.Name);
             }
         }
     }

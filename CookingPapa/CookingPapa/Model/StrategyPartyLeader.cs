@@ -18,7 +18,7 @@ namespace Model
 		private bool HasEverythingNeededToCook(AbstractActor self, Step step, List<AbstractActor> all)
 		{
 			AbstractActor nearest = self.FindClosest(step.Model.Workboard, all);
-			bool hasUtensil = self.Items.Where(i => i.Name == step.Model.Utensil && ((Utensil)i).Clean).ToList().Count > 0;
+			bool hasUtensil = self.Items.Where(i => i.Name == step.Model.Utensil && i.Clean).ToList().Count > 0;
 			bool hasIngredient = self.Items.Where(i => i.Name == step.Model.Ingredient).ToList().Count > 0;
 
 			return self.EvaluateDistanceTo(nearest) <= 2 && hasUtensil && hasIngredient;
