@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace ModelTest
 {
-    class ActorMobileTest
+    class ActorTest
     {
 
         [SetUp()]

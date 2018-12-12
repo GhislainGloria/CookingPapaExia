@@ -6,23 +6,23 @@ using System.Threading.Tasks;
 
 namespace Model
 {
-    public class StrategyFridge : Strategy
+    public class StrategyWorkingFridge : Strategy
     {
-        private static readonly StrategyFridge Instance = new StrategyFridge();
-        public static StrategyFridge GetInstance()
+        private static StrategyWorkingFridge Instance = new StrategyWorkingFridge();
+        public static StrategyWorkingFridge GetInstance()
         {
             return Instance;
         }
 
-        private StrategyFridge()
+        private StrategyWorkingFridge()
         {
 
         }
 
-        private void InitFurnace(AbstractActor furnace, List<AbstractActor> all)
+        private void InitFurnace(AbstractActor self, List<AbstractActor> all)
         {
 
-            furnace.Initialized = true;
+            self.Initialized = true;
             Console.WriteLine("Furnace Init");
         }
 
@@ -62,7 +62,15 @@ namespace Model
 
         public override void ReactToEvent(AbstractActor self, MyEventArgs args)
         {
-            throw new NotImplementedException();
+            switch (args.EventName)
+            {
+                case "ingredient recieved":
+                    // Ici on ajoute la nouvelle Order (avec args.Arg) dans la liste
+                    // des trucs à faire du chef. Le process se fera par la suite
+                    // dans Behavior()
+                    self.Stack.Add(args.Arg);
+                    break;
+            }
         }
     }
 }
