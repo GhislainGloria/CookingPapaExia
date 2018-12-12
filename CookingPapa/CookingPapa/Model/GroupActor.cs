@@ -6,10 +6,20 @@ using System.Threading.Tasks;
 
 namespace Model
 {
-    public class GroupActor
+    public class GroupActor : AbstractActor
     {
 		private List<Actor> _clients = new List<Actor>();
 
         public List<Actor> Clients { get => _clients; set => _clients = value; }
+
+        public override void CallStrategy()
+        {
+            throw new NotImplementedException();
+        }
+
+        public override void NextTick(List<AbstractActor> AllActors)
+        {
+            Strategy.Behavior(this, AllActors);
+        }
     }
 }

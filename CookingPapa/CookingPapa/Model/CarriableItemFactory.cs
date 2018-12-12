@@ -29,7 +29,7 @@ namespace Model
 					return UtensilFactory.CreateUtensil(explode[1]);
 
                 case "ingredient":
-					return IngredientFactory.createIngredient(explode[1]);
+					return IngredientFactory.CreateIngredient(explode[1]);
 
                 default:
 					Console.WriteLine("L'item " + type + " ne peut etre instancie.");

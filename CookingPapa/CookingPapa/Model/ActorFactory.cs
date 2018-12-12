@@ -14,6 +14,7 @@ namespace Model
         {
 			Actor actor = new Actor();
 			ActorSocket counter;
+            Random random = new Random();
             actor.Name = type;
 
             switch(type)
@@ -25,13 +26,25 @@ namespace Model
                 case "chef": // AKA "Chef de cuisine"
                     actor.Strategy = StrategyChef.GetInstance();
                     return actor;
-               
+
+                case "customergroup":
+                    actor.Strategy = StrategyGroupActor.GetInstance();
+                    return actor;
+
                 case "customer":
-                    actor.Strategy = new StrategyCustomers();
+                    int randomNumber = random.Next(1, 3);
+                    actor.Stack[1] = 0;
+                    actor.Stack[2] = randomNumber;
+                    actor.Stack[4] = 0;
                     return actor;
 
                 case "diver":
                     actor.Strategy = StrategyDiver.GetInstance();
+                    return actor;
+
+                case "clientspawner":
+                    actor.Strategy = StrategyClientSpawner.GetInstance();
+                    actor.Stack[0] = 0;
                     return actor;
 
                 case "furnace":
@@ -44,10 +57,10 @@ namespace Model
 
                 case "washingmachine":
                     actor.Strategy = StrategyWashingMachine.GetInstance();
-                    return actor;                  
+                    return actor;                                 
 
-                case "headwaiter":
-                    actor.Strategy = new StrategyHeadWaiter();
+                case "waiter":
+					actor.Strategy = new StrategyWaiter();
                     return actor;
 
                 case "kitchenclerk":
@@ -66,8 +79,11 @@ namespace Model
                     actor.Strategy = StrategyStock.GetInstance();
                     return actor;
 
-                case "waiter":
-                    actor.Strategy = new StrategyWaiter();
+					actor.Strategy = StrategyStock.GetInstance();
+                    return actor;
+
+                case "headwaiter":
+					actor.Strategy = StrategyHeadWaiter.GetInstance();
                     return actor;
 
                 case "workingfridge":

@@ -14,7 +14,7 @@ namespace Model
 			Random random = new Random();
 			if(random.Next(0, 2) == 1)
 			{
-				Table table = new Table(10);
+				Table table = new Table(10, 1);
                 Order order = new Order(table, DishModelList.GetAvailableDishes());
                 self.TriggerEvent("order received", order);
 			}

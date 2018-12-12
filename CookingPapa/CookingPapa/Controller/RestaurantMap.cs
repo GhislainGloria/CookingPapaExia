@@ -26,37 +26,48 @@ namespace Controller
 				MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
 				// Load the kitchen map
-				MapSize = new Size(50, 50);
+				MapSize = new Size(15, 15);
+                AbstractActor actor2 = null;
 
-				AbstractActor actor = ActorFactory.CreateActor("chef"); // Immobile
-				actor.Position = new Point(10, 10);
+				AbstractActor actor = ActorFactory.CreateActor("diver"); // Mobile
+				actor.Position = new Point(10, 15);
 				Actors.Add(actor);
 
-				actor = ActorFactory.CreateActor("diver"); // Mobile
-				actor.Position = new Point(10, 20);
-				Actors.Add(actor);
-
-				actor = ActorFactory.CreateActor("server counter");
-				actor.Position = new Point(15, 15);
-				Actors.Add(actor);
+				actor2 = ActorFactory.CreateActor("server counter");
+				actor2.Position = new Point(15, 15);
+				Actors.Add(actor2);
 
 				actor = ActorFactory.CreateActor("partyleader");
-				actor.Position = new Point(25, 25);
+				actor.Position = new Point(13, 13);
 				Actors.Add(actor);
 
 				actor = ActorFactory.CreateActor("kitchenclerk");
-				actor.Position = new Point(30, 30);            
+				actor.Position = new Point(1, 10);
 				Actors.Add(actor);
+
+				actor = ActorFactory.CreateActor("stock");
+                actor.Position = new Point(5, 5);
+				actor.Items.Add(IngredientFactory.CreateIngredient("carrot"));
+                Actors.Add(actor);
+
+				actor = ActorFactory.CreateActor("furnace");
+                actor.Position = new Point(3, 10);
+                Actors.Add(actor);
 
 				actor = ActorFactory.CreateActor("shed");
 				actor.Position = new Point(2, 2);
 				actor.Items.Add(UtensilFactory.CreateUtensil("fork"));
 				Actors.Add(actor);
+
+                actor = ActorFactory.CreateActor("chef"); // Immobile
+                actor.Position = new Point(10, 10);
+                actor2.EventGeneric += actor.StrategyCallback;
+                Actors.Add(actor);
             }
             else
             {
 				// Load the room map
-				MapSize = new Size(100, 50);
+				MapSize = new Size(40, 15);
             }
 		}
 

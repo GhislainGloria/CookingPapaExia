@@ -19,7 +19,7 @@ namespace Model
 
 			foreach(StepModel sm in model.ModelSteps)
 			{
-				Step step = new Step(sm, this, 5);
+				Step step = new Step(sm, this);
 				Steps.Add(step);
 			}
 		}
@@ -29,10 +29,6 @@ namespace Model
             Steps = steps;
             CompletedSteps = completedSteps;
             Order = order;
-        }
-
-        public Dish()
-        {
         }
 
         public void MarkStepCompleted()

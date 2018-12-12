@@ -8,15 +8,15 @@ namespace Model
 {
     public class CommandGiveItem : ACommand
     {
-        public CommandGiveItem(AbstractActor self, AbstractActor giveto, ACarriableItem item)
+        public AbstractActor Giveto { get; private set; }
+		public string Item { get; private set; }
+
+		public CommandGiveItem(AbstractActor self, AbstractActor giveto, string item)
         {
             Self = self;
             Giveto = giveto;
             Item = item;
         }
-
-        public AbstractActor Giveto { get; private set; }
-        public ACarriableItem Item { get; private set; }
 
         public override void Execute()
         {
@@ -42,6 +42,13 @@ namespace Model
 					Self.Name + ": I'm too far away to give item " + Item + " to " + Giveto.Name
                 );
             }
+
+			Console.WriteLine(
+				Self.Name + ": I failed to give the " + Item + " to " + Giveto.Name
+            );
+            Self.Busy = false;
+            Self.CommandList.Clear();
+			Self.TriggerEvent("CommandQueueFailed", Self, Item);
         }
     }
 }

@@ -19,16 +19,16 @@ namespace Model
 
         }
 
-        private void InitFurnace(AbstractActor self, List<AbstractActor> all)
+        private void InitWorkingFridge(AbstractActor self, List<AbstractActor> all)
         {
 
             self.Initialized = true;
-            Console.WriteLine("Furnace Init");
+            Console.WriteLine("WorkingFridge Init");
         }
 
         public override void Behavior(AbstractActor self, List<AbstractActor> all)
         {
-            if (!self.Initialized) InitFurnace(self, all);
+            if (!self.Initialized) InitWorkingFridge(self, all);
 
 
             //Item contient les ingredients
@@ -46,7 +46,7 @@ namespace Model
                     Console.WriteLine("Fridge On");
                 }
                 step.TimeSpentSoFar++;
-                if (step.TimeSpentSoFar >= step.TimeNeed)
+				if (step.TimeSpentSoFar >= step.Model.Duration)
                 {
 
                     self.Busy = false;

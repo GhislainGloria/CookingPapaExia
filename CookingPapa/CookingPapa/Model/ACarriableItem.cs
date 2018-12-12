@@ -5,7 +5,7 @@ namespace Model
 {
 	public abstract class ACarriableItem
     {
-		public int ID { get; set; }
+        public int ID { get; set; }
 		public string Name { get; set; }
 		public int InventorySize { get; private set; }
 		public bool Clean { get; set; }

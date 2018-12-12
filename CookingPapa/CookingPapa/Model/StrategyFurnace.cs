@@ -40,14 +40,14 @@ namespace Model
                     Step step = (Step)self.Stack[0];
                     List<AbstractActor> partyLeaders = all.Where(a => a.Name == "partyleader").ToList();
 
-                if (step.TimeSpentSoFar == 0)
+                    if (step.TimeSpentSoFar == 0)
                     {
                         self.Busy = true;
                         Console.WriteLine("Furnace On");
                     }
                     step.TimeSpentSoFar++;
 
-                if (step.TimeSpentSoFar >= step.TimeNeed)
+				    if (step.TimeSpentSoFar >= step.Model.Duration)
                     {
 
                         self.Busy = false;
