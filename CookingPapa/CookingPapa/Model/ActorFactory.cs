@@ -12,84 +12,87 @@ namespace Model
 		// TODO: Replace news by singletons
         public static AbstractActor CreateActor(string type)
         {
-			Actor actorMobile = new Actor();
+			Actor actor = new Actor();
 			ActorSocket counter;
             Random random = new Random();
-            actorMobile.Name = type;
+            actor.Name = type;
 
             switch(type)
             {
                 case "butler":
-					actorMobile.Strategy = new StrategyButler();
-                    return actorMobile;
+                    actor.Strategy = new StrategyButler();
+                    return actor;
 
                 case "chef": // AKA "Chef de cuisine"
-                    actorMobile.Strategy = StrategyChef.GetInstance();
-                    return actorMobile;
+                    actor.Strategy = StrategyChef.GetInstance();
+                    return actor;
 
                 case "customergroup":
-                    actorMobile.Strategy = StrategyGroupActor.GetInstance();
-                    return actorMobile;
+                    actor.Strategy = StrategyGroupActor.GetInstance();
+                    return actor;
 
                 case "customer":
                     int randomNumber = random.Next(1, 3);
-                    actorMobile.Stack[1] = 0;
-                    actorMobile.Stack[2] = randomNumber;
-                    actorMobile.Stack[4] = 0;
-                    return actorMobile;
+                    actor.Stack[1] = 0;
+                    actor.Stack[2] = randomNumber;
+                    actor.Stack[4] = 0;
+                    return actor;
 
                 case "diver":
-                    actorMobile.Strategy = StrategyDiver.GetInstance();
-                    return actorMobile;
+                    actor.Strategy = StrategyDiver.GetInstance();
+                    return actor;
 
                 case "clientspawner":
-                    actorMobile.Strategy = StrategyClientSpawner.GetInstance();
-                    actorMobile.Stack[0] = 0;
-                    return actorMobile;
+                    actor.Strategy = StrategyClientSpawner.GetInstance();
+                    actor.Stack[0] = 0;
+                    return actor;
 
                 case "furnace":
-					actorMobile.Strategy = StrategyWorkingFridge.GetInstance();
-                    return actorMobile;
+                    actor.Strategy = StrategyWorkingFridge.GetInstance();
+                    return actor;
 
                 case "dishwasher":
-					actorMobile.Strategy = new StrategyDishwasher();
-                    return actorMobile;
+                    actor.Strategy = StrategyDishwasher.GetInstance();
+                    return actor;
 
                 case "washingmachine":
-					actorMobile.Strategy = StrategyWashingMachine.GetInstance();
-                    return actorMobile;                  
+                    actor.Strategy = StrategyWashingMachine.GetInstance();
+                    return actor;                                 
 
                 case "waiter":
-					actorMobile.Strategy = new StrategyWaiter();
-                    return actorMobile;
+					actor.Strategy = new StrategyWaiter();
+                    return actor;
 
                 case "kitchenclerk":
-					actorMobile.Strategy = StrategyKitchenClerk.GetInstance();
-                    return actorMobile;
+                    actor.Strategy = StrategyKitchenClerk.GetInstance();
+                    return actor;
 
                 case "partyleader": // AKA Chef de partie
-					actorMobile.Strategy = StrategyPartyLeader.GetInstance();
-                    return actorMobile;
+                    actor.Strategy = StrategyPartyLeader.GetInstance();
+                    return actor;
 
                 case "roomclerks":
-					actorMobile.Strategy = new StrategyRoomClerks();
-                    return actorMobile;
+                    actor.Strategy = new StrategyRoomClerks();
+                    return actor;
 
                 case "stock":
-					actorMobile.Strategy = StrategyStock.GetInstance();
-                    return actorMobile;
+                    actor.Strategy = StrategyStock.GetInstance();
+                    return actor;
+
+					actor.Strategy = StrategyStock.GetInstance();
+                    return actor;
 
                 case "headwaiter":
-					actorMobile.Strategy = StrategyHeadWaiter.GetInstance();
-                    return actorMobile;
+					actor.Strategy = StrategyHeadWaiter.GetInstance();
+                    return actor;
 
                 case "workingfridge":
-					actorMobile.Strategy = StrategyWorkingFridge.GetInstance();
-                    return actorMobile;
+                    actor.Strategy = StrategyWorkingFridge.GetInstance();
+                    return actor;
 
 				case "shed": // "Armoire" in which we put all the utensils
-					actorMobile.Strategy = StrategyIdle.GetInstance();
-					return actorMobile;
+                    actor.Strategy = StrategyIdle.GetInstance();
+					return actor;
 
 				case "client counter":
                     counter = new ActorSocket("client")

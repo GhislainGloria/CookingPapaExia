@@ -8,34 +8,33 @@ using System.Threading.Tasks;
 
 namespace ModelTest
 {
-    class StrategyWashingMachineTest
+    class StrategyDishwasherTest
     {
-  
         List<AbstractActor> actors;
-        AbstractActor washingMachine;
+        AbstractActor dishwasher;
 
         [SetUp()]
         public void SetUp()
         {
-            
-            
+
+
         }
 
         [Test()]
         public void BehaviorTest()
         {
-            washingMachine = ActorFactory.CreateActor("washingmachine");
+            dishwasher = ActorFactory.CreateActor("washingmachine");
             ACarriableItem fork = UtensilFactory.CreateUtensil("fork");
             ACarriableItem plate = UtensilFactory.CreateUtensil("plate");
 
             Assert.AreEqual(plate.Clean, fork.Clean);
 
-            washingMachine.Items.Add(fork);
-            washingMachine.Items.Add(plate);
+            dishwasher.Items.Add(fork);
+            dishwasher.Items.Add(plate);
 
-            StrategyWashingMachine.GetInstance().Behavior(washingMachine, actors);
+            StrategyWashingMachine.GetInstance().Behavior(dishwasher, actors);
 
-            foreach (ACarriableItem item in washingMachine.Items)
+            foreach (ACarriableItem item in dishwasher.Items)
             {
                 Assert.IsTrue(item.Clean);
             }

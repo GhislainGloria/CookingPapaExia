@@ -9,6 +9,8 @@ namespace Model
 	public class StrategyWashingMachine : Strategy
 	{
         private static readonly StrategyWashingMachine Instance = new StrategyWashingMachine();
+        private int washing;
+
         public static StrategyWashingMachine GetInstance()
         {
             return Instance;
@@ -19,14 +21,52 @@ namespace Model
 
         }
 
+        private void InitWashingMachine(AbstractActor self, List<AbstractActor> all)
+        {
+
+            self.Initialized = true;
+            
+            Console.WriteLine("Washing Init");
+        }
+
         public override void Behavior(AbstractActor self, List<AbstractActor> all)
 		{
-			throw new NotImplementedException();
+            if (!self.Initialized) InitWashingMachine(self, all);
+            
+            if (self.Items == null)
+            {
+                washing = 15 * 60;
+                self.Busy = false;
+            }
+
+            
+            if (self.Items !=null && self.Stack != null)
+            {
+               
+                self.Busy = true;
+                washing--;
+                
+                if (washing == 0)
+                {
+                    foreach(ACarriableItem item in self.Items)
+                    {
+                        item.Clean = true;
+
+                    }
+                }
+            }
+
+            
 		}
 
 		public override void ReactToEvent(AbstractActor self, MyEventArgs args)
 		{
-			throw new NotImplementedException();
-		}
+            switch (args.EventName)
+            {
+                case "on":
+                    self.Stack.Add(args.Arg);
+                    break;
+            }
+        }
 	}
 }

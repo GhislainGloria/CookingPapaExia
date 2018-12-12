@@ -11,16 +11,14 @@ namespace ModelTest
     public class StrategyWorkingFridgeTest
     {
         StrategyWorkingFridge strategyWorkingFridge;
-        readonly List<AbstractActor> actors;
-        AbstractActor workingFridge;
         private Ingredient ingredient;
 
         [SetUp()]
         public void SetUp()
         {
-            strategyWorkingFridge = StrategyWorkingFridge.GetInstance();          
-            List<AbstractActor> actors = new List<AbstractActor>();
-            ingredient = new Ingredient("beef", 2, 5);
+            
+                      
+            
 
         }
 
@@ -28,7 +26,12 @@ namespace ModelTest
         public void BehaviorTest()
         {
 
-                strategyWorkingFridge.Behavior(workingFridge, actors);
+            AbstractActor workingFridge = ActorFactory.CreateActor("workingfridge");
+            strategyWorkingFridge = StrategyWorkingFridge.GetInstance();
+            List<AbstractActor> actors = new List<AbstractActor>();
+            ingredient = new Ingredient("beef", 2, 5);
+
+            strategyWorkingFridge.Behavior(workingFridge, actors);
                  if (workingFridge.Items.Contains(ingredient))
                      {
                          Assert.IsTrue(workingFridge.Busy);

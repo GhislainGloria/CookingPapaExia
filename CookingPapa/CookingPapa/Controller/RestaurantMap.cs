@@ -28,12 +28,12 @@ namespace Controller
 				MapSize = new Size(15, 15);
                 AbstractActor actor2 = null;
 
-				AbstractActor actor = ActorFactory.CreateActor("diver"); // Mobile
-				actor.Position = new Point(10, 15);
+				AbstractActor actor = ActorFactory.CreateActor("diver");
+				actor.Position = new Point(10, 11);
 				Actors.Add(actor);
 
 				actor2 = ActorFactory.CreateActor("server counter");
-				actor2.Position = new Point(15, 15);
+				actor2.Position = new Point(5, 5);
 				Actors.Add(actor2);
 
 				actor = ActorFactory.CreateActor("partyleader");
