@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
-using System.Threading;
 using System.Linq;
 
 namespace Model
@@ -15,12 +14,14 @@ namespace Model
 		public AbstractActor Target { get; set; }
 		public IStrategy Strategy { get; set; }
 
-        public bool Busy { get; set; }
 		public bool Initialized { get; set; }
-        public int MaxInventorySize { get; set; }
+		public int MaxInventorySize { get; set; }
+        public int InventorySize { get; set; }
         public string Name { get; set; }
+		public bool Busy { get; set; }
 		public bool BusyWaiting { get; set; }
 		public bool BusyWalking { get; set; }
+		public bool AcceptItemExchange { get; set; }
 
         public abstract void NextTick(List<AbstractActor> AllActors);
         public abstract void CallStrategy();
@@ -39,7 +40,9 @@ namespace Model
 			Items = new List<ACarriableItem>();
 			Stack = new List<object>();
             CommandList = new List<ACommand>();
-
+			InventorySize = 0;
+			MaxInventorySize = 10;
+			AcceptItemExchange = true;
         }
 
         /**
@@ -100,19 +103,6 @@ namespace Model
         }
 
         /**
-         * Get an item from AbstractActor where and give it to the AbstractActor actor
-         */
-        public void FetchItem(ACarriableItem item, AbstractActor actor, List<AbstractActor> allActors)
-        {
-            if (!Busy)
-            {
-                Busy = true;
-                Target = FindNearestCarriableItem(item.Name, allActors);
-            }
-
-        }
-
-        /**
          * When an event is triggered, this method will be the callback
          */
         public void StrategyCallback(object sender, EventArgs args)
@@ -135,5 +125,109 @@ namespace Model
 			Console.WriteLine(Name + ": I could not find a " + itemName);
 			return null;
 		}
+
+		public bool CanCarry(ACarriableItem item)
+		{
+			return InventorySize + item.InventorySize <= MaxInventorySize;
+		}
+
+		public bool GiveItemTo(AbstractActor giveTo, string item)
+		{
+			if(!giveTo.AcceptItemExchange)
+			{
+				Console.WriteLine(
+					Name + ": Can't give my " + item + " because " + giveTo.Name + " doesn't accept item trades at the moment."
+				);
+				return false;
+			}
+
+			if (EvaluateDistanceTo(giveTo) <= 2)
+            {
+                foreach (ACarriableItem itemFrom in Items)
+                {
+					if (itemFrom.Name.Equals(item))
+                    {
+						if(giveTo.CanCarry(itemFrom))
+						{
+							Items.Remove(itemFrom);
+                            giveTo.Items.Add(itemFrom);
+							InventorySize -= itemFrom.InventorySize;
+							giveTo.InventorySize += itemFrom.InventorySize;
+                            Console.WriteLine(
+								Name + ": I gave my " + item + " to " + giveTo.Name
+                            );
+                            return true;
+						}
+						else
+						{
+							Console.WriteLine(
+								Name + ": I cannot give a " + item + " to " + giveTo.Name + " because he doesn't have enough inventory space."
+							);
+							return false;
+						}                  
+                    }
+                }
+
+				Console.WriteLine(
+					Name + ": I cannot give a " + item + " to " + giveTo.Name + " because I don't have any in my inventory."
+				);
+				return false;
+            }
+
+			Console.WriteLine(
+				Name + ": I cannot give a " + item + " to " + giveTo.Name + " because I'm too far away!"
+			);
+			return false;
+		}
+
+		public bool GetItemFrom(AbstractActor getFrom, string item)
+        {         
+			if (!getFrom.AcceptItemExchange)
+            {
+                Console.WriteLine(
+					Name + ": Can't grab a " + item + " because " + getFrom.Name + " doesn't accept item trades at the moment."
+                );
+                return false;
+            }
+
+
+			if (EvaluateDistanceTo(getFrom) <= 2)
+            {
+                foreach (ACarriableItem itemFrom in getFrom.Items)
+                {
+                    if (itemFrom.Name.Equals(item))
+                    {
+                        if (CanCarry(itemFrom))
+                        {
+							getFrom.Items.Remove(itemFrom);
+                            Items.Add(itemFrom);
+							InventorySize += itemFrom.InventorySize;
+							getFrom.InventorySize -= itemFrom.InventorySize;
+                            Console.WriteLine(
+								Name + ": I took a " + item + " from " + getFrom.Name
+                            );
+                            return true;
+                        }
+                        else
+                        {
+                            Console.WriteLine(
+								Name + ": I cannot grab a " + item + " from " + getFrom.Name + " because I don't have enough inventory space."
+                            );
+                            return false;
+                        }
+                    }
+                }
+
+                Console.WriteLine(
+					Name + ": I cannot grab a " + item + " from " + getFrom.Name + " because he doesn't have any in his inventory."
+                );
+                return false;
+            }
+
+            Console.WriteLine(
+				Name + ": I cannot grab a " + item + " from " + getFrom.Name + " because I'm too far away!"
+            );
+            return false;
+        }
 	}
 }

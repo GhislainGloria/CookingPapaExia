@@ -78,6 +78,9 @@
     <Compile Include="Actor.cs" />
     <Compile Include="ActorSocket.cs" />
     <Compile Include="MyEentArgs.cs" />
+    <Compile Include="CommandGetItemsWhere.cs" />
+    <Compile Include="CommandGiveItemsWhere.cs" />
+    <Compile Include="CommandCustomActorMod.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System.Drawing" />

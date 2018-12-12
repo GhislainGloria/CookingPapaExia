@@ -23,7 +23,6 @@ namespace Model
         {
 
             furnace.Initialized = true;
-            Console.WriteLine("Furnace Init");
         }
 
         public override void Behavior(AbstractActor self, List<AbstractActor> all)

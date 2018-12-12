@@ -181,16 +181,37 @@ namespace Model
 				// The stack is empty, no more steps to process
 				self.Busy = false;
 			}
-		}
 
+            // Whether we're busy or not, we can always ask the divers to wash our dirty utensils
+			if (!self.BusyWaiting && self.Items.Where((i => !i.Clean)).ToList().Count > 0)
+			{
+				Console.WriteLine(self.Name + ": I must find a diver to wash my utensils");
+				foreach (AbstractActor a in all.Where(a => a.Name == "diver" && !a.Busy))
+				{
+					self.BusyWaiting = true;
+					Console.WriteLine("Same " + self.Name + ": Okay I found one!");
+					AbstractActor dishwasher = a.FindClosest("dishwasher", all);
+					a.Target = self;
+					a.CommandList.Add(new CommandMove(a));
+					a.CommandList.Add(new CommandGetItemsWhere(a, self, c => !c.Clean));
+					a.CommandList.Add(new CommandCustomActorMod(self, s => s.BusyWaiting = false));
+					a.CommandList.Add(new CommandSetTarget(a, dishwasher));
+					a.CommandList.Add(new CommandMove(a));
+					a.CommandList.Add(new CommandGiveItemsWhere(a, dishwasher, c => !c.Clean));
+				}
+			}
+		}
+        // => Behavior
+
+        /**
+         * React to events
+         */
 		public override void ReactToEvent(AbstractActor self, MyEventArgs args)
 		{
 			switch (args.EventName)
 			{
 				case "CommandQueueFailed":
 					string missingItem = (string)args.Arg2;
-
-					self.BusyWaiting = false;
 
 					AbstractActor failureMan = ((AbstractActor)args.Arg);
 					failureMan.EventGeneric -= self.StrategyCallback;

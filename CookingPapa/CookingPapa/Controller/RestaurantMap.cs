@@ -50,7 +50,10 @@ namespace Controller
 
 				actor = ActorFactory.CreateActor("stock");
                 actor.Position = new Point(5, 5);
-				actor.Items.Add(IngredientFactory.CreateIngredient("carrot"));
+				for (int _ = 0; _ < 40; _++)
+				{
+					actor.Items.Add(IngredientFactory.CreateIngredient("carrot"));               
+				}
                 Actors.Add(actor);
 
 				actor = ActorFactory.CreateActor("furnace");
