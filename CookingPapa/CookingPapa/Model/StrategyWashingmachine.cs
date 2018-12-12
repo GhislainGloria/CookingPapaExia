@@ -42,7 +42,7 @@ namespace Model
             
             if (self.Items !=null && self.Stack != null)
             {
-                
+               
                 self.Busy = true;
                 washing--;
                 
@@ -64,9 +64,6 @@ namespace Model
             switch (args.EventName)
             {
                 case "on":
-                    // Ici on ajoute la nouvelle Order (avec args.Arg) dans la liste
-                    // des trucs à faire du chef. Le process se fera par la suite
-                    // dans Behavior()
                     self.Stack.Add(args.Arg);
                     break;
             }

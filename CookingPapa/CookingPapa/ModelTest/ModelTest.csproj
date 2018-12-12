@@ -43,6 +43,7 @@
     <Compile Include="ActorFactoryTest.cs" />
     <Compile Include="ActorTest.cs" />
     <Compile Include="StockDAOTest.cs" />
+    <Compile Include="StrategyDishwasherTest.cs" />
     <Compile Include="StrategyWashingMachineTest.cs" />
     <Compile Include="StrategyWorkingFridgeTest.cs" />
     <Compile Include="StrategyFurnaceTest.cs" />
