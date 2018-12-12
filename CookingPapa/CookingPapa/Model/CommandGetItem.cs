@@ -49,7 +49,7 @@ namespace Model
 			);
 			Self.Busy = false;
 			Self.CommandList.Clear();         
-			Self.TriggerEvent("CommandQueueFailed", Self);
+			Self.TriggerEvent("CommandQueueFailed", Self, Item);
         }
     }
 }

@@ -46,7 +46,7 @@ namespace Model
                     Console.WriteLine("Fridge On");
                 }
                 step.TimeSpentSoFar++;
-                if (step.TimeSpentSoFar >= step.TimeNeed)
+				if (step.TimeSpentSoFar >= step.Model.Duration)
                 {
 
                     self.Busy = false;

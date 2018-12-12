@@ -78,6 +78,7 @@
     <Compile Include="CommandSetTarget.cs" />
     <Compile Include="Actor.cs" />
     <Compile Include="ActorSocket.cs" />
+    <Compile Include="MyEentArgs.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System.Drawing" />
