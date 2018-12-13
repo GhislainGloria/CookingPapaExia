@@ -12,10 +12,10 @@ namespace Model
 		// https://docs.microsoft.com/fr-fr/dotnet/framework/network-programming/asynchronous-server-socket-example
 		// https://docs.microsoft.com/fr-fr/dotnet/framework/network-programming/asynchronous-client-socket-example
 		protected Socket socket;
-		public static ManualResetEvent allDone = new ManualResetEvent(false);
-		private static ManualResetEvent connectDone = new ManualResetEvent(false);
-		private static ManualResetEvent sendDone = new ManualResetEvent(false);
-		private static ManualResetEvent receiveDone = new ManualResetEvent(false); 
+		public ManualResetEvent allDone = new ManualResetEvent(false);
+		private ManualResetEvent connectDone = new ManualResetEvent(false);
+		private ManualResetEvent sendDone = new ManualResetEvent(false);
+		private ManualResetEvent receiveDone = new ManualResetEvent(false);      
 
 		public ActorSocket(string ClientOrServer)
         {
@@ -78,7 +78,7 @@ namespace Model
 			Send(socket, s);
 		}
 
-		private static void ConnectCallback(IAsyncResult ar) {  
+		private void ConnectCallback(IAsyncResult ar) {  
             try {  
                 // Retrieve the socket from the state object.  
                 Socket client = (Socket) ar.AsyncState;  
@@ -98,7 +98,7 @@ namespace Model
             }  
         } 
 
-		public static void AcceptCallback(IAsyncResult ar) {  
+		public void AcceptCallback(IAsyncResult ar) {  
             // Signal the main thread to continue.  
             allDone.Set();  
       
@@ -113,7 +113,7 @@ namespace Model
                 new AsyncCallback(ReadCallback), state);
         }
 
-		public static void ReadCallback(IAsyncResult ar)
+		public void ReadCallback(IAsyncResult ar)
         {
             String content = String.Empty;
 
@@ -138,12 +138,12 @@ namespace Model
 				{
                     // All the data has been read from the   
                     // client. Display it on the console.  
-                    Console.WriteLine("Read {0} bytes from socket. \nData : {1}",
-                        content.Length, content);
+                    //Console.WriteLine("Read {0} bytes from socket. \nData : {1}",
+                    //    content.Length, content);
+
+					TriggerEvent("DataReceived", content);
 
 					state.sb.Clear();
-                    // Echo the data back to the client.  
-                    //Send(handler, content);
                 }
 
 				handler.BeginReceive(state.buffer, 0, StateObject.BufferSize, 0, new AsyncCallback(ReadCallback), state);
@@ -151,7 +151,7 @@ namespace Model
             }
         }
 
-		protected static void Send(Socket client, String data) {  
+		protected void Send(Socket client, String data) {  
             // Convert the string data to byte data using ASCII encoding.  
             byte[] byteData = Encoding.ASCII.GetBytes(data);  
 
@@ -160,7 +160,7 @@ namespace Model
                 new AsyncCallback(SendCallback), client);  
         }
 
-		protected static void SendCallback(IAsyncResult ar) {  
+		protected void SendCallback(IAsyncResult ar) {  
             try {  
                 // Retrieve the socket from the state object.  
                 Socket client = (Socket)ar.AsyncState;  
@@ -182,7 +182,7 @@ namespace Model
         // Client  socket.  
         public Socket workSocket = null;  
         // Size of receive buffer.  
-        public const int BufferSize = 1024;  
+		public const int BufferSize = 1024;  
         // Receive buffer.  
         public byte[] buffer = new byte[BufferSize];  
     // Received data string.  

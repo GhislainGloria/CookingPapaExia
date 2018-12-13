@@ -46,5 +46,18 @@ namespace Model
 			if (!SingletonInitialized) Init();
 			return Dishes;
 		}
+
+		public static DishModel GetModelByName(string name)
+		{
+			foreach(DishModel dm in GetAvailableDishes())
+			{
+				if(dm.Name == name)
+				{
+					return dm;
+				}
+			}
+
+			return null;
+		}
     }
 }

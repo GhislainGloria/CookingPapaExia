@@ -5,15 +5,16 @@ namespace Model
 {
     public class Order
     {
-		public Table Table { get; private set; }
+		public int TableID { get; private set; }
 		public List<DishModel> Recipes { get; set; }
 		public List<Dish> DishInstances { get; set; }
 		private int CompletedDishes = 0;
         
-		public Order(Table table, List<DishModel> dishModels)
+		public Order(int tableID, List<DishModel> dishModels)
 		{
 			Recipes = dishModels;
 			DishInstances = new List<Dish>();
+			TableID = tableID;
 
 			foreach (DishModel dm in Recipes)
 			{
