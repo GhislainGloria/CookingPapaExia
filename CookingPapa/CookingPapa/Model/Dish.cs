@@ -5,13 +5,13 @@ using System.Threading.Tasks;
 
 namespace Model
 {
-    public class Dish
+    public class Dish : ACarriableItem
     {      
 		public List<Step> Steps { get; set; }
 		public int CompletedSteps { get; set; }
 		protected Order Order;
 
-		public Dish(DishModel model, Order order)
+		public Dish(DishModel model, Order order) : base("dish", 2)
 		{
 			Steps = new List<Step>();
 			CompletedSteps = 0;
@@ -23,13 +23,6 @@ namespace Model
 				Steps.Add(step);
 			}
 		}
-
-        public Dish(List<Step> steps, int completedSteps, Order order)
-        {
-            Steps = steps;
-            CompletedSteps = completedSteps;
-            Order = order;
-        }
 
         public void MarkStepCompleted()
 		{

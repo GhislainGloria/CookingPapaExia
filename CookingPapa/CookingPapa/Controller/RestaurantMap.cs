@@ -3,6 +3,7 @@ using System.Windows.Forms;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Threading.Tasks;
+using System.Linq;
 using Model;
 
 namespace Controller
@@ -94,7 +95,7 @@ namespace Controller
                 MapSize = new Size(30, 15);
 
                 AbstractActor actor = ActorFactory.CreateActor("clientspawner");
-                actor.Position = new Point(10, 11);
+                actor.Position = new Point(15, 1);
                 Actors.Add(actor);
 
                 actor = ActorFactory.CreateActor("receptionnist");
@@ -106,7 +107,7 @@ namespace Controller
 
 		public List<Tuple<string, Point>> DisplayableData() {         
 			CachedDictionnary.Clear();
-			foreach(AbstractActor actor in Actors) {
+			foreach(AbstractActor actor in Actors.ToList()) {
 				CachedDictionnary.Add(new Tuple<string, Point>(actor.Name, actor.Position));
 			}
 
@@ -115,7 +116,7 @@ namespace Controller
 
 		public void NextActorsTick()
 		{
-			foreach (AbstractActor actor in Actors)
+			foreach (AbstractActor actor in Actors.ToList())
 			{
 				Task task = Task.Factory.StartNew(() => actor.NextTick(Actors));
 				ThreadPool.AddTask(task);

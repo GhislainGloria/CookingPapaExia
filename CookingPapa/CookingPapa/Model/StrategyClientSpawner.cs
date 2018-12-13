@@ -11,6 +11,7 @@ namespace Model
 
         /*
          * Stack[0] = chance to pop GroupActor
+         * Stack[1] = actual chance to pop GroupActor (const)
          */
 
         private static StrategyClientSpawner Instance = new StrategyClientSpawner();
@@ -20,18 +21,25 @@ namespace Model
         }
         private StrategyClientSpawner() { }
 
+        int seconds = 0;
+
         public override void Behavior(AbstractActor self, List<AbstractActor> all)
         {
 
             Random random = new Random();
-            int randomNumber = random.Next(1, 100);
-
-            if ((int)self.Stack[0] > randomNumber)
+            if (((int)self.Stack[0]/10) > (int)self.Stack[1])
             {
+                int clientNumber = GetClientCount();
                 AbstractActor newGroup = ActorFactory.CreateActor("customergroup");
+                for (int i = 0; i < clientNumber; i++)
+                {
+                    ((GroupActor)newGroup).Clients.Add((Actor)ActorFactory.CreateActor("customer"));
+                }
+                newGroup.Position = self.Position;
                 all.Add(newGroup);
                 self.TriggerEvent("clientSpawned", newGroup);
                 self.Stack[0] = 0;
+                self.Stack[1] = random.Next(1, 100);
             }
             else
             {

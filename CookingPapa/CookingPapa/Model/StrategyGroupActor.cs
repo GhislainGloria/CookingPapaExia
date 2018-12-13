@@ -17,7 +17,7 @@ namespace Model
         private StrategyGroupActor() { }
         public override void Behavior(AbstractActor self, List<AbstractActor> all)
         {
-            foreach(AbstractActor client in ((GroupActor)self).Clients)
+            foreach(Actor client in ((GroupActor)self).Clients)
             {
                 client.Strategy.Behavior(client, all);
             }
