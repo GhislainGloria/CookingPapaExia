@@ -13,7 +13,7 @@ namespace Model
         public static AbstractActor CreateActor(string type)
         {
 			Actor actor = new Actor();
-			ActorSocket counter;
+			ActorSocket counter = null;
             Random random = new Random();
             actor.Name = type;
 
@@ -96,19 +96,13 @@ namespace Model
 					return actor;
 
 				case "client counter":
-                    counter = new ActorSocket("client")
-                    {
-                        Name = "counter"
-                    };
+					counter = new ActorSocket("client");
                     // TODO: Set strat
                     return counter;
 
 				case "server counter":
-                    counter = new ActorSocket("server")
-                    {
-                        Name = "counter",
-                        Strategy = StrategyServerCounter.GetInstance()
-                    };
+					counter = new ActorSocket("server");
+					counter.Strategy = StrategyServerCounter.GetInstance();
                     return counter;
 
                 default:
