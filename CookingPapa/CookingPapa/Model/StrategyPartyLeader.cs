@@ -18,7 +18,7 @@ namespace Model
 		private bool HasEverythingNeededToCook(AbstractActor self, Step step, List<AbstractActor> all)
 		{
 			AbstractActor nearest = self.FindClosest(step.Model.Workboard, all);
-			bool hasUtensil = self.Items.Where(i => i.Name == step.Model.Utensil && ((Utensil)i).Clean).ToList().Count > 0;
+			bool hasUtensil = self.Items.Where(i => i.Name == step.Model.Utensil && i.Clean).ToList().Count > 0;
 			bool hasIngredient = self.Items.Where(i => i.Name == step.Model.Ingredient).ToList().Count > 0;
 
 			return self.EvaluateDistanceTo(nearest) <= 2 && hasUtensil && hasIngredient;
@@ -57,7 +57,7 @@ namespace Model
 							AbstractActor target = a.FindNearestCarriableItem(step.Model.Utensil, all);
 							if(target != null)
 							{
-								Console.WriteLine("Party Leader: I asked a clerk to fetch me a " + step.Model.Utensil);
+								Console.WriteLine(self + ": I asked a clerk to fetch me a " + step.Model.Utensil);
 
 								a.CommandList.Add(new CommandSetTarget(a, target));
 								a.CommandList.Add(new CommandMove(a));
@@ -88,7 +88,7 @@ namespace Model
 							AbstractActor target = a.FindNearestCarriableItem(step.Model.Ingredient, all);
                             if (target != null)
                             {
-								Console.WriteLine("Party Leader: I asked a clerk to fetch me a " + step.Model.Ingredient);
+								Console.WriteLine(self + ": I asked a clerk to fetch me a " + step.Model.Ingredient);
 
                                 a.CommandList.Add(new CommandSetTarget(a, target));
                                 a.CommandList.Add(new CommandMove(a));
@@ -144,7 +144,7 @@ namespace Model
 				if(HasEverythingNeededToCook(self, step, all))
 				{
 					step.TimeSpentSoFar++;
-					Console.WriteLine(self.Name + ": I've been cooking for {0} tick, {1} required", step.TimeSpentSoFar, step.Model.Duration);
+					Console.WriteLine(self + ": I've been cooking for {0} tick, {1} required", step.TimeSpentSoFar, step.Model.Duration);
                                    
 					if(step.TimeSpentSoFar >= step.Model.Duration)
 					{
@@ -181,8 +181,31 @@ namespace Model
 				// The stack is empty, no more steps to process
 				self.Busy = false;
 			}
-		}
 
+            // Whether we're busy or not, we can always ask the divers to wash our dirty utensils
+			if (!self.BusyWaiting && self.Items.Where((i => !i.Clean)).ToList().Count > 0)
+			{
+				Console.WriteLine(self + ": I must find a diver to wash my utensils");
+				foreach (AbstractActor a in all.Where(a => a.Name == "diver" && !a.Busy))
+				{
+					self.BusyWaiting = true;
+					Console.WriteLine("Same " + self + ": Okay I found one!");
+					AbstractActor dishwasher = a.FindClosest("dishwasher", all);
+					a.Target = self;
+					a.CommandList.Add(new CommandMove(a));
+					a.CommandList.Add(new CommandGetItemsWhere(a, self, c => !c.Clean));
+					a.CommandList.Add(new CommandCustomActorMod(self, s => s.BusyWaiting = false));
+					a.CommandList.Add(new CommandSetTarget(a, dishwasher));
+					a.CommandList.Add(new CommandMove(a));
+					a.CommandList.Add(new CommandGiveItemsWhere(a, dishwasher, c => !c.Clean));
+				}
+			}
+		}
+        // => Behavior
+
+        /**
+         * React to events
+         */
 		public override void ReactToEvent(AbstractActor self, MyEventArgs args)
 		{
 			switch (args.EventName)
@@ -190,33 +213,31 @@ namespace Model
 				case "CommandQueueFailed":
 					string missingItem = (string)args.Arg2;
 
-					self.BusyWaiting = false;
-
 					AbstractActor failureMan = ((AbstractActor)args.Arg);
 					failureMan.EventGeneric -= self.StrategyCallback;
 
-					Console.WriteLine(self.Name + ": Fuck, my " + failureMan.Name + " failed to get me a " + missingItem);
+					Console.WriteLine(self + ": Fuck, my " + failureMan.Name + " failed to get me a " + missingItem);
 
 					if (self.Stack.Count == 3)
 					{
 						if (missingItem == ((Step)self.Stack[0]).Model.Ingredient)
 						{
-							Console.WriteLine("Same " + self.Name + ": Nevermind, I'll ask for another one of this ingredient");
+							Console.WriteLine("Same " + self + ": Nevermind, I'll ask for another one of this ingredient");
 							self.Stack[2] = false;
 						}
 						else if (missingItem == ((Step)self.Stack[0]).Model.Utensil)
 						{
-							Console.WriteLine("Same " + self.Name + ": Nevermind, I'll ask for another one of this utensil");
+							Console.WriteLine("Same " + self + ": Nevermind, I'll ask for another one of this utensil");
                             self.Stack[1] = false;
 						}
 						else
 						{
-							Console.WriteLine("Same " + self.Name + ": But WTF, I don't need that anyway?? Pls fix or think");                     
+							Console.WriteLine("Same " + self + ": But WTF, I don't need that anyway?? Pls fix or think");                     
 						}
 					}
 					else
 					{
-						Console.WriteLine("Same " + self.Name + ": But WTF I'm not initialized??");                  
+						Console.WriteLine("Same " + self + ": But WTF I'm not initialized??");                  
 					}
 
 					break;

@@ -20,18 +20,8 @@ namespace Model
 
         }
 
-        private void InitWorkingFridge(AbstractActor self, List<AbstractActor> all)
-        {
-
-            self.Initialized = true;
-            Console.WriteLine("WorkingFridge Init");
-        }
-
         public override void Behavior(AbstractActor self, List<AbstractActor> all)
-        {
-            if (!self.Initialized) InitWorkingFridge(self, all);
-
-
+        {         
             //Item contient les ingredients
             //Stack contient les etapes
 

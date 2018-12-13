@@ -9,7 +9,8 @@ namespace Model
 	class StrategyDishwasher : Strategy
 	{
         private static readonly StrategyDishwasher Instance = new StrategyDishwasher();
-        private int washing;
+        private int TimeSpentWashing = 0;
+		private readonly int TIME_TO_WASH_ALL = 10;
 
         public static StrategyDishwasher GetInstance()
         {
@@ -21,53 +22,29 @@ namespace Model
 
         }
 
-        private void InitDishwasher(AbstractActor self, List<AbstractActor> all)
-        {
-
-            self.Initialized = true;
-
-            Console.WriteLine("Dishwasher Init");
-        }
-
         public override void Behavior(AbstractActor self, List<AbstractActor> all)
-        {
-            if (!self.Initialized) InitDishwasher(self, all);
-
-            if (self.Items == null)
+        {         
+			if (TimeSpentWashing == 0 && self.Items.Count >= 5)
             {
-                washing = 15 * 60;
-                self.Busy = false;
+				Console.WriteLine(self + ": I start wasing my items");
+				TimeSpentWashing++;
+				self.Busy = true;
+				self.AcceptItemExchange = false;
             }
 
+			if(TimeSpentWashing++ >= TIME_TO_WASH_ALL)
+			{
+				TimeSpentWashing = 0;
+				self.Busy = true;
+				self.AcceptItemExchange = true;
 
-            if (self.Items != null && self.Stack != null)
-            {
-
-                self.Busy = true;
-                washing--;
-
-                if (washing == 0)
-                {
-                    foreach (ACarriableItem item in self.Items)
-                    {
-                        item.Clean = true;
-
-                    }
-                }
-            }
-
-
+				self.Items.ForEach(i => i.Clean = true);
+			}         
         }
 
         public override void ReactToEvent(AbstractActor self, MyEventArgs args)
         {
-            switch (args.EventName)
-            {
-                case "on":
-                    
-                    self.Stack.Add(args.Arg);
-                    break;
-            }
+
         }
     }
 }

@@ -18,39 +18,42 @@ namespace Model
         {
                      
 			if (self.Stack.Count > 0) {
-				Console.WriteLine("Chef: I must complete {0} more orders.", self.Stack.Count);
-				Order topOrder = (Order)self.Stack[0];
+				Console.WriteLine(self + ": I must complete {0} more orders.", self.Stack.Count);
 				List<AbstractActor> partyLeaders = all.Where(a => a.Name == "partyleader").ToList();
 
-				if(topOrder.Completed())
+				foreach(Order o in self.Stack.ToList())
 				{
-					Console.WriteLine("Chef has completed an order");
-					// Fire an event or something
-					self.Stack.RemoveAt(0);
-				}
-				else 
-				{
-					// We look for non-completed step, and assign it to a party leader
-					foreach (Dish d in topOrder.DishInstances.ToList())
+					if (o.Completed())
                     {
-                        foreach (Step s in d.Steps.ToList())
+						Console.WriteLine(self + ": I completed an order");
+                        // TODO Fire an event or something
+						self.Stack.Remove(o);
+                    }
+                    else
+                    {
+                        // We look for non-completed step, and assign it to a party leader
+                        foreach (Dish d in o.DishInstances.ToList())
                         {
-                            if (!s.Prepared)
+                            foreach (Step s in d.Steps.ToList())
                             {
-                                foreach (AbstractActor a in partyLeaders)
+                                if (!s.Prepared && !s.Assigned)
                                 {
-                                    if (!a.Busy)
+                                    foreach (AbstractActor a in partyLeaders)
                                     {
-                                        a.Stack.Add(s);
-                                        a.Busy = true;
-                                        Console.WriteLine("Chef has dispatched a step");
-                                        break;
+                                        if (!a.Busy)
+                                        {
+                                            s.Assigned = true;
+                                            a.Stack.Add(s);
+                                            a.Busy = true;
+											Console.WriteLine(self + ": I dispatched a step to " + a);
+                                            break;
+                                        }
                                     }
                                 }
                             }
                         }
+                        // end foreach nest
                     }
-                    // end foreach nest
 				}
 			}
         }

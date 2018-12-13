@@ -81,6 +81,9 @@ namespace Model
 
                 case "headwaiter":
 					actor.Strategy = StrategyHeadWaiter.GetInstance();
+
+                case "receptionnist":
+					actor.Strategy = StrategyReceptionnist.GetInstance();
                     return actor;
 
                 case "workingfridge":
@@ -89,6 +92,10 @@ namespace Model
 
 				case "shed": // "Armoire" in which we put all the utensils
                     actor.Strategy = StrategyIdle.GetInstance();
+					return actor;
+
+				case "cookingplate": // "Feu de cuisson"
+					actor.Strategy = StrategyIdle.GetInstance();
 					return actor;
 
 				case "client counter":

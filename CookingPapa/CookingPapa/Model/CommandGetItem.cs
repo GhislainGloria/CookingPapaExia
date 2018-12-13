@@ -31,7 +31,7 @@ namespace Model
                         Self.Items.Add(itemFrom);
 
 						Console.WriteLine(
-							Self.Name + ": I picked up a " + Item + " from " + Getfrom.Name
+							Self + ": I picked up a " + Item + " from " + Getfrom.Name
 						);
                         return;
                     }
@@ -40,12 +40,12 @@ namespace Model
             else
             {
 				Console.WriteLine(
-					Self.Name + ": I'm too far away to get item " + Item + " from " + Getfrom.Name
+					Self + ": I'm too far away to get item " + Item + " from " + Getfrom.Name
 				);
             }
 
 			Console.WriteLine(
-				Self.Name + ": I failed to get the " + Item + " from " + Getfrom.Name
+				Self + ": I failed to get the " + Item + " from " + Getfrom.Name
 			);
 			Self.Busy = false;
 			Self.CommandList.Clear();         

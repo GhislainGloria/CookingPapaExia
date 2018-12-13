@@ -2,7 +2,6 @@
 using System.Windows.Forms;
 using System.Collections.Generic;
 using System.Drawing;
-using System.Text;
 using System.Threading.Tasks;
 using Model;
 
@@ -13,12 +12,12 @@ namespace Controller
 
 		public Size MapSize;
 		public List<AbstractActor> Actors { get; set; }
-		protected Dictionary<string, Point> CachedDictionnary;
+		protected List<Tuple<string, Point>> CachedDictionnary;
 
 		public RestaurantMap()
 		{
 			Actors = new List<AbstractActor>();
-            CachedDictionnary = new Dictionary<string, Point>();
+			CachedDictionnary = new List<Tuple<string, Point>>();
 
 			if (MessageBox.Show(
 				"Cliquez sur Oui pour la cuisine, Non pour la salle",
@@ -29,17 +28,21 @@ namespace Controller
 				MapSize = new Size(15, 15);
                 AbstractActor actor2 = null;
 
-				AbstractActor actor = ActorFactory.CreateActor("diver"); // Mobile
-				actor.Position = new Point(10, 15);
+				AbstractActor actor = ActorFactory.CreateActor("diver");
+				actor.Position = new Point(10, 11);
 				Actors.Add(actor);
 
 				actor2 = ActorFactory.CreateActor("server counter");
-				actor2.Position = new Point(15, 15);
+				actor2.Position = new Point(5, 5);
 				Actors.Add(actor2);
 
 				actor = ActorFactory.CreateActor("partyleader");
 				actor.Position = new Point(13, 13);
 				Actors.Add(actor);
+
+				actor = ActorFactory.CreateActor("partyleader");
+                actor.Position = new Point(14, 13);
+                Actors.Add(actor);
 
 				actor = ActorFactory.CreateActor("kitchenclerk");
 				actor.Position = new Point(1, 10);
@@ -47,17 +50,34 @@ namespace Controller
 
 				actor = ActorFactory.CreateActor("stock");
                 actor.Position = new Point(5, 5);
-				actor.Items.Add(IngredientFactory.CreateIngredient("carrot"));
+				for (int _ = 0; _ < 40; _++)
+				{
+					actor.Items.Add(IngredientFactory.CreateIngredient("carrot"));
+					actor.Items.Add(IngredientFactory.CreateIngredient("tomato"));
+				}
                 Actors.Add(actor);
 
 				actor = ActorFactory.CreateActor("furnace");
                 actor.Position = new Point(3, 10);
                 Actors.Add(actor);
 
+				actor = ActorFactory.CreateActor("cookingplate");
+                actor.Position = new Point(5, 10);
+                Actors.Add(actor); 
+
 				actor = ActorFactory.CreateActor("shed");
 				actor.Position = new Point(2, 2);
-				actor.Items.Add(UtensilFactory.CreateUtensil("fork"));
+				for (int _ = 0; _ < 3; _++)
+                {
+					actor.Items.Add(UtensilFactory.CreateUtensil("fork"));
+					actor.Items.Add(UtensilFactory.CreateUtensil("fork"));
+					actor.Items.Add(UtensilFactory.CreateUtensil("blender"));
+                }
 				Actors.Add(actor);
+
+				actor = ActorFactory.CreateActor("dishwasher");
+                actor.Position = new Point(3, 2);
+                Actors.Add(actor);
 
                 actor = ActorFactory.CreateActor("chef"); // Immobile
                 actor.Position = new Point(10, 10);
@@ -71,10 +91,10 @@ namespace Controller
             }
 		}
 
-		public Dictionary<string, Point> DisplayableData() {         
+		public List<Tuple<string, Point>> DisplayableData() {         
 			CachedDictionnary.Clear();
 			foreach(AbstractActor actor in Actors) {
-				CachedDictionnary.Add(actor.Name, actor.Position);
+				CachedDictionnary.Add(new Tuple<string, Point>(actor.Name, actor.Position));
 			}
 
 			return CachedDictionnary;

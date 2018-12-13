@@ -36,12 +36,6 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Drawing" />
-    <Reference Include="nunit.framework">
-      <HintPath>..\packages\NUnit.3.11.0\lib\net45\nunit.framework.dll</HintPath>
-    </Reference>
-    <Reference Include="CookingPapa.Fakes">
-      <HintPath>FakesAssemblies\CookingPapa.Fakes.dll</HintPath>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ActorFactoryTest.cs" />
