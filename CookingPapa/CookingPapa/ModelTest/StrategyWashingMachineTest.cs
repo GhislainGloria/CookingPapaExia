@@ -10,27 +10,41 @@ namespace ModelTest
 {
     class StrategyWashingMachineTest
     {
-        StrategyWashingMachine strategyWashingMachine;
-        List<AbstractActor> actors;
-        AbstractActor workingFridge;
-        List<ACarriableItem> items; 
+        readonly List<AbstractActor> actors;
+        AbstractActor washingMachine;
 
         [SetUp()]
         public void SetUp()
         {
-            strategyWashingMachine = StrategyWashingMachine.GetInstance();
-            actors = new List<AbstractActor>();
-            items = new List<ACarriableItem>();
+            
             
         }
 
         [Test()]
         public void BehaviorTest()
         {
+            washingMachine = ActorFactory.CreateActor("washingmachine");
+            ACarriableItem fork = UtensilFactory.CreateUtensil("fork");
+            ACarriableItem plate = UtensilFactory.CreateUtensil("plate");
 
-            
+            Assert.AreEqual(plate.Clean, fork.Clean);
+
+            washingMachine.Items.Add(fork);
+            washingMachine.Items.Add(plate);
+
+            StrategyWashingMachine.GetInstance().Behavior(washingMachine, actors);
+
+            foreach (ACarriableItem item in washingMachine.Items)
+            {
+                Assert.IsTrue(item.Clean);
+            }
+
+
+
 
         }
+
+
 
         [TearDown()]
         public void TearDown()

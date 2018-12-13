@@ -18,8 +18,11 @@ namespace Model
 				case "carrot":
 					return new Ingredient(ingredient, 1, 100000);
 
+				case "tomato":
+                    return new Ingredient(ingredient, 1, 100);
+
                 default:
-                    Console.WriteLine("Cet ingrédient n'existe pas");
+					Console.WriteLine("Cet ingredient n'existe pas: " + ingredient);
                     return null;
             }
         }

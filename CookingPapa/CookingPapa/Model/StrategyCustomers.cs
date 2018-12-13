@@ -18,7 +18,7 @@ namespace Model
          */
 
 
-        private static StrategyCustomers Instance = new StrategyCustomers();
+        private static readonly StrategyCustomers Instance = new StrategyCustomers();
         public static StrategyCustomers GetInstance()
         {
             return Instance;

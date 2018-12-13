@@ -17,8 +17,17 @@ namespace Model
         {
             if (Self.Target == null)
             {
-				IsCompleted = true;            
+				IsCompleted = true;
                 return;
+            }
+
+			if (Self.EvaluateDistanceTo(Self.Target) < 2)
+            {
+                // We are on point
+                Self.BusyWalking = false;
+                Self.Target = null;
+                IsCompleted = true;
+				return;
             }
 
             Self.BusyWalking = true;
@@ -38,13 +47,6 @@ namespace Model
             else if (Self.Position.Y > targetPosition.Y)
             {
                 Self.Position = new Point(Self.Position.X, Self.Position.Y - 1);
-            }
-            else
-            {
-                // We are on point
-                Self.BusyWalking = false;
-                Self.Target = null;
-                IsCompleted = true;
             }
         }
     }
