@@ -20,21 +20,29 @@ namespace Model
             GroupActor Client = null;
             Table closestTable = null;
             AbstractActor Headwaiter = null;
-            foreach (AbstractActor group in all.Where(n => n.Name == "clientgroup" && n.Target == null))
+            for (int i = all.Count - 1; i >= 0; i--)
             {
-                Client = (GroupActor)group;
-                break;
-            }
-            foreach (AbstractActor headwaiter in all.Where(n => n.Name == "headwaiter" && n.Target == null))
-            {
-                Headwaiter = headwaiter;
-                break;
-            }
-            foreach (AbstractActor table in all.Where(n => n.Name == "table" && ((Table)n).Grp != null))
-            {
-                if(((Table)table).Place > Client.Clients.Count && (closestTable == null || ((Table)table).Place < closestTable.Place))
+                if (all[i].Name == "clientgroup" && all[i].Target == null)
                 {
-                    closestTable = ((Table)table);
+                    Client = (GroupActor)all[i];
+                    break;
+                }
+            }
+            for (int i = all.Count - 1; i >= 0; i--)
+            {
+                if (all[i].Name == "headwaiter" && all[i].Target == null)
+                {
+                    Headwaiter = (GroupActor)all[i];
+                }
+            }
+            for (int i = all.Count - 1; i >= 0; i--)
+            {
+                if (all[i].Name == "table" && ((Table)all[i]).Grp == null)
+                {
+                    if (((Table)all[i]).Place > Client.Clients.Count && (closestTable == null || ((Table)all[i]).Place < closestTable.Place))
+                    {
+                        closestTable = ((Table)all[i]);
+                    }
                 }
             }
             if (closestTable != null && Client != null && Headwaiter != null)

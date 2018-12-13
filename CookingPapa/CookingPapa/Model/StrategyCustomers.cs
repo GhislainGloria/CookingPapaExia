@@ -15,6 +15,7 @@ namespace Model
          * Stack[2] = int type of client
          * Stack[3] = GroupActor
          * Stack[4] = PauseTime
+         * Stack[5] = actual waiting time for bread (const)
          */
 
 
@@ -30,14 +31,14 @@ namespace Model
             if (((bool)self.Stack[0]))
             {
                 Random random = new Random();
-                int randomNumber = random.Next(1, 100);
 
-                if (((int)self.Stack[1]) > randomNumber)
+                if (((int)self.Stack[1]/10) > (int)self.Stack[5])
                 {
                     self.TriggerEvent("water and bread", self);
                     foreach (AbstractActor client in ((GroupActor)self.Stack[3]).Clients)
                     {
                         client.Stack[1] = 0;
+                        client.Stack[5] = random.Next(1,100);
                     }
                 }
                 else

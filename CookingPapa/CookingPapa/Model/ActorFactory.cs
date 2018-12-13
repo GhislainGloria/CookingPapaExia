@@ -14,10 +14,12 @@ namespace Model
         {
 			Actor actor = new Actor();
 			ActorSocket counter = null;
+            GroupActor groupActor = new GroupActor();
             Random random = new Random();
             actor.Name = type;
+            groupActor.Name = type;
 
-            switch(type)
+            switch (type)
             {
                 case "butler":
                     actor.Strategy = new StrategyButler();
@@ -28,19 +30,23 @@ namespace Model
                     return actor;
 
                 case "customergroup":
-                    actor.Strategy = StrategyGroupActor.GetInstance();
-                    return actor;
+                    groupActor.Strategy = StrategyGroupActor.GetInstance();
+                    return groupActor;
 
                 case "customer":
+                    actor.Strategy = StrategyCustomers.GetInstance();
                     int randomNumber = random.Next(1, 3);
                     actor.Stack.Add(null);
                     actor.Stack.Add(null);
                     actor.Stack.Add(null);
                     actor.Stack.Add(null);
                     actor.Stack.Add(null);
+                    actor.Stack.Add(null);
+                    actor.Stack[0] = false;
                     actor.Stack[1] = 0;
                     actor.Stack[2] = randomNumber;
                     actor.Stack[4] = 0;
+                    actor.Stack[5] = random.Next(1, 100);
                     return actor;
 
                 case "diver":
@@ -50,6 +56,7 @@ namespace Model
                 case "clientspawner":
                     actor.Strategy = StrategyClientSpawner.GetInstance();
                     actor.Stack.Add(0);
+                    actor.Stack.Add(random.Next(1, 100));
                     return actor;
 
                 case "furnace":

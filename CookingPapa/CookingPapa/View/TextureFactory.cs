@@ -50,11 +50,11 @@ namespace View
         public static TextureBrush CreateBrush(String BrushName)
         {
 			if (initialized == false) Init();
-            
-			if(Brushes.ContainsKey(BrushName))
-			{
-				return Brushes[BrushName];
-			}
+
+                if (BrushName != null && Brushes.ContainsKey(BrushName))
+                {
+                    return Brushes[BrushName];
+                }
 
 			return MissingBrush;
         }

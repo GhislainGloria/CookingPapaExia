@@ -12,8 +12,9 @@ namespace View
 		private const int ViewWidth = 800;
 		private const int ViewHeight = 600;
 		private Size WorldDimensions;
-		private Brush TileBrush;
-		private RestaurantMap _Model;
+        private Brush TileBrush;
+        private Brush WallBrush;
+        private RestaurantMap _Model;
 
         public PictureBox PictureBox { get; set; }
 		public RestaurantMap Model 
@@ -49,11 +50,15 @@ namespace View
         {
             Graphics g = e.Graphics;
 
-			// We draw the loor (background and majority of tiles)
-			TileBrush = TextureFactory.CreateBrush("tile");
-			for (int i = 0; i < WorldDimensions.Width; i++) {
+            // We draw the loor (background and majority of tiles)
+            TileBrush = TextureFactory.CreateBrush("tile");
+            WallBrush = TextureFactory.CreateBrush("wall");
+            for (int i = 0; i < WorldDimensions.Width; i++) {
 				for (int j = 0; j < WorldDimensions.Height; j++) {
-					g.FillRectangle(TileBrush, new Rectangle(i * TileSize, j * TileSize, TileSize, TileSize));
+                    if(j == 0 || j == 1)
+                        g.FillRectangle(WallBrush, new Rectangle(i * TileSize, j * TileSize, TileSize, TileSize));
+                    else
+                        g.FillRectangle(TileBrush, new Rectangle(i * TileSize, j * TileSize, TileSize, TileSize));
 				}
 			}
 
