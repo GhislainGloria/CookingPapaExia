@@ -26,7 +26,7 @@ namespace Model
             Random random = new Random();
             int randomNumber = random.Next(1, 100);
 
-            if (((int)self.Stack[0]) > randomNumber)
+            if ((int)self.Stack[0] > randomNumber)
             {
                 AbstractActor newGroup = ActorFactory.CreateActor("customergroup");
                 all.Add(newGroup);

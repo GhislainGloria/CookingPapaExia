@@ -10,8 +10,7 @@ namespace ModelTest
 {
     class StrategyWashingMachineTest
     {
-  
-        List<AbstractActor> actors;
+        readonly List<AbstractActor> actors;
         AbstractActor washingMachine;
 
         [SetUp()]

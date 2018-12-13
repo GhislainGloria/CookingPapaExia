@@ -9,12 +9,12 @@ namespace ControllerTest
 
         private readonly TimeManager timemanager = new TimeManager();
         
-		private void fail()
+		private void Fail()
 		{
 			Assert.Fail("Called at wrong moment");
 		}
 
-		private void success()
+		private void Success()
 		{
 			//Assert.Pass("Test passed");
 		}
@@ -22,19 +22,19 @@ namespace ControllerTest
         [Test()]
         public void TestAll()
         {
-			timemanager.NextMinute += fail;
+			timemanager.NextMinute += Fail;
 
 			for (int i = 0; i < 59; i++)
 			{
 				timemanager.Forward();
 			}
 
-			timemanager.NextMinute -= fail;         
-			timemanager.NextMinute += success;
+			timemanager.NextMinute -= Fail;         
+			timemanager.NextMinute += Success;
 
 			timemanager.Forward(); // 60 seconds passed
 
-			timemanager.NextMinute -= success;         
+			timemanager.NextMinute -= Success;         
         }            
     }
 }

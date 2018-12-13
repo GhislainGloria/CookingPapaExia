@@ -18,7 +18,7 @@ namespace Model
         private static void InitializeStockModel()
         {
 			try {
-				connection = new OdbcConnection(getDatabaseString());            
+				connection = new OdbcConnection(GetDatabaseString());            
 			} catch (Exception e) {
 				Console.WriteLine("Impossible de se connecter a la BDD!");
 				Console.WriteLine(e);
@@ -52,7 +52,7 @@ namespace Model
             connection.Close();
         }
 
-        public static void deleteFromStock(Ingredient ingredient)
+        public static void DeleteFromStock(Ingredient ingredient)
         {
             if (listIngredients == null)
             {
@@ -97,7 +97,7 @@ namespace Model
 
         }
 
-        public static void addToStock(Ingredient ingredient)
+        public static void AddToStock(Ingredient ingredient)
         {
 
             if (listIngredients == null)
@@ -144,15 +144,15 @@ namespace Model
 
         }
 
-        public static void addToStock(List<Ingredient> ingredients)
+        public static void AddToStock(List<Ingredient> ingredients)
         {
 			foreach(Ingredient i in ingredients) {
-				addToStock(i);
+				AddToStock(i);
 			}
         }
 
 
-        public static string getDatabaseString()
+        public static string GetDatabaseString()
         {
             return File.ReadAllText(Directory.GetCurrentDirectory() + "/../../../../resources/config/database.conf");
         }

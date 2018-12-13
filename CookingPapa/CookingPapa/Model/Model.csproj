@@ -79,11 +79,11 @@
     <Compile Include="CommandSetTarget.cs" />
     <Compile Include="Actor.cs" />
     <Compile Include="ActorSocket.cs" />
-    <Compile Include="MyEentArgs.cs" />
     <Compile Include="CommandGetItemsWhere.cs" />
     <Compile Include="CommandGiveItemsWhere.cs" />
     <Compile Include="CommandCustomActorMod.cs" />
     <Compile Include="CommandSetAvailable.cs" />
+    <Compile Include="MyEventArgs.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System.Drawing" />

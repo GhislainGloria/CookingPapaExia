@@ -20,7 +20,7 @@ namespace Controller
 
         public static Universe GetInstance()
         {
-			return _univers;          
+			return _univers;
         }
 
         public void NextTick()

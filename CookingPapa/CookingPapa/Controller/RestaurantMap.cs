@@ -90,8 +90,17 @@ namespace Controller
             }
             else
             {
-				// Load the room map
-				MapSize = new Size(40, 15);
+                // Load the room map
+                MapSize = new Size(30, 15);
+
+                AbstractActor actor = ActorFactory.CreateActor("clientspawner");
+                actor.Position = new Point(10, 11);
+                Actors.Add(actor);
+
+                actor = ActorFactory.CreateActor("receptionnist");
+                actor.Position = new Point(5, 11);
+                Actors.Add(actor);
+
             }
 		}
 
