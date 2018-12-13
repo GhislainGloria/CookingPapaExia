@@ -9,7 +9,7 @@ namespace Model
     public class StrategyReceptionnist : Strategy
     {
 
-        private static StrategyReceptionnist Instance = new StrategyReceptionnist();
+        private static readonly StrategyReceptionnist Instance = new StrategyReceptionnist();
         public static StrategyReceptionnist GetInstance()
         {
             return Instance;

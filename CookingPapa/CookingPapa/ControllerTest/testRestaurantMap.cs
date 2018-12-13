@@ -24,7 +24,7 @@ namespace ControllerTest
 
 
         [Test()]
-        public void testrange()
+        public void Testrange()
         {
             /*Actors = new List<AbstractActor>();
             ActorMobile testActor = new ActorMobile();

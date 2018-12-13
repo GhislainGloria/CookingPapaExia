@@ -9,7 +9,7 @@ namespace Model
     public class StrategyStock : Strategy
     {
 
-        private static StrategyStock Instance = new StrategyStock();
+        private static readonly StrategyStock Instance = new StrategyStock();
         public static StrategyStock GetInstance()
         {
             return Instance;
