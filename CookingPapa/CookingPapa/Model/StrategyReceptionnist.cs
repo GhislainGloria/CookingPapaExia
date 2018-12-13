@@ -37,15 +37,22 @@ namespace Model
                     closestTable = ((Table)table);
                 }
             }
-            if(closestTable != null && Client != null && Headwaiter != null)
+            if (closestTable != null && Client != null && Headwaiter != null)
             {
                 closestTable.setGroupActor(Client);
                 Headwaiter.Target = Client;
                 Headwaiter.CommandList.Add(new CommandMove(Headwaiter));
                 Headwaiter.CommandList.Add(new CommandSetTarget(Client, closestTable));
                 Headwaiter.CommandList.Add(new CommandSetTarget(Headwaiter, closestTable));
+                Headwaiter.CommandList.Add(new CommandCustomActorMod(
+                    Client, 
+                    (c) => {
+                        c.CommandList.Add(new CommandMove(c));
+                        return true;
+                    })
+                );
                 Headwaiter.CommandList.Add(new CommandMove(Headwaiter));
-                Client.CommandList.Add(new CommandMove(Client));
+
             }
         }
 
