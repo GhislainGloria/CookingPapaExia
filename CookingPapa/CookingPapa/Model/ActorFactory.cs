@@ -79,8 +79,8 @@ namespace Model
                     actor.Strategy = StrategyStock.GetInstance();
                     return actor;
 
-                case "headwaiter":
-					actor.Strategy = StrategyHeadWaiter.GetInstance();
+                case "receptionnist":
+					actor.Strategy = StrategyReceptionnist.GetInstance();
                     return actor;
 
                 case "workingfridge":
