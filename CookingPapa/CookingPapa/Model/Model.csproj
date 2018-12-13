@@ -65,7 +65,7 @@
     <Compile Include="AbstractActor.cs" />
     <Compile Include="StrategyDishwasher.cs" />
     <Compile Include="StrategyWashingmachine.cs" />
-    <Compile Include="StrategyServerCounter.cs" />
+    <Compile Include="StrategyCounterServer.cs" />
     <Compile Include="DishModel.cs" />
     <Compile Include="DishModelList.cs" />
     <Compile Include="StrategyIdle.cs" />
@@ -84,6 +84,7 @@
     <Compile Include="CommandCustomActorMod.cs" />
     <Compile Include="CommandSetAvailable.cs" />
     <Compile Include="MyEventArgs.cs" />
+    <Compile Include="StrategyCounterClient.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System.Drawing" />

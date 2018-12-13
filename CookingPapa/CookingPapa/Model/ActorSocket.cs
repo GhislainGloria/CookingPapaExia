@@ -13,6 +13,9 @@ namespace Model
 		// https://docs.microsoft.com/fr-fr/dotnet/framework/network-programming/asynchronous-client-socket-example
 		protected Socket socket;
 		public static ManualResetEvent allDone = new ManualResetEvent(false);
+		private static ManualResetEvent connectDone = new ManualResetEvent(false);
+		private static ManualResetEvent sendDone = new ManualResetEvent(false);
+		private static ManualResetEvent receiveDone = new ManualResetEvent(false); 
 
 		public ActorSocket(string ClientOrServer)
         {
@@ -42,7 +45,7 @@ namespace Model
                         // Set the event to nonsignaled state.  
                         allDone.Reset();
 
-                        // Start an asynchronous socket to listen for connections.  
+                        // Start an asynchronous socket to listen for connections.
 						Console.WriteLine(this + " server: Waiting for a connection...");
                         listener.BeginAccept(
                             new AsyncCallback(AcceptCallback),
@@ -58,7 +61,40 @@ namespace Model
                     Console.WriteLine(e.ToString());
                 }
 			}
+			else
+			{
+				IPEndPoint remoteEP = new IPEndPoint(ipAddress, 11000);
+
+				// Create a TCP/IP socket.  
+                Socket client = new Socket(ipAddress.AddressFamily,
+                    SocketType.Stream, ProtocolType.Tcp);
+
+                // Connect to the remote endpoint.  
+                client.BeginConnect(remoteEP, new AsyncCallback(ConnectCallback), client);
+                connectDone.WaitOne();
+
+			}
         }
+
+		private static void ConnectCallback(IAsyncResult ar) {  
+            try {  
+                // Retrieve the socket from the state object.  
+                Socket client = (Socket) ar.AsyncState;  
+      
+                // Complete the connection.  
+                client.EndConnect(ar);  
+      
+                Console.WriteLine(
+					"Socket connected to {0}",  
+				     client.RemoteEndPoint
+				);  
+      
+                // Signal that the connection has been made.  
+                connectDone.Set();  
+            } catch (Exception e) {  
+    			Console.WriteLine(e);  
+            }  
+        } 
 
 		public static void AcceptCallback(IAsyncResult ar) {  
             // Signal the main thread to continue.  

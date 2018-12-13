@@ -106,7 +106,7 @@ namespace Model
 
 				case "client counter":
 					counter = new ActorSocket("client");
-                    // TODO: Set strat
+					counter.Strategy = StrategyServerCounter.GetInstance();
                     return counter;
 
 				case "server counter":

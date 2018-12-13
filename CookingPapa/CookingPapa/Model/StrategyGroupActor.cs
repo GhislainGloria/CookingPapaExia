@@ -7,20 +7,22 @@ using System.Threading.Tasks;
 namespace Model
 {
     class StrategyGroupActor : Strategy
-    {
-
+    {      
         private static readonly StrategyGroupActor Instance = new StrategyGroupActor();
         public static StrategyGroupActor GetInstance()
         {
             return Instance;
         }
-        private StrategyGroupActor() { }
-        public override void Behavior(AbstractActor self, List<AbstractActor> all)
+        
+		private StrategyGroupActor() { }
+        
+		public override void Behavior(AbstractActor self, List<AbstractActor> all)
         {
-            foreach(AbstractActor client in ((GroupActor)self).Clients)
+			foreach(Actor client in ((GroupActor)self).Clients)
             {
                 client.Strategy.Behavior(client, all);
             }
+
             if (self.CommandList.Count > 0)
             {
                 if (self.CommandList[0].IsCompleted)

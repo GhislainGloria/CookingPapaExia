@@ -17,17 +17,24 @@ namespace View
 		{
 			Brushes = new Dictionary<string, TextureBrush>();
 
-			DirectoryInfo d = new DirectoryInfo(Directory.GetCurrentDirectory() + "/../../../../resources/images/");//Assuming Test is your Folder
-            FileInfo[] Files = d.GetFiles("*.jpg").Union(d.GetFiles("*.png")).ToArray(); //Getting Text files
+			try {
+				DirectoryInfo d = new DirectoryInfo(Directory.GetCurrentDirectory() + "/../../../../resources/images/");
+                FileInfo[] Files = d.GetFiles("*.jpg").Union(d.GetFiles("*.png")).ToArray();
 
-            string tmp = "";
-			foreach (FileInfo file in Files)
+                string tmp = "";
+                foreach (FileInfo file in Files)
+                {
+                    // Remove the .jpg at the end
+                    tmp = file.Name.Substring(0, file.Name.Length - 4);
+                    Image txture = new Bitmap(Image.FromFile(file.FullName), TileDimension, TileDimension);
+                    TextureBrush brush = new TextureBrush(txture);
+                    Brushes.Add(tmp, brush);
+                }	
+			}
+			catch (Exception e)
 			{
-				// Remove the .jpg at the end
-				tmp = file.Name.Substring(0, file.Name.Length - 4);
-				Image txture = new Bitmap(Image.FromFile(file.FullName), TileDimension, TileDimension);
-				TextureBrush brush = new TextureBrush(txture);
-				Brushes.Add(tmp, brush);            
+				Console.WriteLine("Could not find the resources folder");
+				Console.WriteLine(e.Message);
 			}
 
             // Initialize missing texture brush 

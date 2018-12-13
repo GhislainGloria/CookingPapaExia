@@ -22,10 +22,7 @@ namespace Model
 
         public override void ReactToEvent(AbstractActor self, MyEventArgs args)
         {
-            switch (args.EventName)
-            {
-                
-            }
+
         }
     }
 }

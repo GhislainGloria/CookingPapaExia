@@ -97,6 +97,10 @@ namespace Controller
                 actor.Position = new Point(10, 11);
                 Actors.Add(actor);
 
+				actor = ActorFactory.CreateActor("client counter");
+                actor.Position = new Point(10, 14);
+                Actors.Add(actor);
+
                 actor = ActorFactory.CreateActor("receptionnist");
                 actor.Position = new Point(5, 11);
                 Actors.Add(actor);
