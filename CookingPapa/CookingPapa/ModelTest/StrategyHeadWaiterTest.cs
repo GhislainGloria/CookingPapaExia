@@ -20,6 +20,7 @@ namespace ModelTest
         Utensil card;
         Order order;
         AbstractActor counter;
+        AbstractActor idle;
         
         GroupActor groupActor;
 
@@ -39,6 +40,7 @@ namespace ModelTest
             groupActor.Clients.Add((Actor)ActorFactory.CreateActor("customers"));
             card = UtensilFactory.CreateUtensil("card");
             counter = ActorFactory.CreateActor("counter");
+            idle = ActorFactory.CreateActor("idle");
 
 
         }
@@ -98,7 +100,15 @@ namespace ModelTest
 
             }
             Assert.IsTrue(headWaiter.EvaluateDistanceTo(groupActor) == (0 | 1 | -1));
+            if(headWaiter.CommandList == null)
+            {
+                while (headWaiter.EvaluateDistanceTo(idle) != (0 | 1 | -1))
+                {
+                    strategyHeadWaiter.Behavior(headWaiter, actors);
 
+                }
+                Assert.IsTrue(headWaiter.EvaluateDistanceTo(idle) == (0 | 1 | -1));
+            }
         }
 
 

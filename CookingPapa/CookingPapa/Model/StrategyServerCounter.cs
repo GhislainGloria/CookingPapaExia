@@ -15,9 +15,11 @@ namespace Model
 			if(random.Next(0, 2) == 1)
 			{
 				Table table = new Table(10, 1);
-				List<DishModel> dish = new List<DishModel>();
-				dish.Add(DishModelList.GetAvailableDishes()[random.Next(0, DishModelList.GetAvailableDishes().Count)]);
-				Order order = new Order(table, dish);
+                List<DishModel> dish = new List<DishModel>
+                {
+                    DishModelList.GetAvailableDishes()[random.Next(0, DishModelList.GetAvailableDishes().Count)]
+                };
+                Order order = new Order(table, dish);
                 self.TriggerEvent("order received", order);
 			}
 		}

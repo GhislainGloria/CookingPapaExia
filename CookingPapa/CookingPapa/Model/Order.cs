@@ -9,9 +9,11 @@ namespace Model
 		public List<DishModel> Recipes { get; set; }
 		public List<Dish> DishInstances { get; set; }
 		private int CompletedDishes = 0;
+        
 
 
-        public Order(string name, int inventorySize, Table table, List<DishModel> dishModels) : base(name, inventorySize)
+
+        public Order(Table table, List<DishModel> dishModels) : base("commande", 1)
         {
             Table = table;
             Recipes = dishModels;
