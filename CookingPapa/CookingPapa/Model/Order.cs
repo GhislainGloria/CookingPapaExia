@@ -3,16 +3,18 @@ using System.Collections.Generic;
 
 namespace Model
 {
-    public class Order
+    public class Order : ACarriableItem
     {
 		public Table Table { get; private set; }
 		public List<DishModel> Recipes { get; set; }
 		public List<Dish> DishInstances { get; set; }
 		private int CompletedDishes = 0;
-        
-		public Order(Table table, List<DishModel> dishModels)
-		{
-			Recipes = dishModels;
+
+
+        public Order(string name, int inventorySize, Table table, List<DishModel> dishModels) : base(name, inventorySize)
+        {
+            Table = table;
+            Recipes = dishModels;
 			DishInstances = new List<Dish>();
 
 			foreach (DishModel dm in Recipes)
@@ -21,7 +23,7 @@ namespace Model
 			}
 		}
 
-		public void MarkDishCompleted()
+        public void MarkDishCompleted()
 		{
 			CompletedDishes++;
 			if(CompletedDishes >= Recipes.Count)

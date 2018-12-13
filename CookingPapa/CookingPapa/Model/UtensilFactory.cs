@@ -81,10 +81,10 @@ namespace Model
                 case "coffee plate":
                     return new Utensil(utensil, 2);
 
-                case "cloth napkins":
+                case "cloth napkin":
                     return new Utensil(utensil, 1);
 
-                case "tablecloths":
+                case "tablecloth":
                     return new Utensil(utensil, 4);
 
                 default:

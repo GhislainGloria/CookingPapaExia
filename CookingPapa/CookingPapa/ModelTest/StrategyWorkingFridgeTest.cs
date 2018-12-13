@@ -26,28 +26,7 @@ namespace ModelTest
         public void BehaviorTest()
         {
 
-            AbstractActor workingFridge = ActorFactory.CreateActor("workingfridge");
-            strategyWorkingFridge = StrategyWorkingFridge.GetInstance();
-            List<AbstractActor> actors = new List<AbstractActor>();
-            ingredient = new Ingredient("beef", 2, 5);
-
-            strategyWorkingFridge.Behavior(workingFridge, actors);
-                 if (workingFridge.Items.Contains(ingredient))
-                     {
-                         Assert.IsTrue(workingFridge.Busy);
-                     }
-                     if (workingFridge.Busy == true)
-                     {
-                         Assert.AreSame(workingFridge.Items, ingredient);
-                     }
-                     if (workingFridge.Stack.Count > 0)
-                     {
-                         Assert.IsTrue(workingFridge.Busy);
-                     }
-                     if (workingFridge.Stack.Count == 0)
-                     {
-                         Assert.IsFalse(workingFridge.Busy);
-                     }
+            
              
         }
 

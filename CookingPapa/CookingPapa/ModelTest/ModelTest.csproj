@@ -41,6 +41,7 @@
   <ItemGroup>
     <Compile Include="ActorFactoryTest.cs" />
     <Compile Include="ActorTest.cs" />
+    <Compile Include="StrategyHeadWaiterTest.cs" />
     <Compile Include="StockDAOTest.cs" />
     <Compile Include="StrategyDishwasherTest.cs" />
     <Compile Include="StrategyWashingMachineTest.cs" />
