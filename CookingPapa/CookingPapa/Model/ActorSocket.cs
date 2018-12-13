@@ -40,21 +40,18 @@ namespace Model
                     listener.Bind(localEndPoint);
                     listener.Listen(1);
 
-                    while (true)
-                    {
-                        // Set the event to nonsignaled state.  
-                        allDone.Reset();
+                    // Set the event to nonsignaled state.  
+                    allDone.Reset();
 
-                        // Start an asynchronous socket to listen for connections.
-						Console.WriteLine(this + " server: Waiting for a connection...");
-                        listener.BeginAccept(
-                            new AsyncCallback(AcceptCallback),
-                            listener);
+                    // Start an asynchronous socket to listen for connections.
+					Console.WriteLine(this + " server: Waiting for a connection...");
+                    listener.BeginAccept(
+                        new AsyncCallback(AcceptCallback),
+                        listener);
 
-                        // Wait until a connection is made before continuing.  
-                        allDone.WaitOne();
-                    }
-
+                    // Wait until a connection is made before continuing.  
+                    allDone.WaitOne();
+               
                 }
                 catch (Exception e)
                 {
@@ -66,15 +63,20 @@ namespace Model
 				IPEndPoint remoteEP = new IPEndPoint(ipAddress, 11000);
 
 				// Create a TCP/IP socket.  
-                Socket client = new Socket(ipAddress.AddressFamily,
+				socket = new Socket(ipAddress.AddressFamily,
                     SocketType.Stream, ProtocolType.Tcp);
 
                 // Connect to the remote endpoint.  
-                client.BeginConnect(remoteEP, new AsyncCallback(ConnectCallback), client);
+				socket.BeginConnect(remoteEP, new AsyncCallback(ConnectCallback), socket);
                 connectDone.WaitOne();
 
 			}
         }
+
+		public void SendToServer(string s)
+		{
+			Send(socket, s);
+		}
 
 		private static void ConnectCallback(IAsyncResult ar) {  
             try {  
@@ -133,21 +135,45 @@ namespace Model
                 // more data.  
                 content = state.sb.ToString();
                 if (content.IndexOf("<EOF>") > -1)
-                {
+				{
                     // All the data has been read from the   
                     // client. Display it on the console.  
-                    Console.WriteLine("Read {0} bytes from socket. \n Data : {1}",
+                    Console.WriteLine("Read {0} bytes from socket. \nData : {1}",
                         content.Length, content);
+
+					state.sb.Clear();
                     // Echo the data back to the client.  
                     //Send(handler, content);
                 }
-                else
-                {
-                    // Not all data received. Get more.  
-                    handler.BeginReceive(state.buffer, 0, StateObject.BufferSize, 0,
-                    new AsyncCallback(ReadCallback), state);
-                }
+
+				handler.BeginReceive(state.buffer, 0, StateObject.BufferSize, 0, new AsyncCallback(ReadCallback), state);
+                
             }
+        }
+
+		protected static void Send(Socket client, String data) {  
+            // Convert the string data to byte data using ASCII encoding.  
+            byte[] byteData = Encoding.ASCII.GetBytes(data);  
+
+            // Begin sending the data to the remote device.  
+            client.BeginSend(byteData, 0, byteData.Length, 0,  
+                new AsyncCallback(SendCallback), client);  
+        }
+
+		protected static void SendCallback(IAsyncResult ar) {  
+            try {  
+                // Retrieve the socket from the state object.  
+                Socket client = (Socket)ar.AsyncState;  
+      
+                // Complete sending the data to the remote device.  
+                int bytesSent = client.EndSend(ar);  
+                Console.WriteLine("Sent {0} bytes to server.", bytesSent);  
+      
+                // Signal that all bytes have been sent.  
+                sendDone.Set();
+            } catch (Exception e) {  
+                Console.WriteLine(e.ToString());  
+            }  
         }
     }
 

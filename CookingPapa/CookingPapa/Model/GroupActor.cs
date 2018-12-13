@@ -10,7 +10,7 @@ namespace Model
     {
 		private List<Actor> _clients = new List<Actor>();
 
-        public List<Actor> Clients { get => _clients; set => _clients = value; }
+        public List<Actor> Clients { get; set; }
 
         public override void CallStrategy()
         {

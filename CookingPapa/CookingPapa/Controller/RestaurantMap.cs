@@ -93,11 +93,11 @@ namespace Controller
                 // Load the room map
                 MapSize = new Size(30, 15);
 
-                AbstractActor actor = ActorFactory.CreateActor("clientspawner");
-                actor.Position = new Point(10, 11);
-                Actors.Add(actor);
+                //AbstractActor actor = ActorFactory.CreateActor("clientspawner");
+                //actor.Position = new Point(10, 11);
+                //Actors.Add(actor);
 
-				actor = ActorFactory.CreateActor("client counter");
+				AbstractActor actor = ActorFactory.CreateActor("client counter");
                 actor.Position = new Point(10, 14);
                 Actors.Add(actor);
 
