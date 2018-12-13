@@ -16,7 +16,8 @@ namespace Model
             Random random = new Random();
             if (random.Next(0, 2) == 1)
             {
-				castedSelf.SendToServer("Hello<EOF>");
+				//castedSelf.SendToServer("utensil:fork:dirty<EOF>");
+				castedSelf.SendToServer("order:1:1:Generic recipe<EOF>");
             }
         }
 
