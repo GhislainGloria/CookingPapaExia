@@ -82,6 +82,7 @@
     <Compile Include="CommandGetItemsWhere.cs" />
     <Compile Include="CommandGiveItemsWhere.cs" />
     <Compile Include="CommandCustomActorMod.cs" />
+    <Compile Include="CommandSetAvailable.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System.Drawing" />

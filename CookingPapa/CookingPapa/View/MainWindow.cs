@@ -18,7 +18,7 @@ namespace View
             TimeSlider = new NumericUpDown
             {
                 Maximum = 100,
-                Minimum = 1
+                Minimum = 0
             };
 
 			ViewWidget.Model = model.Map;

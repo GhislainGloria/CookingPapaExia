@@ -48,6 +48,10 @@ namespace Controller
 				actor.Position = new Point(1, 10);
 				Actors.Add(actor);
 
+				actor = ActorFactory.CreateActor("kitchenclerk");
+                actor.Position = new Point(1, 11);
+                Actors.Add(actor);
+
 				actor = ActorFactory.CreateActor("stock");
                 actor.Position = new Point(5, 5);
 				for (int _ = 0; _ < 40; _++)

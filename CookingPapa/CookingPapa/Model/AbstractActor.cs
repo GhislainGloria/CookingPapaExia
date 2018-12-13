@@ -124,7 +124,7 @@ namespace Model
 
 		public AbstractActor FindNearestCarriableItem(string itemName, List<AbstractActor> allActors)      
 		{
-			foreach(AbstractActor a in allActors.ToList())
+			foreach(AbstractActor a in allActors.Where(a => a.AcceptItemExchange).ToList())
 			{
 				foreach (ACarriableItem i in a.Items.ToList())
 				{
