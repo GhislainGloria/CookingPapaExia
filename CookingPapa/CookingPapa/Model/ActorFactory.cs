@@ -33,6 +33,11 @@ namespace Model
 
                 case "customer":
                     int randomNumber = random.Next(1, 3);
+                    actor.Stack.Add(null);
+                    actor.Stack.Add(null);
+                    actor.Stack.Add(null);
+                    actor.Stack.Add(null);
+                    actor.Stack.Add(null);
                     actor.Stack[1] = 0;
                     actor.Stack[2] = randomNumber;
                     actor.Stack[4] = 0;
@@ -44,7 +49,7 @@ namespace Model
 
                 case "clientspawner":
                     actor.Strategy = StrategyClientSpawner.GetInstance();
-                    actor.Stack[0] = 0;
+                    actor.Stack.Add(0);
                     return actor;
 
                 case "furnace":
@@ -57,10 +62,14 @@ namespace Model
 
                 case "washingmachine":
                     actor.Strategy = StrategyWashingMachine.GetInstance();
-                    return actor;                                 
+                    return actor;
 
                 case "waiter":
-					actor.Strategy = new StrategyWaiter();
+                    actor.Strategy = new StrategyWaiter();
+                    return actor;
+
+                case "headwaiter":
+                    actor.Strategy = new StrategyHeadWaiter();
                     return actor;
 
                 case "kitchenclerk":

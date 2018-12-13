@@ -33,7 +33,7 @@ namespace Controller
 				Actors.Add(actor);
 
 				actor2 = ActorFactory.CreateActor("server counter");
-				actor2.Position = new Point(5, 5);
+				actor2.Position = new Point(14, 5);
 				Actors.Add(actor2);
 
 				actor = ActorFactory.CreateActor("partyleader");
@@ -90,8 +90,17 @@ namespace Controller
             }
             else
             {
-				// Load the room map
-				MapSize = new Size(40, 15);
+                // Load the room map
+                MapSize = new Size(30, 15);
+
+                AbstractActor actor = ActorFactory.CreateActor("clientspawner");
+                actor.Position = new Point(10, 11);
+                Actors.Add(actor);
+
+                actor = ActorFactory.CreateActor("receptionnist");
+                actor.Position = new Point(5, 11);
+                Actors.Add(actor);
+
             }
 		}
 

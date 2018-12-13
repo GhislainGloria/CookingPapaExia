@@ -7,14 +7,14 @@ using System.Threading.Tasks;
 
 namespace Model
 {
-    class StrategyHeadWaiter : Strategy
+    public class StrategyHeadWaiter : Strategy
     {
         private static readonly StrategyHeadWaiter Instance = new StrategyHeadWaiter();
         public static StrategyHeadWaiter GetInstance()
         {
             return Instance;
         }
-        private StrategyHeadWaiter() { }
+        public StrategyHeadWaiter() { }
 
         public override void Behavior(AbstractActor self, List<AbstractActor> all)
         {

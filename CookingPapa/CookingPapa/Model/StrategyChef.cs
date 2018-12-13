@@ -16,46 +16,49 @@ namespace Model
 
 		public override void Behavior(AbstractActor self, List<AbstractActor> all)
         {
-                     
-			if (self.Stack.Count > 0) {
-				Console.WriteLine(self + ": I must complete {0} more orders.", self.Stack.Count);
-				List<AbstractActor> partyLeaders = all.Where(a => a.Name == "partyleader").ToList();
+            lock (self.Stack)
+            {
+                if (self.Stack.Count > 0)
+                {
+                    Console.WriteLine(self + ": I must complete {0} more orders.", self.Stack.Count);
+                    List<AbstractActor> partyLeaders = all.Where(a => a.Name == "partyleader").ToList();
 
-				foreach(Order o in self.Stack.ToList())
-				{
-					if (o.Completed())
+                    foreach (Order o in self.Stack.ToList())
                     {
-						Console.WriteLine(self + ": I completed an order");
-                        // TODO Fire an event or something
-						self.Stack.Remove(o);
-                    }
-                    else
-                    {
-                        // We look for non-completed step, and assign it to a party leader
-                        foreach (Dish d in o.DishInstances.ToList())
+                        if (o.Completed())
                         {
-                            foreach (Step s in d.Steps.ToList())
+                            Console.WriteLine(self + ": I completed an order");
+                            // TODO Fire an event or something
+                            self.Stack.Remove(o);
+                        }
+                        else
+                        {
+                            // We look for non-completed step, and assign it to a party leader
+                            foreach (Dish d in o.DishInstances.ToList())
                             {
-                                if (!s.Prepared && !s.Assigned)
+                                foreach (Step s in d.Steps.ToList())
                                 {
-                                    foreach (AbstractActor a in partyLeaders)
+                                    if (!s.Prepared && !s.Assigned)
                                     {
-                                        if (!a.Busy)
+                                        foreach (AbstractActor a in partyLeaders)
                                         {
-                                            s.Assigned = true;
-                                            a.Stack.Add(s);
-                                            a.Busy = true;
-											Console.WriteLine(self + ": I dispatched a step to " + a);
-                                            break;
+                                            if (!a.Busy)
+                                            {
+                                                s.Assigned = true;
+                                                a.Stack.Add(s);
+                                                a.Busy = true;
+                                                Console.WriteLine(self + ": I dispatched a step to " + a);
+                                                break;
+                                            }
                                         }
                                     }
                                 }
                             }
+                            // end foreach nest
                         }
-                        // end foreach nest
                     }
-				}
-			}
+                }
+            }
         }
 
 		public override void ReactToEvent(AbstractActor self, MyEventArgs args)
