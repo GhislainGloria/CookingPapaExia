@@ -15,21 +15,25 @@ namespace Model
             return Instance;
         }
         private StrategyReceptionnist() { }
+
         public override void Behavior(AbstractActor self, List<AbstractActor> all)
 		{
             GroupActor Client = null;
             Table closestTable = null;
             AbstractActor Headwaiter = null;
+
             foreach (AbstractActor group in all.Where(n => n.Name == "clientgroup" && n.Target == null))
             {
                 Client = (GroupActor)group;
                 break;
             }
+
             foreach (AbstractActor headwaiter in all.Where(n => n.Name == "headwaiter" && n.Target == null))
             {
                 Headwaiter = headwaiter;
                 break;
             }
+
             foreach (AbstractActor table in all.Where(n => n.Name == "table" && ((Table)n).Grp != null))
             {
                 if(((Table)table).Place > Client.Clients.Count && (closestTable == null || ((Table)table).Place < closestTable.Place))
@@ -37,10 +41,13 @@ namespace Model
                     closestTable = ((Table)table);
                 }
             }
+
             if(closestTable != null && Client != null && Headwaiter != null)
             {
-                closestTable.setGroupActor(Client);
+                closestTable.SetGroupActor(Client);
                 Headwaiter.Target = Client;
+                Headwaiter.Stack.Add(Client);
+                Headwaiter.Stack.Add(closestTable);
                 Headwaiter.CommandList.Add(new CommandMove(Headwaiter));
                 Headwaiter.CommandList.Add(new CommandSetTarget(Client, closestTable));
                 Headwaiter.CommandList.Add(new CommandSetTarget(Headwaiter, closestTable));

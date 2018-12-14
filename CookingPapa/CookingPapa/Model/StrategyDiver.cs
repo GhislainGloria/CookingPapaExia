@@ -5,7 +5,7 @@ namespace Model
 {
     class StrategyDiver : Strategy
     {
-		private static StrategyDiver Instance = new StrategyDiver();
+		private static readonly StrategyDiver Instance = new StrategyDiver();
 		public static StrategyDiver GetInstance() { return Instance; }
 		private StrategyDiver() {}
 

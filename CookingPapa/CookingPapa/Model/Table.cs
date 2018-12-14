@@ -22,7 +22,7 @@ namespace Model
             Square = square;
         }
 
-        public void setGroupActor(GroupActor grp)
+        public void SetGroupActor(GroupActor grp)
         {
             if (Place >= grp.Clients.Count)
             {
@@ -34,7 +34,7 @@ namespace Model
             }
         }
 
-        public void removeGroupActor()
+        public void RemoveGroupActor()
         {
             Grp = null;
         }

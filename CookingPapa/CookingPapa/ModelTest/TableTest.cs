@@ -18,7 +18,7 @@ namespace ModelTest
         {
             actors.Clients.Add(new Actor());
             Table table = new Table(1,1);
-            table.setGroupActor(actors);
+            table.SetGroupActor(actors);
             Assert.AreEqual(1, table.Place, "Le nombre de clients max à la table est bon");
             
             try {

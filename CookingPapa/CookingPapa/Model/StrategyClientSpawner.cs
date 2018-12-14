@@ -13,7 +13,7 @@ namespace Model
          * Stack[0] = chance to pop GroupActor
          */
 
-        private static StrategyClientSpawner Instance = new StrategyClientSpawner();
+        private static readonly StrategyClientSpawner Instance = new StrategyClientSpawner();
         public static StrategyClientSpawner GetInstance()
         {
             return Instance;

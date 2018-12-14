@@ -20,8 +20,7 @@ namespace ModelTest
         Utensil card;
         Order order;
         AbstractActor counter;
-        AbstractActor idle;
-        
+        AbstractActor idle;  
         GroupActor groupActor;
 
 
@@ -48,13 +47,16 @@ namespace ModelTest
         [Test()]
         public void BehaviorTest()
         {
-            headWaiter.Stack.Add("ReceptionnistCall");
+            headWaiter.Target = receptionnist;
+            headWaiter.CommandList.Add(new CommandMove(headWaiter));           
             while (headWaiter.EvaluateDistanceTo(receptionnist) != (0 | 1 | -1))
             {
                 strategyHeadWaiter.Behavior(headWaiter, actors);
             }
             Assert.IsTrue(headWaiter.EvaluateDistanceTo(receptionnist) == (0 | 1 | -1));
-            headWaiter.Stack.Add("table 2");
+            headWaiter.CommandList.Add(new CommandSetTarget(groupActor, rangTables[0]));
+            headWaiter.CommandList.Add(new CommandSetTarget(headWaiter, rangTables[0]));
+            headWaiter.CommandList.Add(new CommandMove(headWaiter));
             strategyHeadWaiter.Behavior(headWaiter, actors);
             Assert.AreEqual(headWaiter.Target, rangTables[0]);
             while (headWaiter.EvaluateDistanceTo(rangTables[0]) != (0 | 1 | -1))
@@ -62,21 +64,32 @@ namespace ModelTest
                 strategyHeadWaiter.Behavior(headWaiter, actors);
             }
             Assert.IsTrue(groupActor.EvaluateDistanceTo(rangTables[0]) == (0 | 1 | -1));
-            headWaiter.Stack.Add("need card");
+            headWaiter.CommandList.Add(new CommandSetTarget(headWaiter, stock));
+            headWaiter.CommandList.Add(new CommandMove(headWaiter));
             while (headWaiter.EvaluateDistanceTo(stock) != (0 | 1 | -1))
             {
                 strategyHeadWaiter.Behavior(headWaiter, actors);
       
             }
             Assert.IsTrue(headWaiter.EvaluateDistanceTo(stock) == (0 | 1 | -1));
+            foreach(Actor client in groupActor.Clients)
+            {
+                headWaiter.CommandList.Add(new CommandGetItem(headWaiter,stock,"card"));
+            }
             strategyHeadWaiter.Behavior(headWaiter, actors);
             Assert.IsTrue(headWaiter.Items.Contains(card));
+            headWaiter.CommandList.Add(new CommandSetTarget(headWaiter, stock));
+            headWaiter.CommandList.Add(new CommandMove(headWaiter));
             while (headWaiter.EvaluateDistanceTo(groupActor) != (0 | 1 | -1))
             {
                 strategyHeadWaiter.Behavior(headWaiter, actors);
 
             }
             Assert.IsTrue(headWaiter.EvaluateDistanceTo(groupActor) == (0 | 1 | -1));
+            foreach (Actor client in groupActor.Clients)
+            {
+                headWaiter.CommandList.Add(new CommandGiveItem(headWaiter, client, "card"));
+            }
             strategyHeadWaiter.Behavior(headWaiter, actors);
             Assert.IsFalse(headWaiter.Items.Contains(card));
             for (int i = 0; i < 300; i++)
@@ -93,7 +106,8 @@ namespace ModelTest
             Assert.IsTrue(headWaiter.EvaluateDistanceTo(counter) == (0 | 1 | -1));
             strategyHeadWaiter.Behavior(headWaiter, actors);
             Assert.IsFalse(headWaiter.Items.Contains(order));
-            headWaiter.Stack.Add("ClientCall");
+            headWaiter.CommandList.Add(new CommandSetTarget(headWaiter, groupActor));
+            headWaiter.CommandList.Add(new CommandMove(headWaiter));
             while (headWaiter.EvaluateDistanceTo(groupActor) != (0 | 1 | -1))
             {
                 strategyHeadWaiter.Behavior(headWaiter, actors);

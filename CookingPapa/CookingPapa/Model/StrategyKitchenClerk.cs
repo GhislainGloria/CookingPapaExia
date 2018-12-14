@@ -8,7 +8,7 @@ namespace Model
 {
 	public class StrategyKitchenClerk : Strategy
 	{
-        private static StrategyKitchenClerk Instance = new StrategyKitchenClerk();
+        private static readonly StrategyKitchenClerk Instance = new StrategyKitchenClerk();
         public static StrategyKitchenClerk GetInstance()
         {
             return Instance;
