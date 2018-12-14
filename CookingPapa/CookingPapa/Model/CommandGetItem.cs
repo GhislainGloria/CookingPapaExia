@@ -31,7 +31,7 @@ namespace Model
                         Self.Items.Add(itemFrom);
 
 						Console.WriteLine(
-							Self + ": I picked up a " + Item + " from " + Getfrom.Name
+							Self + ": I picked up a " + Item + " from " + Getfrom
 						);
                         return;
                     }
@@ -40,14 +40,16 @@ namespace Model
             else
             {
 				Console.WriteLine(
-					Self + ": I'm too far away to get item " + Item + " from " + Getfrom.Name
+					Self + ": I'm too far away to get item " + Item + " from " + Getfrom
 				);
             }
 
 			Console.WriteLine(
-				Self + ": I failed to get the " + Item + " from " + Getfrom.Name
+				Self + ": I failed to get the " + Item + " from " + Getfrom + ". He most likely doesn't have it anymore."
 			);
 			Self.Busy = false;
+			Self.BusyWaiting = false;
+			Self.BusyWalking = false;
 			Self.CommandList.Clear();         
 			Self.TriggerEvent("CommandQueueFailed", Self, Item);
         }

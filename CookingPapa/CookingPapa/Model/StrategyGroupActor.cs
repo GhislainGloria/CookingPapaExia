@@ -9,7 +9,7 @@ namespace Model
     class StrategyGroupActor : Strategy
     {
 
-        private static StrategyGroupActor Instance = new StrategyGroupActor();
+        private static readonly StrategyGroupActor Instance = new StrategyGroupActor();
         public static StrategyGroupActor GetInstance()
         {
             return Instance;

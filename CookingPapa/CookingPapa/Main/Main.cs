@@ -17,10 +17,21 @@ namespace Main
 			{
 				Thread.CurrentThread.Name = "MainSimulationThread";
 				int SimulationSpeed = 1000;
-				window.TimeScaleChanged += (int NewScale) => { SimulationSpeed = 1000 / NewScale; };
+				bool block = false;
+
+				window.TimeScaleChanged += (int NewScale) => {
+					if(NewScale == 0)
+					{
+						block = true;
+						return;
+					}
+					block = false;
+					SimulationSpeed = 1000 / NewScale; 
+				};
 
 				while(true)
 				{
+					if (block) continue;
 					Thread.Sleep(SimulationSpeed);
 					universe.NextTick();
 					window.RedrawView();

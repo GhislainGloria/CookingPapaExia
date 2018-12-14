@@ -17,11 +17,19 @@ namespace Model
 
 		private bool HasEverythingNeededToCook(AbstractActor self, Step step, List<AbstractActor> all)
 		{
-			AbstractActor nearest = self.FindClosest(step.Model.Workboard, all);
-			bool hasUtensil = self.Items.Where(i => i.Name == step.Model.Utensil && i.Clean).ToList().Count > 0;
-			bool hasIngredient = self.Items.Where(i => i.Name == step.Model.Ingredient).ToList().Count > 0;
+			try
+			{            
+				AbstractActor nearest = self.FindClosest(step.Model.Workboard, all);
+				bool hasUtensil = self.Items.Where(i => i.Name == step.Model.Utensil && i.Clean).ToList().Count > 0;
+				bool hasIngredient = self.Items.Where(i => i.Name == step.Model.Ingredient).ToList().Count > 0;
 
-			return self.EvaluateDistanceTo(nearest) <= 2 && hasUtensil && hasIngredient;
+				return self.EvaluateDistanceTo(nearest) <= 2 && hasUtensil && hasIngredient;            
+			}
+			catch (Exception e)
+			{
+				Console.WriteLine(e);
+				return false;
+			}
 		}
 
 		public override void Behavior(AbstractActor self, List<AbstractActor> all)
@@ -49,27 +57,28 @@ namespace Model
                 // If this applies, then order the utensil
 				if(!(bool)self.Stack[1] && self.Items.Where(i => i.Name == step.Model.Utensil).ToList().Count == 0)
 				{
-					List<AbstractActor> kc = all.Where(a => a.Name == "kitchenclerk").ToList();
+					List<AbstractActor> kc = all.Where(a => a.Name == "kitchenclerk" && !a.Busy).ToList();
 					foreach(AbstractActor a in kc)
-					{
-						if(!a.Busy)
-						{                     
-							AbstractActor target = a.FindNearestCarriableItem(step.Model.Utensil, all);
-							if(target != null)
-							{
-								Console.WriteLine(self + ": I asked a clerk to fetch me a " + step.Model.Utensil);
+					{                  
+						AbstractActor target = a.FindNearestCarriableItem(step.Model.Utensil, all);
+						if(target != null)
+						{
+							Console.WriteLine(self + ": I asked a clerk to fetch me a " + step.Model.Utensil);
 
-								a.CommandList.Add(new CommandSetTarget(a, target));
-								a.CommandList.Add(new CommandMove(a));
-								a.CommandList.Add(new CommandGetItem(a, target, step.Model.Utensil));
-								a.CommandList.Add(new CommandSetTarget(a, self));
-								a.CommandList.Add(new CommandMove(a));
-								a.CommandList.Add(new CommandGiveItem(a, self, step.Model.Utensil));
+							a.Busy = true;
+							a.AcceptItemExchange = false;
+							a.CommandList.Add(new CommandSetTarget(a, target));
+							a.CommandList.Add(new CommandMove(a));
+							a.CommandList.Add(new CommandGetItem(a, target, step.Model.Utensil));
+							a.CommandList.Add(new CommandSetTarget(a, self));
+							a.CommandList.Add(new CommandMove(a));
+							a.CommandList.Add(new CommandGiveItem(a, self, step.Model.Utensil));
+							a.CommandList.Add(new CommandSetAvailable(a));
 
-                                // We want to know if the clerk failed
-								a.EventGeneric += self.StrategyCallback;
-								self.Stack[1] = true;
-							}
+                            // We want to know if the clerk failed
+							a.EventGeneric += self.StrategyCallback;
+							self.Stack[1] = true;
+							break;
 						}
 					}
 				}
@@ -80,27 +89,28 @@ namespace Model
                 // If this applies, then order the ingredient
 				if (!(bool)self.Stack[2] && self.Items.Where(i => i.Name == step.Model.Ingredient).ToList().Count == 0)
                 {
-                    List<AbstractActor> kc = all.Where(a => a.Name == "kitchenclerk").ToList();
+					List<AbstractActor> kc = all.Where(a => a.Name == "kitchenclerk" && !a.Busy).ToList();
                     foreach (AbstractActor a in kc)
                     {
-                        if (!a.Busy)
+						AbstractActor target = a.FindNearestCarriableItem(step.Model.Ingredient, all);
+                        if (target != null)
                         {
-							AbstractActor target = a.FindNearestCarriableItem(step.Model.Ingredient, all);
-                            if (target != null)
-                            {
-								Console.WriteLine(self + ": I asked a clerk to fetch me a " + step.Model.Ingredient);
+							Console.WriteLine(self + ": I asked a clerk to fetch me a " + step.Model.Ingredient);
 
-                                a.CommandList.Add(new CommandSetTarget(a, target));
-                                a.CommandList.Add(new CommandMove(a));
-								a.CommandList.Add(new CommandGetItem(a, target, step.Model.Ingredient));
-                                a.CommandList.Add(new CommandSetTarget(a, self));
-                                a.CommandList.Add(new CommandMove(a));
-								a.CommandList.Add(new CommandGiveItem(a, self, step.Model.Ingredient));
+							a.Busy = true;
+							a.AcceptItemExchange = false;
+                            a.CommandList.Add(new CommandSetTarget(a, target));
+                            a.CommandList.Add(new CommandMove(a));
+							a.CommandList.Add(new CommandGetItem(a, target, step.Model.Ingredient));
+                            a.CommandList.Add(new CommandSetTarget(a, self));
+                            a.CommandList.Add(new CommandMove(a));
+							a.CommandList.Add(new CommandGiveItem(a, self, step.Model.Ingredient));
+							a.CommandList.Add(new CommandSetAvailable(a));
 
-                                // We want to know if the clerk failed
-                                a.EventGeneric += self.StrategyCallback;
-								self.Stack[2] = true;
-                            }
+                            // We want to know if the clerk failed
+                            a.EventGeneric += self.StrategyCallback;
+							self.Stack[2] = true;
+							break;
                         }
                     }
                 }
@@ -143,6 +153,7 @@ namespace Model
                 // If we have everything needed to cook, then let's cook
 				if(HasEverythingNeededToCook(self, step, all))
 				{
+					self.AcceptItemExchange = false;
 					step.TimeSpentSoFar++;
 					Console.WriteLine(self + ": I've been cooking for {0} tick, {1} required", step.TimeSpentSoFar, step.Model.Duration);
                                    
@@ -166,7 +177,7 @@ namespace Model
                         {
 							if (i.Name == step.Model.Utensil)
                             {
-								((Utensil)i).Clean = false;
+								i.Clean = false;
                                 break;
                             }
                         }
@@ -179,12 +190,14 @@ namespace Model
 			else
 			{
 				// The stack is empty, no more steps to process
+				self.AcceptItemExchange = true;
 				self.Busy = false;
 			}
 
             // Whether we're busy or not, we can always ask the divers to wash our dirty utensils
 			if (!self.BusyWaiting && self.Items.Where((i => !i.Clean)).ToList().Count > 0)
 			{
+				self.AcceptItemExchange = true;
 				Console.WriteLine(self + ": I must find a diver to wash my utensils");
 				foreach (AbstractActor a in all.Where(a => a.Name == "diver" && !a.Busy))
 				{

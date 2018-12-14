@@ -35,7 +35,6 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="ActorFactory.cs" />
-    <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="ModelIngredient.cs" />
     <Compile Include="Order.cs" />
     <Compile Include="Counter.cs" />
@@ -67,7 +66,7 @@
     <Compile Include="IStrategy.cs" />
     <Compile Include="AbstractActor.cs" />
     <Compile Include="StrategyDishwasher.cs" />
-    <Compile Include="StrategyWashingMachine.cs" />
+    <Compile Include="StrategyWashingmachine.cs" />
     <Compile Include="StrategyServerCounter.cs" />
     <Compile Include="DishModel.cs" />
     <Compile Include="DishModelList.cs" />
@@ -86,11 +85,9 @@
     <Compile Include="CommandGetItemsWhere.cs" />
     <Compile Include="CommandGiveItemsWhere.cs" />
     <Compile Include="CommandCustomActorMod.cs" />
+    <Compile Include="CommandSetAvailable.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="log4net, Version=2.0.8.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
-      <HintPath>..\packages\log4net.2.0.8\lib\net45-full\log4net.dll</HintPath>
-    </Reference>
     <Reference Include="nunit.framework, Version=3.11.0.0, Culture=neutral, PublicKeyToken=2638cd05610744eb, processorArchitecture=MSIL">
       <HintPath>..\packages\NUnit.3.11.0\lib\net45\nunit.framework.dll</HintPath>
     </Reference>
