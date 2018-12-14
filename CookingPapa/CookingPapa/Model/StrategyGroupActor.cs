@@ -8,6 +8,7 @@ namespace Model
 {
     class StrategyGroupActor : Strategy
     {
+        
 
         private static readonly StrategyGroupActor Instance = new StrategyGroupActor();
         public static StrategyGroupActor GetInstance()
