@@ -52,8 +52,8 @@ namespace Model
                         }
 
                         Order order = new Order(Int32.Parse(explode[1]), dishModels);
-						// TODO: set dirty
-
+						order.Clean = !asServer;
+                        
                         self.TriggerEvent("order received", order);
                         break;
 
@@ -77,7 +77,7 @@ namespace Model
 
 			if(type.Contains("Utensil"))
 			{
-				return "utensil:" + item.Name;
+				return "utensil:" + item.Name + "<EOF>";
 			}
 
 			if (type.Contains("Order"))
@@ -90,7 +90,7 @@ namespace Model
 					ret += ":" + dm.Name;
 				}
 
-				return ret;
+				return ret + "<EOF>";
 			}
 
 			Console.WriteLine("Could not serialize item " + item?.Name);

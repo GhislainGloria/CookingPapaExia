@@ -24,8 +24,9 @@ namespace Model
             // Send over to the room the clean items
 			foreach(ACarriableItem i in self.Items.Where(ii => ii.Clean).ToList())
 			{
-				Console.WriteLine( CounterStringProcessor.Serialize(i) );
-				//castedSelf.SendToServer(CounterStringProcessor.Serialize(i));
+				//Console.WriteLine( CounterStringProcessor.Serialize(i) );
+				castedSelf.Send(CounterStringProcessor.Serialize(i));
+				self.Items.Remove(i);
 			}
 		}
 

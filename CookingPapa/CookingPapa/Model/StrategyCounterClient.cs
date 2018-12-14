@@ -24,8 +24,9 @@ namespace Model
             // Send over to the kitchen the dirty items
             foreach (ACarriableItem i in self.Items.Where(ii => !ii.Clean).ToList())
             {
-                Console.WriteLine(CounterStringProcessor.Serialize(i));
-                castedSelf.SendToServer(CounterStringProcessor.Serialize(i));
+                //Console.WriteLine(CounterStringProcessor.Serialize(i));
+                castedSelf.Send(CounterStringProcessor.Serialize(i));
+				self.Items.Remove(i);
             }
         }
 
@@ -34,9 +35,8 @@ namespace Model
 			switch (args.EventName)
             {
                 case "DataReceived":
-                    //Console.WriteLine(self + ": I received data: " + args.Arg);
-                    CounterStringProcessor.ProcessReceivedData((ActorSocket)self, (string)args.Arg, true);
-					Console.WriteLine("Client received " + (string)args.Arg);
+                    Console.WriteLine(self + ": I received data: " + args.Arg);
+                    CounterStringProcessor.ProcessReceivedData((ActorSocket)self, (string)args.Arg, false);
                     break;
             }
         }

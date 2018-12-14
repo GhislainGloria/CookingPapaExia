@@ -11,7 +11,8 @@ namespace Model
     {
 		// https://docs.microsoft.com/fr-fr/dotnet/framework/network-programming/asynchronous-server-socket-example
 		// https://docs.microsoft.com/fr-fr/dotnet/framework/network-programming/asynchronous-client-socket-example
-		protected Socket socket;
+		protected Socket socketListen;
+		protected Socket socketWrite;
 		public ManualResetEvent allDone = new ManualResetEvent(false);
 		private ManualResetEvent connectDone = new ManualResetEvent(false);
 		private ManualResetEvent sendDone = new ManualResetEvent(false);
@@ -28,54 +29,70 @@ namespace Model
 
 			if(ClientOrServer == "server")
 			{
-				IPEndPoint localEndPoint = new IPEndPoint(ipAddress, 11000);
-
-                // Create a TCP/IP socket.
-                Socket listener = new Socket(ipAddress.AddressFamily,
-                    SocketType.Stream, ProtocolType.Tcp);
-
-                // Bind the socket to the local endpoint and listen for incoming connections.  
-                try
-                {
-                    listener.Bind(localEndPoint);
-                    listener.Listen(1);
-
-                    // Set the event to nonsignaled state.  
-                    allDone.Reset();
-
-                    // Start an asynchronous socket to listen for connections.
-					Console.WriteLine(this + " server: Waiting for a connection...");
-                    listener.BeginAccept(
-                        new AsyncCallback(AcceptCallback),
-                        listener);
-
-                    // Wait until a connection is made before continuing.  
-                    allDone.WaitOne();
-               
-                }
-                catch (Exception e)
-                {
-                    Console.WriteLine(e.ToString());
-                }
+				InitListen(11000);            
+				InitWrite(11001);         
 			}
 			else
 			{
-				IPEndPoint remoteEP = new IPEndPoint(ipAddress, 11000);
-
-				// Create a TCP/IP socket.  
-				socket = new Socket(ipAddress.AddressFamily,
-                    SocketType.Stream, ProtocolType.Tcp);
-
-                // Connect to the remote endpoint.  
-				socket.BeginConnect(remoteEP, new AsyncCallback(ConnectCallback), socket);
-                connectDone.WaitOne();
-
+				InitWrite(11000);
+				InitListen(11001);
 			}
         }
 
-		public void SendToServer(string s)
+        private void InitWrite(int port)
 		{
-			Send(socket, s);
+            IPHostEntry ipHostInfo = Dns.GetHostEntry(Dns.GetHostName());
+            IPAddress ipAddress = ipHostInfo.AddressList[0];         
+
+			IPEndPoint remoteEP = new IPEndPoint(ipAddress, port);
+
+            // Create a TCP/IP socket.  
+            socketWrite = new Socket(ipAddress.AddressFamily, SocketType.Stream, ProtocolType.Tcp);
+
+            // Connect to the remote endpoint.
+            socketWrite.BeginConnect(remoteEP, new AsyncCallback(ConnectCallback), socketWrite);
+            connectDone.WaitOne();
+		}
+
+        private void InitListen(int port)
+		{
+			IPHostEntry ipHostInfo = Dns.GetHostEntry(Dns.GetHostName());
+            IPAddress ipAddress = ipHostInfo.AddressList[0];
+
+			IPEndPoint localEndPoint = new IPEndPoint(ipAddress, port);
+			IPEndPoint remoteEP = new IPEndPoint(ipAddress, port);
+
+            // Create a TCP/IP socket.
+            Socket listener = new Socket(ipAddress.AddressFamily, SocketType.Stream, ProtocolType.Tcp);
+
+            // Bind the socket to the local endpoint and listen for incoming connections.  
+            try
+            {
+                listener.Bind(localEndPoint);
+                listener.Listen(1);
+
+                // Set the event to nonsignaled state.  
+                allDone.Reset();
+
+                // Start an asynchronous socket to listen for connections.
+                Console.WriteLine(this + " server: Waiting for a connection...");
+                listener.BeginAccept(
+                    new AsyncCallback(AcceptCallback),
+                    listener);
+
+                // Wait until a connection is made before continuing.  
+                allDone.WaitOne();
+
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+            }
+		}
+
+		public void Send(string s)
+		{
+			Send(socketWrite, s);
 		}
 
 		private void ConnectCallback(IAsyncResult ar) {  
@@ -105,6 +122,8 @@ namespace Model
             // Get the socket that handles the client request.  
             Socket listener = (Socket)ar.AsyncState;
             Socket handler = listener.EndAccept(ar);
+
+			socketListen = handler;
       
             // Create the state object.  
             StateObject state = new StateObject();  
@@ -166,8 +185,8 @@ namespace Model
                 Socket client = (Socket)ar.AsyncState;  
       
                 // Complete sending the data to the remote device.  
-                int bytesSent = client.EndSend(ar);  
-                Console.WriteLine("Sent {0} bytes to server.", bytesSent);  
+                int bytesSent = client.EndSend(ar);
+                //Console.WriteLine("Sent {0} bytes to server.", bytesSent);  
       
                 // Signal that all bytes have been sent.  
                 sendDone.Set();
@@ -186,6 +205,6 @@ namespace Model
         // Receive buffer.  
         public byte[] buffer = new byte[BufferSize];  
         // Received data string.  
-        public StringBuilder sb = new StringBuilder();    
+        public StringBuilder sb = new StringBuilder();
     }  
 }

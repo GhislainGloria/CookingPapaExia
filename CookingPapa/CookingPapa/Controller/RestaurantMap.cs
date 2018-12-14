@@ -102,9 +102,17 @@ namespace Controller
 
 				actor = ActorFactory.CreateActor("client counter");
 				actor.Position = new Point(10, 14);
+
 				Utensil utensil = UtensilFactory.CreateUtensil("fork");
 				utensil.Clean = false;
-                actor.Items.Add(utensil);            
+				DishModel model = DishModelList.GetAvailableDishes()[0];
+				List<DishModel> list = new List<DishModel>();
+				list.Add(model);
+				Order order = new Order(1, list);
+				order.Clean = false;
+
+				actor.Items.Add(utensil);          
+				actor.Items.Add(order);          
                 Actors.Add(actor);
 
                 actor = ActorFactory.CreateActor("receptionnist");
