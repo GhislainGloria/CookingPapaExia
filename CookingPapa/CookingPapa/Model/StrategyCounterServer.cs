@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Collections.Generic;
 
 namespace Model
@@ -9,64 +10,6 @@ namespace Model
 		public static StrategyServerCounter GetInstance() { return Instance; }
 		protected StrategyServerCounter() { }
 
-        /**
-         * Serialization format:
-         * "utensil:name:clean"
-         * "order:tableid:nbdishes:name[:name]"
-         * 
-         * eg:
-         * "utensil:tablecloth:clean"
-         * "utensil:fork:dirty"
-         * "order:69:5:recipe 1:recipe 2"
-         */
-		private void ProcessReceivedData(ActorSocket self, string data)
-		{
-			// Remove EOF tag and split
-			string[] explode = data.Replace("<EOF>", "").Split(':');
-            
-			try
-			{
-				switch (explode[0])
-                {
-                    case "utensil":
-						Utensil utensil = UtensilFactory.CreateUtensil(explode[1]);
-						if(explode[2] == "dirty")
-						{
-							utensil.Clean = false;
-						}
-						self.Items.Add(utensil);
-						break;
-
-					case "order":
-						List<DishModel> dishModels = new List<DishModel>();
-						int numberOfDishes = Int32.Parse(explode[2]);
-
-						DishModel dishModel = null;
-						for (int i = 0; i < numberOfDishes; i++)
-						{
-							dishModel = DishModelList.GetModelByName(explode[i + 3]);
-							if(dishModel != null)
-							{
-								dishModels.Add(dishModel);
-							}
-						}
-
-						Order order = new Order(Int32.Parse(explode[1]), dishModels);
-
-						self.TriggerEvent("order received", order);
-						break;
-						
-                }
-			}
-			catch (Exception e)
-			{
-				Console.WriteLine("Deserialization failure");
-				Console.WriteLine(e);
-				return;
-			}
-
-		}
-
 		protected void Init(ActorSocket s)
 		{
 			s.EventGeneric += s.StrategyCallback;
@@ -75,8 +18,13 @@ namespace Model
 
 		public override void Behavior(AbstractActor self, List<AbstractActor> all)
 		{
-			ActorSocket castedSelf = (ActorSocket)self;         
+			ActorSocket castedSelf = (ActorSocket)self;
 			if (!castedSelf.Initialized) Init(castedSelf);
+
+			foreach(ACarriableItem i in self.Items.Where(ii => !ii.Clean).ToList())
+			{
+				Console.WriteLine( CounterStringProcessor.Serialize(i) );
+			}
 		}
 
 		public override void ReactToEvent(AbstractActor self, MyEventArgs args)
@@ -85,8 +33,7 @@ namespace Model
 			{
 				case "DataReceived":
 					//Console.WriteLine(self + ": I received data: " + args.Arg);
-					ProcessReceivedData((ActorSocket)self, (string)args.Arg);
-
+					CounterStringProcessor.ProcessReceivedData((ActorSocket)self, (string)args.Arg, true);               
 					break;
 			}
 		}
