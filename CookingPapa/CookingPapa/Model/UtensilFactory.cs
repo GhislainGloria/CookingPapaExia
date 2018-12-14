@@ -87,6 +87,9 @@ namespace Model
                 case "tablecloth":
                     return new Utensil(utensil, 4);
 
+                case "spatula":
+                    return new Utensil(utensil, 4);
+
                 default:
                     Console.WriteLine("Cet ustensile n'existe pas");
                     return null;

@@ -8,7 +8,10 @@ namespace Model
 {
     class StrategyGroupActor : Strategy
     {
-        
+
+        /*
+         * Stack[0] = int timeToOrder
+        */
 
         private static readonly StrategyGroupActor Instance = new StrategyGroupActor();
         public static StrategyGroupActor GetInstance()
@@ -18,6 +21,21 @@ namespace Model
         private StrategyGroupActor() { }
         public override void Behavior(AbstractActor self, List<AbstractActor> all)
         {
+            if ((bool)((GroupActor)self).Clients[0].Stack[0])
+            {
+                self.Stack[0] = (int)self.Stack[0] - 1;
+                if ((int)self.Stack[0] == 0)
+                {
+                    Random rnd = new Random();
+                    List<DishModel> orderModel = new List<DishModel>();
+                    for (int i = ((GroupActor)self).Clients.Count; i > 0; i--)
+                    {
+                        int r = rnd.Next(DishModelList.GetAvailableDishes().Count);
+                        orderModel.Add(DishModelList.GetAvailableDishes()[r]);
+                    }
+                    ((GroupActor)self).TriggerEvent("newOrder", new Order(((GroupActor)self.Stack[3]).Table, orderModel));
+                }
+            }
             foreach(Actor client in ((GroupActor)self).Clients)
             {
                 client.Strategy.Behavior(client, all);
