@@ -13,11 +13,10 @@ namespace Model
         public static AbstractActor CreateActor(string type)
         {
 			Actor actor = new Actor();
+            GroupActor groupActor = null;
 			ActorSocket counter = null;
-            GroupActor groupActor = new GroupActor();
             Random random = new Random();
             actor.Name = type;
-            groupActor.Name = type;
 
             switch (type)
             {
@@ -30,23 +29,21 @@ namespace Model
                     return actor;
 
                 case "customergroup":
+                    groupActor = new GroupActor();
+                    groupActor.Name = type;
                     groupActor.Strategy = StrategyGroupActor.GetInstance();
+                    actor.Stack.Add(null);
                     return groupActor;
 
                 case "customer":
                     actor.Strategy = StrategyCustomers.GetInstance();
                     int randomNumber = random.Next(1, 3);
+                    actor.Stack.Add(false);
+                    actor.Stack.Add(0);
                     actor.Stack.Add(null);
-                    actor.Stack.Add(null);
-                    actor.Stack.Add(null);
-                    actor.Stack.Add(null);
-                    actor.Stack.Add(null);
-                    actor.Stack.Add(null);
-                    actor.Stack[0] = false;
-                    actor.Stack[1] = 0;
-                    actor.Stack[2] = randomNumber;
-                    actor.Stack[4] = 0;
-                    actor.Stack[5] = random.Next(1, 100);
+                    actor.Stack.Add(randomNumber);
+                    actor.Stack.Add(0);
+                    actor.Stack.Add(random);
                     return actor;
 
                 case "diver":

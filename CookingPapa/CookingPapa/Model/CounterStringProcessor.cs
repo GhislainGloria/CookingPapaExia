@@ -82,7 +82,14 @@ namespace Model
 			else if (type.Contains("Order"))
 			{
 				Order cast = (Order)item;
-				return "order:";
+				string ret = "order:" + cast.TableID + ":" + cast.Recipes.Count;
+
+				foreach(DishModel dm in cast.Recipes)
+				{
+					ret += ":" + dm.Name;
+				}
+
+				return ret;
 			}
 
 			return String.Empty;
