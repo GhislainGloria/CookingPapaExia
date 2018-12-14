@@ -18,7 +18,8 @@ namespace View
 			Brushes = new Dictionary<string, TextureBrush>();
 
 			try {
-				DirectoryInfo d = new DirectoryInfo(Directory.GetCurrentDirectory() + "/../../../../resources/images/");
+				
+				DirectoryInfo d = new DirectoryInfo(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + "/.CookingPapa/resources/images/");
                 FileInfo[] Files = d.GetFiles("*.jpg").Union(d.GetFiles("*.png")).ToArray();
 
                 string tmp = "";
