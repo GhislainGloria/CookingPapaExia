@@ -79,7 +79,8 @@ namespace Model
 			{
 				return "utensil:" + item.Name;
 			}
-			else if (type.Contains("Order"))
+
+			if (type.Contains("Order"))
 			{
 				Order cast = (Order)item;
 				string ret = "order:" + cast.TableID + ":" + cast.Recipes.Count;
@@ -91,6 +92,8 @@ namespace Model
 
 				return ret;
 			}
+
+			Console.WriteLine("Could not serialize item " + item?.Name);
 
 			return String.Empty;
 		}

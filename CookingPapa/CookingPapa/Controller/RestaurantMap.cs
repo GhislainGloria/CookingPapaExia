@@ -35,6 +35,8 @@ namespace Controller
 
 				actor2 = ActorFactory.CreateActor("server counter");
 				actor2.Position = new Point(0, 7);
+				Utensil utensil = UtensilFactory.CreateUtensil("fork");
+				actor2.Items.Add(utensil);
 				Actors.Add(actor2);
 
 				actor = ActorFactory.CreateActor("partyleader");
@@ -99,7 +101,10 @@ namespace Controller
                 Actors.Add(actor);
 
 				actor = ActorFactory.CreateActor("client counter");
-                actor.Position = new Point(10, 14);
+				actor.Position = new Point(10, 14);
+				Utensil utensil = UtensilFactory.CreateUtensil("fork");
+				utensil.Clean = false;
+                actor.Items.Add(utensil);            
                 Actors.Add(actor);
 
                 actor = ActorFactory.CreateActor("receptionnist");

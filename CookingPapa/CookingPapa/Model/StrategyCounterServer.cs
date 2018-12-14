@@ -21,19 +21,22 @@ namespace Model
 			ActorSocket castedSelf = (ActorSocket)self;
 			if (!castedSelf.Initialized) Init(castedSelf);
 
-			foreach(ACarriableItem i in self.Items.Where(ii => !ii.Clean).ToList())
+            // Send over to the room the clean items
+			foreach(ACarriableItem i in self.Items.Where(ii => ii.Clean).ToList())
 			{
 				Console.WriteLine( CounterStringProcessor.Serialize(i) );
+				//castedSelf.SendToServer(CounterStringProcessor.Serialize(i));
 			}
 		}
 
 		public override void ReactToEvent(AbstractActor self, MyEventArgs args)
 		{
-			switch(args.EventName)
+			switch (args.EventName)
 			{
 				case "DataReceived":
 					//Console.WriteLine(self + ": I received data: " + args.Arg);
-					CounterStringProcessor.ProcessReceivedData((ActorSocket)self, (string)args.Arg, true);               
+					CounterStringProcessor.ProcessReceivedData((ActorSocket)self, (string)args.Arg, true);
+					Console.WriteLine("server received " + (string)args.Arg);
 					break;
 			}
 		}

@@ -15,7 +15,7 @@ namespace Model
 		public ManualResetEvent allDone = new ManualResetEvent(false);
 		private ManualResetEvent connectDone = new ManualResetEvent(false);
 		private ManualResetEvent sendDone = new ManualResetEvent(false);
-		private ManualResetEvent receiveDone = new ManualResetEvent(false);      
+		private ManualResetEvent receiveDone = new ManualResetEvent(false);
 
 		public ActorSocket(string ClientOrServer)
         {
@@ -103,8 +103,8 @@ namespace Model
             allDone.Set();  
       
             // Get the socket that handles the client request.  
-            Socket listener = (Socket)ar.AsyncState;  
-            Socket handler = listener.EndAccept(ar);  
+            Socket listener = (Socket)ar.AsyncState;
+            Socket handler = listener.EndAccept(ar);
       
             // Create the state object.  
             StateObject state = new StateObject();  
@@ -185,7 +185,7 @@ namespace Model
 		public const int BufferSize = 1024;  
         // Receive buffer.  
         public byte[] buffer = new byte[BufferSize];  
-    // Received data string.  
+        // Received data string.  
         public StringBuilder sb = new StringBuilder();    
     }  
 }

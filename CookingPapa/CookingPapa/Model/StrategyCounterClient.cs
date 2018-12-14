@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Collections.Generic;
 
 namespace Model
@@ -9,21 +10,35 @@ namespace Model
 		public static StrategyCounterClient GetInstance() { return Instance; }
 		protected StrategyCounterClient() { }
 
+		protected void Init(ActorSocket s)
+        {
+            s.EventGeneric += s.StrategyCallback;
+            s.Initialized = true;
+        }
+
         public override void Behavior(AbstractActor self, List<AbstractActor> all)
         {
-			ActorSocket castedSelf = (ActorSocket)self;
+            ActorSocket castedSelf = (ActorSocket)self;
+            if (!castedSelf.Initialized) Init(castedSelf);
 
-            Random random = new Random();
-            if (random.Next(0, 2) == 1)
+            // Send over to the kitchen the dirty items
+            foreach (ACarriableItem i in self.Items.Where(ii => !ii.Clean).ToList())
             {
-				//castedSelf.SendToServer("utensil:fork:dirty<EOF>");
-				castedSelf.SendToServer("order:1:1:Generic recipe<EOF>");
+                Console.WriteLine(CounterStringProcessor.Serialize(i));
+                castedSelf.SendToServer(CounterStringProcessor.Serialize(i));
             }
         }
 
         public override void ReactToEvent(AbstractActor self, MyEventArgs args)
         {
-            throw new NotImplementedException();
+			switch (args.EventName)
+            {
+                case "DataReceived":
+                    //Console.WriteLine(self + ": I received data: " + args.Arg);
+                    CounterStringProcessor.ProcessReceivedData((ActorSocket)self, (string)args.Arg, true);
+					Console.WriteLine("Client received " + (string)args.Arg);
+                    break;
+            }
         }
     }
 }
