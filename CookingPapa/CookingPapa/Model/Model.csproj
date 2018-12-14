@@ -67,7 +67,7 @@
     <Compile Include="AbstractActor.cs" />
     <Compile Include="StrategyDishwasher.cs" />
     <Compile Include="StrategyWashingmachine.cs" />
-    <Compile Include="StrategyServerCounter.cs" />
+    <Compile Include="StrategyCounterServer.cs" />
     <Compile Include="DishModel.cs" />
     <Compile Include="DishModelList.cs" />
     <Compile Include="StrategyIdle.cs" />
@@ -81,11 +81,13 @@
     <Compile Include="CommandSetTarget.cs" />
     <Compile Include="Actor.cs" />
     <Compile Include="ActorSocket.cs" />
-    <Compile Include="MyEventArgs.cs" />
     <Compile Include="CommandGetItemsWhere.cs" />
     <Compile Include="CommandGiveItemsWhere.cs" />
     <Compile Include="CommandCustomActorMod.cs" />
     <Compile Include="CommandSetAvailable.cs" />
+    <Compile Include="MyEventArgs.cs" />
+    <Compile Include="StrategyCounterClient.cs" />
+    <Compile Include="CounterStringProcessor.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="MySql.Data, Version=8.0.13.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />

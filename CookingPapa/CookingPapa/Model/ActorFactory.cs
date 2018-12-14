@@ -14,7 +14,7 @@ namespace Model
         {
 			Actor actor = new Actor();
             GroupActor groupActor = null;
-			ActorSocket counter;
+			ActorSocket counter = null;
             Random random = new Random();
             actor.Name = type;
 
@@ -109,19 +109,15 @@ namespace Model
 					return actor;
 
 				case "client counter":
-                    counter = new ActorSocket("client")
-                    {
-                        Name = "counter"
-                    };
-                    // TODO: Set strat
+					counter = new ActorSocket("client");
+					counter.MaxInventorySize = 1000000;
+					counter.Strategy = StrategyCounterClient.GetInstance();
                     return counter;
 
 				case "server counter":
-                    counter = new ActorSocket("server")
-                    {
-                        Name = "counter",
-                        Strategy = StrategyServerCounter.GetInstance()
-                    };
+					counter = new ActorSocket("server");
+					counter.MaxInventorySize = 1000000;
+					counter.Strategy = StrategyServerCounter.GetInstance();
                     return counter;
 
                 default:

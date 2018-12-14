@@ -5,15 +5,16 @@ namespace Model
 {
     public class Order : ACarriableItem
     {
-		public Table Table { get; private set; }
+		public int TableID { get; private set; }
 		public List<DishModel> Recipes { get; set; }
 		public List<Dish> DishInstances { get; set; }
 		private int CompletedDishes = 0;
         
-		public Order(Table table, List<DishModel> dishModels) : base("order", 0)
+		public Order(int tableID, List<DishModel> dishModels) : base("order", 0)
 		{
 			Recipes = dishModels;
 			DishInstances = new List<Dish>();
+			TableID = tableID;
 
 			foreach (DishModel dm in Recipes)
 			{
@@ -26,7 +27,7 @@ namespace Model
 			CompletedDishes++;
 			if(CompletedDishes >= Recipes.Count)
 			{
-				Console.WriteLine("Order completed for table #{0}", "TODO");
+				Console.WriteLine("Order completed for table #{0}", TableID);
 			}
 		}
 

@@ -174,7 +174,7 @@ namespace Model
 
         private static string GetDatabaseString()
         {
-            return File.ReadAllText(Directory.GetCurrentDirectory() + "/../../../../resources/config/database.conf");
+			return File.ReadAllText(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + "/.CookingPapa/resources/config/database.conf");
         }
 
     }

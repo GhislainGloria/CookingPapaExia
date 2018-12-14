@@ -63,7 +63,7 @@ namespace Model
 						AbstractActor target = a.FindNearestCarriableItem(step.Model.Utensil, all);
 						if(target != null)
 						{
-							Console.WriteLine(self + ": I asked a clerk to fetch me a " + step.Model.Utensil);
+							Console.WriteLine(self + ": I asked " + a +" to fetch me a " + step.Model.Utensil);
 
 							a.Busy = true;
 							a.AcceptItemExchange = false;
@@ -95,7 +95,7 @@ namespace Model
 						AbstractActor target = a.FindNearestCarriableItem(step.Model.Ingredient, all);
                         if (target != null)
                         {
-							Console.WriteLine(self + ": I asked a clerk to fetch me a " + step.Model.Ingredient);
+							Console.WriteLine(self + ": I asked " + a + " to fetch me a " + step.Model.Ingredient);
 
 							a.Busy = true;
 							a.AcceptItemExchange = false;

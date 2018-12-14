@@ -21,8 +21,6 @@ namespace Model
         }
         private StrategyClientSpawner() { }
 
-        int seconds = 0;
-
         public override void Behavior(AbstractActor self, List<AbstractActor> all)
         {
 

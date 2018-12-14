@@ -1,5 +1,4 @@
-﻿using NUnit.Framework;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,10 +22,7 @@ namespace Model
 
         public override void ReactToEvent(AbstractActor self, MyEventArgs args)
         {
-            switch (args.EventName)
-            {
-                
-            }
+
         }
     }
 }

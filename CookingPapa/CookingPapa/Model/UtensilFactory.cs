@@ -91,7 +91,7 @@ namespace Model
                     return new Utensil(utensil, 4);
 
                 default:
-                    Console.WriteLine("Cet ustensile n'existe pas");
+					Console.WriteLine("Cannot instantiate utensil: " + utensil);
                     return null;
             }
         }

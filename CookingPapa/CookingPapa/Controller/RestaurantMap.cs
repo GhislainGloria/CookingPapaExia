@@ -34,7 +34,7 @@ namespace Controller
 				Actors.Add(actor);
 
 				actor2 = ActorFactory.CreateActor("server counter");
-				actor2.Position = new Point(14, 5);
+				actor2.Position = new Point(0, 7);
 				Actors.Add(actor2);
 
 				actor = ActorFactory.CreateActor("partyleader");
@@ -96,6 +96,10 @@ namespace Controller
 
                 AbstractActor actor = ActorFactory.CreateActor("clientspawner");
                 actor.Position = new Point(15, 1);
+                Actors.Add(actor);
+
+				actor = ActorFactory.CreateActor("client counter");
+				actor.Position = new Point(10, 14);        
                 Actors.Add(actor);
 
                 actor = ActorFactory.CreateActor("receptionnist");
