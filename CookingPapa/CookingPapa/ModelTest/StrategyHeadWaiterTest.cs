@@ -20,16 +20,18 @@ namespace ModelTest
         Utensil card;
         Order order;
         AbstractActor counter;
-        AbstractActor idle;  
+        AbstractActor idle;
         GroupActor groupActor;
 
 
         [SetUp()]
         public void SetUp()
         {
+            
             actors = new List<AbstractActor>();
             headWaiter = ActorFactory.CreateActor("headWaiter");
             receptionnist = ActorFactory.CreateActor("receptionnist");
+            rangTables = new List<AbstractActor>();
             rangTables.Add(new Table(4, 2));
             stock = ActorFactory.CreateActor("stock");
             groupActor = new GroupActor();
@@ -40,6 +42,9 @@ namespace ModelTest
             card = UtensilFactory.CreateUtensil("card");
             counter = ActorFactory.CreateActor("counter");
             idle = ActorFactory.CreateActor("idle");
+            strategyHeadWaiter = StrategyHeadWaiter.GetInstance();
+            strategyReceptionnist = StrategyReceptionnist.GetInstance();
+
 
 
         }
@@ -48,7 +53,7 @@ namespace ModelTest
         public void BehaviorTest()
         {
             headWaiter.Target = receptionnist;
-            headWaiter.CommandList.Add(new CommandMove(headWaiter));           
+            headWaiter.CommandList.Add(new CommandMove(headWaiter));
             while (headWaiter.EvaluateDistanceTo(receptionnist) != (0 | 1 | -1))
             {
                 strategyHeadWaiter.Behavior(headWaiter, actors);
@@ -69,12 +74,12 @@ namespace ModelTest
             while (headWaiter.EvaluateDistanceTo(stock) != (0 | 1 | -1))
             {
                 strategyHeadWaiter.Behavior(headWaiter, actors);
-      
+
             }
             Assert.IsTrue(headWaiter.EvaluateDistanceTo(stock) == (0 | 1 | -1));
-            foreach(Actor client in groupActor.Clients)
+            foreach (Actor client in groupActor.Clients)
             {
-                headWaiter.CommandList.Add(new CommandGetItem(headWaiter,stock,"card"));
+                headWaiter.CommandList.Add(new CommandGetItem(headWaiter, stock, "card"));
             }
             strategyHeadWaiter.Behavior(headWaiter, actors);
             Assert.IsTrue(headWaiter.Items.Contains(card));
@@ -114,7 +119,7 @@ namespace ModelTest
 
             }
             Assert.IsTrue(headWaiter.EvaluateDistanceTo(groupActor) == (0 | 1 | -1));
-            if(headWaiter.CommandList == null)
+            if (headWaiter.CommandList == null)
             {
                 while (headWaiter.EvaluateDistanceTo(idle) != (0 | 1 | -1))
                 {

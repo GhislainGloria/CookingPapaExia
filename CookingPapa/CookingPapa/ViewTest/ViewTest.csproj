@@ -40,6 +40,7 @@
     <Reference Include="System.Drawing" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="ViewTest.cs" />
     <Compile Include="TextureFactoryTest.cs" />
   </ItemGroup>

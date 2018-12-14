@@ -15,14 +15,15 @@ namespace Model
 
 
 
-        public void Behavior(AbstractActor self, List<AbstractActor> allActors)
+        public void Behavior(AbstractActor self, List<AbstractActor> all)
         {
-            AbstractActor idle = ActorFactory.CreateActor("idle");
-            if (self.CommandList == null)
+            GroupActor groupActor = (GroupActor)self.Stack[0];
+            Table table = (Table)self.Stack[1];
+
+            if (self.CommandList.Count == 0)
             {
                 self.Busy = false;
-                idle.Position = new Point(2,8);
-                self.CommandList.Add(new CommandSetTarget(self,idle));
+                self.CommandList.Add(new CommandSetTarget(self, self.FindClosest("counter", all)));
                 self.CommandList.Add(new CommandMove(self));
             }
         
@@ -38,8 +39,19 @@ namespace Model
                 {
                     self.CommandList[0].Execute();
                 }
+            }
+
+            if (self.EvaluateDistanceTo(groupActor) < 2 && self.EvaluateDistanceTo(table) < 2)
+            {
+                self.CommandList.Add(new CommandSetTarget(self, self.FindNearestCarriableItem("card", all)));
+                self.CommandList.Add(new CommandMove(self));
+                foreach (Actor actor in groupActor.Clients)
+                {
+                    self.CommandList.Add(new CommandGetItem(self, self.FindClosest("stock", all), "card"));
+                }
 
             }
+
             
         }
 
