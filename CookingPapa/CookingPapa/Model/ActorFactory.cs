@@ -110,11 +110,13 @@ namespace Model
 
 				case "client counter":
 					counter = new ActorSocket("client");
+					counter.MaxInventorySize = 1000000;
 					counter.Strategy = StrategyCounterClient.GetInstance();
                     return counter;
 
 				case "server counter":
 					counter = new ActorSocket("server");
+					counter.MaxInventorySize = 1000000;
 					counter.Strategy = StrategyServerCounter.GetInstance();
                     return counter;
 

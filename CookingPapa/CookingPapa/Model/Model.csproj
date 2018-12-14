@@ -35,7 +35,6 @@
     <Compile Include="ActorFactory.cs" />
     <Compile Include="ModelIngredient.cs" />
     <Compile Include="Order.cs" />
-    <Compile Include="Counter.cs" />
     <Compile Include="Dish.cs" />
     <Compile Include="GroupActor.cs" />
     <Compile Include="ACarriableItem.cs" />

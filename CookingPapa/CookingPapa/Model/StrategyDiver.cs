@@ -1,5 +1,5 @@
-﻿using System.Collections.Generic;
-using System.Threading.Tasks;
+﻿using System.Linq;
+using System.Collections.Generic;
 
 namespace Model
 {
@@ -26,6 +26,19 @@ namespace Model
             }
             else
             {
+				ActorSocket counter = (ActorSocket)self.FindClosest("counter", all);
+				foreach(ACarriableItem i in counter?.Items.Where(ii => !ii.Clean && ii.Name != "order").ToList())
+				{
+					AbstractActor dishwasher = self.FindClosest("dishwasher", all);
+					self.Target = counter;
+					self.CommandList.Add(new CommandMove(self));
+					self.CommandList.Add(new CommandGetItemsWhere(self, counter, d => !d.Clean && d.Name != "order"));
+					self.CommandList.Add(new CommandSetTarget(self, dishwasher));
+					self.CommandList.Add(new CommandMove(self));
+					self.CommandList.Add(new CommandGiveItemsWhere(self, dishwasher, d => !d.Clean));
+					self.CommandList.Add(new CommandSetAvailable(self, true, true, true, true));
+					return;
+				}
                 self.Busy = false;
             }
 		}

@@ -35,8 +35,6 @@ namespace Controller
 
 				actor2 = ActorFactory.CreateActor("server counter");
 				actor2.Position = new Point(0, 7);
-				Utensil utensil = UtensilFactory.CreateUtensil("fork");
-				actor2.Items.Add(utensil);
 				Actors.Add(actor2);
 
 				actor = ActorFactory.CreateActor("partyleader");
@@ -101,18 +99,7 @@ namespace Controller
                 Actors.Add(actor);
 
 				actor = ActorFactory.CreateActor("client counter");
-				actor.Position = new Point(10, 14);
-
-				Utensil utensil = UtensilFactory.CreateUtensil("fork");
-				utensil.Clean = false;
-				DishModel model = DishModelList.GetAvailableDishes()[0];
-				List<DishModel> list = new List<DishModel>();
-				list.Add(model);
-				Order order = new Order(1, list);
-				order.Clean = false;
-
-				actor.Items.Add(utensil);          
-				actor.Items.Add(order);          
+				actor.Position = new Point(10, 14);        
                 Actors.Add(actor);
 
                 actor = ActorFactory.CreateActor("receptionnist");
