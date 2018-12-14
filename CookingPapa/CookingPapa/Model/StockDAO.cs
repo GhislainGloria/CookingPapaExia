@@ -10,27 +10,30 @@ namespace Model
 {
     public static class StockDAO
     {
-
         private static List<ModelIngredient> listIngredients = null;
 
 		private static OdbcConnection connection = null;
 
         private static void InitializeStockModel()
         {
-			try {
-				connection = new OdbcConnection(GetDatabaseString());            
+            string connectionString = GetDatabaseString();
+            Console.WriteLine(connectionString);
+            try {
+				connection = new OdbcConnection(connectionString);            
 			} catch (Exception e) {
 				Console.WriteLine("Impossible de se connecter a la BDD!");
 				Console.WriteLine(e);
 				return;
 			}
 
-            const string query = "SELECT `id_model_ingr`, `nom_ingr`, `inventory-size` FROM `model_ingredient` LEFT JOIN `model_stockage` ON `model_ingredient`.`id_mod_stock` = `model_stockage`.`id_mod_stock`";
+            const string query = "SELECT `id_model_ingr`, `nom_ingr`, `inventory-size`, `time_to_live` FROM `model_ingredient` LEFT JOIN `model_stockage` ON `model_ingredient`.`id_mod_stock` = `model_stockage`.`id_mod_stock`";
 
             connection.Open();
 
+            listIngredients = new List<ModelIngredient>();
+
             //Create Command
-			OdbcCommand cmd = new OdbcCommand(query, connection);
+            OdbcCommand cmd = new OdbcCommand(query, connection);
             //Create a data reader and Execute the command
 			OdbcDataReader dataReader = cmd.ExecuteReader();
             //Read the data and store them in the list
@@ -40,8 +43,9 @@ namespace Model
 					new ModelIngredient(
 						dataReader["nom_ingr"].ToString(), 
 						Int32.Parse(dataReader["inventory-size"].ToString()), 
-						Int32.Parse(dataReader["id_model_ingr"].ToString())
-					)
+						Int32.Parse(dataReader["id_model_ingr"].ToString()),
+                        Int32.Parse(dataReader["time_to_live"].ToString())
+                    )
 				);
             }
 
@@ -50,6 +54,22 @@ namespace Model
 
             //close Connection
             connection.Close();
+        }
+
+        public static ModelIngredient GetModelIngredient(string name)
+        {
+
+            if (listIngredients == null)
+            {
+
+                InitializeStockModel();
+            }
+            foreach (ModelIngredient model in listIngredients)
+            {
+                if (model.Name == name)
+                    return model;
+            }
+            return null;
         }
 
         public static void DeleteFromStock(Ingredient ingredient)
@@ -152,7 +172,7 @@ namespace Model
         }
 
 
-        public static string GetDatabaseString()
+        private static string GetDatabaseString()
         {
             return File.ReadAllText(Directory.GetCurrentDirectory() + "/../../../../resources/config/database.conf");
         }

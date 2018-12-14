@@ -10,9 +10,10 @@ namespace Model
     {
 		public int TimeToLive { get; set; }
         
-		public Ingredient(string name, int inventorySize, int timeToLive) : base(name, inventorySize)
+		public Ingredient(string name, int inventorySize) : base(name, inventorySize)
         {
-			TimeToLive = timeToLive;
+            InventorySize = StockDAO.GetModelIngredient(name).InventorySize;
+            TimeToLive = StockDAO.GetModelIngredient(name).TimeToLive;
         }
     }
 }
