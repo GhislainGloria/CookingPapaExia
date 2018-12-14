@@ -41,13 +41,12 @@ namespace Model
 
         private void InitWrite(int port)
 		{
-            IPHostEntry ipHostInfo = Dns.GetHostEntry(Dns.GetHostName());
-            IPAddress ipAddress = ipHostInfo.AddressList[0];         
+			IPAddress ipAddress = IPAddress.Parse("127.0.0.1"); 
 
 			IPEndPoint remoteEP = new IPEndPoint(ipAddress, port);
 
             // Create a TCP/IP socket.  
-            socketWrite = new Socket(ipAddress.AddressFamily, SocketType.Stream, ProtocolType.Tcp);
+			socketWrite = new Socket(ipAddress.AddressFamily, SocketType.Stream, ProtocolType.Tcp);
 
             // Connect to the remote endpoint.
             socketWrite.BeginConnect(remoteEP, new AsyncCallback(ConnectCallback), socketWrite);
@@ -56,8 +55,7 @@ namespace Model
 
         private void InitListen(int port)
 		{
-			IPHostEntry ipHostInfo = Dns.GetHostEntry(Dns.GetHostName());
-            IPAddress ipAddress = ipHostInfo.AddressList[0];
+			IPAddress ipAddress = IPAddress.Parse("127.0.0.1"); 
 
 			IPEndPoint localEndPoint = new IPEndPoint(ipAddress, port);
 			IPEndPoint remoteEP = new IPEndPoint(ipAddress, port);
