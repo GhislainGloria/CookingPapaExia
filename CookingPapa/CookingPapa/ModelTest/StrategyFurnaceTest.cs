@@ -21,7 +21,7 @@ namespace ModelTest
             strategyFurnace = StrategyFurnace.GetInstance();
           
             List<AbstractActor> actors = new List<AbstractActor>();
-            ingredient = new Ingredient("meat", 0);
+            ingredient = new Ingredient("beef", 2, 5);
         }
 
         [Test()]
