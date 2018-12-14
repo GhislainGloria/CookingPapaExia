@@ -46,10 +46,5 @@ namespace Model
         {
             throw new NotImplementedException();
         }
-
-        public override void CallStrategy()
-        {
-            throw new NotImplementedException();
-        }
     }
 }

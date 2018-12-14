@@ -12,11 +12,6 @@ namespace Model
 
         public List<Actor> Clients { get; set; }
 
-        public override void CallStrategy()
-        {
-            throw new NotImplementedException();
-        }
-
         public override void NextTick(List<AbstractActor> AllActors)
         {
             Strategy.Behavior(this, AllActors);

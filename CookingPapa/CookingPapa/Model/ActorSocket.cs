@@ -3,11 +3,11 @@ using System.Net;
 using System.Text;
 using System.Net.Sockets;
 using System.Threading;
-
+using System.Collections.Generic;
 
 namespace Model
 {
-	public class ActorSocket : Actor
+	public class ActorSocket : AbstractActor
     {
 		// https://docs.microsoft.com/fr-fr/dotnet/framework/network-programming/asynchronous-server-socket-example
 		// https://docs.microsoft.com/fr-fr/dotnet/framework/network-programming/asynchronous-client-socket-example
@@ -194,7 +194,12 @@ namespace Model
                 Console.WriteLine(e.ToString());  
             }  
         }
-    }
+
+		public override void NextTick(List<AbstractActor> AllActors)
+		{
+			Strategy.Behavior(this, AllActors);         
+		}
+	}
 
 	// State object for reading client data asynchronously  
     public class StateObject {  
