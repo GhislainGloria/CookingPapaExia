@@ -16,10 +16,10 @@ namespace Model
                     return new Ingredient(ingredient, 1, 1);
 
 				case "carrot":
-					return new Ingredient(ingredient, 1, 100000);
+					return new Ingredient(ingredient, 1, 1);
 
 				case "tomato":
-                    return new Ingredient(ingredient, 1, 100);
+                    return new Ingredient(ingredient, 1, 1);
 
                 default:
 					Console.WriteLine("Cet ingredient n'existe pas: " + ingredient);

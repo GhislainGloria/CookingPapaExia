@@ -8,11 +8,17 @@ namespace Model
 {
 	public class Ingredient : ACarriableItem
     {
-		public int TimeToLive { get; set; }
+		public int DatabaseModelId { get; set; }
+		public int TimeSpentInStock { get; set; }
         
-		public Ingredient(string name, int inventorySize, int timeToLive) : base(name, inventorySize)
+        /**
+         * If you set the database ID to 0, the database will not update
+         */
+		public Ingredient(string name, int inventorySize, int databaseModelId = 1) : base(name, inventorySize)
         {
-			TimeToLive = timeToLive;
+			DatabaseModelId = databaseModelId;
+			TimeSpentInStock = 0;
+			if(databaseModelId > 0) StockDAO.AddToStock(this);         
         }
     }
 }

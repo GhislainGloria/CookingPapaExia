@@ -11,15 +11,17 @@ namespace Model
     public static class StockDAO
     {
 
-        private static List<ModelIngredient> listIngredients = null;
-
+        private static List<ModelIngredient> listIngredients = null;      
 		private static OdbcConnection connection = null;
 
         private static void InitializeStockModel()
         {
-			try {
+			try 
+			{
 				connection = new OdbcConnection(GetDatabaseString());            
-			} catch (Exception e) {
+			} 
+			catch (Exception e) 
+			{
 				Console.WriteLine("Impossible de se connecter a la BDD!");
 				Console.WriteLine(e);
 				return;
@@ -29,11 +31,14 @@ namespace Model
 
             connection.Open();
 
+			listIngredients = new List<ModelIngredient>();
+
             //Create Command
 			OdbcCommand cmd = new OdbcCommand(query, connection);
             //Create a data reader and Execute the command
 			OdbcDataReader dataReader = cmd.ExecuteReader();
-            //Read the data and store them in the list
+            
+			//Read the data and store them in the list
             while (dataReader.Read())
             {
 				listIngredients.Add(
@@ -107,7 +112,7 @@ namespace Model
 
             foreach(ModelIngredient model in listIngredients)
             {
-                if (model.Name.Equals(ingredient.Name) && model.InventorySize == ingredient.InventorySize)
+                if (model.Name.Equals(ingredient.Name))
                 {
                     try
                     {
@@ -117,16 +122,20 @@ namespace Model
                         // Création d'une commande SQL en fonction de l'objet connection
 						OdbcCommand cmd = connection.CreateCommand();
 
-                        // Requête SQL
-                        cmd.CommandText = "INSERT INTO stock_ingredient (id, quantite, id_model_ingr) VALUES (@id, @quantite, @id_model_ingr)";
+						// Requête SQL
+						cmd.CommandText = "UPDATE stock_ingredient SET quantite = quantite + 1 WHERE id_model_ingr = " + model.ID + ";";
 
-                        // utilisation de l'objet contact passé en paramètre
-                        cmd.Parameters.AddWithValue("@id", ingredient.ID);
-                        cmd.Parameters.AddWithValue("@quantite", 1);
-                        cmd.Parameters.AddWithValue("@id_model_ingr", model.ID);
+						// utilisation de l'objet contact passé en paramètre
+                        // Sometimes work, sometimes doesn't.. Weird
+						//cmd.Parameters.Add("@id_model_ingr", OdbcType.Int).Value = 1;//model.ID;
+						//cmd.Parameters.Add("@id_model_ingr", OdbcType.Int).Value = 1;//model.ID;
 
                         // Exécution de la commande SQL
                         cmd.ExecuteNonQuery();
+
+                        // Now request addition if none were in db
+						cmd.CommandText = "INSERT IGNORE INTO stock_ingredient(quantite, id_model_ingr) VALUES(1, " + model.ID + ");";
+						cmd.ExecuteNonQuery();
 
                         // Fermeture de la connexion
                         connection.Close();
@@ -154,8 +163,25 @@ namespace Model
 
         public static string GetDatabaseString()
         {
-			return File.ReadAllText(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + "/.CookingPapa/resources/config/database.conf");
+			return File.ReadAllText(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + "/CookingPapa/resources/config/database.conf");
         }
 
+		public static int GetIngredientModelDatabaseId(string name)
+		{
+			if (listIngredients == null)
+            {
+                InitializeStockModel();
+            }
+
+			foreach(ModelIngredient mi in listIngredients)
+			{
+				if(mi.Name == name)
+				{
+					return mi.ID;
+				}
+			}
+
+			return 0;
+		}      
     }
 }
