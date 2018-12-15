@@ -11,7 +11,7 @@ namespace ModelTest
     public class StrategyFurnaceTest
     {
         StrategyFurnace strategyFurnace;
-        List<AbstractActor> actors;
+        readonly List<AbstractActor> actors;
         AbstractActor Furnace;
         private Ingredient ingredient;
 
