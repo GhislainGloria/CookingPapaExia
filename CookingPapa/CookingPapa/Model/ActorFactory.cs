@@ -32,7 +32,7 @@ namespace Model
                     groupActor = new GroupActor();
                     groupActor.Name = type;
                     groupActor.Strategy = StrategyGroupActor.GetInstance();
-                    actor.Stack.Add(null);
+                    actor.Stack.Add(0);
                     return groupActor;
 
                 case "customer":

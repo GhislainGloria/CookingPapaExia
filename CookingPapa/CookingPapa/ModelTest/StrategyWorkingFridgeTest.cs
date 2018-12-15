@@ -29,7 +29,7 @@ namespace ModelTest
             AbstractActor workingFridge = ActorFactory.CreateActor("workingfridge");
             strategyWorkingFridge = StrategyWorkingFridge.GetInstance();
             List<AbstractActor> actors = new List<AbstractActor>();
-            ingredient = new Ingredient("beef", 2, 5);
+            ingredient = new Ingredient("meat", 0);
 
             strategyWorkingFridge.Behavior(workingFridge, actors);
                  if (workingFridge.Items.Contains(ingredient))

@@ -7,7 +7,7 @@ namespace Model
     {
         public int ID { get; set; }
 		public string Name { get; set; }
-		public int InventorySize { get; private set; }
+		public int InventorySize { get; set; }
 		public bool Clean { get; set; }
         
 		protected ACarriableItem(string name, int size)
