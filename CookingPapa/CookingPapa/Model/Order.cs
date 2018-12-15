@@ -13,9 +13,8 @@ namespace Model
 
 
 
-        public Order(Table table, List<DishModel> dishModels) : base("commande", 1)
+        public Order(int tableID, List<DishModel> dishModels) : base("commande", 1)
         {
-            Table = table;
             Recipes = dishModels;
 			DishInstances = new List<Dish>();
 			TableID = tableID;

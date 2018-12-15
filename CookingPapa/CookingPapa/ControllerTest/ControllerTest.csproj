@@ -38,7 +38,6 @@
     <Reference Include="System.Drawing" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="testRestaurantMap.cs" />
     <Compile Include="testThreadpool.cs" />
     <Compile Include="TimeManagerTest.cs" />
