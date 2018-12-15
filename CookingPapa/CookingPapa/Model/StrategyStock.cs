@@ -9,22 +9,22 @@ namespace Model
     public class StrategyStock : Strategy
     {
 
-        private static readonly StrategyStock Instance = new StrategyStock();
+        private static readonly StrategyStock Instance = new StrategyStock();      
         public static StrategyStock GetInstance()
         {
             return Instance;
         }
 
-        public StrategyStock() { }
+		private StrategyStock() { }
 
         public override void Behavior(AbstractActor self, List<AbstractActor> all)
 		{
 			foreach(Ingredient ingredient in self.Items.ToList())
             {
-                ingredient.TimeToLive--;
-                if(ingredient.TimeToLive < 1)
+				if(ingredient.TimeSpentInStock++ > 2592000) 
                 {
                     self.Items.Remove(ingredient);
+					Console.WriteLine(self + ": I became too old and got thrown away");
                 }
             }
 		}
