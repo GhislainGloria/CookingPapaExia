@@ -25,7 +25,7 @@ namespace Model
             ID = Instances++;
         }
 
-        public void setGroupActor(GroupActor grp)
+        public void SetGroupActor(GroupActor grp)
         {
             if (Place >= grp.Clients.Count)
             {
@@ -44,7 +44,7 @@ namespace Model
 
         public override void NextTick(List<AbstractActor> AllActors)
         {
-            throw new NotImplementedException();
+
         }
     }
 }

@@ -7,10 +7,13 @@ using System.Threading.Tasks;
 namespace Model
 {
     public class GroupActor : AbstractActor
-    {
-		private List<Actor> _clients = new List<Actor>();
-
+    {      
         public List<Actor> Clients { get; set; }
+
+		public GroupActor()
+		{
+			Clients = new List<Actor>();
+		}
 
         public override void NextTick(List<AbstractActor> AllActors)
         {

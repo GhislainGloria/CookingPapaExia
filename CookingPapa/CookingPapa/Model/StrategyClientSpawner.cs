@@ -41,7 +41,7 @@ namespace Model
             }
             else
             {
-                self.Stack[0] = ((int)self.Stack[0]) + 1;
+                self.Stack[0] = ((int)self.Stack[0]) + 10;
             }
 
         }
