@@ -55,10 +55,9 @@ namespace Controller
 
 				actor = ActorFactory.CreateActor("stock");
                 actor.Position = new Point(5, 5);
-				for (int _ = 0; _ < 40; _++)
+				foreach(ACarriableItem i in StockDAO.GetStock())
 				{
-					actor.Items.Add(IngredientFactory.CreateIngredient("carrot"));
-					actor.Items.Add(IngredientFactory.CreateIngredient("tomato"));
+					actor.Items.Add(i);
 				}
                 Actors.Add(actor);
 
