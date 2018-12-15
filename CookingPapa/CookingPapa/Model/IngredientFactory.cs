@@ -12,14 +12,30 @@ namespace Model
         {
             switch (ingredient)
             {
-                case "ingredient":
-                    return new Ingredient(ingredient, 1, 1);
 
 				case "carrot":
-					return new Ingredient(ingredient, 1, 100000);
+					return new Ingredient(ingredient, 0);
 
-				case "tomato":
-                    return new Ingredient(ingredient, 1, 100);
+                case "tomato":
+                    return new Ingredient(ingredient, 0);
+
+                case "onion":
+                    return new Ingredient(ingredient, 0);
+
+                case "pork":
+                    return new Ingredient(ingredient, 0);
+
+                case "potato":
+                    return new Ingredient(ingredient, 0);
+
+                case "meat":
+                    return new Ingredient(ingredient, 0);
+
+                case "egg":
+                    return new Ingredient(ingredient, 0);
+
+                case "butter":
+                    return new Ingredient(ingredient, 0);
 
                 default:
 					Console.WriteLine("Cet ingredient n'existe pas: " + ingredient);

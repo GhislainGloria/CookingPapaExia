@@ -10,39 +10,47 @@ namespace Model
 {
     public static class StockDAO
     {
-
         private static List<ModelIngredient> listIngredients = null;
 
-		private static OdbcConnection connection = null;
+        private static OdbcConnection connection = null;
 
         private static void InitializeStockModel()
         {
-			try {
-				connection = new OdbcConnection(GetDatabaseString());            
-			} catch (Exception e) {
-				Console.WriteLine("Impossible de se connecter a la BDD!");
-				Console.WriteLine(e);
-				return;
-			}
+            Console.WriteLine("lol");
+            string connectionString = GetDatabaseString();
+            Console.WriteLine(connectionString);
+            try
+            {
+                connection = new OdbcConnection(connectionString);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Impossible de se connecter a la BDD!");
+                Console.WriteLine(e);
+                return;
+            }
 
-            const string query = "SELECT `id_model_ingr`, `nom_ingr`, `inventory-size` FROM `model_ingredient` LEFT JOIN `model_stockage` ON `model_ingredient`.`id_mod_stock` = `model_stockage`.`id_mod_stock`";
+            const string query = "SELECT `id_model_ingr`, `nom_ingr`, `inventory-size`, `time_to_live` FROM `model_ingredient` LEFT JOIN `model_stockage` ON `model_ingredient`.`id_mod_stock` = `model_stockage`.`id_mod_stock`";
 
             connection.Open();
 
+            listIngredients = new List<ModelIngredient>();
+
             //Create Command
-			OdbcCommand cmd = new OdbcCommand(query, connection);
+            OdbcCommand cmd = new OdbcCommand(query, connection);
             //Create a data reader and Execute the command
-			OdbcDataReader dataReader = cmd.ExecuteReader();
+            OdbcDataReader dataReader = cmd.ExecuteReader();
             //Read the data and store them in the list
             while (dataReader.Read())
             {
-				listIngredients.Add(
-					new ModelIngredient(
-						dataReader["nom_ingr"].ToString(), 
-						Int32.Parse(dataReader["inventory-size"].ToString()), 
-						Int32.Parse(dataReader["id_model_ingr"].ToString())
-					)
-				);
+                listIngredients.Add(
+                    new ModelIngredient(
+                        dataReader["nom_ingr"].ToString(),
+                        Int32.Parse(dataReader["inventory-size"].ToString()),
+                        Int32.Parse(dataReader["id_model_ingr"].ToString()),
+                        Int32.Parse(dataReader["time_to_live"].ToString())
+                    )
+                );
             }
 
             //close Data Reader
@@ -50,6 +58,22 @@ namespace Model
 
             //close Connection
             connection.Close();
+        }
+
+        public static ModelIngredient GetModelIngredient(string name)
+        {
+
+            if (listIngredients == null)
+            {
+
+                InitializeStockModel();
+            }
+            foreach (ModelIngredient model in listIngredients)
+            {
+                if (model.Name == name)
+                    return model;
+            }
+            return null;
         }
 
         public static void DeleteFromStock(Ingredient ingredient)
@@ -69,7 +93,7 @@ namespace Model
                         connection.Open();
 
                         // Création d'une commande SQL en fonction de l'objet connection
-						OdbcCommand cmd = connection.CreateCommand();
+                        OdbcCommand cmd = connection.CreateCommand();
 
                         // Requête SQL
                         cmd.CommandText = "DELETE FROM stock_ingredient WHERE `stock_ingredient`.`idk` = @id";
@@ -83,13 +107,13 @@ namespace Model
                         // Fermeture de la connexion
                         connection.Close();
                     }
-					catch(Exception e)
+                    catch (Exception e)
                     {
-						// Gestion des erreurs :
-						// Possibilité de créer un Logger pour les exceptions SQL reçus
-						// Possibilité de créer une méthode avec un booléan en retour pour savoir si le contact à été ajouté correctement.
-						Console.WriteLine("Could not delete from stock in DB!");
-						Console.WriteLine(e);
+                        // Gestion des erreurs :
+                        // Possibilité de créer un Logger pour les exceptions SQL reçus
+                        // Possibilité de créer une méthode avec un booléan en retour pour savoir si le contact à été ajouté correctement.
+                        Console.WriteLine("Could not delete from stock in DB!");
+                        Console.WriteLine(e);
                     }
                 }
             }
@@ -105,7 +129,7 @@ namespace Model
                 InitializeStockModel();
             }
 
-            foreach(ModelIngredient model in listIngredients)
+            foreach (ModelIngredient model in listIngredients)
             {
                 if (model.Name.Equals(ingredient.Name) && model.InventorySize == ingredient.InventorySize)
                 {
@@ -115,7 +139,7 @@ namespace Model
                         connection.Open();
 
                         // Création d'une commande SQL en fonction de l'objet connection
-						OdbcCommand cmd = connection.CreateCommand();
+                        OdbcCommand cmd = connection.CreateCommand();
 
                         // Requête SQL
                         cmd.CommandText = "INSERT INTO stock_ingredient (id, quantite, id_model_ingr) VALUES (@id, @quantite, @id_model_ingr)";
@@ -131,13 +155,13 @@ namespace Model
                         // Fermeture de la connexion
                         connection.Close();
                     }
-					catch(Exception e)
+                    catch (Exception e)
                     {
-						// Gestion des erreurs :
-						// Possibilité de créer un Logger pour les exceptions SQL reçus
-						// Possibilité de créer une méthode avec un booléan en retour pour savoir si le contact à été ajouté correctement.
-						Console.WriteLine("Could not add to stock in DB!");
-						Console.WriteLine(e);
+                        // Gestion des erreurs :
+                        // Possibilité de créer un Logger pour les exceptions SQL reçus
+                        // Possibilité de créer une méthode avec un booléan en retour pour savoir si le contact à été ajouté correctement.
+                        Console.WriteLine("Could not add to stock in DB!");
+                        Console.WriteLine(e);
                     }
                 }
             }
@@ -146,15 +170,16 @@ namespace Model
 
         public static void AddToStock(List<Ingredient> ingredients)
         {
-			foreach(Ingredient i in ingredients) {
-				AddToStock(i);
-			}
+            foreach (Ingredient i in ingredients)
+            {
+                AddToStock(i);
+            }
         }
 
 
-        public static string GetDatabaseString()
+        private static string GetDatabaseString()
         {
-			return File.ReadAllText(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + "/.CookingPapa/resources/config/database.conf");
+            return File.ReadAllText(Directory.GetCurrentDirectory() + "/../../../../resources/config/database.conf");
         }
 
     }

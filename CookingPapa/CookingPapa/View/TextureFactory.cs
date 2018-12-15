@@ -19,7 +19,7 @@ namespace View
 
 			try {
 				
-				DirectoryInfo d = new DirectoryInfo(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + "/.CookingPapa/resources/images/");
+				DirectoryInfo d = new DirectoryInfo(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + "/CookingPapa/resources/images/");
                 FileInfo[] Files = d.GetFiles("*.jpg").Union(d.GetFiles("*.png")).ToArray();
 
                 string tmp = "";

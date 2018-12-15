@@ -33,7 +33,7 @@ namespace Model
                         int r = rnd.Next(DishModelList.GetAvailableDishes().Count);
                         orderModel.Add(DishModelList.GetAvailableDishes()[r]);
                     }
-                    ((GroupActor)self).TriggerEvent("newOrder", new Order(((GroupActor)self.Stack[3]).Table, orderModel));
+                    ((GroupActor)self).TriggerEvent("newOrder", new Order(((GroupActor)self.Stack[3]).Table.ID, orderModel));
                 }
             }
             foreach(Actor client in ((GroupActor)self).Clients)

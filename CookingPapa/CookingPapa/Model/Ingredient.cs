@@ -6,13 +6,14 @@ using System.Threading.Tasks;
 
 namespace Model
 {
-	public class Ingredient : ACarriableItem
+    public class Ingredient : ACarriableItem
     {
-		public int TimeToLive { get; set; }
-        
-		public Ingredient(string name, int inventorySize, int timeToLive) : base(name, inventorySize)
+        public int TimeToLive { get; set; }
+
+        public Ingredient(string name, int inventorySize) : base(name, inventorySize)
         {
-			TimeToLive = timeToLive;
+            InventorySize = StockDAO.GetModelIngredient(name).InventorySize;
+            TimeToLive = StockDAO.GetModelIngredient(name).TimeToLive;
         }
     }
 }

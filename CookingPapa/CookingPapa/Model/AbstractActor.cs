@@ -27,7 +27,6 @@ namespace Model
 		private static int Instances = 0;
 
         public abstract void NextTick(List<AbstractActor> AllActors);
-        public abstract void CallStrategy();
 
 		public event EventHandler EventGeneric;
 

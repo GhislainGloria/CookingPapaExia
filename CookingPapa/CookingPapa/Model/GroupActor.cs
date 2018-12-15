@@ -14,11 +14,6 @@ namespace Model
         public List<Actor> Clients { get => _clients; set => _clients = value; }
         public Table Table { get => _table; set => _table = value; }
 
-        public override void CallStrategy()
-        {
-            throw new NotImplementedException();
-        }
-
         public override void NextTick(List<AbstractActor> AllActors)
         {
             Strategy.Behavior(this, AllActors);
