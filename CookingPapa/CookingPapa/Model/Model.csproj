@@ -85,6 +85,8 @@
     <Compile Include="MyEventArgs.cs" />
     <Compile Include="StrategyCounterClient.cs" />
     <Compile Include="CounterStringProcessor.cs" />
+    <Compile Include="StrategyTable.cs" />
+    <Compile Include="CommandRemoveFromWorld.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System.Drawing" />

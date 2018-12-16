@@ -21,6 +21,8 @@ namespace Model
 			Name = "table";
             Place = place;
             Square = square;
+			Stack.Add(0);
+			Strategy = StrategyTable.GetInstance();
         }
 
         public void SetGroupActor(GroupActor grp)
@@ -42,7 +44,7 @@ namespace Model
 
         public override void NextTick(List<AbstractActor> AllActors)
         {
-
+			Strategy.Behavior(this, AllActors);
         }
     }
 }
