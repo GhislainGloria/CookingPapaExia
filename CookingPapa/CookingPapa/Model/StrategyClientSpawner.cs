@@ -38,6 +38,7 @@ namespace Model
                 self.TriggerEvent("clientSpawned", newGroup);
                 self.Stack[0] = 0;
                 self.Stack[1] = random.Next(1, 100);
+				Console.WriteLine(self + ": I spawned a new client group");
             }
             else
             {

@@ -29,13 +29,13 @@ namespace Model
 
 			if(ClientOrServer == "server")
 			{
-				InitListen(11000);            
+				InitListen(11000);
 				InitWrite(11001);         
 			}
 			else
 			{
+				InitListen(11001, false);            
 				InitWrite(11000);
-				InitListen(11001);
 			}
         }
 
@@ -53,7 +53,7 @@ namespace Model
             connectDone.WaitOne();
 		}
 
-        private void InitListen(int port)
+        private void InitListen(int port, bool waitForAConnection = true)
 		{
 			IPAddress ipAddress = IPAddress.Parse("127.0.0.1"); 
 
@@ -73,13 +73,13 @@ namespace Model
                 allDone.Reset();
 
                 // Start an asynchronous socket to listen for connections.
-                Console.WriteLine(this + " server: Waiting for a connection...");
+                Console.WriteLine(this + " server: Waiting for a connection on port " + port);
                 listener.BeginAccept(
                     new AsyncCallback(AcceptCallback),
                     listener);
 
-                // Wait until a connection is made before continuing.  
-                allDone.WaitOne();
+				// Wait until a connection is made before continuing unless specified otherwise
+				if (waitForAConnection) allDone.WaitOne();
 
             }
             catch (Exception e)

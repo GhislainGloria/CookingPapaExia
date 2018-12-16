@@ -110,6 +110,7 @@ namespace Controller
 				Actors.Add(actor);
 
 				actor = new Table(10, 1);
+				actor.Name = "table";
 				actor.Position = new Point(5, 5);
 				Actors.Add(actor);
 

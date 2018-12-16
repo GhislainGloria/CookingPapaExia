@@ -24,21 +24,27 @@ namespace Model
 
             for (int i = all.Count - 1; i >= 0; i--)
             {
-                if (all[i].Name == "clientgroup" && all[i].Target == null)
+				if (all[i].Name == "customergroup" && all[i].Target == null && !all[i].Busy)
                 {
                     Client = (GroupActor)all[i];
+					Console.WriteLine(self + ": A new group of clients is here waiting for a table");
                     break;
                 }
             }
+
+			if (Client == null) return;
 
             for (int i = all.Count - 1; i >= 0; i--)
             {
                 if (all[i].Name == "headwaiter" && all[i].Target == null)
                 {
                     Headwaiter = (Actor)all[i];
+					Console.WriteLine(self + ": A headwaiter is available to take care of the client group");
 					break;
                 }
             }
+
+			if (Headwaiter == null) return;
 
             for (int i = all.Count - 1; i >= 0; i--)
             {
@@ -47,58 +53,62 @@ namespace Model
                     if (((Table)all[i]).Place > Client.Clients.Count && (closestTable == null || ((Table)all[i]).Place < closestTable.Place))
                     {
                         closestTable = ((Table)all[i]);
+						Console.WriteLine(self + ": A table is available for the clients group.");
 						break;
                     }
                 }
             }
 
-            if (closestTable != null && Client != null && Headwaiter != null)
+			if (closestTable == null) return;
+
+            // At this point we know a client group has arrived and the staff to guide
+            // the group to destination.
+            
+            closestTable.SetGroupActor(Client);
+            Headwaiter.Target = Client;
+            Headwaiter.CommandList.Add(new CommandMove(Headwaiter));
+            Headwaiter.CommandList.Add(new CommandSetTarget(Client, closestTable));
+            Headwaiter.CommandList.Add(new CommandSetTarget(Headwaiter, closestTable));
+            Headwaiter.CommandList.Add(new CommandCustomActorMod(
+                Client,
+                (c) => {
+                    c.CommandList.Add(new CommandMove(c));
+                    return true;
+                })
+            );
+            Headwaiter.CommandList.Add(new CommandMove(Headwaiter));
+            Headwaiter.CommandList.Add(new CommandSetTarget(Headwaiter, Headwaiter.FindClosest("shed", all)));
+            Headwaiter.CommandList.Add(new CommandMove(Headwaiter));
+            foreach (Actor client in Client.Clients)
             {
-                closestTable.SetGroupActor(Client);
-                Headwaiter.Target = Client;
-                Headwaiter.CommandList.Add(new CommandMove(Headwaiter));
-                Headwaiter.CommandList.Add(new CommandSetTarget(Client, closestTable));
-                Headwaiter.CommandList.Add(new CommandSetTarget(Headwaiter, closestTable));
-                Headwaiter.CommandList.Add(new CommandCustomActorMod(
-                    Client,
-                    (c) => {
-                        c.CommandList.Add(new CommandMove(c));
-                        return true;
-                    })
-                );
-                Headwaiter.CommandList.Add(new CommandMove(Headwaiter));
-                Headwaiter.CommandList.Add(new CommandSetTarget(Headwaiter, Headwaiter.FindClosest("stock", all)));
-                Headwaiter.CommandList.Add(new CommandMove(Headwaiter));
-                foreach (Actor client in Client.Clients)
-                {
-                    Headwaiter.CommandList.Add(new CommandGetItem(Headwaiter, Headwaiter.FindClosest("stock", all), "card"));
-                }
-                Headwaiter.CommandList.Add(new CommandSetTarget(Headwaiter, Client));
-                Headwaiter.CommandList.Add(new CommandMove(Headwaiter));
-				foreach (Actor client in Client.Clients)
-				{
-					Headwaiter.CommandList.Add(new CommandGiveItem(Headwaiter, Client, "card"));
-				}
-
-				Order order = new Order(closestTable.ID, DishModelList.GetAvailableDishes());
-				order.Clean = false; // Needed for the counter to send over to the kitchen
-				Client.Items.Add(new Order(closestTable.ID, new List<DishModel>()));
-
-				foreach (Actor client in Client.Clients)
-				{
-					Headwaiter.CommandList.Add(new CommandGetItem(Headwaiter, Client, "card"));
-				}
-
-                Headwaiter.CommandList.Add(new CommandSetTarget(Headwaiter, Headwaiter.FindClosest("counter", all)));
-                Headwaiter.CommandList.Add(new CommandMove(Headwaiter));
-				Headwaiter.CommandList.Add(new CommandGiveItem(Headwaiter, Headwaiter.FindClosest("counter", all), "order"));
-                Headwaiter.CommandList.Add(new CommandSetTarget(Headwaiter, Headwaiter.FindClosest("stock", all)));
-                Headwaiter.CommandList.Add(new CommandMove(Headwaiter));
-                foreach (Actor client in Client.Clients)
-                {
-                    Headwaiter.CommandList.Add(new CommandGiveItem(Headwaiter, Headwaiter.FindClosest("stock", all), "card"));               
-                }            
+                Headwaiter.CommandList.Add(new CommandGetItem(Headwaiter, Headwaiter.FindClosest("shed", all), "card"));
             }
+            Headwaiter.CommandList.Add(new CommandSetTarget(Headwaiter, Client));
+            Headwaiter.CommandList.Add(new CommandMove(Headwaiter));
+			foreach (Actor client in Client.Clients)
+			{
+				Headwaiter.CommandList.Add(new CommandGiveItem(Headwaiter, Client, "card"));
+			}
+
+			Order order = new Order(closestTable.ID, DishModelList.GetAvailableDishes());
+			order.Clean = false; // Needed for the counter to send over to the kitchen
+			Client.Items.Add(new Order(closestTable.ID, new List<DishModel>()));
+
+			foreach (Actor client in Client.Clients)
+			{
+				Headwaiter.CommandList.Add(new CommandGetItem(Headwaiter, Client, "card"));
+			}
+
+            Headwaiter.CommandList.Add(new CommandSetTarget(Headwaiter, Headwaiter.FindClosest("counter", all)));
+            Headwaiter.CommandList.Add(new CommandMove(Headwaiter));
+			Headwaiter.CommandList.Add(new CommandGiveItem(Headwaiter, Headwaiter.FindClosest("counter", all), "order"));
+            Headwaiter.CommandList.Add(new CommandSetTarget(Headwaiter, Headwaiter.FindClosest("shed", all)));
+            Headwaiter.CommandList.Add(new CommandMove(Headwaiter));
+            foreach (Actor client in Client.Clients)
+            {
+                Headwaiter.CommandList.Add(new CommandGiveItem(Headwaiter, Headwaiter.FindClosest("shed", all), "card"));               
+            }            
+            
         }
 
         public override void ReactToEvent(AbstractActor self, MyEventArgs args)

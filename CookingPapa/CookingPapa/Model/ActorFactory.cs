@@ -73,7 +73,7 @@ namespace Model
                     return actor;
 
                 case "headwaiter":
-                    actor.Strategy = new StrategyHeadWaiter();
+					actor.Strategy = StrategyHeadWaiter.GetInstance();
                     return actor;
 
                 case "kitchenclerk":
