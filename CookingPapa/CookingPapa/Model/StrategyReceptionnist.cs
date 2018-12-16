@@ -92,18 +92,20 @@ namespace Model
 
 			Order order = new Order(closestTable.ID, DishModelList.GetAvailableDishes());
 			order.Clean = false; // Needed for the counter to send over to the kitchen
-			Client.Items.Add(new Order(closestTable.ID, new List<DishModel>()));
+			Client.Items.Add(order);
 
 			foreach (Actor client in Client.Clients)
 			{
 				Headwaiter.CommandList.Add(new CommandGetItem(Headwaiter, Client, "card"));
 			}
 
+			Headwaiter.CommandList.Add(new CommandGetItem(Headwaiter, Client, "order"));
             Headwaiter.CommandList.Add(new CommandSetTarget(Headwaiter, Headwaiter.FindClosest("counter", all)));
             Headwaiter.CommandList.Add(new CommandMove(Headwaiter));
 			Headwaiter.CommandList.Add(new CommandGiveItem(Headwaiter, Headwaiter.FindClosest("counter", all), "order"));
             Headwaiter.CommandList.Add(new CommandSetTarget(Headwaiter, Headwaiter.FindClosest("shed", all)));
             Headwaiter.CommandList.Add(new CommandMove(Headwaiter));
+
             foreach (Actor client in Client.Clients)
             {
                 Headwaiter.CommandList.Add(new CommandGiveItem(Headwaiter, Headwaiter.FindClosest("shed", all), "card"));               
