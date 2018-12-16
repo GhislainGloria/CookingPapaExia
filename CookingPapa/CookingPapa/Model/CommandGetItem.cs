@@ -20,38 +20,13 @@ namespace Model
 
         public override void Execute()
         {
-            IsCompleted = true;
-            if (Self.EvaluateDistanceTo(Getfrom) < 2)
+			IsCompleted = true;
+			if (!Self.GetItemFrom(Getfrom, Item))
             {
-                foreach (ACarriableItem itemFrom in Getfrom.Items)
-                {
-                    if (itemFrom.Name.Equals(Item))
-                    {
-                        Getfrom.Items.Remove(itemFrom);
-                        Self.Items.Add(itemFrom);
-
-						Console.WriteLine(
-							Self + ": I picked up a " + Item + " from " + Getfrom
-						);
-                        return;
-                    }
-                }
+                Self.Busy = false;
+                Self.CommandList.Clear();
+                Self.TriggerEvent("CommandQueueFailed", Self, Item);
             }
-            else
-            {
-				Console.WriteLine(
-					Self + ": I'm too far away to get item " + Item + " from " + Getfrom
-				);
-            }
-
-			Console.WriteLine(
-				Self + ": I failed to get the " + Item + " from " + Getfrom + ". He most likely doesn't have it anymore."
-			);
-			Self.Busy = false;
-			Self.BusyWaiting = false;
-			Self.BusyWalking = false;
-			Self.CommandList.Clear();         
-			Self.TriggerEvent("CommandQueueFailed", Self, Item);
         }
     }
 }

@@ -14,7 +14,7 @@ namespace Model
          * Stack[1] = actual chance to pop GroupActor (const)
          */
 
-        private static readonly StrategyClientSpawner Instance = new StrategyClientSpawner();
+        private static StrategyClientSpawner Instance = new StrategyClientSpawner();
         public static StrategyClientSpawner GetInstance()
         {
             return Instance;
@@ -38,10 +38,11 @@ namespace Model
                 self.TriggerEvent("clientSpawned", newGroup);
                 self.Stack[0] = 0;
                 self.Stack[1] = random.Next(1, 100);
+				Console.WriteLine(self + ": I spawned a new client group");
             }
             else
             {
-                self.Stack[0] = ((int)self.Stack[0]) + 1;
+                self.Stack[0] = ((int)self.Stack[0]) + 10;
             }
 
         }

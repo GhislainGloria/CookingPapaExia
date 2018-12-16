@@ -32,7 +32,7 @@ namespace Model
                     groupActor = new GroupActor();
                     groupActor.Name = type;
                     groupActor.Strategy = StrategyGroupActor.GetInstance();
-                    actor.Stack.Add(0);
+                    actor.Stack.Add(null);
                     return groupActor;
 
                 case "customer":
@@ -73,7 +73,7 @@ namespace Model
                     return actor;
 
                 case "headwaiter":
-                    actor.Strategy = new StrategyHeadWaiter();
+					actor.Strategy = StrategyHeadWaiter.GetInstance();
                     return actor;
 
                 case "kitchenclerk":

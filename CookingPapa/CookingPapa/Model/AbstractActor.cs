@@ -24,7 +24,7 @@ namespace Model
 		public bool BusyWalking { get; set; }
 		public bool AcceptItemExchange { get; set; }
 
-		private static int Instances = 0;
+		protected static int Instances = 0;
 
         public abstract void NextTick(List<AbstractActor> AllActors);
 
@@ -46,6 +46,7 @@ namespace Model
 			MaxInventorySize = 10;
 			AcceptItemExchange = true;
 			ID = Instances++;
+			Target = null;
         }
 
 		/**
@@ -79,7 +80,7 @@ namespace Model
 
             if (nearest == null)
             {
-                Console.WriteLine("Unable to find another " + Name);
+				Console.WriteLine(this + ": Unable to find another " + Name);
                 nearest = null;
             }
 

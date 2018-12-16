@@ -8,10 +8,9 @@ namespace Model
         private static List<DishModel> Dishes = new List<DishModel>();
         private static bool SingletonInitialized = false;
 
-
-		private static void Init()
-		{
-			DishModel dishModel = new DishModel();
+        private static void Init()
+        {
+            DishModel dishModel = new DishModel();
             StepModel modelStep1 = new StepModel();
             StepModel modelStep2 = new StepModel();
             StepModel modelStep3 = new StepModel();
@@ -19,14 +18,14 @@ namespace Model
 
             //  #1
             modelStep1.Duration = 100;
-			modelStep1.Ingredient = "carrot";
-			modelStep1.Utensil = "fork";
-			modelStep1.Workboard = "furnace";
+            modelStep1.Ingredient = "carrot";
+            modelStep1.Utensil = "fork";
+            modelStep1.Workboard = "furnace";
 
-			dishModel.ModelSteps.Add(modelStep1);
-			dishModel.Name = "Carottes au four";
+            dishModel.ModelSteps.Add(modelStep1);
+            dishModel.Name = "Carottes au four";
 
-			Dishes.Add(dishModel);
+            Dishes.Add(dishModel);
 
             // #2
             dishModel = new DishModel();
@@ -142,25 +141,25 @@ namespace Model
             Dishes.Add(dishModel);
 
             SingletonInitialized = true;
-		}
+        }
 
-		public static List<DishModel> GetAvailableDishes()
-		{
-			if (!SingletonInitialized) Init();
-			return Dishes;
-		}
+        public static List<DishModel> GetAvailableDishes()
+        {
+            if (!SingletonInitialized) Init();
+            return Dishes;
+        }
 
-		public static DishModel GetModelByName(string name)
-		{
-			foreach(DishModel dm in GetAvailableDishes())
-			{
-				if(dm.Name == name)
-				{
-					return dm;
-				}
-			}
+        public static DishModel GetModelByName(string name)
+        {
+            foreach (DishModel dm in GetAvailableDishes())
+            {
+                if (dm.Name == name)
+                {
+                    return dm;
+                }
+            }
 
-			return null;
-		}
+            return null;
+        }
     }
 }

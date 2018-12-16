@@ -105,6 +105,22 @@ namespace Controller
                 actor.Position = new Point(5, 11);
                 Actors.Add(actor);
 
+				actor = ActorFactory.CreateActor("headwaiter");
+				actor.Position = new Point(10, 10);
+				Actors.Add(actor);
+
+				actor = new Table(10, 1);
+				actor.Name = "table";
+				actor.Position = new Point(5, 5);
+				Actors.Add(actor);
+
+				actor = ActorFactory.CreateActor("shed");
+				actor.Position = new Point(0, 1);
+				for (int _ = 0; _ < 10; _++)
+				{
+					actor.Items.Add(new Utensil("card", 0));
+				}
+				Actors.Add(actor);            
             }
 		}
 

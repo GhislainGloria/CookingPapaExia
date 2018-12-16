@@ -2,3 +2,4 @@
 /obj/
 /packages.config
 *.config
+/GlobalSuppressions.cs

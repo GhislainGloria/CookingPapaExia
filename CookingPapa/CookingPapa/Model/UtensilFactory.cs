@@ -87,9 +87,6 @@ namespace Model
                 case "tablecloth":
                     return new Utensil(utensil, 4);
 
-                case "spatula":
-                    return new Utensil(utensil, 4);
-
                 default:
 					Console.WriteLine("Cannot instantiate utensil: " + utensil);
                     return null;

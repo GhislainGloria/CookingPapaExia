@@ -8,10 +8,8 @@ namespace Model
 {
     public class ModelIngredient : ACarriableItem
     {
-        public int TimeToLive { get; private set; }
-        public ModelIngredient(string name, int inventorySize, int id, int timeToLive) : base(name, inventorySize)
+		public ModelIngredient(string name, int inventorySize, int id) : base(name, inventorySize)
         {
-            TimeToLive = TimeToLive;
             ID = id;
         }
     }

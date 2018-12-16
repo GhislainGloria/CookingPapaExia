@@ -53,7 +53,8 @@ namespace Model
 
                         Order order = new Order(Int32.Parse(explode[1]), dishModels);
 						order.Clean = !asServer;
-                        
+
+						self.Items.Add(order);
                         self.TriggerEvent("order received", order);
                         break;
 

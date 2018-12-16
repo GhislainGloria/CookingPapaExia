@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Model
 {
-    public class Ingredient : ACarriableItem
+	public class Ingredient : ACarriableItem
     {
 		public int DatabaseModelId { get; set; }
 		public int TimeSpentInStock { get; set; }

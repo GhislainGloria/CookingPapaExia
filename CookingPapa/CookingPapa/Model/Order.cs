@@ -10,12 +10,9 @@ namespace Model
 		public List<Dish> DishInstances { get; set; }
 		private int CompletedDishes = 0;
         
-
-
-
-        public Order(int tableID, List<DishModel> dishModels) : base("commande", 1)
-        {
-            Recipes = dishModels;
+		public Order(int tableID, List<DishModel> dishModels) : base("order", 0)
+		{
+			Recipes = dishModels;
 			DishInstances = new List<Dish>();
 			TableID = tableID;
 
@@ -25,7 +22,7 @@ namespace Model
 			}
 		}
 
-        public void MarkDishCompleted()
+		public void MarkDishCompleted()
 		{
 			CompletedDishes++;
 			if(CompletedDishes >= Recipes.Count)

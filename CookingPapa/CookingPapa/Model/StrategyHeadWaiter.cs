@@ -1,36 +1,24 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Model
 {
-    public class StrategyHeadWaiter : IStrategy
+    public class StrategyHeadWaiter : Strategy
     {
         private static readonly StrategyHeadWaiter Instance = new StrategyHeadWaiter();
-        public static StrategyHeadWaiter GetInstance() { return Instance; }
+        public static StrategyHeadWaiter GetInstance()
+        {
+            return Instance;
+        }
         private StrategyHeadWaiter() { }
 
-
-
-        public void Behavior(AbstractActor self, List<AbstractActor> all)
+        public override void Behavior(AbstractActor self, List<AbstractActor> all)
         {
-            GroupActor groupActor = (GroupActor)self.Stack[0];
-            Table table = (Table)self.Stack[1];
-
-            if (self.CommandList.Count == 0)
+			if (self.CommandList.Count > 0)
             {
-                self.Busy = false;
-                self.CommandList.Add(new CommandSetTarget(self, self.FindClosest("counter", all)));
-                self.CommandList.Add(new CommandMove(self));
-            }
-        
-            if (self.CommandList.Count > 0)
-            {
-                self.Busy = true;
-
                 if (self.CommandList[0].IsCompleted)
                 {
                     self.CommandList.RemoveAt(0);
@@ -40,24 +28,45 @@ namespace Model
                     self.CommandList[0].Execute();
                 }
             }
+			else
+			{
+				foreach (ACarriableItem order in self.Items.Where(i => i.Name == "order" && i.Clean).ToList())
+				{
+					Order orderCast = (Order)order;
+					Table table = null;
 
-            if (self.EvaluateDistanceTo(groupActor) < 2 && self.EvaluateDistanceTo(table) < 2)
-            {
-                self.CommandList.Add(new CommandSetTarget(self, self.FindNearestCarriableItem("card", all)));
-                self.CommandList.Add(new CommandMove(self));
-                foreach (Actor actor in groupActor.Clients)
-                {
-                    self.CommandList.Add(new CommandGetItem(self, self.FindClosest("stock", all), "card"));
-                }
+					foreach(Table tableCast in all.Where(a => a.Name == "table" && a.ID == orderCast.TableID).ToList())
+					{
+						table = tableCast;
+						break;
+					}
 
-            }
+					if (table == null)
+					{
+						Console.WriteLine(self + ": I have an order for table " + orderCast.TableID + " but I could not find it..");
+						break;
+					}
 
-            
+					self.CommandList.Add(new CommandSetTarget(self, table));
+					self.CommandList.Add(new CommandMove(self));
+					self.CommandList.Add(new CommandGiveItemsWhere(self, table, i => i.Name == "order" && ((Order)i).TableID == table.ID));
+				}
+
+				AbstractActor counter = self.FindClosest("counter", all);
+				bool preparedOrders = counter?.Items.Where(i => i.Name == "order" && i.Clean).ToList().Count > 0;
+
+				if (preparedOrders)
+				{
+					self.CommandList.Add(new CommandSetTarget(self, counter));
+					self.CommandList.Add(new CommandMove(self));
+					self.CommandList.Add(new CommandGetItemsWhere(self, counter, i => i.Name == "order" && i.Clean));
+				}
+			}
         }
 
-        public void ReactToEvent(AbstractActor self, MyEventArgs args)
+        public override void ReactToEvent(AbstractActor self, MyEventArgs args)
         {
-            throw new NotImplementedException();
+
         }
     }
 }

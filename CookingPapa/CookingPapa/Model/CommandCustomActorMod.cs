@@ -3,7 +3,7 @@ namespace Model
 {
 	public class CommandCustomActorMod : ACommand
     {
-		private readonly Func<AbstractActor, bool> Func;
+		private Func<AbstractActor, bool> Func;
 
         /**
          * The bool return type is here for show.
