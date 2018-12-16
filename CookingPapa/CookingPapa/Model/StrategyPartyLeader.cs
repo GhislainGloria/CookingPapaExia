@@ -63,7 +63,7 @@ namespace Model
 						AbstractActor target = a.FindNearestCarriableItem(step.Model.Utensil, all);
 						if(target != null)
 						{
-							Console.WriteLine(self + ": I asked " + a +" to fetch me a " + step.Model.Utensil);
+							Console.WriteLine(self + ": I asked " + a + " to fetch me a " + step.Model.Utensil);
 
 							a.Busy = true;
 							a.AcceptItemExchange = false;
@@ -229,28 +229,28 @@ namespace Model
 					AbstractActor failureMan = ((AbstractActor)args.Arg);
 					failureMan.EventGeneric -= self.StrategyCallback;
 
-					Console.WriteLine(self + ": Fuck, my " + failureMan.Name + " failed to get me a " + missingItem);
+					Console.WriteLine(self + ": Fuck, my " + failureMan + " failed to get me a " + missingItem);
 
 					if (self.Stack.Count == 3)
 					{
 						if (missingItem == ((Step)self.Stack[0]).Model.Ingredient)
 						{
-							Console.WriteLine("Same " + self + ": Nevermind, I'll ask for another one of this ingredient");
+							Console.WriteLine(self + ": Nevermind, I'll ask for another one of this ingredient");
 							self.Stack[2] = false;
 						}
 						else if (missingItem == ((Step)self.Stack[0]).Model.Utensil)
 						{
-							Console.WriteLine("Same " + self + ": Nevermind, I'll ask for another one of this utensil");
+							Console.WriteLine(self + ": Nevermind, I'll ask for another one of this utensil");
                             self.Stack[1] = false;
 						}
 						else
 						{
-							Console.WriteLine("Same " + self + ": But WTF, I don't need that anyway?? Pls fix or think");                     
+							Console.WriteLine(self + ": But WTF, I don't need that anyway?? Pls fix or think");                     
 						}
 					}
 					else
 					{
-						Console.WriteLine("Same " + self + ": But WTF I'm not initialized??");                  
+						Console.WriteLine(self + ": But WTF I'm not initialized??");                  
 					}
 
 					break;

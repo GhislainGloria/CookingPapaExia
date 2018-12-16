@@ -28,7 +28,8 @@ namespace Model
                         if (o.Completed())
                         {
                             Console.WriteLine(self + ": I completed an order");
-                            // TODO Fire an event or something
+							// TODO Fire an event or something
+							o.Clean = true; // Send it over to the kitchen
                             self.Stack.Remove(o);
                         }
                         else

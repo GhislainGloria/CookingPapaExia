@@ -90,7 +90,9 @@ namespace Model
 				Headwaiter.CommandList.Add(new CommandGiveItem(Headwaiter, Client, "card"));
 			}
 
-			Order order = new Order(closestTable.ID, DishModelList.GetAvailableDishes());
+			List<DishModel> orderDishes = new List<DishModel>();
+			orderDishes.Add(DishModelList.GetAvailableDishes()[0]);
+			Order order = new Order(closestTable.ID, orderDishes);
 			order.Clean = false; // Needed for the counter to send over to the kitchen
 			Client.Items.Add(order);
 
