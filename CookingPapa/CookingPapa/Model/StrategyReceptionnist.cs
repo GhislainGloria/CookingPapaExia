@@ -65,6 +65,7 @@ namespace Model
             // the group to destination.
             
             closestTable.SetGroupActor(Client);
+			Client.Busy = true;
             Headwaiter.Target = Client;
             Headwaiter.CommandList.Add(new CommandMove(Headwaiter));
             Headwaiter.CommandList.Add(new CommandSetTarget(Client, closestTable));
